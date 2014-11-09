@@ -146,6 +146,9 @@ figure, figcaption, h3, p {
 #mapdiv h4 { line-height: 16px; margin: 0 0 0.4em; }
 #mapdiv h4 .ui-icon { float: left; }
 
+.span{
+	float:right;
+}
     </style>
    
 	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
@@ -337,7 +340,12 @@ figure, figcaption, h3, p {
 	<div id="route" class="ui-widget-content ui-state-default">
 		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">路徑規劃</span> 路徑規劃</h4>
 	</div>
-	
+	<span class="span">
+	<label>出發地</label><select id="startid"></select>
+	<label>目的地</label><select id="endid"></select>
+	<br>
+	<input type="button" id="startRoute" value="開始規劃"/>
+	</span>
 
 </div>
 
@@ -347,10 +355,10 @@ figure, figcaption, h3, p {
 <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 <script src='../Script/jquery.tinyMap.js'></script>
 <script>
-		var serverName = "<%= request.getServerName()%>";
-		var serverPort = "<%= request.getServerPort()%>";
-		var contextPath = "<%= request.getContextPath()%>";
-
+		var serverName = "<%= serverName %>"; //localhost
+		var serverPort = "<%= serverPort %>"; //8081
+		var contextPath = "<%= contextPath %>"; //Project_1
+		
         (function ($) {      	
 			var nextimgcss=null;
          	$(window).load(function() {
@@ -612,6 +620,16 @@ figure, figcaption, h3, p {
                       .animate({ height: "130px", width:"130px" });
                 });
               });
+            	//增加景點名稱到出發地及目的地
+            	console.log($item.attr("id"));
+            	var startoption = $('<option></option>').val($item.find('h5').text())
+            											.text($item.find('h5').text())
+            											.attr("id","startOp"+$item.attr("id"));
+            	var distoption = $('<option></option>').val($item.find('h5').text())
+													   .text($item.find('h5').text())
+													   .attr("id","distOp"+$item.attr("id"));
+            	$("#startid").append(startoption);
+            	$("#endid").append(distoption);
             }
          
             // image recycle function
@@ -637,6 +655,13 @@ figure, figcaption, h3, p {
                   .fadeIn();
                   
               });
+              //移除出發地及目的地的景點名稱
+              var idStart = "startOp"+$item.attr("id");
+              var idEnd = "distOp"+$item.attr("id");
+              console.log(idStart);
+              $("#startid > option[id='" + idStart+"']").remove();
+              $("#endid > option[id='" + idEnd+"']").remove();
+              
             }
          
             // image preview function, demonstrating the ui.dialog used as a modal window
