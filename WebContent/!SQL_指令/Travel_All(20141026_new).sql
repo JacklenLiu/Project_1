@@ -798,7 +798,7 @@ insert into knowledge values ('住','title3','文章內文3','z:\\');
 
 /*首頁最新消息*/
  CREATE TABLE news ( 
- news_idenity            int identity(1,1),
+ news_identity           int identity(1,1),
  news_date				 date					not null,
  news_title				 nvarchar(50)			not null,
  news_image				 nvarchar(50)			not null, 

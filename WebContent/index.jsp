@@ -253,12 +253,12 @@
                     <div class="panel-heading">
                         <h4><i class="fa fa-fw fa-gift"></i> 最新消息</h4>
                     </div>
-                    <div class="panel-body">
-                   		<a href="#"><p>※2014/10/10 陽明山海芋季，快來看看</p></a>
-                        <a href="#"><p>※2014/10/10 五指山海芋季，快來看看</p></a>
-                        <a href="#"><p>※2014/10/10 大同山海芋季，快來看看</p></a>
-                        <a href="#"><p>※2014/10/10 象山海芋季，快來看看</p></a>
-<!--                    <a href="#" class="btn btn-default">Learn More</a> -->
+                    <div class="panel-body news">
+<!--                    		<a href=""><p>※2014/10/10 陽明山海芋季，快來看看</p></a> -->
+<!--                         <a href=""><p>※2014/10/10 五指山海芋季，快來看看</p></a> -->
+<!--                         <a href=""><p>※2014/10/10 大同山海芋季，快來看看</p></a> -->
+<!--                         <a href=""><p>※2014/10/10 象山海芋季，快來看看</p></a> -->
+<!--                    <a href="" class="btn btn-default">Learn More</a> -->
                     </div>
                 </div>
             </div>
@@ -421,136 +421,135 @@
     
   
     
-    <!-- jQuery Version 1.11.0 -->
-     <script src="js/jquery-1.11.0.js"></script> 
+<!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script> 
 
-    <!-- Bootstrap Core JavaScript -->
-<!--      <script src="js/bootstrap.min.js"></script>  -->
-    <script src="js/bootstrap.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<!-- <script src="js/bootstrap.min.js"></script>  -->
+<script src="js/bootstrap.js"></script>
     
- 	<script type="text/javascript" src="P0_login/js/jquery.validate.js"></script> 
+<script type="text/javascript" src="P0_login/js/jquery.validate.js"></script> 
 
 
-    <!-- Script to Activate the Carousel -->
-    <script>
+<!-- Script to Activate the Carousel -->
+<script>
+	//照片輪播間格秒數
     $('.carousel').carousel({
         interval: 5000 //changes the speed
     });
-    
+  //照片輪播間格秒數
+  
+  //上方工具列滑鼠滑入自動彈出
     $('.nav .dropdown').hover(function() {
             $(this).addClass('open');
         }, function() {
             $(this).removeClass('open');
         });
+  //上方工具列滑鼠滑入自動彈出
+  
+  //子暘登入Script   
+   	$('#commentForm').validate({
+   		rules:{
+   			userId:{
+   				required: true,
+   	            
+   			},
+   			pswd:{
+   				required: true,
+   			}
+   		}
+   	});   
+   //子暘登入Script
     
-    //子暘登入Script
-   
-    	$('#commentForm').validate({
-    		rules:{
-    			userId:{
-    				required: true,
-    	            
-    			},
-    			pswd:{
-    				required: true,
-    			}
-    		}
+   //***********昱豪*********** 
+	(function ($) {   
+		
+		//登入處裡*****************************
+		var css1 = {"color":"red"};
+    	$("#abab").click(function(){	    	
+    		$("#abc123").prop("hidden",false).html("請先行登入會員系統!!").css(css1);
     	});
-   
+    	$("#abcd").click(function(){	    	
+    		$("#abc123").prop("hidden",true);;
+    	});	    	
+    	//登入處裡*****************************
     	
-    //子暘登入Script
-		(function ($) {   
-			//登入處裡*****************************
-			var css1 = {"color":"red"};
-	    	$("#abab").click(function(){	    	
-	    		$("#abc123").prop("hidden",false).html("請先行登入會員系統!!").css(css1);
-	    	});
-	    	$("#abcd").click(function(){	    	
-	    		$("#abc123").prop("hidden",true);;
-	    	});
-	    	
-	    	//登入處裡*****************************
-	    	
-	    	//$(".col-sm-6").empty();
-	    	//抓排行榜
-	    	var serverName = "<%= request.getServerName()%>";
-			var serverPort = "<%= request.getServerPort()%>";
-			var contextPath = "<%= request.getContextPath()%>";
-	    	//$('#gallery').empty();//clear images in maindiv
- 			var url = "ImgTop6servlet";
-        	$.getJSON(url,{'action':'GetImgTop6'}, function(datas){
-        		$.each(datas,function(i,item){
-        			
-        			//alert(item.imagesID);
-        			//alert(i);
-            		//i->index
-   					//item -> item
-   					//console.log(item.viewID);
-   					//console.log(item.viewname);
-            		            			//.col-sm-6:nth-child(1) > a > img
-   					 $('.col-sm-6:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
-//   											.attr("id", imgarea+ item.viewID + '_01')
-//    									   		.addClass("viewimge")
-//    									   		.attr("alt",item.viewname);
-   						
-        		});
-        	});
-        	
-        	
-        	
-        	
-		 })(jQuery);
-    
-    
-    //滑鼠移入出現div
-	(function($){
-	        /*設定tooltip的div區塊和滑鼠指標之間的距離,x軸距及y軸距,
-	          避免tooltip的div和滑鼠指標太接近*/
-		var x = 10;
-        var y = -45;
+    	//***************抓排行榜***************
+    	var serverName = "<%= request.getServerName()%>";
+		var serverPort = "<%= request.getServerPort()%>";
+		var contextPath = "<%= request.getContextPath()%>";
+    	//$('#gallery').empty();//clear images in maindiv
+			var leaderboardUrl = "ImgTop6servlet";
+       	$.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
+       		$.each(datas,function(i,item){
+  					 $('.col-sm-6:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
+       		});
+       	});
+       	
+       	//***************昱豪_抓排行榜圖片***************
+       	var newsUrl = "newsTop6Servlet";
+       	$.getJSON(newsUrl,{'action':'GetNewsTop6'}, function(datas){
+       		$.each(datas,function(i,item){
+       			$(".news").append("<a href='#'>");
+       			//P3_TravelDiary/TravelDiaryServlet?action=blog.do
+       			//<a href=""><p>※2014/10/10 陽明山海芋季，快來看看</p></a>
+       			//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
+       			$(".news > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/newsServlet?newsId=' + (i+1));
+       			$(".news > a:nth-child(" + (i+1) + ")").append("<p>※" + item.news_date + "&nbsp&nbsp" + item.news_title + "</p>");
+       			//$(".news").append("</a>");
+       		});
+       	});
+       	//***************昱豪_抓排行榜圖片***************
+       	
+      	//***********昱豪_滑鼠移入出現div***********
+	    /*設定tooltip的div區塊和滑鼠指標之間的距離,x軸距及y軸距,避免tooltip的div和滑鼠指標太接近*/
+			var x = 10;
+	        var y = -45;
         
-        /*指定TagName為a且其CalssName=tooltip的Tag,
-          當滑鼠移到其上面時進行函式動作*/
+        /*指定TagName為a且其CalssName=tooltip的Tag,當滑鼠移到其上面時進行函式動作*/
         $(".tooltips").mouseover(function(e){
 			
-            /*將此Tag的title的值給予到newTitle,接著將title的值空白,
-                避免滑鼠移到Tag時,同時出現tooltip及title的效果*/
+        /*將此Tag的title的值給予到newTitle,接著將title的值空白,避免滑鼠移到Tag時,同時出現tooltip及title的效果*/
             this.newTitle = this.title;
-            //this.title = "";
+        //this.title = "";
 
-            /*建立tooltip用來儲存你要顯示的內容,而內容就是由div區塊所組成;
-                這範例是用文字來作,你要的圖片效果,只要在div中加入<img src>*/
+        /*建立tooltip用來儲存你要顯示的內容,而內容就是由div區塊所組成;這範例是用文字來作,你要的圖片效果,只要在div中加入<img src>*/
             var tooltip = "<div id='tooltip'>"+ this.newTitle +"<\/div>";
 
-            /*利用.append()把這段div加到body,而條件就是:
-                當滑鼠指標移動你指定的Tag的範圍時,才會加入*/
+        /*利用.append()把這段div加到body,而條件就是: 當滑鼠指標移動你指定的Tag的範圍時,才會加入*/
             $("body").append(tooltip);
 
-                /*利用.css()設定tooltip的css,其中e.pageY及e.pageX就是滑鼠指標
-                  的座標,避免tooltip和滑鼠指標太靠近,後面加上前面設定的x及y*/
-                $("#tooltip")
-                        .css({
-                                "top": (e.pageY+y) + "px",
+        /*利用.css()設定tooltip的css,其中e.pageY及e.pageX就是滑鼠指標的座標,避免tooltip和滑鼠指標太靠近,後面加上前面設定的x及y*/
+             $("#tooltip").css({
+                                "top": 	(e.pageY+y)  + "px" ,
                                 "left": (e.pageX+x)  + "px"
-
                         /*利用.show()讓tooltip這段div區塊顯示*/
-                        }).show("fast");
+                        	}).show("fast");
 
-        /*當滑鼠移開時,將newTitle的值還給title,
-            並且利用.remove()將tooltip這段div區塊移除*/
+        /*當滑鼠移開時,將newTitle的值還給title,並且利用.remove()將tooltip這段div區塊移除*/
         }).mouseout(function(){
-                this.title = this.newTitle;
-                $("#tooltip").remove();
+             this.title = this.newTitle;
+             $("#tooltip").remove();
 
-        /*當滑鼠指標在指定的Tag範圍內移動時,
-          tooltip的div區塊也會隨著滑鼠指標作移動*/
+        /*當滑鼠指標在指定的Tag範圍內移動時,tooltip的div區塊也會隨著滑鼠指標作移動*/
         }).mousemove(function(e){
-                $("#tooltip")
-                        .css({
-                                "top": (e.pageY+y) + "px",
+             $("#tooltip").css({
+                                "top":  (e.pageY+y)  + "px" ,
                                 "left": (e.pageX+x)  + "px"
-                        });
+                       		 });
         });
+		//***********昱豪_滑鼠移入出現div*********** 
+       	
+       	
+       	
+	 })(jQuery);
+	//***********昱豪*********** 
+    
+
+    
+	(function($){
+    	//alert($(".news > a:nth-child(1)").attr("title"));   
+		//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
 	})(jQuery);
     
     </script>

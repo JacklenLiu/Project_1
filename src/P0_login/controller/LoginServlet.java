@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import P0_login.model.*;
 
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -124,6 +125,9 @@ public class LoginServlet extends HttpServlet {
 					HttpSession session = request.getSession();					
 					session.setAttribute("userName", mb.getMember_name());
 					session.setAttribute("userLoginId",mb.getMember_loginID());
+					//******************************************************
+					
+					
 					// 此時不要用下面兩個敘述，因為網址列的URL不會改變
 					RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 					rd.forward(request, response);
