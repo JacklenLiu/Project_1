@@ -1,25 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../platform/include_start.jsp" %>
 <!DOCTYPE html>
 <html>
 
 <head>
- 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Modern Business - Start Bootstrap Template</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/modern-business.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+ 	
 	<link rel="stylesheet" href="css/summernote.css">
 	<link rel="stylesheet" href="css/codemirror.css">
 	<!-- 圖案icon -->
@@ -59,18 +45,6 @@
 	<script src="js/summernote.min.js"></script>
 	<!-- ************************/載入 jQuery bootstrap  summernote js套件************************ -->
 
-
-
-
-	
-
-
-
-
-
-
-
-
 <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -87,10 +61,24 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
+<!--                     <li> -->
 <!--                         <a href="P0_login/login.jsp">登入</a> -->
-                        <a href="#myModal" data-toggle="modal" data-target="#myModal">登入</a>
-                    </li>
+                    <li class="dropdown">
+                    	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
+                    		會員，<%= sionName %>你好<b class="caret"></b></a>
+                 			 <ul class="dropdown-menu">
+			                       <li>
+			                           <a href="P2_route/route_plan.jsp">會員基本資料修改</a>
+			                       </li>
+			                       <li>
+			                           <a href="portfolio-2-col.html">會員好友管理</a>
+			                       </li>
+			                       <li>
+			                           <a href="portfolio-3-col.html">登出系統</a>
+			                       </li>
+                  			</ul>
+                    </li>	   
+<!--                     </li> -->
 <!--                     <li> -->
 <!--                         <a href="services.html">Services</a> -->
 <!--                     </li>                    -->

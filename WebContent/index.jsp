@@ -474,10 +474,12 @@
     	});	    	
     	//登入處裡*****************************
     	
-    	//***************抓排行榜***************
+    	
+    	//***************昱豪_抓排行榜圖片***************
     	var serverName = "<%= request.getServerName()%>";
 		var serverPort = "<%= request.getServerPort()%>";
 		var contextPath = "<%= request.getContextPath()%>";
+		
     	//$('#gallery').empty();//clear images in maindiv
 			var leaderboardUrl = "ImgTop6servlet";
        	$.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
@@ -485,8 +487,10 @@
   					 $('.col-sm-6:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
        		});
        	});
-       	
-       	//***************昱豪_抓排行榜圖片***************
+      //***************昱豪_抓排行榜圖片***************
+      
+      
+       	//***************昱豪_抓最新消息***************
        	var newsUrl = "newsTop6Servlet";
        	$.getJSON(newsUrl,{'action':'GetNewsTop6'}, function(datas){
        		$.each(datas,function(i,item){
@@ -495,11 +499,12 @@
        			//<a href=""><p>※2014/10/10 陽明山海芋季，快來看看</p></a>
        			//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
        			$(".news > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/newsServlet?newsId=' + (i+1));
-       			$(".news > a:nth-child(" + (i+1) + ")").append("<p>※" + item.news_date + "&nbsp&nbsp" + item.news_title + "</p>");
+       			$(".news > a:nth-child(" + (i+1) + ")").append("<p>※" + item.news_date + "&nbsp;&nbsp;" + item.news_title + "</p>");
        			//$(".news").append("</a>");
        		});
        	});
-       	//***************昱豪_抓排行榜圖片***************
+       	//****************昱豪_抓最新消息***************
+       	
        	
       	//***********昱豪_滑鼠移入出現div***********
 	    /*設定tooltip的div區塊和滑鼠指標之間的距離,x軸距及y軸距,避免tooltip的div和滑鼠指標太接近*/

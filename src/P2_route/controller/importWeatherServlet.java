@@ -27,18 +27,17 @@ public class importWeatherServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 
 	}
 	
 	public void init() throws ServletException{
-
 		String resource[] ={ "http://opendata.cwb.gov.tw/opendata/MFC/F-C0032-003.xml","http://opendata.cwb.gov.tw/opendata/MFC/F-C0032-005.xml"};
 		//http://opendata.cwb.gov.tw/opendata/MFC/F-C0032-005.xml
 		for (int i = 0; i < 2; i++) {
 			
 			try {
-				Thread.sleep(10000);
+				Thread.sleep(50000);
 			} catch (InterruptedException e) {
 				
 				e.printStackTrace();
@@ -48,6 +47,7 @@ public class importWeatherServlet extends HttpServlet {
 					"C:\\Project\\Project_workspace\\Project_1\\WebContent\\P2_route\\xml");
 			gr.doWork();
 		}
+		
 		
 	}
 	

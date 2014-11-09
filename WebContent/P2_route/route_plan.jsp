@@ -337,19 +337,24 @@
   			for(var j=0;j<7;j++){
 			  	weather = locations[OverPlace].getElementsByTagName("text")[j].firstChild.nodeValue;
 			  	//str += "<h2>" + name + "," + weather + "</h2>";
+			  	//alert(weather);
        	 		var opt="";
+       	 		if(weather=="多雲")
+				 	opt = $("<td title='多雲'></td>").html("<img src='images/02.gif'>");
+	       	 	if(weather=="多雲時陰")
+					opt = $("<td title='多雲時陰'></td>").html("<img src='images/05.gif'>");
+	       	 	if(weather=="陰時多雲")
+	  				opt = $("<td title='陰時多雲'></td>").html("<img src='images/06.png'>");
+	       	 	if(weather=="多雲時晴")
+					opt = $("<td title='多雲時晴'></td>").html("<img src='images/07.gif'>");
        	 		if(weather=="晴時多雲")
- 					 opt = $("<td title='晴時多雲'></td>").html("<img src='images/08.gif'>");
-       	 		if(weather=="多雲時晴")
-					 opt = $("<td title='多雲時晴'></td>").html("<img src='images/07.gif'>");
-       			if(weather=="多雲")
-					 opt = $("<td title='多雲'></td>").html("<img src='images/02.gif'>");
+ 					opt = $("<td title='晴時多雲'></td>").html("<img src='images/08.gif'>");
        			if(weather=="多雲短暫雨")
-					 opt = $("<td title='多雲短暫雨'></td>").html("<img src='images/12.gif'>");
+					opt = $("<td title='多雲短暫雨'></td>").html("<img src='images/12.gif'>");
        			if(weather=="多雲時陰短暫雨")
-					 opt = $("<td title='多雲時陰短暫雨'></td>").html("<img src='images/18.gif'>");
-       			if(weather=="陰時多雲短暫雨")
-					 opt = $("<td title='陰時多雲短暫雨'></td>").html("<img src='images/26.gif'>");
+					opt = $("<td title='多雲時陰短暫雨'></td>").html("<img src='images/18.gif'>");
+       			if(weather=="陰時多雲短暫雨"  || weather=="陰短暫雨")
+					opt = $("<td title='陰時多雲短暫雨'></td>").html("<img src='images/26.gif'>");
        	 		
           	  	$('.weather').append(opt);
   			} 
@@ -479,20 +484,22 @@
 			var weatherM="";
 				weatherM = locationM[weatherMM].getElementsByTagName("text")[j].firstChild.nodeValue;
   	 		var optM="";
-  	 		if(weatherM=="晴時多雲")
-  	 			optM = $("<td title='晴時多雲'></td>").html("<img src='images/08.gif'>");  	 			
+  	 		if(weatherM=="多雲")
+  				optM = $("<td title='多雲'></td>").html("<img src='images/02.gif'>");
+  	 		if(weatherM=="多雲時陰")
+  				optM = $("<td title='多雲'></td>").html("<img src='images/05.gif'>");
+  	 		if(weatherM=="陰時多雲")
+  				optM = $("<td title='陰時多雲'></td>").html("<img src='images/06.png'>");
   	 		if(weatherM=="多雲時晴")
   	 			optM = $("<td title='多雲時晴'></td>").html("<img src='images/07.gif'>");
-  			if(weatherM=="多雲")
-  				optM = $("<td title='多雲'></td>").html("<img src='images/02.gif'>");
+  	 		if(weatherM=="晴時多雲")
+  	 			optM = $("<td title='晴時多雲'></td>").html("<img src='images/08.gif'>");  	 			
   			if(weatherM=="多雲短暫雨")
   				optM = $("<td title='多雲短暫雨'></td>").html("<img src='images/12.gif'>");
   			if(weatherM=="多雲時陰短暫雨")
   				optM = $("<td title='多雲時陰短暫雨'></td>").html("<img src='images/18.gif'>");
-  			if(weatherM=="陰時多雲短暫雨")
+  			if(weatherM=="陰時多雲短暫雨" || weatherM=="陰短暫雨")
   				optM = $("<td title='陰時多雲短暫雨'></td>").html("<img src='images/26.gif'>");
-  			if(weatherM=="陰時多雲")
-  				optM = $("<td title='陰時多雲'></td>").html("<img src='images/06.png'>");
   			
      	  	$("tr:last").append(optM);
      	  	
