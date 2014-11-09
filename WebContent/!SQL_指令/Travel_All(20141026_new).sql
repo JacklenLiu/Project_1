@@ -805,7 +805,7 @@ insert into knowledge values ('住','title3','文章內文3','z:\\');
  news_Content            nvarchar(200)			not null,
  
 CONSTRAINT news_news_image_fK		FOREIGN KEY (news_image)	REFERENCES viewname (viewid),
-CONSTRAINT news_news_idenity_fK		PRIMARY KEY (news_idenity)
+CONSTRAINT news_news_idenity_fK		PRIMARY KEY (news_identity)
  );
 
 insert into news values ('2014-09-25','title1','Chingtienkang','文章內文1');
