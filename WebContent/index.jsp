@@ -98,7 +98,7 @@
                         <ul class="dropdown-menu">
                             <li>
                            		<c:if test="<%=sionName==null%>">
-                           			<a href="#myModal" data-toggle="modal" data-target="#myModal" id="abab">路經規劃</a>
+                           			<a href="#myModal" data-toggle="modal" data-target="#myModal" class="abab">路經規劃</a>
                            			<input type="text"  class="aaa" hidden value="aaa">
                            		</c:if>
                            		<c:if test="<%=sionName!=null%>">
@@ -120,7 +120,14 @@
                         </ul>
                     </li>
                      <li>
-                        <a href="P4_MessageBoard/showALL.jsp">留言板</a>
+                     	<c:if test="<%=sionName==null%>">
+                  			<a href="#myModal" data-toggle="modal" data-target="#myModal" class="abab">留言板</a>
+                  			<input type="text"  class="aaa" hidden value="aaa">
+                   		</c:if>
+                   		<c:if test="<%=sionName!=null%>">
+                         	 <a href="P4_MessageBoard/showALL.jsp">留言板</a>
+                        </c:if>
+<!--                     <a href="P4_MessageBoard/showALL.jsp">留言板</a> -->
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
@@ -143,18 +150,24 @@
                         </ul>
                     </li>
                       <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章</a>
-                            </li>
-                            <li>
-                                <a href="P3_TravelDiary/blog_editor.jsp">發表新文章</a>
-                            </li>
-                            <li>
-                                <a href="P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
-                            </li>
-                        </ul>
+                      	<c:if test="<%=sionName==null%>">
+                  			<a href="#myModal" data-toggle="modal" data-target="#myModal" class="abab">Blog</a>
+                  			<input type="text"  class="aaa" hidden value="aaa">
+                   		</c:if>
+                   		<c:if test="<%=sionName!=null%>">
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+	                        <ul class="dropdown-menu">
+	                            <li>
+	                                <a href="P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章</a>
+	                            </li>
+	                            <li>
+	                                <a href="P3_TravelDiary/blog_editor.jsp">發表新文章</a>
+	                            </li>
+	                            <li>
+	                                <a href="P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
+	                            </li>
+	                        </ul>
+                         </c:if>
                     </li>
 
                     <li class="dropdown">
@@ -466,7 +479,7 @@
 		
 		//登入處裡*****************************
 		var css1 = {"color":"red"};
-    	$("#abab").click(function(){	    	
+    	$(".abab").click(function(){	    	
     		$("#abc123").prop("hidden",false).html("請先行登入會員系統!!").css(css1);
     	});
     	$("#abcd").click(function(){	    	
