@@ -35,7 +35,7 @@ public class viewnameDAO implements viewnameDAO_interface {
 	private static final String GET_ALL_STMT_AREA ="SELECT viewID,viewname,viewAddr,viewlat,viewlng,view_HitRate, viewArea FROM viewname where viewArea=? order by viewlng";
 	//Travel01
 	//private static final String GET_ALL_STMT_AREA ="SELECT viewID,viewname,viewAddr,viewlat,viewlng,viewTop, viewArea FROM viewname where viewArea=?";
-	private static final String GET_STMT_ImgTop6 ="select top(6) viewID, view_hitrate ,viewname, imagesID  , imgsrc ,images_format from  viewname join  images on viewname.viewid = images.imagesname where images.imagesID like'%_01' order by viewname.view_HitRate desc ;";
+	private static final String GET_STMT_ImgTop6 ="select top(6) viewID, view_hitrate ,viewname, imagesID  , imgDescript , imgsrc ,images_format from  viewname join  images on viewname.viewid = images.imagesname where images.imagesID like'%_01' order by viewname.view_HitRate desc ;";
 	@Override
 	public void insert(viewnameVO vnVO) {
 		// TODO Auto-generated method stub
@@ -200,8 +200,9 @@ public class viewnameDAO implements viewnameDAO_interface {
 				jsonObj.put(cols.get(1), rs.getString(2));//view_hitrate
 				jsonObj.put(cols.get(2), rs.getString(3));//viewName
 				jsonObj.put(cols.get(3), rs.getString(4));//imagesID
-				jsonObj.put(cols.get(4), rs.getString(5));//imgsrc
-				jsonObj.put(cols.get(5), rs.getString(6));//images_format
+				jsonObj.put(cols.get(4), rs.getString(5));//imgDescript
+				jsonObj.put(cols.get(5), rs.getString(6));//imgsrc
+				jsonObj.put(cols.get(6), rs.getString(7));//images_format
 				jsonArray.put(jsonObj);
 			}
 			

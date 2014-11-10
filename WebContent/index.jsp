@@ -239,11 +239,11 @@
                     <div class="panel-heading">
                         <h4><i class="fa fa-fw fa-check"></i> 熱門景點排行榜</h4>
                     </div>
-                    <div class="panel-body">
-                        <h4><a href="#">※2014/10/10 陽明山</a></h4>
-                        <h4><a href="#">※2014/10/10 五指山</a></h4>
-                        <h4><a href="#">※2014/10/10 大同山</a></h4>
-                        <h4><a href="#">※2014/10/10 象山海</a></h4>
+                    <div class="panel-body leaderboard">
+<!--                         <h4><a href="#">※2014/10/10 陽明山</a></h4> -->
+<!--                         <h4><a href="#">※2014/10/10 五指山</a></h4> -->
+<!--                         <h4><a href="#">※2014/10/10 大同山</a></h4> -->
+<!--                         <h4><a href="#">※2014/10/10 象山海</a></h4> -->
 <!--                    <h4><a href="#" class="btn btn-default">Learn More</a> -->
                     </div>
                 </div>
@@ -481,14 +481,29 @@
 		var contextPath = "<%= request.getContextPath()%>";
 		
     	//$('#gallery').empty();//clear images in maindiv
-			var leaderboardUrl = "ImgTop6servlet";
+		var leaderboardUrl = "ImgTop6servlet";
        	$.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
        		$.each(datas,function(i,item){
-  					 $('.col-sm-6:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
+  				$('.col-sm-6:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
        		});
        	});
       //***************昱豪_抓排行榜圖片***************
       
+      
+      //***************昱豪_抓排行榜文字欄***************
+      $.getJSON(leaderboardUrl,{'action':'GetTop6'}, function(datas){
+       		$.each(datas,function(i,item){
+  				//$('.col-sm-6:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID);
+  				$(".leaderboard").append("<a href='#'>");
+       			//P3_TravelDiary/TravelDiaryServlet?action=blog.do
+       			//<a href=""><p>※2014/10/10 陽明山海芋季，快來看看</p></a>
+       			//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
+       			$(".leaderboard > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/GetLeaderServlet?leaderId='+ item.imagesID);
+       			$(".leaderboard > a:nth-child(" + (i+1) + ")").append("<p>※第"+(i+1)+"名&nbsp;&nbsp;" + item.viewname + "&nbsp;</p>");
+       			//$(".news").append("</a>");	
+       		});
+       	});
+      //***************昱豪_抓排行榜文字欄***************
       
        	//***************昱豪_抓最新消息***************
        	var newsUrl = "newsTop6Servlet";

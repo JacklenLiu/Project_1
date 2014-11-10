@@ -37,7 +37,15 @@ public class ImgTop6servlet extends HttpServlet {
 			String viewnames = vnService.getImgTop6();
 			out.println(viewnames);
 		}
+		
+		if("GetTop6".equals(action)){
+			//String area = request.getParameter("area");
 			
+			viewnameService vnService = new viewnameService();
+			String viewnames = vnService.getImgTop6();
+			out.println(viewnames);
+			//out.println(imgDescript);
+		}
 		
 	}
 
