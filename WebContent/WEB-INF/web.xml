@@ -76,28 +76,12 @@
     <url-pattern>/P4_MessageBoard/leave_msg.do</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>MsgServletS</servlet-name>
-    <servlet-class>P4_MessageBoard.controller.MsgServlet</servlet-class>
+    <servlet-name>RRServlet</servlet-name>
+    <servlet-class>P4_MessageBoard.controller.InsertReplyServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>MsgServletS</servlet-name>
-    <url-pattern>/actionS</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ReplyServlet</servlet-name>
-    <servlet-class>P4_MessageBoard.controller.ReplyServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ReplyServlet</servlet-name>
-    <url-pattern>/P4_MessageBoard/reply.do</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>FirstServlet</servlet-name>
-    <servlet-class>P4_MessageBoard.controller.FirstServlet1</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>FirstServlet</servlet-name>
-    <url-pattern>/P4_MessageBoard/first.do</url-pattern>
+    <servlet-name>RRServlet</servlet-name>
+    <url-pattern>/P4_MessageBoard/leave_msg2.do</url-pattern>
   </servlet-mapping>
   <!--************************** 信豪 **************************-->
   
