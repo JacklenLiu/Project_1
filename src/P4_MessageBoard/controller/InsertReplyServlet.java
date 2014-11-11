@@ -40,6 +40,7 @@ public class InsertReplyServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		System.out.println("有來這個servlet");
 		String reply_user = req.getParameter("reply_vuser");		//是誰在回應
+		System.out.println("reply_user is" + reply_user);
 		String reply_fortitle = req.getParameter("reply_vfortitle");//針對哪個留言回應(標題)
 		String content = req.getParameter("reply_vcontent"); 			//真正的回應的內容
 		java.util.Date d = new Date();
