@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="../platform/include_start.jsp" %>
+   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -132,7 +133,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                   <a href="TravelDiaryServlet?action=blog.do">所有文章</a>
+                                <a href="TravelDiaryServlet?action=blog.do">所有文章</a>
                             </li>
                             <li>
                                 <a href="blog_editor.jsp">發表新文章</a>
@@ -235,7 +236,16 @@
 	
 	   
     <!-- ************************/載入 jQuery bootstrap  summernote js套件************************ -->
-
+	<script type="text/javascript">
+	 //上方工具列滑鼠滑入自動彈出
+    $('.nav .dropdown').hover(function() {
+            $(this).addClass('open');
+        }, function() {
+            $(this).removeClass('open');
+        });
+  	//上方工具列滑鼠滑入自動彈出
+	
+	</script>
 
 
 
@@ -330,7 +340,7 @@
     	
     	//*************偵測按下CLICK選到哪個圖片*******************
     	 
-    	$("li").click(function(){
+    	$("#tiles>li").click(function(){
     	//取照片ID
     	var picknum=$(this).attr("id");
     	//動態取網頁contextPath
