@@ -74,7 +74,7 @@
 			                           <a href="portfolio-2-col.html">會員好友管理</a>
 			                       </li>
 			                       <li>
-			                           <a href="portfolio-3-col.html">登出系統</a>
+			                          <a href="../LoginServlet?action=logOut">登出系統</a>
 			                       </li>
                   			</ul>
                     </li>	   

@@ -1,23 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="../platform/include_start.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bootstrap 的 RWD 套件 -->
-    <!-- 載入Bootstrap css樣式 -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <!-- 圖案icon -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <title>Hello Bootstrap</title>
-
-
-		
-
 <!-- wookmark -->
     <!-- CSS Reset -->
     <link rel="stylesheet" href="wookmarkcss/reset.css">
@@ -78,9 +66,20 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-<!--                         <a href="P0_login/login.jsp">登入</a> -->
-                        <a href="#myModal" data-toggle="modal" data-target="#myModal">登入</a>
+                    <li class="dropdown">
+                    	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
+                    		會員，<%= sionName %>你好<b class="caret"></b></a>
+                 			 <ul class="dropdown-menu">
+			                       <li>
+			                           <a href="../P2_route/route_plan.jsp">會員基本資料修改</a>
+			                       </li>
+			                       <li>
+			                           <a href="portfolio-2-col.html">會員好友管理</a>
+			                       </li>
+			                       <li>
+			                          <a href="../LoginServlet?action=logOut">登出系統</a>
+			                       </li>
+                  			</ul>
                     </li>
 <!--                     <li> -->
 <!--                         <a href="services.html">Services</a> -->
@@ -132,13 +131,13 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                   <a href="TravelDiaryServlet?action=blog.do">所有文章</a>
+                                <a href="TravelDiaryServlet?action=blog.do">所有文章</a>
                             </li>
                             <li>
                                 <a href="blog_editor.jsp">發表新文章</a>
                             </li>
                             <li>
-                                <a href="blog_manage.jsp">管理我的文章</a>
+                               <a href="blog_manage.jsp">管理我的文章</a>
                             </li>
                         </ul>
                     </li>
@@ -404,7 +403,14 @@
           });
 	
     	//**********************jQuery文章外掛**********************************
-
+		
+    	//上方工具列滑鼠滑入自動彈出
+    	$('.nav .dropdown').hover(function() {
+            $(this).addClass('open');
+        }, function() {
+            $(this).removeClass('open');
+        });
+  //上方工具列滑鼠滑入自動彈出
 
     })(jQuery);
     </script>

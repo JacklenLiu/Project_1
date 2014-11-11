@@ -119,7 +119,7 @@ theDIV3.insertBefore(p0, theDIV3.childNodes[0])
 			                           <a href="portfolio-2-col.html">會員好友管理</a>
 			                       </li>
 			                       <li>
-			                           <a href="portfolio-3-col.html">登出系統</a>
+			                           <a href="../LoginServlet?action=logOut">登出系統</a>
 			                       </li>
                   			</ul>
                     </li>
@@ -131,7 +131,7 @@ theDIV3.insertBefore(p0, theDIV3.childNodes[0])
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="route_plan.jsp">路經規劃</a>
+                                <a href="../P2_route/route_plan.jsp">路經規劃</a>
                             </li>
                             <li>
                                 <a href="portfolio-2-col.html">2 Column Portfolio</a>
@@ -148,7 +148,7 @@ theDIV3.insertBefore(p0, theDIV3.childNodes[0])
                         </ul>
                     </li>
                      <li>
-                        <a href="../P4_MessageBoard/showALL.jsp">留言板</a>
+                        <a href="showALL.jsp">留言板</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
@@ -174,13 +174,13 @@ theDIV3.insertBefore(p0, theDIV3.childNodes[0])
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="../blog-home-1.html">Blog Home 1</a>
+                                <a href="../P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
                             </li>
                             <li>
-                                <a href="../blog-home-2.html">Blog Home 2</a>
+                                <a href="../P3_TravelDiary/blog_editor.jsp">發表新文章</a>
                             </li>
                             <li>
-                                <a href="../blog-post.html">Blog Post</a>
+                                <a href="../P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
                             </li>
                         </ul>
                     </li>
