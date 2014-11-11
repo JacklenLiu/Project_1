@@ -17,7 +17,7 @@ import P0_login.model.*;
 /**
  * Servlet implementation class LoginServlet
  */
-//@WebServlet("/LoginServlet")
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -54,7 +54,7 @@ public class LoginServlet extends HttpServlet {
 		String rm = request.getParameter("rememberMe");
 		System.out.println(userId);
 		System.out.println(password);
-		//String path = getServletContext().getContextPath();
+		String path = getServletContext().getContextPath();
 		System.out.println(rm);
 		
 		
@@ -62,6 +62,15 @@ public class LoginServlet extends HttpServlet {
 			Cookie cookieUser = null;
 			Cookie cookiePassword = null;
 			Cookie cookieRememberMe = null;
+			
+			if("logOut".equals(action)){
+				System.out.println("123456");
+				HttpSession session = request.getSession();					
+				session.invalidate();
+				response.sendRedirect(path+"/index.jsp");
+				return;
+			}
+			
 			
 			if (rm != null) {
 				System.out.println("有勾RM, 加入Cookie");
@@ -129,11 +138,11 @@ public class LoginServlet extends HttpServlet {
 					
 					
 					// 此時不要用下面兩個敘述，因為網址列的URL不會改變
-					RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-					rd.forward(request, response);
+					//RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+					//rd.forward(request, response);
 					
-//					response.sendRedirect(path+"/P1_iud/next.jsp");
-//					return;
+					response.sendRedirect(path+"/index.jsp");
+					return;
 				} 
 				else {
 					request.setAttribute("errorMSG", "無此會員或密碼錯誤2");
@@ -144,6 +153,8 @@ public class LoginServlet extends HttpServlet {
 			} catch (Exception e) {
 			}
 		}
+		
+		
 	}
 
 }

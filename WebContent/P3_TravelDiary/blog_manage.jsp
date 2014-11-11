@@ -6,11 +6,12 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.*"%>
 <%@ page import="P3_TravelDiary.model.*"%>
+ <%@ include file="../platform/include_start.jsp" %>
 <!-- 採用EL取值 -->
 <% 
 	//建立service去呼叫getll方法
 	TravelDiaryService travelDiarySvc=new TravelDiaryService();
-	String memberid=(String)session.getAttribute("memberinfo"); 
+ 	String memberid=(String)session.getAttribute("userLoginId"); 
 	List<TravelDiaryVO> list=travelDiarySvc.getAll(memberid);
 	pageContext.setAttribute("list",list);
 	//System.out.println("抓ID測試:"+member);
@@ -98,10 +99,21 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-<!--                         <a href="P0_login/login.jsp">登入</a> -->
-                        <a href="#myModal" data-toggle="modal" data-target="#myModal">登入</a>
-                    </li>
+                  <li class="dropdown">
+                    	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
+                    		會員，<%= sionName %>你好<b class="caret"></b></a>
+                 			 <ul class="dropdown-menu">
+			                       <li>
+			                           <a href="P2_route/route_plan.jsp">會員基本資料修改</a>
+			                       </li>
+			                       <li>
+			                           <a href="portfolio-2-col.html">會員好友管理</a>
+			                       </li>
+			                       <li>
+			                           <a href="portfolio-3-col.html">登出系統</a>
+			                       </li>
+                  			</ul>
+                    </li>	
 <!--                     <li> -->
 <!--                         <a href="services.html">Services</a> -->
 <!--                     </li>                    -->
@@ -244,10 +256,16 @@
     <!-- 載入文字編輯器 -->
     <script src="js/summernote.min.js"></script>
     <!-- ************************/載入 jQuery bootstrap  summernote js套件************************ -->
-
-
+	<script>
+	 //上方工具列滑鼠滑入自動彈出
+    $('.nav .dropdown').hover(function() {
+            $(this).addClass('open');
+        }, function() {
+            $(this).removeClass('open');
+        });
+  //上方工具列滑鼠滑入自動彈出
 	
-
+	</script>
 
 
 

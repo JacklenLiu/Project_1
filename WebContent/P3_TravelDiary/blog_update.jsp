@@ -39,6 +39,10 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
     <link rel="stylesheet" href="css/codemirror.css">
     <!-- 圖案icon -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- sweetalert -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="seeetalertcss/sweet-alert.css">
+    
     <title>Hello Bootstrap</title>
 
 
@@ -224,15 +228,28 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
     <script src="js/bootstrap.min.js"></script>
     <!-- 載入文字編輯器 -->
     <script src="js/summernote.min.js"></script>
+    <!-- sweetalert -->
+    <script src="seetalertjs/sweet-alert.js"></script>
+    
     <!-- ************************/載入 jQuery bootstrap  summernote js套件************************ -->
-
+	<script type="text/javascript">
+	 //上方工具列滑鼠滑入自動彈出
+    $('.nav .dropdown').hover(function() {
+            $(this).addClass('open');
+        }, function() {
+            $(this).removeClass('open');
+        });
+  //上方工具列滑鼠滑入自動彈出
+	
+	</script>
+ 
 
 
 
     <!-- ************************************************文字編輯器**************************************************** -->
     <!-- 編輯器 -->
     <div class="row" style="padding-top:50px">
-<!--         <div class="container"> -->
+        <div class="container">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <form method="post" action="TravelDiaryServlet">
@@ -278,7 +295,7 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
              
             </div>
         </div>
-<!--     </div> -->
+    </div>
 
 
 
@@ -311,7 +328,7 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
 
 
     <!-- *********************************************jQuery程式寫入 ************************************************-->
-    <script>
+ <script>
     (function($) {
           $('#summernote').code();
 
@@ -342,20 +359,43 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
 
 
 
-
+		//為了讓編輯器一開始內容清空因為一開始產生出來會有<p></br></p>佔了空間導致無法偵測是否有字串
+        $(window).load(function() {
+//         	$('#summernote').code("");
+        });
+        //測試讀取content內容資料
+//         var TravelDiary_Content;
+//         $('#submit').click(function(event) {
+//             TravelDiary_Content = $('#summernote').code();
+//             alert(TravelDiary_Content.length);
+//         });
+        
+    	$("#submit").click(function(event) {
+     		var title = $("#TravelDiary_Name").val().trim().length;
+     		var content = $('#summernote').code().trim().length;  
+     		if(title>10){
+     			sweetAlert("Sorry...", "文章標題字數限制10個字唷!", "error");
+     			
+            	return  false;
+     		}else if(title==0&&content==0){
+     			sweetAlert("Sorry...", "請輸入文章標題與文章內容!", "error");			
+     	        return  false;
+     		}
+     		else if(content==0){
+     			sweetAlert("Sorry...", "請輸入文章內容!", "error");    			
+     			return  false;
+     		}
+     		
+     		else if(title==0){
+     			sweetAlert("Sorry...", "請輸入文章標題!", "error");
+     			return  false;
+     		}
+		});
+        
+        
 
         
  
-
-        // 下拉選單用
-        $('.nav .dropdown').hover(function() {
-            $(this).addClass('open');
-        }, function() {
-            $(this).removeClass('open');
-        });
-
-		
-
 
 	
 
@@ -363,7 +403,6 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
 
     })(jQuery);
     </script>
-
 
 
     <!-- *********************************************/jQuery程式寫入 ************************************************-->

@@ -51,7 +51,7 @@
 			                           <a href="portfolio-2-col.html">會員好友管理</a>
 			                       </li>
 			                       <li>
-			                           <a href="portfolio-3-col.html">登出系統</a>
+			                          <a href="../LoginServlet?action=logOut">登出系統</a>
 			                       </li>
                   			</ul>
                     </li>	
@@ -102,11 +102,11 @@
                             </li>
                         </ul>
                     </li>
-                      <li class="dropdown">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="../P3_TravelDiary/blog_all.jsp">所有文章</a>
+                                <a href="../P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
                             </li>
                             <li>
                                 <a href="../P3_TravelDiary/blog_editor.jsp">發表新文章</a>

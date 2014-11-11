@@ -31,11 +31,11 @@ public class TravelDiaryServlet extends HttpServlet {
 		// 測試判別帳號id
 		if ("login".equals(action)) {
 			// System.out.println("login");
-			String account = req.getParameter("account");
+//			String account = req.getParameter("account");
 			// System.out.println(account);
 			// 建立session
-			HttpSession session = req.getSession();
-			session.setAttribute("memberinfo", account);
+//			HttpSession session = req.getSession();
+//			session.setAttribute("memberinfo", account);
 			//System.out.println("我取到的"+session.getAttribute("memberinfo"));
 			String url = "/P3_TravelDiary/blog_all.jsp";
 			RequestDispatcher successView = req.getRequestDispatcher(url);
@@ -141,7 +141,7 @@ public class TravelDiaryServlet extends HttpServlet {
 				//取id sesion
 				//System.out.println("Servlet1");
 				HttpSession session = req.getSession();
-				String memberinfo=(String)session.getAttribute("memberinfo");
+				String memberinfo=(String)session.getAttribute("userLoginId");
 				//System.out.println("memberinfo="+memberinfo);
 				TravelDiaryService travelDiarySvc=new TravelDiaryService();
 				//System.out.println("Servlet2");
@@ -382,7 +382,7 @@ public class TravelDiaryServlet extends HttpServlet {
 
 				/*************************** 3.新增完成,準備轉交(Send the Success view) ***********/
 				// 新增文章成功後轉回到全部文章的頁面
-				String url = "/P3_TravelDiary/blog_all.jsp";
+				String url = "TravelDiaryServlet?action=blog.do";
 				RequestDispatcher successView = req.getRequestDispatcher(url);
 				successView.forward(req, res);
 				/*************************** 其他可能的錯誤處理 **********************************/

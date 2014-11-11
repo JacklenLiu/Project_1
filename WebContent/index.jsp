@@ -85,7 +85,7 @@
 		                           <a href="portfolio-2-col.html">會員好友管理</a>
 		                       </li>
 		                       <li>
-		                           <a href="portfolio-3-col.html">登出系統</a>
+		                           <a href="LoginServlet?action=logOut">登出系統</a>
 		                       </li>
                   			</ul>
                     </li>		
@@ -149,25 +149,26 @@
                             </li>
                         </ul>
                     </li>
-                      <li class="dropdown">
-                      	<c:if test="<%=sionName==null%>">
-                  			<a href="#myModal" data-toggle="modal" data-target="#myModal" class="abab">Blog</a>
-                  			<input type="text"  class="aaa" hidden value="aaa">
-                   		</c:if>
-                   		<c:if test="<%=sionName!=null%>">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-	                        <ul class="dropdown-menu">
-	                            <li>
-	                                <a href="P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章</a>
-	                            </li>
-	                            <li>
-	                                <a href="P3_TravelDiary/blog_editor.jsp">發表新文章</a>
-	                            </li>
-	                            <li>
-	                                <a href="P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
-	                            </li>
-	                        </ul>
-                         </c:if>
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                           		<c:if test="<%=sionName==null%>">
+                           			<a href="#myModal" data-toggle="modal" data-target="#myModal" class="abab">所有文章</a>
+                           			<input type="text"  class="aaa" hidden value="aaa">
+                           		</c:if>
+		                   		<c:if test="<%=sionName!=null%>">
+			                        <a href="P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
+			                    </c:if>
+                        	</li>                            
+                            <li>
+                                <a href="P3_TravelDiary/blog_editor.jsp">發表新文章</a>
+                            </li>
+                            <li>
+                                <a href="P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
+                            </li>
+                        </ul>
+                        
                     </li>
 
                     <li class="dropdown">
@@ -492,7 +493,6 @@
     	var serverName = "<%= request.getServerName()%>";
 		var serverPort = "<%= request.getServerPort()%>";
 		var contextPath = "<%= request.getContextPath()%>";
-		
     	//$('#gallery').empty();//clear images in maindiv
 		var leaderboardUrl = "ImgTop6servlet";
        	$.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
@@ -544,8 +544,8 @@
 			
         /*將此Tag的title的值給予到newTitle,接著將title的值空白,避免滑鼠移到Tag時,同時出現tooltip及title的效果*/
             this.newTitle = this.title;
-        //this.title = "";
-
+        	this.title = "";
+			
         /*建立tooltip用來儲存你要顯示的內容,而內容就是由div區塊所組成;這範例是用文字來作,你要的圖片效果,只要在div中加入<img src>*/
             var tooltip = "<div id='tooltip'>"+ this.newTitle +"<\/div>";
 
@@ -583,6 +583,8 @@
 	(function($){
     	//alert($(".news > a:nth-child(1)").attr("title"));   
 		//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
+		
+		
 	})(jQuery);
     
     </script>
