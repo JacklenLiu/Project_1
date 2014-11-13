@@ -36,6 +36,9 @@ public class viewnameDAO implements viewnameDAO_interface {
 	//Travel01
 	//private static final String GET_ALL_STMT_AREA ="SELECT viewID,viewname,viewAddr,viewlat,viewlng,viewTop, viewArea FROM viewname where viewArea=?";
 	private static final String GET_STMT_ImgTop6 ="select top(6) viewID, view_hitrate ,viewname, imagesID  , imgDescript , imgsrc ,images_format from  viewname join  images on viewname.viewid = images.imagesname where images.imagesID like'%_01' order by viewname.view_HitRate desc ;";
+	private static final String GET_LATLNG_STMT_VIEWID ="SELECT viewlat,viewlng FROM viewname where viewID=?";
+	
+	
 	@Override
 	public void insert(viewnameVO vnVO) {
 		// TODO Auto-generated method stub
@@ -233,4 +236,60 @@ public class viewnameDAO implements viewnameDAO_interface {
 		return viewnames;
 	}
 	
+	public String getViewLatlng(String viewID){
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<String> cols = new ArrayList<String>();
+		String viewLatlng="";
+		
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_LATLNG_STMT_VIEWID);	
+			
+			pstmt.setString(1, viewID);
+			rs = pstmt.executeQuery();
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int count = rsmd.getColumnCount();
+			for(int i = 1; i <= count; i++) {
+				cols.add(rsmd.getColumnLabel(i));
+			}
+			
+			JSONArray jsonArray = new JSONArray();
+			JSONObject jsonObj;
+			while(rs.next()){
+				jsonObj = new JSONObject();
+				jsonObj.put(cols.get(0), rs.getString(1));//viewlat
+				jsonObj.put(cols.get(1), rs.getString(2));//viewlng
+				jsonArray.put(jsonObj);
+			}
+			
+			viewLatlng = jsonArray.toString();
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}catch (JSONException e) {
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		return viewLatlng;
+	}
 }

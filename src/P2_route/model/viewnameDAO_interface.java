@@ -10,4 +10,5 @@ public interface viewnameDAO_interface {
     public List<viewnameVO> getAll();
     public String getAllJSON(String viewArea);
     public String getImgTop6();
+    public String getViewLatlng(String viewID);
 }

@@ -30,6 +30,14 @@ public class viewnameServlet extends HttpServlet {
 		
 		String action = request.getParameter("action");
 		
+		if("GetLatlngById".equals(action)){
+			String viewID = request.getParameter("viewID");
+			
+			viewnameService vnService = new viewnameService();
+			String viewLatlng = vnService.getViewLatlng(viewID);
+			out.println(viewLatlng);
+		}
+		
 		if("GetAllByArea".equals(action)){
 			String area = request.getParameter("area");
 			

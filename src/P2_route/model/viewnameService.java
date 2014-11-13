@@ -82,4 +82,8 @@ public class viewnameService {
 	public String getImgTop6() {
 		return dao.getImgTop6();
 	}
+	
+	public String getViewLatlng(String viewID){
+		return dao.getViewLatlng(viewID);
+	}
 }

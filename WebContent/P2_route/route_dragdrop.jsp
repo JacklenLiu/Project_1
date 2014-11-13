@@ -24,7 +24,7 @@
 			height:150px;
 		}
 		
-#gallery { float: left; /*width: 65%*/ width:440px; min-height: 12em; /*for grid*/ margin: 0; padding: 0;  list-style: none; overflow: auto; height:525px}
+#gallery { float: left; /*width: 65%*/ width:440px; min-height: 12em; /*for grid*/ margin: 0 20px 0 30px; padding: 0;  list-style: none; overflow: auto; height:525px}
 .gallery.custom-state-active { background: #eee; }
   .gallery li { float: left; width: 415px; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden; display: block;}
   .gallery li h5 { margin: 0 0 0.4em; cursor: move;}
@@ -32,7 +32,7 @@
   .gallery li a.ui-icon-zoomin { float: left; }
   .gallery li img { /*width: 100%*/ width:400px; cursor: move; }
  
-#route { float: right; /*width: 32%*/ width:375px; min-height: 18em; padding: 5px; overflow: auto; height:425px}
+#route { float: right; /*width: 32%*/ width:375px; margin-right:30px; min-height: 18em; padding: 5px; overflow: auto; height:425px}
 #route h4 { line-height: 16px; margin: 0 0 0.4em; }
 #route h4 .ui-icon { float: left; }
 #route .gallery h5 { display: inline; }
@@ -142,12 +142,14 @@ figure, figcaption, h3, p {
         float: left;
         color: black;
       }
+
       
 #mapdiv h4 { line-height: 16px; margin: 0 0 0.4em; }
 #mapdiv h4 .ui-icon { float: left; }
 
-.span{
+.span-route{
 	float:right;
+	margin-right:30px;
 }
     </style>
    
@@ -332,19 +334,19 @@ figure, figcaption, h3, p {
 	<input type="text" id="respPath" value="${path}" hidden/>
 	
 	<div id="mainDiv" class="ui-widget ui-helper-clearfix">
+	<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"></ul>
 	<div id="mapdiv" class="ui-widget-content ui-state-default">
 		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">地圖</span> 地圖</h4>
 		<div id="map"></div>
 	</div>
-	<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"></ul>
 	<div id="route" class="ui-widget-content ui-state-default">
 		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">路徑規劃</span> 路徑規劃</h4>
 	</div>
-	<span class="span">
-	<label>出發地</label><select id="startid"></select>
+	<span class="span-route">
+	<label>出發地</label><select id="startid"></select><br>
 	<label>目的地</label><select id="endid"></select>
 	<br>
-	<input type="button" id="startRoute" value="開始規劃"/>
+	<input type="button" id="computeRoute" value="開始規劃"/>
 	</span>
 
 </div>
@@ -352,7 +354,8 @@ figure, figcaption, h3, p {
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 <script src='../Script/jquery-ui.js'></script>	
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
+<!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
 <script src='../Script/jquery.tinyMap.js'></script>
 <script>
 		var serverName = "<%= serverName %>"; //localhost
@@ -386,7 +389,7 @@ figure, figcaption, h3, p {
         	
         	function setmarker(datas){
         			$('#map').tinyMap();//create instance first
-        			$('#map').tinyMap('clear','marker');//clear overlay
+        			$('#map').tinyMap('clear','marker,direction');//clear overlay
         		
         			var addrs = [], vname = [], markers = [];	
                 	//抓取每個景點座標
@@ -396,8 +399,8 @@ figure, figcaption, h3, p {
                 		var a = [item.viewlng,item.viewlat];
                 		addrs[i] = a;
                 		vname[i] = item.viewname;
-                		console.log(addrs[i]);
-                        console.log(vname[i]);
+                		//console.log(addrs[i]);
+                        //console.log(vname[i]);
                 	})
                  	
                 	//set center order by viewlng(緯度)
@@ -411,13 +414,12 @@ figure, figcaption, h3, p {
 
                 	//更新地圖上的座標    
                     $('#map').tinyMap('modify',{
-                        zoom: 14,//#bug 2014/10/28
                         marker: markers
                         //animation: 'DROP|BOUNCE'
                     });
                 	
                 	//將地圖移到多個景點緯度介於中間的位置
-                    $('#map').tinyMap('panto', center);
+                    $('#map').tinyMap('panto', center).tinyMap('modify',{'zoom':8});
         	}
 
         	var preview=null;
@@ -468,7 +470,7 @@ figure, figcaption, h3, p {
 															.text("景點描述");
             			
             					var alinkaddroute = $('<a></a>').attr("title", "加入行程")
-																.addClass("ui-icon ui-icon-image")
+																.addClass("ui-icon ui-icon-plus")
 																.attr("href",'#')
 																.text("加入行程");
             			
@@ -531,11 +533,11 @@ figure, figcaption, h3, p {
             								        	 .click(function click(event){
             								        			 var $item = $( this ),
             							                		 $target = $( event.target );
-            							              			 if ( $target.is( "a.ui-icon-image" ) ) {
+            							              			 if ( $target.is( "a.ui-icon-plus" ) ) {
             							                			 deleteImage( $item );
             							              			 } else if ( $target.is( "a.ui-icon-zoomin" ) ) {
             							                			 viewLargerImage( $target );
-            							              			 } else if ( $target.is( "a.ui-icon-refresh" ) ) {
+            							              			 } else if ( $target.is( "a.ui-icon-close" ) ) {
             							            	  			 recycleImage( $item );
             							              			 }
             							         		     	 return false;
@@ -554,7 +556,7 @@ figure, figcaption, h3, p {
 				//replace triggers desc
 				var url = "imageinfoServlet";
                 $.get(url, {'action':'GetImgInfoByID','id': tinyimg.attr("id")}, function(data){
-                	console.log(data);
+                	//console.log(data);
                 	if(data!=""){
         				contentp.text(data);
         			}
@@ -602,16 +604,16 @@ figure, figcaption, h3, p {
             });
          
             // image deletion function
-            var recycle_icon = "<a href='#' title='移除景點' class='ui-icon ui-icon-refresh'>移除景點</a>";
+            var recycle_icon = "<a href='#' title='移除景點' class='ui-icon ui-icon-close'>移除景點</a>";
             function deleteImage( $item ) {
-              	console.log($item);
+              	//console.log($item);
             	$item.fadeOut(function() {
             	$item.find('.image-link').off("click");
                 var $list = $( "ul", $route ).length ?
                   $( "ul", $route ) :
                   $( "<ul class='gallery'/>" ).appendTo( $route );
                 
-                $item.find( "a.ui-icon-image" ).remove();
+                $item.find( "a.ui-icon-plus" ).remove();
                 $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
                 	
                   $item
@@ -621,7 +623,7 @@ figure, figcaption, h3, p {
                 });
               });
             	//增加景點名稱到出發地及目的地
-            	console.log($item.attr("id"));
+            	//console.log($item.attr("id"));
             	var startoption = $('<option></option>').val($item.find('h5').text())
             											.text($item.find('h5').text())
             											.attr("id","startOp"+$item.attr("id"));
@@ -633,14 +635,14 @@ figure, figcaption, h3, p {
             }
          
             // image recycle function
-            var trash_icon = "<a href='#' title='Delete this image' class='ui-icon ui-icon-image'>Delete image</a>";
+            var trash_icon = "<a href='#' title='Delete this image' class='ui-icon ui-icon-plus'>Delete image</a>";
             function recycleImage( $item ) {
               $item.find('.image-link').on("click", function(e){
             	  	imageclick(e, preview, this);//重新綁定事件
             	  });
               $item.fadeOut(function() {
                 $item
-                  .find( "a.ui-icon-refresh" )
+                  .find( "a.ui-icon-close" )
                     .remove()
                   .end()
                   .css( "width", "415px");
@@ -658,7 +660,7 @@ figure, figcaption, h3, p {
               //移除出發地及目的地的景點名稱
               var idStart = "startOp"+$item.attr("id");
               var idEnd = "distOp"+$item.attr("id");
-              console.log(idStart);
+              //console.log(idStart);
               $("#startid > option[id='" + idStart+"']").remove();
               $("#endid > option[id='" + idEnd+"']").remove();
               
@@ -723,13 +725,13 @@ figure, figcaption, h3, p {
                 open: function() {
                 var self = this;
                 self.$triggers.on( "click", function( e ) {
-                	console.log("open");
+                	//console.log("open");
                 	imageclick(e, self, this);
                 });
                 },
                 close: function() {
                 this.$closeLinks.on( "click", function( e ) {
-                	console.log("close");
+                	//console.log("close");
                 e.preventDefault();
                 $( this ).parent().slideUp( "fast" );
                 infoStatus = false;
@@ -770,6 +772,182 @@ figure, figcaption, h3, p {
                     }
                 }//end of grid plugin
             
+                
+                //路徑規劃
+                $("#computeRoute").click(function(){
+                	var allMarkersAfterOrder = new Array();
+                	var waypoints = new Array();
+                	
+                	//抓出發地id, 建立nowmark座標物件
+                	var start = ($('#startid > :selected').attr("id")).substr(7);
+                	var nowmarker = createMarker(start);
+                	
+                	//抓目的地id
+                	var end = ($('#endid > :selected').attr("id")).substr(6);
+                	var endmarker = createMarker(end);
+                	
+                	//抓取剩下的景點轉成座標放入 allMarkers 物件陣列
+                	var allMarkers = getOtherMarkers();
+                	console.log("allMarkers");
+                	console.log(allMarkers);
+                	
+                	
+                	
+                	
+                	
+                	
+                	//取得路徑計算結果
+                	var result = new Array();
+                	result.push(start);
+                	computeRoute(allMarkers, nowmarker, allMarkersAfterOrder);
+                	result.push(end);
+                	console.log("result");
+                	console.log(result);
+                	ResultShowInMap();
+
+                	
+                	
+                	//結果顯示在地圖
+                	//顯示在地圖
+                	function ResultShowInMap(){
+                		$.each(allMarkersAfterOrder, function(i,viewmarker){
+                			console.log("allMarkersAfterOrder");
+                			console.log(viewmarker);
+                			waypoints[i]={'location':[viewmarker.k , viewmarker.B], 'text': result[i+1]};
+                		});
+                		
+                		var map = $('#map');
+                		$('#map').tinyMap();//create instance first
+                		$('#map').tinyMap('clear','marker,direction');//clear overlay
+                		//更新地圖上的座標    
+                    	$('#map').tinyMap('modify',{
+                    		direction: [
+                                      	{
+                                          	'from': [nowmarker.k, nowmarker.B],
+                                          	'to': [endmarker.k, endmarker.B],
+                                          	'waypoint': waypoints,         	
+                                      	}
+                                  	]
+                        	//animation: 'DROP|BOUNCE'
+                    	});
+                	
+                		var center = [nowmarker.k, nowmarker.B];
+                		//將地圖移到多個景點緯度介於中間的位置
+                    	$('#map').tinyMap('panto', center).tinyMap('modify',{'zoom':13});
+                	}
+                	
+                	//計算路徑
+                	function computeRoute(allMarkers, nowmarker){
+                		while(allMarkers.length!=0){
+                            var prepareOrder = transferToDist(allMarkers, nowmarker);
+                            console.log("prepareOrder");
+                            console.log(prepareOrder);
+
+                            //最近距離
+                            var sortResult = sortByDist(prepareOrder);
+                            var nearest  = {"name": sortResult.name, "marker": sortResult.marker};
+
+                            //將此點的id加入result陣列
+                            result.push(nearest.name);
+                            allMarkersAfterOrder.push(nearest.marker);
+                            console.log(result);
+
+                            //找到最近的點在陣列中的index
+                            var index = arrayObjectIndexOf(allMarkers, nearest.name);
+                            
+                            //更新現在位置
+                            nowmarker = allMarkers[index].marker;
+
+                            //從景點座標陣列中移除此點
+                            allMarkers.splice(index, 1);                    
+                        }
+                	}
+                	
+                	//find nearest point in allMarkers array
+                	function arrayObjectIndexOf(allMarkers, searchTerm) {
+                        for(var i = 0, len = allMarkers.length; i < len; i++) {
+                            if (allMarkers[i].name === searchTerm) return i;
+                        }
+                        return -1;
+                    }
+                	
+                	
+                	//用距離排序
+                	function sortByDist(toOrder) {
+                	       toOrder.sort(function (a, b) {
+                	            if (a.dist > b.dist) {
+                	                console.log("hi");
+                	                return 1;
+                	            }else{
+                	                console.log("here");
+                	                return -1;
+                	            }
+                	        });
+                	    return toOrder[0];
+                	}
+
+                	//將景點座標物件 轉成 景點距離物件
+                	function transferToDist(allMarkers, nowmarker){
+                	    var AfertTransfer = new Array();
+                	    for(var i=0; i < allMarkers.length; i++){
+                	        AfertTransfer[i] = {"name": allMarkers[i].name, "dist": google.maps.geometry.spherical.computeDistanceBetween(nowmarker, allMarkers[i].marker), "marker":allMarkers[i].marker};
+                	    }
+                	    return AfertTransfer;
+                	}
+                	
+                	
+                	
+                	//取得出發地及目的地以外的景點座標 	
+                	function getOtherMarkers(){
+                		var allMarkersInner = new Array();
+                		var viewsObj = new Array();
+                    	viewsObj = $('#route .gallery li');
+                    	
+                    	//抓取剩下的景點id -> viewsStrs
+                    	var viewsStrs = new Array();
+                    	$.each(viewsObj,function(i, viewObj){
+                    		//console.log(i);
+                    		viewsStrs[i] = $(viewObj).attr("id");
+                    		//console.log(viewsStrs);
+                    	});
+                    	
+                    	//移除出發地及目的地id -> 其餘景點id
+                    	viewsStrs.splice(viewsStrs.indexOf(start),1);
+                    	viewsStrs.splice(viewsStrs.indexOf(end),1);
+                    	//console.log(viewsStrs);	
+                    	
+                    	$.each(viewsStrs, function(i, viewID){
+                    		allMarkersInner[i] = {"name":viewID,"marker":createMarker(viewID)};
+                    	});
+                    	return allMarkersInner;
+                	}//end of getOtherMarkers
+                	
+                	
+                	
+                	//新建座標物件,需等server傳回座標經緯->用同步async:false
+                	function createMarker(viewID){
+                		var url = "viewnameServlet";
+                		var viewLng=0, viewLat=0;
+                		var marker = null;
+                		$.ajax({
+                			"url": url,
+                			"type":"get",
+                			"data":{'viewID':viewID,'action':'GetLatlngById'},
+                			"dataType":"json",
+                			"async":false,
+                			"success":function(datas){
+                				viewLat = parseFloat(datas[0].viewlat);
+                        		//console.log(viewLat);
+                        		viewLng = parseFloat(datas[0].viewlng);
+                        		//console.log(viewLng);
+                        		marker = new google.maps.LatLng(viewLng,viewLat);
+                            	//console.log(marker);
+                			}
+                		});
+                    	return marker;
+                	}//end of createMarker
+                	
+                });//end of computeRoute button click eventHandler
         })(jQuery);
         
     </script>
