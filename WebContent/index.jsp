@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
+<%@ page buffer="20000kb" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -70,63 +71,28 @@
                 <ul class="nav navbar-nav navbar-right">
                   <c:if test="<%=sionName == null%>">
                   	 <li>
-                  		<a href="#myModal" data-toggle="modal" data-target="#myModal" id="abcd">登入</a>
+                  		<a href="P5_login/login.jsp" id="abcd">登入</a>
                   	 </li>
                   </c:if>
-                  <c:if test="<%=sionName != null%>">
-                 	 <li class="dropdown">
-                    	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-                    		會員，<%=sionName%>你好<b class="caret"></b></a>
-                 			 <ul class="dropdown-menu">
-		                       <li>
-		                           <a href="P2_route/route_plan.jsp">會員基本資料修改</a>
-		                       </li>
-		                       <li>
-		                           <a href="portfolio-2-col.html">會員好友管理</a>
-		                       </li>
-		                       <li>
-		                           <a href="LoginServlet?action=logOut">登出系統</a>
-		                       </li>
-                  			</ul>
-                    </li>		
-                  </c:if>
-<!--                     <li> -->
-<!--                         <a href="services.html">Services</a> -->
-<!--                     </li>                    -->
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                           		<c:if test="<%=sionName==null%>">
-                           			<a href="#myModal" data-toggle="modal" data-target="#myModal" class="abab">路經規劃</a>
-                           			<input type="text"  class="aaa" hidden value="aaa">
-                           		</c:if>
-                           		<c:if test="<%=sionName!=null%>">
-                                 	<a href="P2_route/route_plan.jsp">路經規劃</a> 
-                                </c:if>
-                            </li>
-                            <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
+                   <li class="dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
+                       <ul class="dropdown-menu">
+                           <li>
+                              <a href="P2_route/route_plan.jsp">路經規劃</a> 
+                           </li>
+                           <li>
+                              <a href="portfolio-3-col.html">3 Column Portfolio</a>
+                           </li>
+                           <li>
+                              <a href="portfolio-4-col.html">4 Column Portfolio</a>
+                           </li>
+                           <li>
+                              <a href="portfolio-item.html">Single Portfolio Item</a>
+                           </li>
+                       </ul>
+                   </li>
                      <li>
-                     	<c:if test="<%=sionName==null%>">
-                  			<a href="#myModal" data-toggle="modal" data-target="#myModal" class="abab">留言板</a>
-                  			<input type="text"  class="aaa" hidden value="aaa">
-                   		</c:if>
-                   		<c:if test="<%=sionName!=null%>">
-                         	 <a href="P4_MessageBoard/showALL.jsp">留言板</a>
-                        </c:if>
+                       	 <a href="P4_MessageBoard/showALL.jsp">留言板</a>
 <!--                     <a href="P4_MessageBoard/showALL.jsp">留言板</a> -->
                     </li>
                     <li class="dropdown">
@@ -152,15 +118,9 @@
                      <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>
-                           		<c:if test="<%=sionName==null%>">
-                           			<a href="#myModal" data-toggle="modal" data-target="#myModal" class="abab">所有文章</a>
-                           			<input type="text"  class="aaa" hidden value="aaa">
-                           		</c:if>
-		                   		<c:if test="<%=sionName!=null%>">
-			                        <a href="P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
-			                    </c:if>
-                        	</li>                            
+                        	<li>
+			                     <a href="P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
+			                </li>                         
                             <li>
                                 <a href="P3_TravelDiary/blog_editor.jsp">發表新文章</a>
                             </li>
@@ -191,6 +151,25 @@
                             </li>
                         </ul>
                     </li>
+                    
+                    <c:if test="<%=sionName != null%>">
+                 	 <li class="dropdown">
+                    	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
+                    		會員，<%=sionName%>你好<b class="caret"></b></a>
+                 			 <ul class="dropdown-menu">
+		                       <li>
+		                           <a href="P2_route/route_plan.jsp">會員基本資料修改</a>
+		                       </li>
+		                       <li>
+		                           <a href="portfolio-2-col.html">會員好友管理</a>
+		                       </li>
+		                       <li>
+		                           <a href="LoginServlet?action=logOut">登出系統</a>
+		                       </li>
+                  			</ul>
+                    </li>		
+                  </c:if>
+                  
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -407,6 +386,7 @@
                <div class="form-group">
                  <label for="exampleInputPassword1">Password</label>
                    <input class="form-control" id="exampleInputPassword1" name="pswd" placeholder="Password" type="password" title="請輸入密碼">
+                   <span id="asdf1234"></span>
                    <input type="hidden" name="action" value="LoginIdCheck">
                </div>
                <div>
@@ -421,11 +401,11 @@
 	 				
                </div>
                    <p class="text-right"><a href="#">忘記密碼?</a></p>
-                   <input type="hidden" name="action" value="LoginIdCheck">
+<!--                    <input type="hidden" name="action" value="LoginIdCheck"> -->
             </div>
                <div class="modal-footer">
                    <a href="#" data-dismiss="modal" class="btn">結束</a>
-                   <input type="submit" value="登入" class="btn btn-primary">
+                   <input type="button" value="登入" class="btn btn-primary" id="loginBtn">
                </div>
            </div>
         </div>
@@ -462,21 +442,49 @@
   //上方工具列滑鼠滑入自動彈出
   
   //子暘登入Script   
-   	$('#commentForm').validate({
-   		rules:{
-   			userId:{
-   				required: true,
+//    	$('#commentForm').validate({
+//    		rules:{
+//    			userId:{
+//    				required: true,
    	            
-   			},
-   			pswd:{
-   				required: true,
-   			}
-   		}
-   	});   
+//    			},
+//    			pswd:{
+//    				required: true,
+//    			}
+//    		}
+//    	});   
    //子暘登入Script
     
+   
+//    me="userId" placeholder="account" type="text" title="請輸入帳號" focus>
+//                </div>
+//                <div class="form-group">
+//                  <label for="exampleInputPassword1">Password</label>
+//                    <input class="form-control" id="exampleInputPassword1" name="psw
+   
+   
+   //***********昱豪登入*********** 
+   
+   (function($){
+	   $("#loginBtn").click(function(){
+		   
+		  	var loginId = $(":text[name='userId']").val();
+		  	var loginPwd = $(":text[name='pswd']").val();
+			$.get("LoginServlet",{"loginId":loginId},function(data){
+				alert(data);
+				$("#asdf1234").val(data);
+			});
+			
+	   });
+	  
+   })(jQuery);
+   
+   
+   //***********昱豪登入*********** 
+ 
+   
    //***********昱豪*********** 
-	(function ($) {   
+	(function($){   
 		
 		//登入處裡*****************************
 		var css1 = {"color":"red"};
@@ -486,6 +494,11 @@
     	$("#abcd").click(function(){	    	
     		$("#abc123").prop("hidden",true);;
     	});	    	
+    	var sionLog = "<%=sionLoginId%>";
+    	if(sionLog == "null"){
+    		//alert(sionName);
+    		$(".navbar-right a").prop("href","P5_login/login.jsp");
+    	}
     	//登入處裡*****************************
     	
     	
@@ -544,8 +557,9 @@
 			
         /*將此Tag的title的值給予到newTitle,接著將title的值空白,避免滑鼠移到Tag時,同時出現tooltip及title的效果*/
             this.newTitle = this.title;
-        	this.title = "";
-			
+        	if(this.newTitle != ""){
+        		this.title = "";
+        	}
         /*建立tooltip用來儲存你要顯示的內容,而內容就是由div區塊所組成;這範例是用文字來作,你要的圖片效果,只要在div中加入<img src>*/
             var tooltip = "<div id='tooltip'>"+ this.newTitle +"<\/div>";
 
@@ -561,8 +575,10 @@
 
         /*當滑鼠移開時,將newTitle的值還給title,並且利用.remove()將tooltip這段div區塊移除*/
         }).mouseout(function(){
-             this.title = this.newTitle;
-             $("#tooltip").remove();
+        	if(this.newTitle != ""){
+             	this.title = this.newTitle;
+        	}
+            $("#tooltip").remove();
 
         /*當滑鼠指標在指定的Tag範圍內移動時,tooltip的div區塊也會隨著滑鼠指標作移動*/
         }).mousemove(function(e){

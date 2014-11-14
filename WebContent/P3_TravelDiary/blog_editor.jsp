@@ -55,20 +55,6 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<!--                     <li> -->
-				<!--                         <a href="P0_login/login.jsp">登入</a> -->
-				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: red;"> 
-				會員，<%=sionName%>你好<b class="caret"></b></a>
-					<ul class="dropdown-menu">
-						<li><a href="P2_route/route_plan.jsp">會員基本資料修改</a></li>
-						<li><a href="portfolio-2-col.html">會員好友管理</a></li>
-						<li><a href="portfolio-3-col.html">登出系統</a></li>
-					</ul>
-				</li>
-				<!--                     </li> -->
-				<!--                     <li> -->
-				<!--                         <a href="services.html">Services</a> -->
-				<!--                     </li>                    -->
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -77,8 +63,13 @@
 						<li><a href="portfolio-3-col.html">3 Column Portfolio</a></li>
 						<li><a href="portfolio-4-col.html">4 Column Portfolio</a></li>
 						<li><a href="portfolio-item.html">Single Portfolio Item</a></li>
-					</ul></li>
-				<li><a href="../P4_MessageBoard/showALL.jsp">留言板</a></li>
+					</ul>
+				</li>
+				
+				<li>
+					<a href="../P4_MessageBoard/showALL.jsp">留言板</a>
+				</li>
+				
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">Portfolio <b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -92,14 +83,16 @@
 						</li>
 						<li><a href="../ortfolio-item.html">Single Portfolio Item</a>
 						</li>
-					</ul></li>
+					</ul>
+				</li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">Blog <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="TravelDiaryServlet?action=blog.do">所有文章</a></li>
 						<li><a href="blog_editor.jsp">發表新文章</a></li>
 						<li><a href="blog_manage.jsp">管理我的文章</a></li>
-					</ul></li>
+					</ul>
+				</li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">Other Pages <b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -108,7 +101,17 @@
 						<li><a href="../faq.html">FAQ</a></li>
 						<li><a href="../404.html">404</a></li>
 						<li><a href="../pricing.html">Pricing Table</a></li>
-					</ul></li>
+					</ul>
+				</li>
+					
+				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: red;"> 
+				會員，<%=sionName%>你好<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="P2_route/route_plan.jsp">會員基本資料修改</a></li>
+						<li><a href="portfolio-2-col.html">會員好友管理</a></li>
+						<li><a href="portfolio-3-col.html">登出系統</a></li>
+					</ul>
+				</li>	
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->
