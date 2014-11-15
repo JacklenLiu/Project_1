@@ -9,6 +9,8 @@ public interface viewnameDAO_interface {
     public viewnameVO findByPrimaryKey(Integer viewID);
     public List<viewnameVO> getAll();
     public String getAllJSON(String viewArea);
+    public Integer insertRouteByID(String memID, String routeName, java.sql.Date buildTime);
+    public String insertRouteViewByRouteID(Integer routeID, String routeResultView, Integer routeResultViewOrder);
     public String getImgTop6();
     public String getViewLatlng(String viewID);
 }

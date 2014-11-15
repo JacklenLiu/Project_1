@@ -24,7 +24,7 @@
 			height:150px;
 		}
 		
-#gallery { float: left; /*width: 65%*/ width:440px; min-height: 12em; /*for grid*/ margin: 0 20px 0 30px; padding: 0;  list-style: none; overflow: auto; height:525px}
+#gallery { float: left; /*width: 65%*/ width:440px; min-height: 12em; /*for grid*/ margin-left: 30px; padding: 0;  list-style: none; overflow: auto; height:525px}
 .gallery.custom-state-active { background: #eee; }
   .gallery li { float: left; width: 415px; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden; display: block;}
   .gallery li h5 { margin: 0 0 0.4em; cursor: move;}
@@ -128,7 +128,7 @@ figure, figcaption, h3, p {
 
 
 #mapdiv{
-		margin: 0px 20px 0px 10px;
+		margin: 0px 10px 0px 10px;
         height: 450px;
         width: 410px;
         float: left;
@@ -151,6 +151,15 @@ figure, figcaption, h3, p {
 	float:right;
 	margin-right:30px;
 }
+
+.saveRoute{
+	color:silver;
+}
+/*dialog css*/
+.validateTips { border: 1px solid transparent; padding: 0.3em; text-align:center;}
+#dialog-save input { display:block; }
+#dialog-save input.text { margin-bottom:12px; width:95%; padding: .4em; }
+
     </style>
    
 	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
@@ -347,8 +356,16 @@ figure, figcaption, h3, p {
 	<label>目的地</label><select id="endid"></select>
 	<br>
 	<input type="button" id="computeRoute" value="開始規劃"/>
+	<input type="button" id="saveRoute" class="saveRoute" value="儲存路徑" disabled/>
 	</span>
 
+</div>
+<div id="dialog-save" title="儲存路線">
+  <h2 class="validateTips">路線名稱</h2>
+  <input type="text" name="routeName" id="routeName" value="墾丁一日遊" class="text ui-widget-content ui-corner-all">
+</div>
+<div id="dialog-savefinished" title="儲存成功">
+  <h2 class="validateTips">儲存成功</h2>
 </div>
 
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -361,8 +378,10 @@ figure, figcaption, h3, p {
 		var serverName = "<%= serverName %>"; //localhost
 		var serverPort = "<%= serverPort %>"; //8081
 		var contextPath = "<%= contextPath %>"; //Project_1
+		var sionLoginId = "<%= sionLoginId %>"; //aa123
 		
         (function ($) {      	
+        	var result = new Array();//路徑規劃結果
 			var nextimgcss=null;
          	$(window).load(function() {
 	        	var area = $("#resp").val();
@@ -775,6 +794,10 @@ figure, figcaption, h3, p {
                 
                 //路徑規劃
                 $("#computeRoute").click(function(){
+                	//
+                	$('#saveRoute').prop("disabled", false)
+                				   .removeClass("saveRoute");
+                	
                 	var allMarkersAfterOrder = new Array();
                 	var waypoints = new Array();
                 	
@@ -797,7 +820,6 @@ figure, figcaption, h3, p {
                 	
                 	
                 	//取得路徑計算結果
-                	var result = new Array();
                 	result.push(start);
                 	computeRoute(allMarkers, nowmarker, allMarkersAfterOrder);
                 	result.push(end);
@@ -948,6 +970,62 @@ figure, figcaption, h3, p {
                 	}//end of createMarker
                 	
                 });//end of computeRoute button click eventHandler
+                
+                
+              //儲存路徑
+              var dialog = $( "#dialog-save" ).dialog({
+                    autoOpen: false,
+                    height: 300,
+                    width: 350,
+                    modal: true,
+                    buttons: {
+                      "儲存": function(){
+                    	//產生json字串送到server
+                    	//{"memID":"id", "routeName":"routename", "routeResult":[...,...]}
+                    	var routeJSON ={"memID": sionLoginId,
+                    					"routeName": $('#dialog-save :text').val(),
+                    					"routeResult": result};
+                    	console.log(JSON.stringify(routeJSON));
+                    	$.ajax({
+                    		  "type": 'POST',
+                    		  "url": 'viewnameServlet',
+                    		  "data": {"action":"saveRoute", "routeJSONStr": JSON.stringify(routeJSON)},
+                    		  "async":false,
+                    		  "success":function(datas){
+                    				  dialog.dialog( "close" );
+                    				  dialog1.dialog( "open" );
+                    		  }
+                    		});
+                      },
+                      "取消": function() {
+                        dialog.dialog( "close" );
+                      }
+                    },
+                    close: function() {
+                    }
+                  });
+                
+              var dialog1 = $( "#dialog-savefinished" ).dialog({
+                  autoOpen: false,
+                  height: 300,
+                  width: 350,
+                  modal: true,
+                  buttons: {
+                    "確定": function(){
+                  		//產生json字串送到server
+                  		dialog1.dialog( "close" );
+                    }
+                  },
+                  close: function() {
+                  }
+                });
+              
+                $("#saveRoute").click(function(){
+                	dialog.dialog( "open" );
+                });
+                
+                
+                
         })(jQuery);
         
     </script>
