@@ -38,7 +38,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet_boot</servlet-name>
-    <url-pattern>/login</url-pattern>
+    <url-pattern>/P5_login/login</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>iduServlet</servlet-name>

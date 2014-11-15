@@ -32,7 +32,7 @@ public class ImgTop6servlet extends HttpServlet {
 		
 		if("GetImgTop6".equals(action)){
 			//String area = request.getParameter("area");
-			
+			response.setBufferSize(2000*1024);
 			viewnameService vnService = new viewnameService();
 			String viewnames = vnService.getImgTop6();
 			out.println(viewnames);

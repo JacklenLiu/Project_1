@@ -1,6 +1,9 @@
 package P0_login.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -49,84 +52,56 @@ public class LoginServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		String action = request.getParameter("action");
-		String userId = request.getParameter("userId");
-		String password = request.getParameter("pswd");
+		String userId = request.getParameter("inputLoginId");
+		String password = request.getParameter("inputPassword");
 		String rm = request.getParameter("rememberMe");
-		System.out.println(userId);
-		System.out.println(password);
 		String path = getServletContext().getContextPath();
-		System.out.println(rm);
 		
 		
 	//  ****************************************** 
-			Cookie cookieUser = null;
-			Cookie cookiePassword = null;
-			Cookie cookieRememberMe = null;
-			
-			if("logOut".equals(action)){
-				System.out.println("123456");
-				HttpSession session = request.getSession();					
-				session.invalidate();
-				response.sendRedirect(path+"/index.jsp");
-				return;
-			}
-			
-			
-			if (rm != null) {
-				System.out.println("有勾RM, 加入Cookie");
-				cookieUser = new Cookie("user", userId);
-				cookieUser.setMaxAge(30*60*60);
-				cookiePassword = new Cookie("password", password);
-				cookiePassword.setMaxAge(30*60*60);
-				cookieRememberMe = new Cookie("rm", "true");
-				cookieRememberMe.setMaxAge(30*60*60);
-			} else {
-				System.out.println("未勾RM, 刪除Cookie");
-				cookieUser = new Cookie("user", userId);
-				cookieUser.setMaxAge(0);
-				cookiePassword = new Cookie("password", password);
-				cookiePassword.setMaxAge(0);
-				cookieRememberMe = new Cookie("rm", "false");
-				cookieRememberMe.setMaxAge(30*60*60);
-			}
-			response.addCookie(cookieUser);
-			response.addCookie(cookiePassword);
-			response.addCookie(cookieRememberMe);
-			//********************************************
+		
+		if("logOut".equals(action)){
+			HttpSession session = request.getSession();					
+			session.invalidate();
+			response.sendRedirect(path+"/index.jsp");
+			return;
+		}
+		
 		
 
 		if ("LoginIdCheck".equals(action)) {
-			System.out.println("123");
+			//System.out.println("123");
 			try {
 			
 				if (userId == null || userId.trim().length() == 0) {
-					request.setAttribute("errorMSG", "帳號不可為空值或空白!");
+					request.setAttribute("errorMsgId", "帳號不可為空值或空白!");
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/P0_login/login.jsp");
+							.getRequestDispatcher("/P5_login/login.jsp");
 					rd.forward(request, response);					
-					return;
 				}
 				
 				if (password == null || password.trim().length() == 0) {
-					request.setAttribute("errorMSG", "密碼不可為空值或空白!");
+					request.setAttribute("errorMsgPwd", "密碼不可為空值或空白!");
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/P0_login/login.jsp");
+							.getRequestDispatcher("/P5_login/login.jsp");
 					rd.forward(request, response);
-					return;
 				}
 				
 				MemberDAO ms = new MemberDAO();
 			    MemberVO mb = ms.findByPrimaryKey(userId);
 				
-				if(mb == null && userId != null && password != null){
-					request.setAttribute("errorMSG", "無此會員或密碼錯誤1");
+				if(mb == null && userId != null){
+					request.setAttribute("errorMsgId", "無此會員帳號");
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/P0_login/login.jsp");
+							.getRequestDispatcher("/P5_login/login.jsp");
 					rd.forward(request, response);
 				}
+				
 
-				
-				
+				System.out.println(userId);
+				System.out.println(mb.getMember_email());
+				System.out.println(password);
+				System.out.println(mb.getMember_password());
 				if (mb != null && mb.getMember_loginID().equals(userId) && mb.getMember_password().equals(password)) {
 					//request.setAttribute("userId", mb.getMember_name());
 					//request.setAttribute("userloginid", mb.getMember_loginID());
@@ -145,9 +120,9 @@ public class LoginServlet extends HttpServlet {
 					return;
 				} 
 				else {
-					request.setAttribute("errorMSG", "無此會員或密碼錯誤2");
+					request.setAttribute("errorMSG", "帳號或會員密碼錯誤!");
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/P0_login/login.jsp");
+							.getRequestDispatcher("/P5_login/login.jsp");
 					rd.forward(request, response);
 				}
 			} catch (Exception e) {
