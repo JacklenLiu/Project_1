@@ -411,13 +411,6 @@
 	
     	//**********************jQuery文章外掛**********************************
 		
-    	//上方工具列滑鼠滑入自動彈出
-    	$('.nav .dropdown').hover(function() {
-            $(this).addClass('open');
-        }, function() {
-            $(this).removeClass('open');
-        });
-  //上方工具列滑鼠滑入自動彈出
 
     })(jQuery);
     </script>
@@ -431,7 +424,7 @@
  
  
  
- 
+ <%@ include file="../platform/include_script.jsp" %>
 </body>
 
 </html>

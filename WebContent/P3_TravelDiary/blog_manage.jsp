@@ -253,35 +253,7 @@
     <!-- 載入文字編輯器 -->
     <script src="js/summernote.min.js"></script>
     <!-- ************************/載入 jQuery bootstrap  summernote js套件************************ -->
-	<script>
-	 //上方工具列滑鼠滑入自動彈出
-    $('.nav .dropdown').hover(function() {
-            $(this).addClass('open');
-        }, function() {
-            $(this).removeClass('open');
-        });
-  //上方工具列滑鼠滑入自動彈出
-	
-	</script>
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-  
+	  
 <br><br><br><br><br><br><br>
 
 <!---------------------------------全部文章show出------------------------------------------->
@@ -364,6 +336,6 @@
 
 <!---------------------------------/全部文章show出------------------------------------------->
 
-
+<%@ include file="../platform/include_script.jsp" %>
 </body>
 </html>

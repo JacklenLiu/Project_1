@@ -373,7 +373,7 @@
 
 
 
-
+<%@ include file="../platform/include_script.jsp" %>
 </body>
 
 </html>

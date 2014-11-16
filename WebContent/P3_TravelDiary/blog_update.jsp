@@ -418,8 +418,6 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
 
 
 
-
+<%@ include file="../platform/include_script.jsp" %>
 </body>
-
 </html>
-

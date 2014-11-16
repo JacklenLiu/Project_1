@@ -1169,5 +1169,6 @@ figure, figcaption, h3, p {
  })(jQuery);
         
 </script>
+<%@ include file="../platform/include_script.jsp" %>
 </body>
 </html>
