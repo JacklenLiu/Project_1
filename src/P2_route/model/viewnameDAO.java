@@ -1,10 +1,12 @@
 package P2_route.model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +39,8 @@ public class viewnameDAO implements viewnameDAO_interface {
 	//private static final String GET_ALL_STMT_AREA ="SELECT viewID,viewname,viewAddr,viewlat,viewlng,viewTop, viewArea FROM viewname where viewArea=?";
 	private static final String GET_STMT_ImgTop6 ="select top(6) viewID, view_hitrate ,viewname, imagesID  , imgDescript , imgsrc ,images_format from  viewname join  images on viewname.viewid = images.imagesname where images.imagesID like'%_01' order by viewname.view_HitRate desc ;";
 	private static final String GET_LATLNG_STMT_VIEWID ="SELECT viewlat,viewlng FROM viewname where viewID=?";
-	
+	private static final String INSERT_ROUTE_STMT_MEMID ="INSERT INTO route Values (?,?,?)";
+	private static final String INSERT_ROUTEVIEW_STMT_ROUTEID ="INSERT INTO RouteView Values (?,?,?)";
 	
 	@Override
 	public void insert(viewnameVO vnVO) {
@@ -291,5 +294,102 @@ public class viewnameDAO implements viewnameDAO_interface {
 		}
 		
 		return viewLatlng;
+	}
+
+	@Override
+	public Integer insertRouteByID(String memID, String routeName, Date buildTime) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		//ResultSet rs = null;
+		Integer key=0;
+		List<String> cols = new ArrayList<String>();
+		//String viewLatlng="";
+		
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(INSERT_ROUTE_STMT_MEMID, Statement.RETURN_GENERATED_KEYS);	
+			
+			pstmt.setString(1, routeName);
+			pstmt.setDate(2, buildTime);
+			pstmt.setString(3, memID);
+			pstmt.executeUpdate();
+			
+			//掘取對應的自增主鍵值
+			ResultSet rsKeys = pstmt.getGeneratedKeys();
+			ResultSetMetaData rsmd = rsKeys.getMetaData();
+			int columnCount = rsmd.getColumnCount();
+			if (rsKeys.next()) {
+				do {
+					for (int i = 1; i <= columnCount; i++) {
+						key = rsKeys.getInt(i);
+						System.out.println("自增主鍵值(i=" + i + ") = " + key +"(剛新增成功的員工編號)");
+					}
+				} while (rsKeys.next());
+			} else {
+				System.out.println("NO KEYS WERE GENERATED.");
+			}
+			
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return key;
+	}
+
+	@Override
+	public String insertRouteViewByRouteID(Integer routeID,
+			String routeResultView, Integer routeResultViewOrder) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String status ="";
+		
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(INSERT_ROUTEVIEW_STMT_ROUTEID);	
+			
+			pstmt.setInt(1, routeID);
+			pstmt.setString(2, routeResultView);
+			pstmt.setInt(3, routeResultViewOrder);
+			int count = pstmt.executeUpdate();
+			if(count!=0)
+				status = "success";
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return status;
 	}
 }

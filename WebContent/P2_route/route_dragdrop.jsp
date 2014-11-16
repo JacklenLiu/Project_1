@@ -324,8 +324,8 @@ figure, figcaption, h3, p {
 
 <!-- ******************************************************************* -->
  <div>
-    <img src = "images/02.gif" />欲選擇其他地區
-	<select id="sel1" >
+    <img src = "images/02.gif" /> 欲選擇其他地區
+	<select  id="sel1">
 		<option value="北部" id="N">北部</option>
   		<option value="中部" id="C">中部</option>
   		<option value="南部" id="S">南部</option>
@@ -378,7 +378,6 @@ figure, figcaption, h3, p {
 	</span>
 
 </div>
-
 <div id="dialog-save" title="儲存路線">
   <h2 class="validateTips">路線名稱</h2>
   <input type="text" name="routeName" id="routeName" value="墾丁一日遊" class="text ui-widget-content ui-corner-all">
@@ -386,7 +385,7 @@ figure, figcaption, h3, p {
 <div id="dialog-savefinished" title="儲存成功">
   <h2 class="validateTips">儲存成功</h2>
 </div>
-<%@ include file="../platform/include_script.jsp" %>
+
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 <script src='../Script/jquery-ui.js'></script>	
@@ -394,76 +393,77 @@ figure, figcaption, h3, p {
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
 <script src='../Script/jquery.tinyMap.js'></script>
 <script>
-	var serverName = "<%= serverName %>"; //localhost
-	var serverPort = "<%= serverPort %>"; //8081
-	var contextPath = "<%= contextPath %>"; //Project_1
-		var sionLoginId = "<%= sionLoginId %>"; //aa123
-	
-    (function ($) {      	
-        	var result = new Array();//路徑規劃結果
-		var nextimgcss=null;
-	    $(window).load(function() {
-	       	var area = $("#resp").val();
-	       	if(area=="北部"){$("#N").prop("selected",true);}
-	       	if(area=="南部"){$("#S").prop("selected",true);}
-	       	if(area=="東部"){$("#E").prop("selected",true);}
-	       	if(area=="中部"){$("#C").prop("selected",true);}
-	       	getViewDataByArea(area);
-		});
-        	
-       	$('#sel1').change(function(){
-   		 	area = $(this).val();
-   		 	getViewDataByArea(area);
-   		});
-       	
-       	function getViewDataByArea(area){
-       		var url = "viewnameServlet";
-               $.getJSON(url, {'area':area,'action':'GetAllByArea'}, function(datas){
-               	show(area, datas);
-           		window.setTimeout(initGalleryUL, 700);
-           		setmarker(datas);
-               });
-       	}
-        	
-	   	function setmarker(datas){
-	   			$('#map').tinyMap();//create instance first
-	   			$('#map').tinyMap('clear','marker,direction');//clear overlay
-	   		
-	   			var addrs = [], vname = [], markers = [];	
-	           	//抓取每個景點座標
-	           	$.each(datas,function(i,item){
-	           		//i->index
-	           		//item -> item
-	           		var a = [item.viewlng,item.viewlat];
-	           		addrs[i] = a;
-	           		vname[i] = item.viewname;
-	           		//console.log(addrs[i]);
-	                   //console.log(vname[i]);
-	           	})
-	            	
-	           	//set center order by viewlng(緯度)
-	           	var center = addrs[14];                	   
-	           	
-	           	//將每個景點組成marker物件放入markers陣列
-	           	for (var i = 0, max = addrs.length; i < max; i++) {
-	                   markers[i] = { addr: addrs[i], text: vname[i]};
-	                   //console.log("markers:"+markers[i]);
-	               }
-	
-	           	//更新地圖上的座標    
-	               $('#map').tinyMap('modify',{
-	                   marker: markers
-	                   //animation: 'DROP|BOUNCE'
-	               });
-	           	
-	           	//將地圖移到多個景點緯度介於中間的位置
-	               $('#map').tinyMap('panto', center).tinyMap('modify',{'zoom':8});
-	   	}
 
-       	var preview=null;
-       	function initGalleryUL(){
-   			preview = new $.imagePreview( "#gallery" );
-   		};
+		var serverName = "<%= serverName %>"; //localhost
+		var serverPort = "<%= serverPort %>"; //8081
+		var contextPath = "<%= contextPath %>"; //Project_1
+		var sionLoginId = "<%= sionLoginId %>"; //aa123
+		
+        (function ($) {      	
+        	var result = new Array();//路徑規劃結果
+			var nextimgcss=null;
+         	$(window).load(function() {
+	        	var area = $("#resp").val();
+	        	if(area=="北部"){$("#N").prop("selected",true);}
+	        	if(area=="南部"){$("#S").prop("selected",true);}
+	        	if(area=="東部"){$("#E").prop("selected",true);}
+	        	if(area=="中部"){$("#C").prop("selected",true);}
+	        	getViewDataByArea(area);
+			});
+        	
+        	$('#sel1').change(function(){
+    		 	area = $(this).val();
+    		 	getViewDataByArea(area);
+    		});
+        	
+        	function getViewDataByArea(area){
+        		var url = "viewnameServlet";
+                $.getJSON(url, {'area':area,'action':'GetAllByArea'}, function(datas){
+                	show(area, datas);
+            		window.setTimeout(initGalleryUL, 700);
+            		setmarker(datas);
+                });
+        	}
+        	
+        	function setmarker(datas){
+        			$('#map').tinyMap();//create instance first
+        			$('#map').tinyMap('clear','marker,direction');//clear overlay
+        		
+        			var addrs = [], vname = [], markers = [];	
+                	//抓取每個景點座標
+                	$.each(datas,function(i,item){
+                		//i->index
+                		//item -> item
+                		var a = [item.viewlng,item.viewlat];
+                		addrs[i] = a;
+                		vname[i] = item.viewname;
+                		//console.log(addrs[i]);
+                        //console.log(vname[i]);
+                	})
+                 	
+                	//set center order by viewlng(緯度)
+                	var center = addrs[14];                	   
+                	
+                	//將每個景點組成marker物件放入markers陣列
+                	for (var i = 0, max = addrs.length; i < max; i++) {
+                        markers[i] = { addr: addrs[i], text: vname[i]};
+                        //console.log("markers:"+markers[i]);
+                    }
+
+                	//更新地圖上的座標    
+                    $('#map').tinyMap('modify',{
+                        marker: markers
+                        //animation: 'DROP|BOUNCE'
+                    });
+                	
+                	//將地圖移到多個景點緯度介於中間的位置
+                    $('#map').tinyMap('panto', center).tinyMap('modify',{'zoom':8});
+        	}
+
+        	var preview=null;
+        	function initGalleryUL(){
+    			preview = new $.imagePreview( "#gallery" );
+    		};
         	
         	function show(area, datas){        		
 	        	$('#gallery').empty();//clear images in maindiv
@@ -1164,7 +1164,9 @@ figure, figcaption, h3, p {
  		  $(".td1").html("");	
      }
     //****************昱豪****************
-  })(jQuery);
+                
+                
+ })(jQuery);
         
 </script>
 </body>

@@ -86,4 +86,13 @@ public class viewnameService {
 	public String getViewLatlng(String viewID){
 		return dao.getViewLatlng(viewID);
 	}
+	
+	public Integer insertRouteByID(String memID, String routeName, java.sql.Date buildTime){
+		return dao.insertRouteByID(memID, routeName, buildTime);
+	}
+	
+	public String insertRouteViewByRouteID(Integer routeID, String routeResultView, Integer routeResultViewOrder){
+		return dao.insertRouteViewByRouteID(routeID, routeResultView, routeResultViewOrder);
+	}
+	
 }
