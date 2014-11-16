@@ -192,40 +192,90 @@
             <span class="icon-next"></span>
         </a>
     </header>
-	<div class="container" style="float:left;width:400px;margin-left:200px;">
+    
+    
+<!-- ************************** 昱豪登入     ************************** -->
+<!-- 	<div class="container" style="float:left;width:400px;margin-left:250px;"> -->
 	
-	    <form class="form-signin" role="form" method="post" action="login">
-	      <h2 class="form-signin-heading">Please sign in</h2>
-	      <label for="inputEmail" class="sr-only">Email address </label>
-	      <input type="text" id="inputEmail" name="inputLoginId" class="form-control" placeholder="Email address" required autofocus ><span style="color:red;">${errorMsgId}</span>
-	      <label for="inputPassword" class="sr-only">Password</label>
-	      <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>${errorMsgPwd}
-	      <div class="checkbox">
-	        <label>
-	          <input type="checkbox" value="remember-me"> Remember me
-	        </label>
-	      </div>
-	      <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginBtn">Sign in</button><span>${errorMSG }</span>
-	      <input type="hidden" name="action" value="LoginIdCheck">
-	    </form>
+<!-- 	    <form class="form-signin" role="form" method="post" action="login"> -->
+<!-- 	      <h2 class="form-signin-heading">Please sign in</h2> -->
+<!-- 	      <label for="inputEmail" class="sr-only">Email address </label> -->
+<%-- 	      <input type="text" id="inputEmail" name="inputLoginId" class="form-control" placeholder="Email address" required autofocus ><span style="color:red;">${errorMsgId}</span> --%>
+<!-- 	      <label for="inputPassword" class="sr-only">Password</label> -->
+<%-- 	      <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>${errorMsgPwd} --%>
+<!-- 	      <div class="checkbox"> -->
+<!-- 	        <label> -->
+<!-- 	          <input type="checkbox" value="remember-me"> Remember me -->
+<!-- 	        </label> -->
+<!-- 	      </div> -->
+<%-- 	      <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginBtn">Sign in</button><span>${errorMSG }</span> --%>
+<!-- 	      <input type="hidden" name="action" value="LoginIdCheck"> -->
+<!-- 	    </form> -->
 	
-	</div> <!-- /container -->
+<!-- 	</div> /container -->
 	<!-- Standard button -->
 
-<div style="margin-right:200px;margin-top:50px;">
-	<center>
-		<button type="button" class="btn btn-warning" style="width:200px;height:100px;border-radius:20px;background:-webkit-linear-gradient(30deg,orange,white)">註冊</button>
-		<br>
-		<br>
-		<button type="button" class="btn btn-warning" style="width:200px;height:100px;border-radius:20px;background:-webkit-linear-gradient(-150deg,orange,white)">忘記密碼</button>
-	</center>
+<!--  form-horizontal -->
+	<form class=" form-horizontal form-signin" role="form" action="login" style="width:800px;float:left;margin-left:500px;">
+	 <h2 class="form-signin-heading">Please sign in</h2>
+	  <div class="form-group">
+	    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+	    <div class="col-sm-10">
+	<!--       <input type="email" class="form-control" id="inputEmail3" placeholder="Email"> -->
+	      <input type="text" id="inputEmail" name="inputLoginId" class="form-control" placeholder="Email address" required autofocus ><span style="color:red;">${errorMsgId}</span>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+	    <div class="col-sm-10">
+	<!--     	<input type="password" class="form-control" id="inputPassword3" placeholder="Password"> -->
+				<input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>${errorMsgPwd}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <div class="checkbox">
+	        <label>
+	          <input type="checkbox"> Remember me
+	        </label>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	<!--       <button type="submit" class="btn btn-default">Sign in</button> -->
+	      <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginBtn">Sign in</button><span>${errorMSG }</span>
+		  <input type="hidden" name="action" value="LoginIdCheck">
+	    </div>
+	  </div>
+	
+		
+	</form>
+<div style="margin-top:80px;margin-left:950px;">
+	  	<button type="button" class="btn btn-warning" style="width:150px;height:70px;border-radius:20px;background:-webkit-linear-gradient(50deg,#FF8800,#DDDDDD);color:red;font-size:26px;font-weight:bold;">註&nbsp;冊</button>
+			<br>
+			<br>
+		<a href="../P7_ForgetPassWord/ForgetPassWord.jsp"><button type="button" class="btn btn-warning" style="width:150px;height:70px;border-radius:20px;background:-webkit-linear-gradient(50deg,#FF8800,#DDDDDD);color:red;font-size:26px;font-weight:bold;">忘記密碼</button></a>
 </div>
-</body>
 
 
 
 
-<!-- ************************************************* -->
+
+<!-- ************************** 昱豪登入     ************************** -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ***********************script************************** -->
    
 <!-- jQuery Version 1.11.0 -->
 <script src="../js/jquery-1.11.0.js"></script> 
@@ -271,4 +321,6 @@
 		
  	
 </script>
+
+</body>
 </html>

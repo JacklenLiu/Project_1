@@ -213,6 +213,13 @@
 		    <p><a href="javascript:selPlace.submit();" class="tooltip"  id="a33"><area id="a3" alt="" coords="95,186,97,189,91,194,100,201,85,208,82,230,76,255,81,251,84,253,80,260,75,260,70,268,70,276,74,28,70,294,78,308,87,309,82,331,80,339,73,336,68,339,66,331,68,316,58,296,35,282,26,270,15,238,13,231,4,226,9,220,12,192,11,181,20,180,40,172,50,173,59,178,70,172,78,184,90,183,91,188,88,198,101,208,110,210,117,218,126,221,126,204,135,189,139,189" onmouseover="document.getElementById('imgMap').src='images/map04.png';" onmouseout="document.getElementById('imgMap').src='images/map00.png';"  shape="polygon" /></a></p>
 		    <p><a href="javascript:selPlace.submit();" class="tooltip"  id="a44"><area id="a4" alt="" coords="164,102,157,122,150,125,153,136,147,156,130,212,130,223,117,244,113,251,112,258,108,262,100,264,87,307,79,310,70,299,75,287,71,265,84,259,83,251,72,234,86,207,97,199,99,184,116,166,115,143,120,126,126,123,121,114,127,110,129,99,140,100,153,96,164,102" onmouseover="document.getElementById('imgMap').src='images/map03.png';" onmouseout="document.getElementById('imgMap').src='images/map00.png';"  shape="polygon" /></a></p>
 		    <input type="text" name="action" id="sel" hidden/>
+		    <input type="text" name="actionW" id="sel0" hidden/>
+		    <input type="text" name="actionW" id="sel1" hidden/>
+		    <input type="text" name="actionW" id="sel2" hidden/>
+		    <input type="text" name="actionW" id="sel3" hidden/>
+		    <input type="text" name="actionW" id="sel4" hidden/>
+		    <input type="text" name="actionW" id="sel5" hidden/>
+		    <input type="text" name="actionW" id="sel6" hidden/>
 	   	</map>
 	   		
    	</form>
@@ -247,21 +254,10 @@
             </div>
         </footer>
 </div>
-<!-- ***每個地區******************************** -->
-<!-- <script src="../jquery/jquery-2.1.1.min.js"></script> -->
 
-  <!-- /.container -->
-
-    <!-- jQuery Version 1.11.0 -->
-    <script src="../js/jquery-1.11.0.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-
-    <!-- Script to Activate the Carousel -->
-    <script type="text/javascript">
-   
-// <script type="text/javascript">
+    
+<%@ include file="../platform/include_script.jsp" %>
+<script type="text/javascript">   
 (function ($) {
 	$("#a11").click(function(){$("#sel").prop("value","north");});
 	$("#a22").click(function(){$("#sel").prop("value","central");});
@@ -326,12 +322,12 @@
 //   				  name = locations[2].getElementsByTagName("name")[0].firstChild.nodeValue;
 // 			if(OverPlace==3)              				  
 //   				  name = locations[3].getElementsByTagName("name")[0].firstChild.nodeValue;
-  			 
   			var weather="";
   			for(var j=0;j<7;j++){
 			  	weather = locations[OverPlace].getElementsByTagName("text")[j].firstChild.nodeValue;
 			  	//str += "<h2>" + name + "," + weather + "</h2>";
 			  	//alert(weather);
+			  	var arr =["#sel0","#sel1","#sel2","#sel3","#sel4","#sel5","#sel6"];
        	 		var opt="";
        	 		if(weather=="多雲")
 				 	opt = $("<td title='多雲'></td>").html("<img src='images/02.gif'>");
@@ -349,7 +345,9 @@
 					opt = $("<td title='多雲時陰短暫雨'></td>").html("<img src='images/18.gif'>");
        			if(weather=="陰時多雲短暫雨"  || weather=="陰短暫雨")
 					opt = $("<td title='陰時多雲短暫雨'></td>").html("<img src='images/26.gif'>");
-       	 		
+       			
+       			
+       			$(arr[j]).prop("value",weather);
           	  	$('.weather').append(opt);
   			} 
   			
@@ -512,11 +510,6 @@
           $(".weather>td[class!='td1']").remove();
 	}
 	
-	$('.nav .dropdown').hover(function() {
-        $(this).addClass('open');
-    }, function() {
-        $(this).removeClass('open');
-    });
 	
 	
 })(jQuery);

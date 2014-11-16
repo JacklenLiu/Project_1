@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ include file="../platform/include_start.jsp"%>
+
 
 <!-- 1.使用Date因為要抓建立文章的時期 -->
 <%@ page import="java.util.*"%>
@@ -12,6 +12,13 @@
 	Date date = new Date();
 	java.util.Date right = new java.util.Date();
 %>
+	<%
+		Object sionName = session.getAttribute("userName");
+		Object sionLoginId = session.getAttribute("userLoginId");
+		Object serverName = request.getServerName();
+		Object serverPort = request.getServerPort();
+		Object contextPath = request.getContextPath();
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -21,13 +28,13 @@
 
 <!-- Bootstrap 的 RWD 套件 -->
 <!-- 載入Bootstrap css樣式 -->
-<!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+<link rel="stylesheet" href="css/bootstrap.css">
 <!-- 使用 RWD 功能 -->
 <!-- 文字編輯器css樣式 -->
 <link rel="stylesheet" href="css/summernote.css">
 <link rel="stylesheet" href="css/codemirror.css">
 <!-- 圖案icon -->
-<!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+<link rel="stylesheet" href="css/font-awesome.min.css">
 <!-- sweetalert -->
 <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
 <link rel="stylesheet" href="seeetalertcss/sweet-alert.css">
@@ -189,6 +196,10 @@
 
 	<!-- ************************/載入 jQuery bootstrap  summernote js套件************************ -->
 	<script type="text/javascript">
+	   $('.carousel').carousel({
+	        interval: 5000 //changes the speed
+	    });
+	    
 		//上方工具列滑鼠滑入自動彈出
 		$('.nav .dropdown').hover(function() {
 			$(this).addClass('open');

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <%@ include file="../platform/include_start.jsp" %>
@@ -24,7 +25,7 @@
 			height:150px;
 		}
 		
-#gallery { float: left; /*width: 65%*/ width:440px; min-height: 12em; /*for grid*/ margin: 0 20px 0 30px; padding: 0;  list-style: none; overflow: auto; height:525px}
+#gallery { float: left; /*width: 65%*/ width:440px; min-height: 12em; /*for grid*/ margin-left: 30px; padding: 0;  list-style: none; overflow: auto; height:525px}
 .gallery.custom-state-active { background: #eee; }
   .gallery li { float: left; width: 415px; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden; display: block;}
   .gallery li h5 { margin: 0 0 0.4em; cursor: move;}
@@ -128,7 +129,7 @@ figure, figcaption, h3, p {
 
 
 #mapdiv{
-		margin: 0px 20px 0px 10px;
+		margin: 0px 10px 0px 10px;
         height: 450px;
         width: 410px;
         float: left;
@@ -151,6 +152,15 @@ figure, figcaption, h3, p {
 	float:right;
 	margin-right:30px;
 }
+
+.saveRoute{
+	color:silver;
+}
+/*dialog css*/
+.validateTips { border: 1px solid transparent; padding: 0.3em; text-align:center;}
+#dialog-save input { display:block; }
+#dialog-save input.text { margin-bottom:12px; width:95%; padding: .4em; }
+
     </style>
    
 	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
@@ -313,14 +323,39 @@ figure, figcaption, h3, p {
     </header>
 
 <!-- ******************************************************************* -->
- 
-    <img src = "images/02.gif" /> 欲選擇其他地區
-	<select  id="sel1">
+ <div>
+    <img src = "images/02.gif" />欲選擇其他地區
+	<select id="sel1" >
 		<option value="北部" id="N">北部</option>
   		<option value="中部" id="C">中部</option>
   		<option value="南部" id="S">南部</option>
   		<option value="東部" id="E">東部</option>
 	</select>
+	<table class="tooltip1" border="0" cellspacing="0" cellpadding="0" style="width:400px;margin-bottom:10px;">
+	    <tr style="background-color: pink;">
+	        <td></td>                
+	        <%
+	        	String s[]={"星期日","星期一","星期二","星期三","星期四","星期五","星期六","星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
+	        	String newS[] = new String[7];
+	       		for(int i = 0 ; i<=6 ; i++){
+	       			//System.out.println(today);
+	        		newS[i] = s[today++];        		
+	        	}                
+	        %>
+	        <td><%= newS[0]%></td>
+	        <td><%= newS[1]%></td>
+	        <td><%= newS[2]%></td>
+	        <td><%= newS[3]%></td>
+	        <td><%= newS[4]%></td>
+	        <td><%= newS[5]%></td>
+	        <td><%= newS[6]%></td>
+	    </tr>
+	    <tr class="weather">         
+	        <td class='td1'></td>  
+	    </tr>
+	</table>
+</div>	
+	
 	<!-- 放抓到的area值 -->
 	<input type="text" id="resp" value="${area}" hidden/>
 	<input type="text" id="respPath" value="${path}" hidden/>
@@ -339,10 +374,19 @@ figure, figcaption, h3, p {
 	<label>目的地</label><select id="endid"></select>
 	<br>
 	<input type="button" id="computeRoute" value="開始規劃"/>
+	<input type="button" id="saveRoute" class="saveRoute" value="儲存路徑" disabled/>
 	</span>
 
 </div>
 
+<div id="dialog-save" title="儲存路線">
+  <h2 class="validateTips">路線名稱</h2>
+  <input type="text" name="routeName" id="routeName" value="墾丁一日遊" class="text ui-widget-content ui-corner-all">
+</div>
+<div id="dialog-savefinished" title="儲存成功">
+  <h2 class="validateTips">儲存成功</h2>
+</div>
+<%@ include file="../platform/include_script.jsp" %>
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 <script src='../Script/jquery-ui.js'></script>	
@@ -350,74 +394,76 @@ figure, figcaption, h3, p {
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
 <script src='../Script/jquery.tinyMap.js'></script>
 <script>
-		var serverName = "<%= serverName %>"; //localhost
-		var serverPort = "<%= serverPort %>"; //8081
-		var contextPath = "<%= contextPath %>"; //Project_1
-		
-        (function ($) {      	
-			var nextimgcss=null;
-         	$(window).load(function() {
-	        	var area = $("#resp").val();
-	        	if(area=="北部"){$("#N").prop("selected",true);}
-	        	if(area=="南部"){$("#S").prop("selected",true);}
-	        	if(area=="東部"){$("#E").prop("selected",true);}
-	        	if(area=="中部"){$("#C").prop("selected",true);}
-	        	getViewDataByArea(area);
-			});
+	var serverName = "<%= serverName %>"; //localhost
+	var serverPort = "<%= serverPort %>"; //8081
+	var contextPath = "<%= contextPath %>"; //Project_1
+		var sionLoginId = "<%= sionLoginId %>"; //aa123
+	
+    (function ($) {      	
+        	var result = new Array();//路徑規劃結果
+		var nextimgcss=null;
+	    $(window).load(function() {
+	       	var area = $("#resp").val();
+	       	if(area=="北部"){$("#N").prop("selected",true);}
+	       	if(area=="南部"){$("#S").prop("selected",true);}
+	       	if(area=="東部"){$("#E").prop("selected",true);}
+	       	if(area=="中部"){$("#C").prop("selected",true);}
+	       	getViewDataByArea(area);
+		});
         	
-        	$('#sel1').change(function(){
-    		 	area = $(this).val();
-    		 	getViewDataByArea(area);
-    		});
+       	$('#sel1').change(function(){
+   		 	area = $(this).val();
+   		 	getViewDataByArea(area);
+   		});
+       	
+       	function getViewDataByArea(area){
+       		var url = "viewnameServlet";
+               $.getJSON(url, {'area':area,'action':'GetAllByArea'}, function(datas){
+               	show(area, datas);
+           		window.setTimeout(initGalleryUL, 700);
+           		setmarker(datas);
+               });
+       	}
         	
-        	function getViewDataByArea(area){
-        		var url = "viewnameServlet";
-                $.getJSON(url, {'area':area,'action':'GetAllByArea'}, function(datas){
-                	show(area, datas);
-            		window.setTimeout(initGalleryUL, 700);
-            		setmarker(datas);
-                });
-        	}
-        	
-        	function setmarker(datas){
-        			$('#map').tinyMap();//create instance first
-        			$('#map').tinyMap('clear','marker,direction');//clear overlay
-        		
-        			var addrs = [], vname = [], markers = [];	
-                	//抓取每個景點座標
-                	$.each(datas,function(i,item){
-                		//i->index
-                		//item -> item
-                		var a = [item.viewlng,item.viewlat];
-                		addrs[i] = a;
-                		vname[i] = item.viewname;
-                		//console.log(addrs[i]);
-                        //console.log(vname[i]);
-                	})
-                 	
-                	//set center order by viewlng(緯度)
-                	var center = addrs[14];                	   
-                	
-                	//將每個景點組成marker物件放入markers陣列
-                	for (var i = 0, max = addrs.length; i < max; i++) {
-                        markers[i] = { addr: addrs[i], text: vname[i]};
-                        //console.log("markers:"+markers[i]);
-                    }
+	   	function setmarker(datas){
+	   			$('#map').tinyMap();//create instance first
+	   			$('#map').tinyMap('clear','marker,direction');//clear overlay
+	   		
+	   			var addrs = [], vname = [], markers = [];	
+	           	//抓取每個景點座標
+	           	$.each(datas,function(i,item){
+	           		//i->index
+	           		//item -> item
+	           		var a = [item.viewlng,item.viewlat];
+	           		addrs[i] = a;
+	           		vname[i] = item.viewname;
+	           		//console.log(addrs[i]);
+	                   //console.log(vname[i]);
+	           	})
+	            	
+	           	//set center order by viewlng(緯度)
+	           	var center = addrs[14];                	   
+	           	
+	           	//將每個景點組成marker物件放入markers陣列
+	           	for (var i = 0, max = addrs.length; i < max; i++) {
+	                   markers[i] = { addr: addrs[i], text: vname[i]};
+	                   //console.log("markers:"+markers[i]);
+	               }
+	
+	           	//更新地圖上的座標    
+	               $('#map').tinyMap('modify',{
+	                   marker: markers
+	                   //animation: 'DROP|BOUNCE'
+	               });
+	           	
+	           	//將地圖移到多個景點緯度介於中間的位置
+	               $('#map').tinyMap('panto', center).tinyMap('modify',{'zoom':8});
+	   	}
 
-                	//更新地圖上的座標    
-                    $('#map').tinyMap('modify',{
-                        marker: markers
-                        //animation: 'DROP|BOUNCE'
-                    });
-                	
-                	//將地圖移到多個景點緯度介於中間的位置
-                    $('#map').tinyMap('panto', center).tinyMap('modify',{'zoom':8});
-        	}
-
-        	var preview=null;
-        	function initGalleryUL(){
-    			preview = new $.imagePreview( "#gallery" );
-    		};
+       	var preview=null;
+       	function initGalleryUL(){
+   			preview = new $.imagePreview( "#gallery" );
+   		};
         	
         	function show(area, datas){        		
 	        	$('#gallery').empty();//clear images in maindiv
@@ -767,6 +813,10 @@ figure, figcaption, h3, p {
                 
                 //路徑規劃
                 $("#computeRoute").click(function(){
+                	//
+                	$('#saveRoute').prop("disabled", false)
+                				   .removeClass("saveRoute");
+                	
                 	var allMarkersAfterOrder = new Array();
                 	var waypoints = new Array();
                 	
@@ -789,7 +839,6 @@ figure, figcaption, h3, p {
                 	
                 	
                 	//取得路徑計算結果
-                	var result = new Array();
                 	result.push(start);
                 	computeRoute(allMarkers, nowmarker, allMarkersAfterOrder);
                 	result.push(end);
@@ -940,8 +989,183 @@ figure, figcaption, h3, p {
                 	}//end of createMarker
                 	
                 });//end of computeRoute button click eventHandler
-        })(jQuery);
+                
+                
+              //儲存路徑
+              var dialog = $( "#dialog-save" ).dialog({
+                    autoOpen: false,
+                    height: 300,
+                    width: 350,
+                    modal: true,
+                    buttons: {
+                      "儲存": function(){
+                    	//產生json字串送到server
+                    	//{"memID":"id", "routeName":"routename", "routeResult":[...,...]}
+                    	var routeJSON ={"memID": sionLoginId,
+                    					"routeName": $('#dialog-save :text').val(),
+                    					"routeResult": result};
+                    	console.log(JSON.stringify(routeJSON));
+                    	$.ajax({
+                    		  "type": 'POST',
+                    		  "url": 'viewnameServlet',
+                    		  "data": {"action":"saveRoute", "routeJSONStr": JSON.stringify(routeJSON)},
+                    		  "async":false,
+                    		  "success":function(datas){
+                    				  dialog.dialog( "close" );
+                    				  dialog1.dialog( "open" );
+                    		  }
+                    		});
+                      },
+                      "取消": function() {
+                        dialog.dialog( "close" );
+                      }
+                    },
+                    close: function() {
+                    }
+                  });
+                
+              var dialog1 = $( "#dialog-savefinished" ).dialog({
+                  autoOpen: false,
+                  height: 300,
+                  width: 350,
+                  modal: true,
+                  buttons: {
+                    "確定": function(){
+                  		//產生json字串送到server
+                  		dialog1.dialog( "close" );
+                    }
+                  },
+                  close: function() {
+                  }
+                });
+              
+                $("#saveRoute").click(function(){
+                	dialog.dialog( "open" );
+                });
+                
+     //****************昱豪****************
+     	var OverPlace="";
+       	var area = $("#resp").val();
+     	var listWeather = ["${listWeather[0]}","${listWeather[1]}","${listWeather[2]}","${listWeather[3]}","${listWeather[4]}","${listWeather[5]}","${listWeather[6]}"];
+     	if(area == "北部"){
+      		overP(OverPlace);
+      		$(".td1").append("北部");
+      		appendWeather();
+		}
+     	if(area == "中部"){
+      		overP(OverPlace);
+      		$(".td1").append("中部");
+      		appendWeather();
+		}
+     	if(area == "南部"){
+      		overP(OverPlace);
+      		$(".td1").append("南部");
+      		appendWeather();
+		}
+     	if(area == "東部"){
+      		overP(OverPlace);
+      		$(".td1").append("東部");
+      		appendWeather();
+		}
+     	
+     	function appendWeather(){
+     		for(var j=0;j<7;j++){
+     			weather= listWeather[j];
+          	 	var opt="";
+          	 	if(weather=="多雲")
+   				 	opt = $("<td title='多雲'></td>").html("<img src='images/02.gif'>");
+   	       	 	if(weather=="多雲時陰")
+   					opt = $("<td title='多雲時陰'></td>").html("<img src='images/05.gif'>");
+   	       	 	if(weather=="陰時多雲")
+   	  				opt = $("<td title='陰時多雲'></td>").html("<img src='images/06.png'>");
+   	       	 	if(weather=="多雲時晴")
+   					opt = $("<td title='多雲時晴'></td>").html("<img src='images/07.gif'>");
+      	 		if(weather=="晴時多雲")
+					opt = $("<td title='晴時多雲'></td>").html("<img src='images/08.gif'>");
+      			if(weather=="多雲短暫雨")
+						opt = $("<td title='多雲短暫雨'></td>").html("<img src='images/12.gif'>");
+      			if(weather=="多雲時陰短暫雨")
+						opt = $("<td title='多雲時陰短暫雨'></td>").html("<img src='images/18.gif'>");
+      			if(weather=="陰時多雲短暫雨"  || weather=="陰短暫雨")
+						opt = $("<td title='陰時多雲短暫雨'></td>").html("<img src='images/26.gif'>");
+          	 		
+             	$('.weather').append(opt);
+ 			} 
+     	}
+     	
+       	$("#sel1").change(function () {
+    	   	var selPlace = $("#sel1").val();
+    	   	$(".weather > td[class!='td1']").remove();
+    	  	if(selPlace == "北部"){
+	          	OverPlace=1;
+	          	overP(OverPlace);
+	          	$(".td1").append("北部");
+       		}
+    	  	if(selPlace == "中部"){
+    	  		OverPlace=2;
+    	        overP(OverPlace);
+    	        $(".td1").append("中部");   
+        	}
+    	  	if(selPlace == "南部"){
+    	  		OverPlace=3;
+    	        overP(OverPlace);
+    	        $(".td1").append("南部");
+        	}
+    	  	if(selPlace == "東部"){
+    	  		OverPlace=5;
+                overP(OverPlace);
+            	$(".td1").append("東部");
+        	}
+	   });
+
+       document.getElementById("sel1").addEventListener("change",load,false);
+                
+       var xhr = null;
+       function load(){
+      	  xhr = new XMLHttpRequest();
+      	  xhr.addEventListener("readystatechange",callback,false);
+      	  xhr.open("get","xml/F-C0032-003.xml",true);
+      	  xhr.send();
+       }
         
-    </script>
+       function callback(){
+     	  if(xhr.readyState == 4){
+     		if(xhr.status == 200){  			
+   		  		var data = xhr.responseXML;
+   		 		var locations = data.getElementsByTagName("location");
+     			var weather="";
+     			for(var j=0;j<7;j++){
+	   			  	weather = locations[OverPlace].getElementsByTagName("text")[j].firstChild.nodeValue;
+	          	 	var opt="";
+	          	 	if(weather=="多雲")
+	   				 	opt = $("<td title='多雲'></td>").html("<img src='images/02.gif'>");
+	   	       	 	if(weather=="多雲時陰")
+	   					opt = $("<td title='多雲時陰'></td>").html("<img src='images/05.gif'>");
+	   	       	 	if(weather=="陰時多雲")
+	   	  				opt = $("<td title='陰時多雲'></td>").html("<img src='images/06.png'>");
+	   	       	 	if(weather=="多雲時晴")
+	   					opt = $("<td title='多雲時晴'></td>").html("<img src='images/07.gif'>");
+          	 		if(weather=="晴時多雲")
+    					opt = $("<td title='晴時多雲'></td>").html("<img src='images/08.gif'>");
+          			if(weather=="多雲短暫雨")
+   						opt = $("<td title='多雲短暫雨'></td>").html("<img src='images/12.gif'>");
+          			if(weather=="多雲時陰短暫雨")
+   						opt = $("<td title='多雲時陰短暫雨'></td>").html("<img src='images/18.gif'>");
+          			if(weather=="陰時多雲短暫雨"  || weather=="陰短暫雨")
+   						opt = $("<td title='陰時多雲短暫雨'></td>").html("<img src='images/26.gif'>");
+	          	 		
+	             	$('.weather').append(opt);
+     			} 
+     			
+      		}	
+       	}
+   	 }
+     function overP(OverPlace){
+ 		  $(".td1").html("");	
+     }
+    //****************昱豪****************
+  })(jQuery);
+        
+</script>
 </body>
 </html>

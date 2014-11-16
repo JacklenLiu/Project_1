@@ -14,67 +14,64 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" href="styles/msg.css">
 <link rel="stylesheet" href="styles/showmsg.css">
 
-<script type="text/javascript" src="Scripts/msg.js"></script>
-<script type="text/javascript" src="Scripts/showmsg.js"></script>
 <title>ALL message</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>!window.jQuery && document.write("<script src='Scripts/jquery-2.1.1.min.js'><\/script>")</script>
-
+<script type="text/javascript" src="Scripts/msg.js"></script>
+<script type="text/javascript" src="Scripts/showmsg.js"></script>
 <script type="text/javascript">
-
 
 
 function ShowReply(x){
 	//alert("第"+ x); // 第x個textarea
-var ta = document.getElementById(x);
-var ta2 = document.getElementById("resp"+x);
-var theDIV3 = document.getElementById("div"+x); //找到div3所在的<div>
-//alert(ta.value);
+	var ta = document.getElementById(x);
+	var ta2 = document.getElementById("resp"+x);
+	var theDIV3 = document.getElementById("div"+x); //找到div3所在的<div>
+	//alert(ta.value);
+	
+	var content = ta.value;
+	var rr = ta2.value;
+	
+	//cite0
+	//img
+	var cite0=document.createElement("cite");
+	var eleImg = document.createElement("img");//想放進去的圖片
+	eleImg.setAttribute("src", "images/pic0.jpg");
+	eleImg.setAttribute("width", "25");
+	eleImg.setAttribute("height", "25");
+	cite0.appendChild(eleImg); //把圖片放在<cite>下   把<img>放在<cite>下
+	//回應者姓名
+	// var responser=document.createTextNode("回應者的姓名:");//想放進去的文字內容    請動態抓姓名~~~  ${myinfo}
+	var responser=document.createTextNode(rr);
+	cite0.appendChild(responser); //放姓名
 
-var content = ta.value;
-var rr = ta2.value;
+	var br0=document.createElement("br");
+	cite0.appendChild(br0); //換行
 
-//cite0
-//img
-var cite0=document.createElement("cite");
-var eleImg = document.createElement("img");//想放進去的圖片
-eleImg.setAttribute("src", "images/pic0.jpg");
-eleImg.setAttribute("width", "25");
-eleImg.setAttribute("height", "25");
-cite0.appendChild(eleImg); //把圖片放在<cite>下   把<img>放在<cite>下
-//回應者姓名
-// var responser=document.createTextNode("回應者的姓名:");//想放進去的文字內容    請動態抓姓名~~~  ${myinfo}
-var responser=document.createTextNode(rr);
-cite0.appendChild(responser); //放姓名
-
-var br0=document.createElement("br");
-cite0.appendChild(br0); //換行
-
-var txtP=document.createTextNode(content);//想放進去的文字內容
-cite0.appendChild(txtP); //放回應內容
-
-
-//span0
-var span0=document.createElement("span");
-var nowtime = new Date();//現在時間
-var nowtime2 = nowtime.getFullYear()+"-" +(nowtime.getMonth()+1)+"-"+nowtime.getDate();
-var nowtime3=document.createTextNode(nowtime2);//想放進去的文字內容
-//alert(nowtime2);
-span0.setAttribute("class", "timestamp"); //設定class屬性
-span0.appendChild(nowtime3);
-
-var p0=document.createElement("P");   //把cite和span放在p之中
-p0.appendChild(cite0);
-p0.appendChild(span0);
-p0.setAttribute("class", "message_head message_replycolor");
+	var txtP=document.createTextNode(content);//想放進去的文字內容
+	cite0.appendChild(txtP); //放回應內容
 
 
-theDIV3.insertBefore(p0, theDIV3.childNodes[0])
+	//span0
+	var span0=document.createElement("span");
+	var nowtime = new Date();//現在時間
+	var nowtime2 = nowtime.getFullYear()+"-" +(nowtime.getMonth()+1)+"-"+nowtime.getDate();
+	var nowtime3=document.createTextNode(nowtime2);//想放進去的文字內容
+	//alert(nowtime2);
+	span0.setAttribute("class", "timestamp"); //設定class屬性
+	span0.appendChild(nowtime3);
+	
+	var p0=document.createElement("P");   //把cite和span放在p之中
+	p0.appendChild(cite0);
+	p0.appendChild(span0);
+	p0.setAttribute("class", "message_head message_replycolor");
+	
+	
+	theDIV3.insertBefore(p0, theDIV3.childNodes[0]);
 
 }
 
@@ -362,6 +359,6 @@ theDIV3.insertBefore(p0, theDIV3.childNodes[0])
 <p class="collapse_buttons"><a href="#" class="show_all_message">顯示全部留言</a> <a href="#" class="show_recent_only">只顯示最新5筆留言</a> <a href="#" class="collpase_all_message">只顯示留言標題</a></p>
 
 </div>		
-
+<%@ include file="../platform/include_script.jsp" %>
 </body>
 </html>
