@@ -1006,6 +1006,8 @@ figure, figcaption, h3, p {
                     "確定": function(){
                   		//產生json字串送到server
                   		dialog1.dialog( "close" );
+                  		//'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+imgarea+ item.viewID + '_01'
+                  		window.location.href = "http://" + serverName + ":" + serverPort + contextPath +"/P2_route" + "/viewnameServlet?action=GetRouteByMemID&memID=" + sionLoginId;
                     }
                   },
                   close: function() {

@@ -95,4 +95,15 @@ public class viewnameService {
 		return dao.insertRouteViewByRouteID(routeID, routeResultView, routeResultViewOrder);
 	}
 	
+	public String getRouteByMemID(String memID){
+		return dao.getRouteByMemID(memID);
+	}
+	
+	public String getRouteOrderByRouteID(Integer routeID){
+		return dao.getRouteOrderByRouteID(routeID);
+	}
+	
+	public String getRouteFisrtByRouteID(Integer routeID){
+		return dao.getRouteFisrtByRouteID(routeID);
+	}
 }

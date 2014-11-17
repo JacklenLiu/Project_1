@@ -41,6 +41,10 @@ public class viewnameDAO implements viewnameDAO_interface {
 	private static final String GET_LATLNG_STMT_VIEWID ="SELECT viewlat,viewlng FROM viewname where viewID=?";
 	private static final String INSERT_ROUTE_STMT_MEMID ="INSERT INTO route Values (?,?,?)";
 	private static final String INSERT_ROUTEVIEW_STMT_ROUTEID ="INSERT INTO RouteView Values (?,?,?)";
+	private static final String GET_ROUTE_STMT_MEMID ="SELECT routeID, routeName, buildTime FROM route where member_loginID=?  order by buildTime desc";
+	private static final String GET_ROUTEORDER_STMT_ROUTEID ="SELECT viewID, RouteViewOrder FROM routeView where routeID=?  order by RouteViewOrder";
+	private static final String GET_ROUTEFIRST_STMT_ROUTEID ="SELECT top(1) viewID FROM routeView where routeID=?  order by RouteViewOrder";
+	
 	
 	@Override
 	public void insert(viewnameVO vnVO) {
@@ -391,5 +395,161 @@ public class viewnameDAO implements viewnameDAO_interface {
 			}
 		}
 		return status;
+	}
+
+	@Override
+	public String getRouteByMemID(String memID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<String> cols = new ArrayList<String>();
+		String memRouteStr="";
+		
+try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ROUTE_STMT_MEMID);	
+			
+			pstmt.setString(1, memID);
+			rs = pstmt.executeQuery();
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int count = rsmd.getColumnCount();
+			for(int i = 1; i <= count; i++) {
+				cols.add(rsmd.getColumnLabel(i));
+			}
+			
+			JSONArray jsonArray = new JSONArray();
+			JSONObject jsonObj;
+			while(rs.next()){
+				jsonObj = new JSONObject();
+				jsonObj.put(cols.get(0), rs.getString(1));//routeID
+				jsonObj.put(cols.get(1), rs.getString(2));//routeName
+				jsonObj.put(cols.get(2), rs.getString(3));//buildTime
+				jsonArray.put(jsonObj);
+			}
+			
+			memRouteStr = jsonArray.toString();
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}catch (JSONException e) {
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}		
+		return memRouteStr;
+	}
+
+	@Override
+	public String getRouteOrderByRouteID(Integer routeID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<String> cols = new ArrayList<String>();
+		String routeOrder="";
+		
+try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ROUTEORDER_STMT_ROUTEID);	
+			
+			pstmt.setInt(1, routeID);
+			rs = pstmt.executeQuery();
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int count = rsmd.getColumnCount();
+			for(int i = 1; i <= count; i++) {
+				cols.add(rsmd.getColumnLabel(i));
+			}
+			
+			JSONArray jsonArray = new JSONArray();
+			JSONObject jsonObj;
+			while(rs.next()){
+				jsonObj = new JSONObject();
+				jsonObj.put(cols.get(0), rs.getString(1));//viewID
+				jsonObj.put(cols.get(1), rs.getInt(2));//RouteViewOrder
+				jsonArray.put(jsonObj);
+			}
+			
+			routeOrder = jsonArray.toString();
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}catch (JSONException e) {
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}		
+		return routeOrder;
+	}
+
+	@Override
+	public String getRouteFisrtByRouteID(Integer routeID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String routeFirst="";
+		
+try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ROUTEFIRST_STMT_ROUTEID);	
+			
+			pstmt.setInt(1, routeID);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				routeFirst = rs.getString(1);
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}		
+		return routeFirst;
 	}
 }

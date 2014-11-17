@@ -70,12 +70,35 @@ public class viewnameServlet extends HttpServlet {
 				}else{
 					out.println("fail");
 				}
-//				System.out.println(memID);
-//				System.out.println(routeName);
-//				System.out.println(routeResult);
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
+		}
+		
+		if("GetRouteByMemID".equals(action)){
+			String memID = request.getParameter("memID");
+			viewnameService vnService = new viewnameService();
+			String memRoute = vnService.getRouteByMemID(memID);
+			//out.println(memRoute);
+			request.setAttribute("memRoute", memRoute);
+			//轉頁到 會員路線
+			String url = "route_memberRoute.jsp";
+			RequestDispatcher rd = request.getRequestDispatcher(url);
+			rd.forward(request, response);			
+		}
+		
+		if("GetRouteOrderByRouteID".equals(action)){
+			Integer routeID = Integer.parseInt(request.getParameter("routeID"));
+			viewnameService vnService = new viewnameService();
+			String routeOrder = vnService.getRouteOrderByRouteID(routeID);
+			out.println(routeOrder);
+		}
+		
+		if("GetRouteFisrtByRouteID".equals(action)){
+			Integer routeID = Integer.parseInt(request.getParameter("routeID"));
+			viewnameService vnService = new viewnameService();
+			String routeFisrt = vnService.getRouteFisrtByRouteID(routeID);
+			out.println(routeFisrt);
 		}
 		
 		if("GetLatlngById".equals(action)){

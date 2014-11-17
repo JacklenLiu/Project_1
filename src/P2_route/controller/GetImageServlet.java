@@ -42,16 +42,28 @@ public class GetImageServlet extends HttpServlet {
 		Connection conn= null;
 		OutputStream os = null;
 		
-		String id = request.getParameter("id");
+		final String GET_IMG_STMT_IMGID ="SELECT images_format, imgSrc  FROM images where imagesID = ?";
+		final String GET_IMG_STMT_IMGIDLIKE ="SELECT top(1) images_format, imgSrc  FROM images where imagesID like ?";
+		Boolean getByLike = false;
 		
+		String id = request.getParameter("id");
+		String sqlstmt = GET_IMG_STMT_IMGID;
+		if(!(id.contains("C_")||id.contains("E_")||id.contains("N_")||id.contains("S_"))){
+			sqlstmt = GET_IMG_STMT_IMGIDLIKE;
+			getByLike = true;
+		}
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource)context.lookup("java:comp/env/jdbc/Project_1");
 			conn = ds.getConnection();
 			PreparedStatement pstmt = null;
 			
-			pstmt = conn.prepareStatement("SELECT images_format, imgSrc  FROM images where imagesID = ?");
-			pstmt.setString(1, id);
+			pstmt = conn.prepareStatement(sqlstmt);
+			if(getByLike!=true){//getByID
+				pstmt.setString(1, id);
+			}else{
+				pstmt.setString(1, "%"+id+"%");
+			}
 			ResultSet rs = pstmt.executeQuery();
 			
 			

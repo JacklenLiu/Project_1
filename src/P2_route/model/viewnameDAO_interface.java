@@ -13,4 +13,7 @@ public interface viewnameDAO_interface {
     public String insertRouteViewByRouteID(Integer routeID, String routeResultView, Integer routeResultViewOrder);
     public String getImgTop6();
     public String getViewLatlng(String viewID);
+    public String getRouteByMemID(String memID);
+    public String getRouteOrderByRouteID(Integer routeID);
+    public String getRouteFisrtByRouteID(Integer routeID);
 }
