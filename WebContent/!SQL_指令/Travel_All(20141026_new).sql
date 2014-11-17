@@ -850,6 +850,21 @@ insert into questions values ('你覺得路上的街友行乞都是騙人的嗎�
 
 
 
+CREATE TABLE ContactUs(
+  contactUsId			int IDENTITY(1,1)  	not null,
+  contactUsName			nvarchar(60)        not null,
+  contactUsMail			nvarchar(40)  		not null,
+  contactUsDate			datetime			not null,
+  contactUsSubject		nvarchar(20)		not null,
+  contactUsContent		nvarchar(300)		not null,				
+
+);
+
+
+
+
+
+
  alter table [dbo].[messageboard] with check add constraint
  [FK_messageboard_sysmember]foreign key ([member_loginID])
  references sysmember([member_loginID])
