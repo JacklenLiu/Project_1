@@ -9,10 +9,21 @@
 
 <head>
 		<!-- Bootstrap core CSS -->
-  	<!-- Custom styles for this template -->
+  		<!-- Custom styles for this template -->
   		<link href="css/signin.css" rel="stylesheet">
   		<script src="js/ie-emulation-modes-warning.js"></script>
+  		
+<style>
 
+	.form-group .glyphicon {
+     display:none; 
+    right: 30px;
+    position: absolute;
+    top: 12px;
+    cursor:pointer;
+    
+}
+</style>
 	
 </head>
 
@@ -216,48 +227,49 @@
 	<!-- Standard button -->
 
 <!--  form-horizontal -->
-	<form class=" form-horizontal form-signin" role="form" action="login" style="width:800px;float:left;margin-left:500px;">
-	 <h2 class="form-signin-heading">Please sign in</h2>
-	  <div class="form-group">
-	    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-	    <div class="col-sm-10">
-	<!--       <input type="email" class="form-control" id="inputEmail3" placeholder="Email"> -->
-	      <input type="text" id="inputEmail" name="inputLoginId" class="form-control" placeholder="Email address" required autofocus ><span style="color:red;">${errorMsgId}</span>
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-	    <div class="col-sm-10">
-	<!--     	<input type="password" class="form-control" id="inputPassword3" placeholder="Password"> -->
-				<input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>${errorMsgPwd}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <div class="col-sm-offset-2 col-sm-10">
-	      <div class="checkbox">
-	        <label>
-	          <input type="checkbox"> Remember me
-	        </label>
-	      </div>
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <div class="col-sm-offset-2 col-sm-10">
-	<!--       <button type="submit" class="btn btn-default">Sign in</button> -->
-	      <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginBtn">Sign in</button><span>${errorMSG }</span>
-		  <input type="hidden" name="action" value="LoginIdCheck">
-	    </div>
-	  </div>
+
+
+
+<!-- 	<form class=" form-horizontal form-signin" role="form" action="login" style="width:800px;float:left;margin-left:500px;"> -->
+<!-- 	 <h2 class="form-signin-heading">Please sign in</h2> -->
+<!-- 	  <div class="form-group"> -->
+<!-- 	    <label for="inputEmail3" class="col-sm-2 control-label">Email</label> -->
+<!-- 	    <div class="col-sm-10"> -->
+<%-- 	      <input type="text" id="inputEmail" name="inputLoginId" class="form-control" placeholder="Email address" required autofocus ><span style="color:red;">${errorMsgId}</span> --%>
+<!-- 	    </div> -->
+<!-- 	  </div> -->
+<!-- 	  <div class="form-group"> -->
+<!-- 	    <label for="inputPassword3" class="col-sm-2 control-label">Password</label> -->
+<!-- 	    <div class="col-sm-10"> -->
+<%-- 				<input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>${errorMsgPwd} --%>
+<!-- 	    		<span class="glyphicon glyphicon-eye-open"></span> -->
+<!-- 	    </div> -->
+<!-- 	  </div> -->
+<!-- 	  <div class="form-group"> -->
+<!-- 	    <div class="col-sm-offset-2 col-sm-10"> -->
+<!-- 	      <div class="checkbox"> -->
+<!-- 	        <label> -->
+<!-- 	          <input type="checkbox"> Remember me -->
+<!-- 	        </label> -->
+<!-- 	      </div> -->
+<!-- 	    </div> -->
+<!-- 	  </div> -->
+<!-- 	  <div class="form-group"> -->
+<!-- 	    <div class="col-sm-offset-2 col-sm-10"> -->
+<!-- 	<!--       <button type="submit" class="btn btn-default">Sign in</button> --> 
+<%-- 	      <button class="btn btn-lg btn-primary btn-block" type="submit" id="loginBtn">Sign in</button><span>${errorMSG }</span> --%>
+<!-- 		  <input type="hidden" name="action" value="LoginIdCheck"> -->
+<!-- 	    </div> -->
+<!-- 	  </div> -->
 	
 		
-	</form>
-<div style="margin-top:80px;margin-left:950px;">
-	  	<button type="button" class="btn btn-warning" style="width:150px;height:70px;border-radius:20px;background:-webkit-linear-gradient(50deg,#FF8800,#DDDDDD);color:red;font-size:26px;font-weight:bold;">註&nbsp;冊</button>
-			<br>
-			<br>
-		<a href="../P7_ForgetPassWord/ForgetPassWord.jsp"><button type="button" class="btn btn-warning" style="width:150px;height:70px;border-radius:20px;background:-webkit-linear-gradient(50deg,#FF8800,#DDDDDD);color:red;font-size:26px;font-weight:bold;">忘記密碼</button></a>
-</div>
-
+<!-- 	</form> -->
+<!-- <div style="margin-top:80px;margin-left:950px;"> -->
+<!-- 	  	<button type="button" class="btn btn-warning" style="width:150px;height:70px;border-radius:20px;background:-webkit-linear-gradient(50deg,#FF8800,#DDDDDD);color:red;font-size:26px;font-weight:bold;">註&nbsp;冊</button> -->
+<!-- 			<br> -->
+<!-- 			<br> -->
+<!-- 		<a href="../P7_ForgetPassWord/ForgetPassWord.jsp"><button type="button" class="btn btn-warning" style="width:150px;height:70px;border-radius:20px;background:-webkit-linear-gradient(50deg,#FF8800,#DDDDDD);color:red;font-size:26px;font-weight:bold;">忘記密碼</button></a> -->
+<!-- </div> -->
 
 
 
@@ -266,10 +278,59 @@
 
 
 
-
-
-
-
+<form action="login" method="post">
+    <div id="login-overlay" class="modal-dialog">
+      <div class="">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
+              <h2 class="modal-title" id="myModalLabel">會員登入   &nbsp; &nbsp;&nbsp; &nbsp;</h2><h4><span style="color:red;">${errorMSG }</span></h4>
+          </div>
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-xs-6">
+                      <div class="well">
+                          <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+                              <div class="form-group">
+                                  <label for="username" class="control-label">Username</label>
+                                  <input type="text" class="form-control" id="inputEmail" name="inputLoginId" value="" required="" title="Please enter you username" placeholder="請輸入帳號"  autofocus ><span style="color:red;">${errorMsgId}</span>
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="password" class="control-label">Password</label>
+                                  <input type="password" class="form-control" id="inputPassword" name="inputPassword" value="" required="" title="Please enter your password"> ${errorMsgPwd}
+                                  <span class="help-block glyphicon glyphicon-eye-open" style="margin-top:115px;margin-right:20px;"></span>
+                              </div>
+                              <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" name="remember" id="remember"> Remember login
+                                  </label>
+                                  <p class="help-block">(if this is a private computer)</p>
+                              </div>
+                              <button type="submit" class="btn btn-success btn-block">Login</button>
+                              <input type="hidden" name="action" value="LoginIdCheck">
+                              
+                              <a href="../P7_ForgetPassWord/ForgetPassWord.jsp" class="btn btn-default btn-block">忘記密碼</a>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="col-xs-6">
+                      <p class="lead">Register now for <span class="text-success">FREE</span></p>
+                      <ul class="list-unstyled" style="line-height: 2">
+                          <li><span class="fa fa-check text-success"></span> 功能最齊全</li>
+                          <li><span class="fa fa-check text-success"></span> 旅遊景點一覽無遺</li>
+                          <li><span class="fa fa-check text-success"></span> 儲存您的最愛景點</li>
+                          <li><span class="fa fa-check text-success"></span> 快速指引您的旅途</li>
+<!--                           <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li> -->
+<!--                           <li><a href="/read-more/"><u>Read more</u></a></li> -->
+                      </ul>
+                      <p><a href="../P1_iud/register.jsp" class="btn btn-info btn-block">Yes please, register now!</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</form>
 
 
 
@@ -316,6 +377,24 @@
 		$(".navbar-right a").prop("href","login.jsp");
 	}
 	//登入處裡*****************************
+	
+
+	$("#inputPassword").on("keyup",function(){
+	    if($(this).val())
+	        $(".glyphicon-eye-open").show();
+	    else
+	        $(".glyphicon-eye-open").hide();
+	    });
+	$(".glyphicon-eye-open").mousedown(function(){
+	                $("#inputPassword").attr('type','text');
+	            }).mouseup(function(){
+	            	$("#inputPassword").attr('type','password');
+	            }).mouseout(function(){
+	            	$("#inputPassword").attr('type','password');
+	            });
+	
+	
+	
 })(jQuery);
 
 		
