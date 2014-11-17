@@ -95,20 +95,5 @@
     <servlet-name>TravelDiaryServlet</servlet-name>
     <url-pattern>/blog.do</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>ContactUsServlet</servlet-name>
-    <servlet-class>P6_ContactUs.controller.ContactUsServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ContactUsServlet</servlet-name>
-    <url-pattern>/ContactUsServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>ForgetPassWordServlet</servlet-name>
-    <servlet-class>P7_ContactUs.controller.ForgetPassWordServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ForgetPassWordServlet</servlet-name>
-    <url-pattern>/ForgetPassWordServlet</url-pattern>
-  </servlet-mapping>
+
 </web-app>
