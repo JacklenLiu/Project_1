@@ -13,6 +13,8 @@ public class MemberVO {
 	private String			member_address ;
 	private Date			member_buildtime; 
 	private String			member_type ;
+	private String			typeName ;
+	
 	public String getMember_loginID() {
 		return member_loginID;
 	}
@@ -79,6 +81,11 @@ public class MemberVO {
 	public void setMember_type(String member_type) {
 		this.member_type = member_type;
 	}
-	
+	public String getTypeName() {
+		return typeName;
+	}
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	}
 	
 }

@@ -71,7 +71,7 @@
                 <ul class="nav navbar-nav navbar-right">
                   <c:if test="<%=sionName == null%>">
                   	 <li>
-                  		<a href="P5_login/login.jsp" id="abcd">登入</a>
+                  		<a href="P0_login/login.jsp" id="abcd">登入</a>
                   	 </li>
                   </c:if>
                    <li class="dropdown">
@@ -93,7 +93,6 @@
                    </li>
                      <li>
                        	 <a href="P4_MessageBoard/showALL.jsp">留言板</a>
-<!--                     <a href="P4_MessageBoard/showALL.jsp">留言板</a> -->
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
@@ -132,10 +131,10 @@
                     </li>
 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
+                        <a href="P6_ContactUs/ContactUs.jsp" class="dropdown-toggle" data-toggle="dropdown">聯絡我們<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="full-width.html">Full Width Page</a>
+                                <a href="P6_ContactUs/ContactUs.jsp" class="noChange">聯絡我們</a>
                             </li>
                             <li>
                                 <a href="sidebar.html">Sidebar Page</a>
@@ -158,7 +157,7 @@
                     		會員，<%=sionName%>你好<b class="caret"></b></a>
                  			 <ul class="dropdown-menu">
 		                       <li>
-		                           <a href="P2_route/route_plan.jsp">會員基本資料修改</a>
+		                           <a href="P1_iud/userProfile.jsp">會員基本資料修改</a>
 		                       </li>
 		                       <li>
 		                           <a href="portfolio-2-col.html">會員好友管理</a>
@@ -279,38 +278,38 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
-                	<img src="Images/1.png" style="margin-top:-340px;margin-left:-45px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
+                	<img src="Images/1.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
-                    <img src="Images/2.png" style="margin-top:-340px;margin-left:-45px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
+                    <img src="Images/2.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/3.png" style="margin-top:-340px;margin-left:-45px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
+                    <img src="Images/3.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/4.png" style="margin-top:-340px;margin-left:-45px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
+                    <img src="Images/4.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/5.png" style="margin-top:-340px;margin-left:-45px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
+                    <img src="Images/5.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/6.png" style="margin-top:-340px;margin-left:-45px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
+                    <img src="Images/6.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
                 </a>
             </div>
         </div>
@@ -421,8 +420,8 @@
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
 <script src="js/bootstrap.js"></script>
-    
-<script type="text/javascript" src="P0_login/js/jquery.validate.js"></script> 
+     
+<!-- <script type="text/javascript" src="P0_login/js/jquery.validate.js"></script>  -->
 
 
 <!-- Script to Activate the Carousel -->
@@ -440,44 +439,24 @@
             $(this).removeClass('open');
         });
   //上方工具列滑鼠滑入自動彈出
-  
-  //子暘登入Script   
-//    	$('#commentForm').validate({
-//    		rules:{
-//    			userId:{
-//    				required: true,
-   	            
-//    			},
-//    			pswd:{
-//    				required: true,
-//    			}
-//    		}
-//    	});   
-   //子暘登入Script
-    
+
    
-//    me="userId" placeholder="account" type="text" title="請輸入帳號" focus>
-//                </div>
-//                <div class="form-group">
-//                  <label for="exampleInputPassword1">Password</label>
-//                    <input class="form-control" id="exampleInputPassword1" name="psw
-   
-   
+
    //***********昱豪登入*********** 
    
-   (function($){
-	   $("#loginBtn").click(function(){
+//    (function($){
+// 	   $("#loginBtn").click(function(){
 		   
-		  	var loginId = $(":text[name='userId']").val();
-		  	var loginPwd = $(":text[name='pswd']").val();
-			$.get("LoginServlet",{"loginId":loginId},function(data){
-				alert(data);
-				$("#asdf1234").val(data);
-			});
+// 		  	var loginId = $(":text[name='userId']").val();
+// 		  	var loginPwd = $(":text[name='pswd']").val();
+// 			$.get("LoginServlet",{"loginId":loginId},function(data){
+// 				alert(data);
+// 				$("#asdf1234").val(data);
+// 			});
 			
-	   });
+// 	   });
 	  
-   })(jQuery);
+//    })(jQuery);
    
    
    //***********昱豪登入*********** 
@@ -486,20 +465,14 @@
    //***********昱豪*********** 
 	(function($){   
 		
-		//登入處裡*****************************
-		var css1 = {"color":"red"};
-    	$(".abab").click(function(){	    	
-    		$("#abc123").prop("hidden",false).html("請先行登入會員系統!!").css(css1);
-    	});
-    	$("#abcd").click(function(){	    	
-    		$("#abc123").prop("hidden",true);;
-    	});	    	
+		//******昱豪 登入處裡*****************************
+			
     	var sionLog = "<%=sionLoginId%>";
     	if(sionLog == "null"){
     		//alert(sionName);
-    		$(".navbar-right a").prop("href","P5_login/login.jsp");
+    		$(".navbar-right a[class != 'noChange'] ").prop("href","P0_login/login.jsp");
     	}
-    	//登入處裡*****************************
+    	//******昱豪 登入處裡*****************************
     	
     	
     	//***************昱豪_抓排行榜圖片***************
@@ -545,6 +518,22 @@
        		});
        	});
        	//****************昱豪_抓最新消息***************
+       	
+       	//***************昱豪_抓小知識***************
+//        	var newsUrl = "newsTop6Servlet";
+//        	$.getJSON(newsUrl,{'action':'GetNewsTop6'}, function(datas){
+//        		$.each(datas,function(i,item){
+//        			$(".news").append("<a href='#'>");
+//        			//P3_TravelDiary/TravelDiaryServlet?action=blog.do
+//        			//<a href=""><p>※2014/10/10 陽明山海芋季，快來看看</p></a>
+//        			//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
+//        			$(".news > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/newsServlet?newsId=' + (i+1));
+//        			$(".news > a:nth-child(" + (i+1) + ")").append("<p>※" + item.news_date + "&nbsp;&nbsp;" + item.news_title + "</p>");
+//        			//$(".news").append("</a>");
+//        		});
+//        	});
+       	//****************昱豪_抓小知識***************
+       	
        	
        	
       	//***********昱豪_滑鼠移入出現div***********
@@ -596,12 +585,7 @@
     
 
     
-	(function($){
-    	//alert($(".news > a:nth-child(1)").attr("title"));   
-		//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
-		
-		
-	})(jQuery);
+	
     
     </script>
 

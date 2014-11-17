@@ -11,6 +11,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -118,6 +121,7 @@ public class viewnameServlet extends HttpServlet {
 		}
 		
 		if("north".equals(action)||"central".equals(action)||"south".equals(action)||"east".equals(action)){
+			String weekWeather[]= request.getParameterValues("actionW");
 			String path = getServletContext().getContextPath();
 			switch(action){
 				case "north": request.setAttribute("area", "北部");break;
@@ -125,9 +129,10 @@ public class viewnameServlet extends HttpServlet {
 				case "south": request.setAttribute("area", "南部");break;
 				case "east": request.setAttribute("area", "東部");break;
 			}
-				request.setAttribute("path", path);
-				RequestDispatcher successView = request.getRequestDispatcher("/P2_route/route_dragdrop.jsp");
-				successView.forward(request, response);
+			request.setAttribute("path", path);
+			request.setAttribute("listWeather", weekWeather);
+			RequestDispatcher successView = request.getRequestDispatcher("/P2_route/route_dragdrop.jsp");
+			successView.forward(request, response);
 		}
 		
 		

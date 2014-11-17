@@ -1,167 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <%@ include file="../platform/include_start.jsp" %>
-
 <head>
     <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
-<style type="text/css">
-        table {
-            border-right: 1.5px solid #F00;
-            border-bottom:1.5px solid #F00;
-            
-        }
-        
-         td {
-            border-left: 1.5px solid #F00;
-            border-top:1.5px solid #F00;
-        }
-      
-		.viewimge{
-			width:150px;
-			height:150px;
-		}
-		
-#gallery { float: left; /*width: 65%*/ width:440px; min-height: 12em; /*for grid*/ margin-left: 30px; padding: 0;  list-style: none; overflow: auto; height:525px}
-.gallery.custom-state-active { background: #eee; }
-  .gallery li { float: left; width: 415px; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden; display: block;}
-  .gallery li h5 { margin: 0 0 0.4em; cursor: move;}
-  .gallery li a { float: right; }
-  .gallery li a.ui-icon-zoomin { float: left; }
-  .gallery li img { /*width: 100%*/ width:400px; cursor: move; }
- 
-#route { float: right; /*width: 32%*/ width:375px; margin-right:30px; min-height: 18em; padding: 5px; overflow: auto; height:425px}
-#route h4 { line-height: 16px; margin: 0 0 0.4em; }
-#route h4 .ui-icon { float: left; }
-#route .gallery h5 { display: inline; }
-		
-
-/*for grid*/
-figure, figcaption, h3, p {
-            margin: 0;
-            padding: 0;
-        }
-        
-#gallery li > figure {
-                float: left;
-                /*width: 25%;*/
-                width: 400px;
-                margin: 0;
-            }
-
-                #gallery li > figure img {
-                    display: block;
-                    max-width: 100%;
-                    /*height: auto;*/
-                    height: 180px;
-                    weight: 400px;
-                }
-
-        .image-details {
-            clear: both;
-            padding: 1em;
-            background: #222;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
-            display: none;
-        }
-
-        .image-details-close {
-            position: absolute;
-            top: 1em;
-            right: 1em;
-            width: 25px;
-            height: 25px;
-            text-indent: -9999em;
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2Fy ZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAA AAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5U Y3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6 eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8w Mi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRw Oi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpE ZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRv YmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNv bS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20v eGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRv YmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0i eG1wLmlpZDpCNDg5MkEwM0ZEM0MxMUUzOTAyNDlCRDA2MTgzMjhENCIgeG1wTU06 RG9jdW1lbnRJRD0ieG1wLmRpZDpCNDg5MkEwNEZEM0MxMUUzOTAyNDlCRDA2MTgz MjhENCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAu aWlkOkI0ODkyQTAxRkQzQzExRTM5MDI0OUJEMDYxODMyOEQ0IiBzdFJlZjpkb2N1 bWVudElEPSJ4bXAuZGlkOkI0ODkyQTAyRkQzQzExRTM5MDI0OUJEMDYxODMyOEQ0 Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8 P3hwYWNrZXQgZW5kPSJyIj8+8NlNEgAAAVBJREFUeNrs29EOgiAUgOHoLeC5Mq17 3/+2DTeSOmvWFFSoYf5nO2tuTTwfYEKlnHOHPcfxsPMAAAAAAAAAAAAAAAAAAAAA AAAAAAAgJZRS/kX32fZp/PE30p9b2tByvD78nmDG1H3e3DNsn9fcPebPKed20pZO uebcAK17jy4nghTffbTRlgRgBr0zRLhkKP4yUryVNssACPRSEsJE8a/RVRRABKFZ UXwTKr5IgEiv1QuKr+eMpiIBUhHmFl80QGQInwPFn5dMoaIBAr1pxxCkeLtk1BQP EEGoBu+plha/GYBA7/rjk6SdM0o2CxBBWFX85gACQ31yavwdgFz0aQLhMSV+taDb /X4AU4CbIB+DPAjxKMxiiOUwGyJsibEpyrY4X4zw1Vime4CWXjFfXMAZaUOn3gMU f5jg9wEAAAAAAAAAAAAAAAAAAAD7i7sAAwB/21/1MhzmOwAAAABJRU5ErkJggg==' );
-            background-size: 25px 25px;
-            background-repeat: no-repeat;
-        }
-
-        .image-details-content {
-            float: left;
-            width: 45%;
-            margin: 0 3%;
-            padding-right: 0.8em;
-            border-right: 1px dotted #666;
-        }
-
-        .image {
-            padding: 0.3em;
-            border: 1px solid #888;
-        }
-
-            .image img {
-                display: block;
-                max-width: 100%;
-                height: auto;
-            }
-
-        .image-details-desc {
-            float: left;
-            width: 85%;
-            color: #767676;
-        }
-
-		hr {
-  			border-color:#777;
-		}
-/*             .image-details-desc h3 { */
-/*                 font-weight: normal; */
-/*                 font-size: 19px; */
-/*                 color: #fff; */
-/*                 padding-bottom: 2px; */
-/*                 border-bottom: 1px solid #777; */
-/*                 margin-bottom: 0.3em; */
-/*             } */
-            
-/* 			.image-details-desc p { */
-/* 				border-bottom: 1px solid #777; */
-/* 				margin-bottom: 0.3em; */
-/* 			} */
-#mainDiv{
-	height:650px;
-}
-
-
-#mapdiv{
-		margin: 0px 10px 0px 10px;
-        height: 450px;
-        width: 410px;
-        float: left;
-	}
-#map {
-        height: 100%;
-        margin: 10px;
-        padding: 0px;
-        height: 385px;
-        width: 385px;
-        float: left;
-        color: black;
-      }
-
-      
-#mapdiv h4 { line-height: 16px; margin: 0 0 0.4em; }
-#mapdiv h4 .ui-icon { float: left; }
-
-.span-route{
-	float:right;
-	margin-right:30px;
-}
-
-.saveRoute{
-	color:silver;
-}
-/*dialog css*/
-.validateTips { border: 1px solid transparent; padding: 0.3em; text-align:center;}
-#dialog-save input { display:block; }
-#dialog-save input.text { margin-bottom:12px; width:95%; padding: .4em; }
-
-    </style>
-   
+    <link rel="stylesheet" href="Jacklen_css/Jacklen.css"> <!--蕙齊css-->
 	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
 </head>
 
@@ -169,18 +15,8 @@ figure, figcaption, h3, p {
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                  <a class="navbar-brand" href="../index.jsp">下一站，幸福</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
@@ -202,127 +38,21 @@ figure, figcaption, h3, p {
                             </li>
                         </ul>
                     </li>
-                     <li>
-                        <a href="../P4_MessageBoard/showALL.jsp">留言板</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../portfolio-1-col.html">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../ortfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
-                            </li>
-                            <li>
-                                <a href="../P3_TravelDiary/blog_editor.jsp">發表新文章</a>
-                            </li>
-                            <li>
-                                <a href="../P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../full-width.html">Full Width Page</a>
-                            </li>
-                            <li>
-                                <a href="../sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="../faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="../404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="../pricing.html">Pricing Table</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                    	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-                    		會員，<%= sionName %>你好<b class="caret"></b></a>
-                 			 <ul class="dropdown-menu">
-			                       <li>
-			                           <a href="P2_route/route_plan.jsp">會員基本資料修改</a>
-			                       </li>
-			                       <li>
-			                           <a href="portfolio-2-col.html">會員好友管理</a>
-			                       </li>
-			                       <li>
-			                           <a href="../LoginServlet?action=logOut">登出系統</a>
-			                       </li>
-                  			</ul>
-                    </li>
+                    <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %> 
+                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+                    <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp"%>
+					<%@ include file="../platform/include_A_href/P6_contactUs.jsp"%>
+                    <%@ include file="../platform/include_A_href/memberSession.jsp"%>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-
-    <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-<!--             <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
-<!--             <li data-target="#myCarousel" data-slide-to="1"></li> -->
-<!--             <li data-target="#myCarousel" data-slide-to="2"></li> -->
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_01.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_02.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 2</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_03.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </header>
+	<%@ include file="../platform/include_picture.jsp"%>
 
 <!-- ******************************************************************* -->
- 
+ <div>
     <img src = "images/02.gif" /> 欲選擇其他地區
 	<select  id="sel1">
 		<option value="北部" id="N">北部</option>
@@ -330,6 +60,31 @@ figure, figcaption, h3, p {
   		<option value="南部" id="S">南部</option>
   		<option value="東部" id="E">東部</option>
 	</select>
+	<table class="tooltip1" border="0" cellspacing="0" cellpadding="0" style="width:400px;margin-bottom:10px;">
+	    <tr style="background-color: pink;">
+	        <td></td>                
+	        <%
+	        	String s[]={"星期日","星期一","星期二","星期三","星期四","星期五","星期六","星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
+	        	String newS[] = new String[7];
+	       		for(int i = 0 ; i<=6 ; i++){
+	       			//System.out.println(today);
+	        		newS[i] = s[today++];        		
+	        	}                
+	        %>
+	        <td><%= newS[0]%></td>
+	        <td><%= newS[1]%></td>
+	        <td><%= newS[2]%></td>
+	        <td><%= newS[3]%></td>
+	        <td><%= newS[4]%></td>
+	        <td><%= newS[5]%></td>
+	        <td><%= newS[6]%></td>
+	    </tr>
+	    <tr class="weather">         
+	        <td class='td1'></td>  
+	    </tr>
+	</table>
+</div>	
+	
 	<!-- 放抓到的area值 -->
 	<input type="text" id="resp" value="${area}" hidden/>
 	<input type="text" id="respPath" value="${path}" hidden/>
@@ -367,6 +122,7 @@ figure, figcaption, h3, p {
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
 <script src='../Script/jquery.tinyMap.js'></script>
 <script>
+
 		var serverName = "<%= serverName %>"; //localhost
 		var serverPort = "<%= serverPort %>"; //8081
 		var contextPath = "<%= contextPath %>"; //Project_1
@@ -1018,10 +774,133 @@ figure, figcaption, h3, p {
                 	dialog.dialog( "open" );
                 });
                 
+     //****************昱豪****************
+     	var OverPlace="";
+       	var area = $("#resp").val();
+     	var listWeather = ["${listWeather[0]}","${listWeather[1]}","${listWeather[2]}","${listWeather[3]}","${listWeather[4]}","${listWeather[5]}","${listWeather[6]}"];
+     	if(area == "北部"){
+      		overP(OverPlace);
+      		$(".td1").append("北部");
+      		appendWeather();
+		}
+     	if(area == "中部"){
+      		overP(OverPlace);
+      		$(".td1").append("中部");
+      		appendWeather();
+		}
+     	if(area == "南部"){
+      		overP(OverPlace);
+      		$(".td1").append("南部");
+      		appendWeather();
+		}
+     	if(area == "東部"){
+      		overP(OverPlace);
+      		$(".td1").append("東部");
+      		appendWeather();
+		}
+     	
+     	function appendWeather(){
+     		for(var j=0;j<7;j++){
+     			weather= listWeather[j];
+          	 	var opt="";
+          	 	if(weather=="多雲")
+   				 	opt = $("<td title='多雲'></td>").html("<img src='images/02.gif'>");
+   	       	 	if(weather=="多雲時陰")
+   					opt = $("<td title='多雲時陰'></td>").html("<img src='images/05.gif'>");
+   	       	 	if(weather=="陰時多雲")
+   	  				opt = $("<td title='陰時多雲'></td>").html("<img src='images/06.png'>");
+   	       	 	if(weather=="多雲時晴")
+   					opt = $("<td title='多雲時晴'></td>").html("<img src='images/07.gif'>");
+      	 		if(weather=="晴時多雲")
+					opt = $("<td title='晴時多雲'></td>").html("<img src='images/08.gif'>");
+      			if(weather=="多雲短暫雨")
+						opt = $("<td title='多雲短暫雨'></td>").html("<img src='images/12.gif'>");
+      			if(weather=="多雲時陰短暫雨")
+						opt = $("<td title='多雲時陰短暫雨'></td>").html("<img src='images/18.gif'>");
+      			if(weather=="陰時多雲短暫雨"  || weather=="陰短暫雨")
+						opt = $("<td title='陰時多雲短暫雨'></td>").html("<img src='images/26.gif'>");
+          	 		
+             	$('.weather').append(opt);
+ 			} 
+     	}
+     	
+       	$("#sel1").change(function () {
+    	   	var selPlace = $("#sel1").val();
+    	   	$(".weather > td[class!='td1']").remove();
+    	  	if(selPlace == "北部"){
+	          	OverPlace=1;
+	          	overP(OverPlace);
+	          	$(".td1").append("北部");
+       		}
+    	  	if(selPlace == "中部"){
+    	  		OverPlace=2;
+    	        overP(OverPlace);
+    	        $(".td1").append("中部");   
+        	}
+    	  	if(selPlace == "南部"){
+    	  		OverPlace=3;
+    	        overP(OverPlace);
+    	        $(".td1").append("南部");
+        	}
+    	  	if(selPlace == "東部"){
+    	  		OverPlace=5;
+                overP(OverPlace);
+            	$(".td1").append("東部");
+        	}
+	   });
+
+       document.getElementById("sel1").addEventListener("change",load,false);
                 
-                
-        })(jQuery);
+       var xhr = null;
+       function load(){
+      	  xhr = new XMLHttpRequest();
+      	  xhr.addEventListener("readystatechange",callback,false);
+      	  xhr.open("get","xml/F-C0032-003.xml",true);
+      	  xhr.send();
+       }
         
-    </script>
+       function callback(){
+     	  if(xhr.readyState == 4){
+     		if(xhr.status == 200){  			
+   		  		var data = xhr.responseXML;
+   		 		var locations = data.getElementsByTagName("location");
+     			var weather="";
+     			for(var j=0;j<7;j++){
+	   			  	weather = locations[OverPlace].getElementsByTagName("text")[j].firstChild.nodeValue;
+	          	 	var opt="";
+	          	 	if(weather=="多雲")
+	   				 	opt = $("<td title='多雲'></td>").html("<img src='images/02.gif'>");
+	   	       	 	if(weather=="多雲時陰")
+	   					opt = $("<td title='多雲時陰'></td>").html("<img src='images/05.gif'>");
+	   	       	 	if(weather=="陰時多雲")
+	   	  				opt = $("<td title='陰時多雲'></td>").html("<img src='images/06.png'>");
+	   	       	 	if(weather=="多雲時晴")
+	   					opt = $("<td title='多雲時晴'></td>").html("<img src='images/07.gif'>");
+          	 		if(weather=="晴時多雲")
+    					opt = $("<td title='晴時多雲'></td>").html("<img src='images/08.gif'>");
+          			if(weather=="多雲短暫雨")
+   						opt = $("<td title='多雲短暫雨'></td>").html("<img src='images/12.gif'>");
+          			if(weather=="多雲時陰短暫雨")
+   						opt = $("<td title='多雲時陰短暫雨'></td>").html("<img src='images/18.gif'>");
+          			if(weather=="陰時多雲短暫雨"  || weather=="陰短暫雨")
+   						opt = $("<td title='陰時多雲短暫雨'></td>").html("<img src='images/26.gif'>");
+	          	 		
+	             	$('.weather').append(opt);
+     			} 
+     			
+      		}	
+       	}
+   	 }
+     function overP(OverPlace){
+ 		  $(".td1").html("");	
+     }
+    //****************昱豪****************
+                
+                
+ })(jQuery);
+        
+</script>
+<script src='../js/bootstrap.min.js'></script>
+<%@ include file="../platform/include_script.jsp" %>
 </body>
 </html>

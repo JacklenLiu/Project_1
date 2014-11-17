@@ -12,21 +12,12 @@
 <%
 TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO");
 %>
-
-
-
-
-
-
-    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
 
     <!-- Bootstrap 的 RWD 套件 -->
     <!-- 載入Bootstrap css樣式 -->
@@ -62,67 +53,18 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
 <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="../index.jsp">下一站，幸福</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+            <%@ include file="../platform/include_A_href/toIndex.jsp" %> 	
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../P2_route/route_plan.jsp">路經規劃</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                     <li>
-                        <a href="../P4_MessageBoard/showALL.jsp">留言板</a>
-                    </li>
-                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../portfolio-1-col.html">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../ortfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
+                	<%@ include file="../platform/include_A_href/P2_route.jsp" %> 	   
+                    <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %>  
+                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                 <a href="TravelDiaryServlet?action=blog.do">所有文章</a>
+                                  <a href="TravelDiaryServlet?action=blog.do">所有文章</a>
+                            </li>
                             <li>
                                 <a href="blog_editor.jsp">發表新文章</a>
                             </li>
@@ -131,91 +73,15 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
                             </li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../full-width.html">Full Width Page</a>
-                            </li>
-                            <li>
-                                <a href="../sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="../faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="../404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="../pricing.html">Pricing Table</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                    	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-                    		會員，<%= sionName %>你好<b class="caret"></b></a>
-                 			 <ul class="dropdown-menu">
-			                       <li>
-			                           <a href="P2_route/route_plan.jsp">會員基本資料修改</a>
-			                       </li>
-			                       <li>
-			                           <a href="portfolio-2-col.html">會員好友管理</a>
-			                       </li>
-			                       <li>
-			                          <a href="../LoginServlet?action=logOut">登出系統</a>
-			                       </li>
-                  			</ul>
-                    </li>
+                    <%@ include file="../platform/include_A_href/P6_contactUs.jsp" %>
+                    <%@ include file="../platform/include_A_href/memberSession.jsp" %>	
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-
-    <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-<!--             <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
-<!--             <li data-target="#myCarousel" data-slide-to="1"></li> -->
-<!--             <li data-target="#myCarousel" data-slide-to="2"></li> -->
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_01.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_02.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 2</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_03.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </header>
-
-
-
-
+	<%@ include file="../platform/include_picture.jsp" %>
 
 	<br><br><br><br><br><br><br>
 
@@ -250,9 +116,6 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
   //上方工具列滑鼠滑入自動彈出
 	
 	</script>
- 
-
-
 
     <!-- ************************************************文字編輯器**************************************************** -->
     <!-- 編輯器 -->
@@ -305,9 +168,6 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
         </div>
     </div>
 
-
-
-
 <c:if test="${not empty errorMsgs}">
 	<font color='red'>請修正以下錯誤:
 	<ul>
@@ -318,22 +178,6 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
 	</font>
 </c:if>
     <!-- ************************************************文字編輯器**************************************************** -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <!-- *********************************************jQuery程式寫入 ************************************************-->
  <script>
@@ -358,14 +202,10 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
 
         });
 
-
     	$("#cancel").click(function(){	
 			window.location.href = "blog_manage.jsp";
 			
 		});
-
-
-
 
 		//為了讓編輯器一開始內容清空因為一開始產生出來會有<p></br></p>佔了空間導致無法偵測是否有字串
         $(window).load(function() {
@@ -399,27 +239,12 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
      			return  false;
      		}
 		});
-        
-        
-
-        
- 
-
-	
-
-
 
     })(jQuery);
     </script>
 
-
     <!-- *********************************************/jQuery程式寫入 ************************************************-->
 
-
-
-
-
+<%@ include file="../platform/include_script.jsp" %>
 </body>
-
 </html>
-

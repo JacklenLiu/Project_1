@@ -1,0 +1,241 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ page import="java.util.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<%@ include file="../platform/include_start.jsp" %>
+
+<!-- Bootstrap 的 RWD 套件 -->
+<!-- 載入Bootstrap css樣式 -->
+
+<link rel="stylesheet" href="../P6_ContactUs/css/bootstrap.min.css">
+<link rel="stylesheet" href="../P6_ContactUs/css/bootstrap-theme.min.css">
+<title>ForgetPassWord</title>
+
+<style>
+
+body {
+	background: #eee !important;
+}
+
+.wrapper {
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+
+.form-signin {
+	max-width: 380px;
+	padding: 15px 35px 45px;
+	margin: 0 auto;
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	.
+	form-signin-heading
+	,
+	.checkbox
+	{
+	margin-bottom
+	:
+	30px;
+}
+
+.checkbox {
+	font-weight: normal;
+}
+
+.form-control {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	padding: 10px;
+	@
+	include
+	box-sizing(border-box);
+	&:
+	focus
+	{
+	z-index
+	:
+	2;
+}
+
+}
+input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+
+}
+</style>
+
+
+
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+			<%@ include file="../platform/include_A_href/toIndex.jsp" %>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                	<%@ include file="../platform/include_A_href/P2_route.jsp" %>
+                    <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %>
+                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+                    <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp" %>
+                    <%@ include file="../platform/include_A_href/P6_contactUs.jsp" %>
+                    <%@ include file="../platform/include_A_href/memberSession.jsp" %>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+		<%@ include file="../platform/include_picture.jsp" %>
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ************************載入 jQuery bootstrapjs套件************************ -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- 	<script src="../P6_ContactUs/js/jquery-2.1.1.js"></script> -->
+	<script>
+		!window.jQuery
+				&& document.write(
+						"<script src='../P6_ContactUs/js/jquery-2.1.1.min.js'><\/script>")
+	</script>
+	<script src="../P6_ContactUs/js/bootstrap.min.js"></script>
+
+
+	<!-- ************************/script jQuery ************************ -->
+
+
+
+
+	
+
+	<!-- 	************************************************************** -->
+	<div class="container">
+		<div class="row">
+			<div class="wrapper">
+				<form class="form-horizontal" method="post" action="ForgetPassWordServlet">
+					<center><h3 class="form-signin-heading ">Forget
+						PassWord</h3></center>
+					<div class="form-group">
+						<span class="col-md-2 col-md-offset-2 text-center">Your
+							ID</span>
+						<div class="col-md-4">
+							<input type="text" class="form-control" name="userid"
+								placeholder="UserID" id="checkid" required="" autofocus="" />
+							
+						</div>
+						
+					</div>
+					<div class="form-group">
+						<span class="col-md-2 col-md-offset-2 text-center">Your
+							Email</span>
+						<div class="col-md-4">
+							<input type="email" class="form-control" name="email"
+								placeholder="Email" required="" autofocus="" />
+						</div>
+					</div>
+					
+					
+						<%-- 錯誤表列 --%>
+<center>
+<c:if test="${not empty errorMsgs}">
+	<font color='red' id="errorMsg">
+	
+		<c:forEach var="message" items="${errorMsgs}">
+			<li>${message}</li>
+		</c:forEach>
+	
+	</font>
+</c:if>
+</center>
+	<%-- /錯誤表列 --%>
+	
+					
+					<div class="form-group">
+						<div class="col-md-4 col-md-offset-4">
+							<button class="btn btn-lg btn-primary btn-block" type="submit">送出</button>
+							<input type="hidden" name="action" value="forget">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+
+	
+
+	
+
+	
+	
+	
+	
+		<script>
+		(function($) {
+			
+// 			   $('#checkid').blur(function(){
+// 				   var name=$('#checkid').val();
+// 					 $.ajax({
+// 						 "url":"ForgetPassWord",
+// 						 "type":"post",
+// 						 "data":{'name':name,"action":"blur"},
+// 						 "dataType":"text",  //json,xml
+// 						 "success":function(data){
+							 
+// 						 }
+// 					 });
+
+
+// 			   });
+			
+			
+		$('#checkid').blur(function(){
+			
+			$('#errorMsg').hide();
+			
+		});
+			
+			
+			
+			
+		})(jQuery);
+	</script>
+	<%@ include file="../platform/include_script.jsp" %>	
+</body>
+</html>

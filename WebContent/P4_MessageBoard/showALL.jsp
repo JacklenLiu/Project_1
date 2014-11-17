@@ -14,71 +14,66 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <link rel="stylesheet" href="styles/msg.css">
 <link rel="stylesheet" href="styles/showmsg.css">
 
-<script type="text/javascript" src="Scripts/msg.js"></script>
-<script type="text/javascript" src="Scripts/showmsg.js"></script>
 <title>ALL message</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>!window.jQuery && document.write("<script src='Scripts/jquery-2.1.1.min.js'><\/script>")</script>
-
+<script type="text/javascript" src="Scripts/msg.js"></script>
+<script type="text/javascript" src="Scripts/showmsg.js"></script>
 <script type="text/javascript">
-
 
 
 function ShowReply(x){
 	//alert("第"+ x); // 第x個textarea
-var ta = document.getElementById(x);
-var ta2 = document.getElementById("resp"+x);
-var theDIV3 = document.getElementById("div"+x); //找到div3所在的<div>
-//alert(ta.value);
+	var ta = document.getElementById(x);
+	var ta2 = document.getElementById("resp"+x);
+	var theDIV3 = document.getElementById("div"+x); //找到div3所在的<div>
+	//alert(ta.value);
+	
+	var content = ta.value;
+	var rr = ta2.value;
+	
+	//cite0
+	//img
+	var cite0=document.createElement("cite");
+	var eleImg = document.createElement("img");//想放進去的圖片
+	eleImg.setAttribute("src", "images/pic0.jpg");
+	eleImg.setAttribute("width", "25");
+	eleImg.setAttribute("height", "25");
+	cite0.appendChild(eleImg); //把圖片放在<cite>下   把<img>放在<cite>下
+	//回應者姓名
+	// var responser=document.createTextNode("回應者的姓名:");//想放進去的文字內容    請動態抓姓名~~~  ${myinfo}
+	var responser=document.createTextNode(rr);
+	cite0.appendChild(responser); //放姓名
 
-var content = ta.value;
-var rr = ta2.value;
+	var br0=document.createElement("br");
+	cite0.appendChild(br0); //換行
 
-//cite0
-//img
-var cite0=document.createElement("cite");
-var eleImg = document.createElement("img");//想放進去的圖片
-eleImg.setAttribute("src", "images/pic0.jpg");
-eleImg.setAttribute("width", "25");
-eleImg.setAttribute("height", "25");
-cite0.appendChild(eleImg); //把圖片放在<cite>下   把<img>放在<cite>下
-//回應者姓名
-// var responser=document.createTextNode("回應者的姓名:");//想放進去的文字內容    請動態抓姓名~~~  ${myinfo}
-var responser=document.createTextNode(rr);
-cite0.appendChild(responser); //放姓名
-
-var br0=document.createElement("br");
-cite0.appendChild(br0); //換行
-
-var txtP=document.createTextNode(content);//想放進去的文字內容
-cite0.appendChild(txtP); //放回應內容
-
-
-//span0
-var span0=document.createElement("span");
-var nowtime = new Date();//現在時間
-var nowtime2 = nowtime.getFullYear()+"-" +(nowtime.getMonth()+1)+"-"+nowtime.getDate();
-var nowtime3=document.createTextNode(nowtime2);//想放進去的文字內容
-//alert(nowtime2);
-span0.setAttribute("class", "timestamp"); //設定class屬性
-span0.appendChild(nowtime3);
-
-var p0=document.createElement("P");   //把cite和span放在p之中
-p0.appendChild(cite0);
-p0.appendChild(span0);
-p0.setAttribute("class", "message_head message_replycolor");
+	var txtP=document.createTextNode(content);//想放進去的文字內容
+	cite0.appendChild(txtP); //放回應內容
 
 
-theDIV3.insertBefore(p0, theDIV3.childNodes[0])
+	//span0
+	var span0=document.createElement("span");
+	var nowtime = new Date();//現在時間
+	var nowtime2 = nowtime.getFullYear()+"-" +(nowtime.getMonth()+1)+"-"+nowtime.getDate();
+	var nowtime3=document.createTextNode(nowtime2);//想放進去的文字內容
+	//alert(nowtime2);
+	span0.setAttribute("class", "timestamp"); //設定class屬性
+	span0.appendChild(nowtime3);
+	
+	var p0=document.createElement("P");   //把cite和span放在p之中
+	p0.appendChild(cite0);
+	p0.appendChild(span0);
+	p0.setAttribute("class", "message_head message_replycolor");
+	
+	
+	theDIV3.insertBefore(p0, theDIV3.childNodes[0]);
 
 }
-
-
 
 </script>
 
@@ -91,157 +86,24 @@ theDIV3.insertBefore(p0, theDIV3.childNodes[0])
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                  <a class="navbar-brand" href="../index.jsp">下一站，幸福</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+			<%@ include file="../platform/include_A_href/toIndex.jsp" %>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../P2_route/route_plan.jsp">路經規劃</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                     <li>
+                    <%@ include file="../platform/include_A_href/P2_route.jsp" %>
+                    <li>
                         <a href="showALL.jsp">留言板</a>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../portfolio-1-col.html">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../ortfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
-                            </li>
-                            <li>
-                                <a href="../P3_TravelDiary/blog_editor.jsp">發表新文章</a>
-                            </li>
-                            <li>
-                                <a href="../P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../full-width.html">Full Width Page</a>
-                            </li>
-                            <li>
-                                <a href="../sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="../faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="../404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="../pricing.html">Pricing Table</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                    	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-                    		會員，<%= sionName %>你好<b class="caret"></b></a>
-                 			 <ul class="dropdown-menu">
-			                       <li>
-			                           <a href="P2_route/route_plan.jsp">會員基本資料修改</a>
-			                       </li>
-			                       <li>
-			                           <a href="portfolio-2-col.html">會員好友管理</a>
-			                       </li>
-			                       <li>
-			                           <a href="../LoginServlet?action=logOut">登出系統</a>
-			                       </li>
-                  			</ul>
-                    </li>
+                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+                    <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp" %>
+                    <%@ include file="../platform/include_A_href/P6_contactUs.jsp" %>
+                    <%@ include file="../platform/include_A_href/memberSession.jsp" %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-
-    <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-<!--             <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
-<!--             <li data-target="#myCarousel" data-slide-to="1"></li> -->
-<!--             <li data-target="#myCarousel" data-slide-to="2"></li> -->
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_01.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_02.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 2</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_03.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </header>
+	<%@ include file="../platform/include_picture.jsp" %>
 	
 <%-- 		<h1>${myinfo}，來留言喔~~</h1> --%>
 		<br>
@@ -345,23 +207,18 @@ theDIV3.insertBefore(p0, theDIV3.childNodes[0])
 						<input type="hidden" id=resp${list.messageNum} value="<%=sionLoginId %>">
 						<input type="hidden" name="reply_vfortitle" value="${list.title}">
 						<input type="button"  onclick="ShowReply(${list.messageNum})" value="回覆" class="reply_btn" id = "btn${list.messageNum}">
-						
 
 		</div>
-		
-		
 	</li>
 	
 	</c:if>
 	</c:forEach>
-	
-
-
 
 </ol>
 <p class="collapse_buttons"><a href="#" class="show_all_message">顯示全部留言</a> <a href="#" class="show_recent_only">只顯示最新5筆留言</a> <a href="#" class="collpase_all_message">只顯示留言標題</a></p>
 
 </div>		
-
+<script src='../js/bootstrap.min.js'></script>
+<%@ include file="../platform/include_script.jsp" %>
 </body>
 </html>

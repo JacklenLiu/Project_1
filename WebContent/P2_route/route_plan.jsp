@@ -25,18 +25,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                 <a class="navbar-brand" href="../index.jsp">下一站，幸福</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
@@ -58,128 +48,18 @@
                             </li>
                         </ul>
                     </li>
-                     <li>
-                        <a href="../P4_MessageBoard/showALL.jsp">留言板</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../portfolio-1-col.html">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../ortfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
-                            </li>
-                            <li>
-                                <a href="../P3_TravelDiary/blog_editor.jsp">發表新文章</a>
-                            </li>
-                            <li>
-                                <a href="../P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../full-width.html">Full Width Page</a>
-                            </li>
-                            <li>
-                                <a href="../sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="../faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="../404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="../pricing.html">Pricing Table</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                    	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-                    		會員，<%= sionName %>你好<b class="caret"></b></a>
-                 			 <ul class="dropdown-menu">
-			                       <li>
-			                           <a href="P2_route/route_plan.jsp">會員基本資料修改</a>
-			                       </li>
-			                       <li>
-			                           <a href="portfolio-2-col.html">會員好友管理</a>
-			                       </li>
-			                       <li>
-			                          <a href="../LoginServlet?action=logOut">登出系統</a>
-			                       </li>
-                  			</ul>
-                    </li>
+                    <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %> 
+                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+                    <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp"%>
+					<%@ include file="../platform/include_A_href/P6_contactUs.jsp"%>
+                    <%@ include file="../platform/include_A_href/memberSession.jsp"%>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-
-    <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-<!--             <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
-<!--             <li data-target="#myCarousel" data-slide-to="1"></li> -->
-<!--             <li data-target="#myCarousel" data-slide-to="2"></li> -->
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_01.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_02.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 2</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_03.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </header>
-
-
-    
+	<%@ include file="../platform/include_picture.jsp"%>
 
 <div style="float:left;width:650px;height:343px; margin:100px auto;">
 	<img id="imgMap" alt="" src="images/map00.png" style="float:left;width: 189px;margin-left:50px; height: 343px" usemap="#FPMap0" />
@@ -213,6 +93,13 @@
 		    <p><a href="javascript:selPlace.submit();" class="tooltip"  id="a33"><area id="a3" alt="" coords="95,186,97,189,91,194,100,201,85,208,82,230,76,255,81,251,84,253,80,260,75,260,70,268,70,276,74,28,70,294,78,308,87,309,82,331,80,339,73,336,68,339,66,331,68,316,58,296,35,282,26,270,15,238,13,231,4,226,9,220,12,192,11,181,20,180,40,172,50,173,59,178,70,172,78,184,90,183,91,188,88,198,101,208,110,210,117,218,126,221,126,204,135,189,139,189" onmouseover="document.getElementById('imgMap').src='images/map04.png';" onmouseout="document.getElementById('imgMap').src='images/map00.png';"  shape="polygon" /></a></p>
 		    <p><a href="javascript:selPlace.submit();" class="tooltip"  id="a44"><area id="a4" alt="" coords="164,102,157,122,150,125,153,136,147,156,130,212,130,223,117,244,113,251,112,258,108,262,100,264,87,307,79,310,70,299,75,287,71,265,84,259,83,251,72,234,86,207,97,199,99,184,116,166,115,143,120,126,126,123,121,114,127,110,129,99,140,100,153,96,164,102" onmouseover="document.getElementById('imgMap').src='images/map03.png';" onmouseout="document.getElementById('imgMap').src='images/map00.png';"  shape="polygon" /></a></p>
 		    <input type="text" name="action" id="sel" hidden/>
+		    <input type="text" name="actionW" id="sel0" hidden/>
+		    <input type="text" name="actionW" id="sel1" hidden/>
+		    <input type="text" name="actionW" id="sel2" hidden/>
+		    <input type="text" name="actionW" id="sel3" hidden/>
+		    <input type="text" name="actionW" id="sel4" hidden/>
+		    <input type="text" name="actionW" id="sel5" hidden/>
+		    <input type="text" name="actionW" id="sel6" hidden/>
 	   	</map>
 	   		
    	</form>
@@ -247,21 +134,11 @@
             </div>
         </footer>
 </div>
-<!-- ***每個地區******************************** -->
-<!-- <script src="../jquery/jquery-2.1.1.min.js"></script> -->
 
-  <!-- /.container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 
-    <!-- jQuery Version 1.11.0 -->
-    <script src="../js/jquery-1.11.0.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-
-    <!-- Script to Activate the Carousel -->
-    <script type="text/javascript">
-   
-// <script type="text/javascript">
+<script type="text/javascript">   
 (function ($) {
 	$("#a11").click(function(){$("#sel").prop("value","north");});
 	$("#a22").click(function(){$("#sel").prop("value","central");});
@@ -326,12 +203,12 @@
 //   				  name = locations[2].getElementsByTagName("name")[0].firstChild.nodeValue;
 // 			if(OverPlace==3)              				  
 //   				  name = locations[3].getElementsByTagName("name")[0].firstChild.nodeValue;
-  			 
   			var weather="";
   			for(var j=0;j<7;j++){
 			  	weather = locations[OverPlace].getElementsByTagName("text")[j].firstChild.nodeValue;
 			  	//str += "<h2>" + name + "," + weather + "</h2>";
 			  	//alert(weather);
+			  	var arr =["#sel0","#sel1","#sel2","#sel3","#sel4","#sel5","#sel6"];
        	 		var opt="";
        	 		if(weather=="多雲")
 				 	opt = $("<td title='多雲'></td>").html("<img src='images/02.gif'>");
@@ -349,7 +226,9 @@
 					opt = $("<td title='多雲時陰短暫雨'></td>").html("<img src='images/18.gif'>");
        			if(weather=="陰時多雲短暫雨"  || weather=="陰短暫雨")
 					opt = $("<td title='陰時多雲短暫雨'></td>").html("<img src='images/26.gif'>");
-       	 		
+       			
+       			
+       			$(arr[j]).prop("value",weather);
           	  	$('.weather').append(opt);
   			} 
   			
@@ -512,15 +391,12 @@
           $(".weather>td[class!='td1']").remove();
 	}
 	
-	$('.nav .dropdown').hover(function() {
-        $(this).addClass('open');
-    }, function() {
-        $(this).removeClass('open');
-    });
 	
 	
 })(jQuery);
 
 </script>
+<script src='../js/bootstrap.min.js'></script>
+<%@ include file="../platform/include_script.jsp" %>
 </body>
 </html>

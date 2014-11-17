@@ -12,7 +12,7 @@
 		Object serverPort = request.getServerPort();
 		Object contextPath = request.getContextPath();
 	%>
-	
+	 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -35,24 +35,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<!-- jQuery Version 1.11.0 -->
-    <script src="../js/jquery-1.11.0.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    });
-    
-    $('.nav .dropdown').hover(function() {
-            $(this).addClass('open');
-        }, function() {
-            $(this).removeClass('open');
-        });
-    </script>
+	
 </head>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+
 </html>

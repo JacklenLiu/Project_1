@@ -76,14 +76,14 @@ public class LoginServlet extends HttpServlet {
 				if (userId == null || userId.trim().length() == 0) {
 					request.setAttribute("errorMsgId", "帳號不可為空值或空白!");
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/P5_login/login.jsp");
+							.getRequestDispatcher("/P0_login/login.jsp");
 					rd.forward(request, response);					
 				}
 				
 				if (password == null || password.trim().length() == 0) {
 					request.setAttribute("errorMsgPwd", "密碼不可為空值或空白!");
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/P5_login/login.jsp");
+							.getRequestDispatcher("/P0_login/login.jsp");
 					rd.forward(request, response);
 				}
 				
@@ -93,7 +93,7 @@ public class LoginServlet extends HttpServlet {
 				if(mb == null && userId != null){
 					request.setAttribute("errorMsgId", "無此會員帳號");
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/P5_login/login.jsp");
+							.getRequestDispatcher("/P0_login/login.jsp");
 					rd.forward(request, response);
 				}
 				
@@ -122,7 +122,7 @@ public class LoginServlet extends HttpServlet {
 				else {
 					request.setAttribute("errorMSG", "帳號或會員密碼錯誤!");
 					RequestDispatcher rd = request
-							.getRequestDispatcher("/P5_login/login.jsp");
+							.getRequestDispatcher("/P0_login/login.jsp");
 					rd.forward(request, response);
 				}
 			} catch (Exception e) {
