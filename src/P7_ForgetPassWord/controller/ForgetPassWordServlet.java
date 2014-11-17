@@ -95,7 +95,7 @@ public class ForgetPassWordServlet extends HttpServlet {
 						forgetPassWordSvc.autoEmail(member_loginID, member_email,create);
 					}else{
 						System.out.println("mail有誤");
-						errorMsgs.add("mail有誤");						
+						errorMsgs.add("請檢查mail是否填寫正確");						
 					}
 					
 					

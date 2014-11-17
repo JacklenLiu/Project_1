@@ -296,6 +296,23 @@ input[type="text"] {
 								placeholder="Email" required="" autofocus="" />
 						</div>
 					</div>
+					
+					
+						<%-- 錯誤表列 --%>
+<center>
+<c:if test="${not empty errorMsgs}">
+	<font color='red' id="errorMsg">
+	
+		<c:forEach var="message" items="${errorMsgs}">
+			<li>${message}</li>
+		</c:forEach>
+	
+	</font>
+</c:if>
+</center>
+	<%-- /錯誤表列 --%>
+	
+					
 					<div class="form-group">
 						<div class="col-md-4 col-md-offset-4">
 							<button class="btn btn-lg btn-primary btn-block" type="submit">送出</button>
@@ -313,19 +330,7 @@ input[type="text"] {
 	
 
 	
-	<%-- 錯誤表列 --%>
-<c:if test="${not empty errorMsgs}">
-	<font color='red'>請修正以下錯誤:
-	<ul>
-		<c:forEach var="message" items="${errorMsgs}">
-			<li>${message}</li>
-		</c:forEach>
-	</ul>
-	</font>
-</c:if>
-	
-	
-	
+
 	
 	
 	
@@ -349,7 +354,11 @@ input[type="text"] {
 // 			   });
 			
 			
-		
+		$('#checkid').blur(function(){
+			
+			$('#errorMsg').hide();
+			
+		});
 			
 			
 			
