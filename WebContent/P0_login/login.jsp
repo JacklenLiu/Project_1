@@ -34,50 +34,20 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="../index.jsp">下一站，幸福</a>
+                <a class="navbar-brand" href="../index.jsp" >下一站，幸福</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                   <c:if test="<%=sionName != null%>">
-                 	 <li class="dropdown">
-                    	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-                    		會員，<%=sionName%>你好<b class="caret"></b></a>
-                 			 <ul class="dropdown-menu">
-		                       <li>
-		                           <a href="../P2_route/route_plan.jsp">會員基本資料修改</a>
-		                       </li>
-		                       <li>
-		                           <a href="portfolio-2-col.html">會員好友管理</a>
-		                       </li>
-		                       <li>
-		                           <a href="LoginServlet?action=logOut">登出系統</a>
-		                       </li>
-                  			</ul>
-                    </li>		
-                  </c:if>
-                  
-                
-                  <c:if test="<%=sionName == null%>">
-                  	 <li>
-                  		<a href="#myModal" data-toggle="modal" data-target="#myModal" id="abcd">登入</a>
-                  	 </li>
-                  </c:if>
+               	   <li>
+               		  <a href="#myModal" data-toggle="modal" data-target="#myModal" id="abcd">登入</a>
+               	   </li>
                    <li class="dropdown">
                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
                        <ul class="dropdown-menu">
-                          		<c:if test="<%=sionName!=null%>">
-                                	<a href="../P2_route/route_plan.jsp">路經規劃</a> 
-                               	</c:if>
-                           </li>
+                          		
                            <li>
-                               <a href="portfolio-2-col.html">路經規劃</a>
+                               <a href="portfolio-2-col.html"  class="abab">路經規劃</a>
                            </li>
                            <li>
                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
@@ -91,10 +61,7 @@
                        </ul>
                    </li>
                      <li>
-                   		<c:if test="<%=sionName!=null%>">
-                         	 <a href="P4_MessageBoard/showALL.jsp">留言板</a>
-                        </c:if>
-<!--                     <a href="P4_MessageBoard/showALL.jsp">留言板</a> -->
+                         <a href="P4_MessageBoard/showALL.jsp" class="abab">留言板</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
@@ -120,18 +87,15 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                            	
-                        	
-                        	<c:if test="<%=sionName!=null%>">
 	                        	<li>
-				                     <a href="../P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
+				                     <a href="../P3_TravelDiary/TravelDiaryServlet?action=blog.do" class="abab">所有文章 </a>
 				                </li>                         
 	                            <li>
-	                                <a href="../P3_TravelDiary/blog_editor.jsp">發表新文章</a>
+	                                <a href="../P3_TravelDiary/blog_editor.jsp" class="abab">發表新文章</a>
 	                            </li>
 	                            <li>
-	                                <a href="../P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
+	                                <a href="../P3_TravelDiary/blog_manage.jsp" class="abab">管理我的文章</a>
 	                            </li>
-                             </c:if>    
                         </ul>
                         
                     </li>
@@ -278,18 +242,19 @@
 
 
 
-<form action="login" method="post">
     <div id="login-overlay" class="modal-dialog">
       <div class="">
           <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
+              <h1 id="abc123"></h1>
               <h2 class="modal-title" id="myModalLabel">會員登入   &nbsp; &nbsp;&nbsp; &nbsp;</h2><h4><span style="color:red;">${errorMSG }</span></h4>
+          	  
           </div>
           <div class="modal-body">
               <div class="row">
                   <div class="col-xs-6">
                       <div class="well">
-                          <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+                          <form id="loginForm" method="POST" action="login" novalidate="novalidate">
                               <div class="form-group">
                                   <label for="username" class="control-label">Username</label>
                                   <input type="text" class="form-control" id="inputEmail" name="inputLoginId" value="" required="" title="Please enter you username" placeholder="請輸入帳號"  autofocus ><span style="color:red;">${errorMsgId}</span>
@@ -330,7 +295,6 @@
           </div>
       </div>
   </div>
-</form>
 
 
 
@@ -344,10 +308,8 @@
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
 <script src="../js/bootstrap.js"></script>
-   
 
 <script type="text/javascript">
-   
 (function ($) {
 	//照片輪播間格秒數
     $('.carousel').carousel({
@@ -364,18 +326,16 @@
   //上方工具列滑鼠滑入自動彈出
   
   //登入處裡*****************************
+    if(<%=sionName%> == null){
+		$(".navbar-right a").prop("href","#");
+	}
+  
 	var css1 = {"color":"red"};
 	$(".abab").click(function(){	    	
-		$("#abc123").prop("hidden",false).html("請先行登入會員系統!!").css(css1);
+		$("#abc123").text("請先行登入會員系統!!").css(css1);
 	});
-	$("#abcd").click(function(){	    	
-		$("#abc123").prop("hidden",true);;
-	});	    	
 	
-	if(<%=sionName%>== null){
-		//alert(sionName);
-		$(".navbar-right a").prop("href","login.jsp");
-	}
+	
 	//登入處裡*****************************
 	
 

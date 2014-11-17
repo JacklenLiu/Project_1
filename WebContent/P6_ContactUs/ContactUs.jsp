@@ -42,68 +42,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                	<c:if test="<%=sionName == null%>">
-                		<li>
-                		  <a href="../P5_login/login.jsp">登入 </a>
-                		</li>
-                	</c:if>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../P2_route/route_plan.jsp">路經規劃</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                     <li>
-                        <a href="../P4_MessageBoard/showALL.jsp">留言板</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../portfolio-1-col.html">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../ortfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
-                            </li>
-                            <li>
-                                <a href="../P3_TravelDiary/blog_editor.jsp">發表新文章</a>
-                            </li>
-                            <li>
-                                <a href="../P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
-                            </li>
-                        </ul>
-                    </li>
+                	<%@ include file="../platform/include_A_href/P2_route.jsp" %>
+                    <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %>
+                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+                    <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp" %>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">聯絡我們<b class="caret"></b></a>
@@ -125,70 +67,14 @@
                             </li>
                         </ul>
                     </li>
-                    <c:if test="<%=sionName != null %>">
-	                    <li class="dropdown">
-	                    	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-	                    		會員，<%= sionName %>你好<b class="caret"></b></a>
-	                 			 <ul class="dropdown-menu">
-				                       <li>
-				                           <a href="P2_route/route_plan.jsp">會員基本資料修改</a>
-				                       </li>
-				                       <li>
-				                           <a href="portfolio-2-col.html">會員好友管理</a>
-				                       </li>
-				                       <li>
-				                          <a href="../LoginServlet?action=logOut">登出系統</a>
-				                       </li>
-	                  			</ul>
-	                    </li>
-	                </c:if>   
+                    <%@ include file="../platform/include_A_href/memberSession.jsp" %>   
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-
-    <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-<!--             <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
-<!--             <li data-target="#myCarousel" data-slide-to="1"></li> -->
-<!--             <li data-target="#myCarousel" data-slide-to="2"></li> -->
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_01.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_02.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 2</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image:url('../Images/E_Changhong Bridge_03.bmp');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </header>
-
+	<%@ include file="../platform/include_picture.jsp" %>
 
 	<!-- ************************載入 jQuery bootstrapjs套件************************ -->
 	<script

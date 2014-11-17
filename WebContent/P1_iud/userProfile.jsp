@@ -1,121 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ page import="P1_iud.model.*"%>
 <%@ include file="../platform/include_start.jsp" %>
+<%
+	MemberService memSvc = new MemberService();
+ 	String userId = (String)session.getAttribute("userLoginId"); 
+	MemberVO list = memSvc.getOneMem(userId);
+	pageContext.setAttribute("list",list);
+%>
+
 </head>
 <body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                 <a class="navbar-brand" href="../index.jsp">下一站，幸福</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+        	<%@ include file="../platform/include_A_href/toIndex.jsp" %>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="route_plan.jsp">路經規劃</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                     <li>
-                        <a href="../P4_MessageBoard/showALL.jsp">留言板</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../portfolio-1-col.html">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="../ortfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
-                            </li>
-                            <li>
-                                <a href="../P3_TravelDiary/blog_editor.jsp">發表新文章</a>
-                            </li>
-                            <li>
-                                <a href="../P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="../full-width.html">Full Width Page</a>
-                            </li>
-                            <li>
-                                <a href="../sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
-                                <a href="../faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="../404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="../pricing.html">Pricing Table</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                    	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-                    		會員，<%= sionName %>你好<b class="caret"></b></a>
-                 			 <ul class="dropdown-menu">
-			                       <li>
-			                           <a href="P2_route/route_plan.jsp">會員基本資料修改</a>
-			                       </li>
-			                       <li>
-			                           <a href="portfolio-2-col.html">會員好友管理</a>
-			                       </li>
-			                       <li>
-			                          <a href="../LoginServlet?action=logOut">登出系統</a>
-			                       </li>
-                  			</ul>
-                    </li>
+                    <%@ include file="../platform/include_A_href/P2_route.jsp" %>
+                    <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %>
+                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+                    <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp" %>
+					<%@ include file="../platform/include_A_href/P6_contactUs.jsp" %>
+                    <%@ include file="../platform/include_A_href/memberSession.jsp" %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -192,38 +104,37 @@
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
-                        <td>Department:</td>
-                        <td>Programming</td>
+                        <td>會員帳號:</td>
+                        <td>${list.member_loginID}</td>
                       </tr>
                       <tr>
                         <td>Hire date:</td>
                         <td>06/23/2013</td>
                       </tr>
                       <tr>
-                        <td>Date of Birth</td>
-                        <td>01/24/1988</td>
-                      </tr>
-                   
-                         <tr>
-                             <tr>
-                        <td>Gender</td>
-                        <td>Male</td>
-                      </tr>
-                        <tr>
-                        <td>Home Address</td>
-                        <td>Metro Manila,Philippines</td>
+                        <td>會員信箱:</td>
+                        <td>${list.member_email}</td>
                       </tr>
                       <tr>
-                        <td>Email</td>
-                        <td><a href="mailto:info@support.com">info@support.com</a></td>
+                        <td>會員姓名:</td>
+                        <td>${list.member_name}</td>
                       </tr>
                       <tr>
-                        <td>Phone Number</td>
-                        <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
-                        </td>
-                           
+                        <td>會員姓名:</td>
+                        <td>${list.member_gender}</td>
                       </tr>
-                     
+                      <tr>
+                        <td>會員生日:</td>
+                        <td>${list.member_birthday}</td>
+                      </tr>
+                      <tr>
+                        <td>會員地址:</td>
+                        <td>${list.member_address}</td>
+                      </tr>
+                      <tr>
+                        <td>會員興趣種類:</td>
+                        <td>${list.typeName}</td>
+                      </tr>
                     </tbody>
                   </table>
                   
@@ -236,7 +147,7 @@
                         <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
                         <span class="pull-right">
                             <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                            <a href="../index.jsp" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                         </span>
                     </div>
             
@@ -244,7 +155,11 @@
         </div>
       </div>
     </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
     
+<script src='../js/bootstrap.min.js'></script>
 <%@ include file="../platform/include_script.jsp" %>
 </body>
 </html>

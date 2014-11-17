@@ -25,7 +25,7 @@ public class MemberDAO implements MemberDAO_interface{
 	private static final String GET_ALL_STMT =
 		      "SELECT * FROM sysmember order by member_loginID";
 	private static final String GET_ONE_STMT =
-		      "SELECT * FROM sysmember where member_loginID = ?";
+		      "  select *  from sysmember join persontype on member_type = typeID where member_loginID=?;";
 	private static final String DELETE =
 		      "DELETE FROM sysmember where member_loginID = ?";
 	private static final String UPDATE =
@@ -197,7 +197,7 @@ public class MemberDAO implements MemberDAO_interface{
 				memVO.setMember_birthday(rs.getDate("member_birthday"));
 				memVO.setMember_address(rs.getString("member_address"));
 				//memVO.setMember_buildtime(rs.getDate("member_buildtime"));
-				
+				memVO.setTypeName(rs.getString("typeName"));
 				
 			}
 

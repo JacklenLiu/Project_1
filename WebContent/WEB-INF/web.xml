@@ -21,7 +21,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet_boot</servlet-name>
-    <url-pattern>/P5_login/login</url-pattern>
+    <url-pattern>/P0_login/login</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>iudServlet</servlet-name>

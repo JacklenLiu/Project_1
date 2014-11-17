@@ -71,7 +71,7 @@
                 <ul class="nav navbar-nav navbar-right">
                   <c:if test="<%=sionName == null%>">
                   	 <li>
-                  		<a href="P5_login/login.jsp" id="abcd">登入</a>
+                  		<a href="P0_login/login.jsp" id="abcd">登入</a>
                   	 </li>
                   </c:if>
                    <li class="dropdown">
@@ -93,7 +93,6 @@
                    </li>
                      <li>
                        	 <a href="P4_MessageBoard/showALL.jsp">留言板</a>
-<!--                     <a href="P4_MessageBoard/showALL.jsp">留言板</a> -->
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
@@ -421,8 +420,8 @@
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
 <script src="js/bootstrap.js"></script>
-    
-<script type="text/javascript" src="P0_login/js/jquery.validate.js"></script> 
+     
+<!-- <script type="text/javascript" src="P0_login/js/jquery.validate.js"></script>  -->
 
 
 <!-- Script to Activate the Carousel -->
@@ -467,17 +466,11 @@
 	(function($){   
 		
 		//******昱豪 登入處裡*****************************
-		var css1 = {"color":"red"};
-    	$(".abab").click(function(){	    	
-    		$("#abc123").prop("hidden",false).html("請先行登入會員系統!!").css(css1);
-    	});
-    	$("#abcd").click(function(){	    	
-    		$("#abc123").prop("hidden",true);;
-    	});	    	
+			
     	var sionLog = "<%=sionLoginId%>";
     	if(sionLog == "null"){
     		//alert(sionName);
-    		$(".navbar-right a[class != 'noChange'] ").prop("href","P5_login/login.jsp");
+    		$(".navbar-right a[class != 'noChange'] ").prop("href","P0_login/login.jsp");
     	}
     	//******昱豪 登入處裡*****************************
     	
