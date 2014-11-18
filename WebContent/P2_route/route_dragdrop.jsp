@@ -94,17 +94,13 @@
 	
 	<div id="mainDiv" class="ui-widget ui-helper-clearfix">
 	<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"></ul>
-	<div id="resultdiv" style="width:410px; display:inline"><div id="inner"></div>
-	<div id="mapdiv" class="ui-widget-content ui-state-default">
-		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">地圖</span> 地圖</h4>
-		<div id="map"></div>		
-<<<<<<< HEAD
+	<div id="resultdiv" style="width:410px; display:inline">
+		<div id="inner"></div>
+		<div id="mapdiv" class="ui-widget-content ui-state-default">
+			<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">地圖</span> 地圖</h4>
+			<div id="map"></div>		
+		</div>
 	</div>
-	</div>
-=======
-	</div>
-	</div>
->>>>>>> 45c52ea5fdcfd25268cef59027acfb7e3131c163
 	
 	<div id="route" class="ui-widget-content ui-state-default">
 		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">路徑規劃</span> 路徑規劃</h4>

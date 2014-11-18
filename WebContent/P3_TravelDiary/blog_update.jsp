@@ -8,7 +8,6 @@
 <html>
 <head>
     <%@ include file="../platform/include_title.jsp" %>
-	<%@ include file="../platform/include_start.jsp" %>
 	<%
 		TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO");
 	%>
