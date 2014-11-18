@@ -16,4 +16,7 @@ public interface viewnameDAO_interface {
     public String getRouteByMemID(String memID);
     public String getRouteOrderByRouteID(Integer routeID);
     public String getRouteFisrtByRouteID(Integer routeID);
+    public String deleteRouteByID(Integer routeID);
+    public Integer increaseHitRate(String routeResultView, Integer hitRate);
+    public Integer getHitRate(String routeResultView);
 }

@@ -1,6 +1,7 @@
 package P6_ContactUs.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -35,7 +36,8 @@ public class ContactUsServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		//取name=actoin 的value判別是按到哪一個功能
 		String action=req.getParameter("action");
-		
+		res.setContentType("text/html; charset=UTF-8");
+		PrintWriter out=res.getWriter();
 		if("contactus".equals(action)){
 			//建立一個用來存放errorMsg的List
 			List<String> errorMsgs=new LinkedList<String>();
@@ -113,10 +115,10 @@ public class ContactUsServlet extends HttpServlet {
 				contactUsSvc.insertContactUs(contactUsName, contactUsMail, contactUsDate, contactUsSubject, contactUsContent);
 				System.out.println("資料庫新增OK");
 				/************************************新增資料完成******************************************/
-				String url = "/P6_ContactUs/OK.jsp";
-				RequestDispatcher successView = req.getRequestDispatcher(url);
-				successView.forward(req, res);
-				
+//				String url = "/P6_ContactUs/ContactUsOK.jsp";
+//				RequestDispatcher successView = req.getRequestDispatcher(url);
+//				successView.forward(req, res);
+				out.println("ok");
 		
 			}catch(Exception e){
 				System.out.println("信件無法送出請稍後再試");

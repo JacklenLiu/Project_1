@@ -1,6 +1,7 @@
 package P7_ForgetPassWord.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,6 +32,8 @@ public class ForgetPassWordServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
+		res.setContentType("text/html; charset=UTF-8");
+		PrintWriter out=res.getWriter();
 		String action = req.getParameter("action");
 		if("forget".equals(action)){
 			System.out.println("summit");
@@ -40,6 +43,7 @@ public class ForgetPassWordServlet extends HttpServlet {
 			req.setAttribute("errorMsgs", errorMsgs);
 			String member_loginID=req.getParameter("userid");
 			String member_email=req.getParameter("email");
+			System.out.println(member_loginID+member_email);
 			try {
 				//驗證格式
 				
@@ -59,6 +63,7 @@ public class ForgetPassWordServlet extends HttpServlet {
 					errorMsgs.add("mail不可空白");
 				}
 				if(!errorMsgs.isEmpty()){
+					out.println("notok");
 					RequestDispatcher failureView = req
 							.getRequestDispatcher("/P7_ForgetPassWord/ForgetPassWord.jsp");
 					failureView.forward(req, res);
@@ -103,7 +108,8 @@ public class ForgetPassWordServlet extends HttpServlet {
 				}
 				
 				
-				if(!errorMsgs.isEmpty()){					
+				if(!errorMsgs.isEmpty()){		
+					out.println("notok");
 					//System.out.println(errorMsgs.get(0));
 					RequestDispatcher failureView = req
 							.getRequestDispatcher("/P7_ForgetPassWord/ForgetPassWord.jsp");
@@ -113,12 +119,12 @@ public class ForgetPassWordServlet extends HttpServlet {
 				
 				
 				/********************* 3.查詢完畢，轉到修改的頁面 **************************/
-			
-				String url = "/P7_ForgetPassWord/ok.jsp";
+				System.out.println("???");
+//				String url = "/P7_ForgetPassWord/ForgetPassWordOK.jsp";
 				// 查詢到的資料轉道update畫面之後用EL取內容
-				RequestDispatcher successView = req.getRequestDispatcher(url);
-				successView.forward(req, res);
-				
+//				RequestDispatcher successView = req.getRequestDispatcher(url);
+//				successView.forward(req, res);
+				out.println("ok");
 				
 				
 			} catch (Exception e) {

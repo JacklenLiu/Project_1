@@ -272,5 +272,80 @@
 				})(jQuery);
 </script>  
 <%@ include file="../platform/include_script.jsp" %>	
+
+
+<script>
+		(function($) {
+			
+			$('#send').click(function(){
+				var mail_check= /.+@.+\..+/;
+				var fname=$('#fname').val();
+				var recipients=$('#recipients').val();
+				var frommail=$('#frommail').val();
+				var date=$('#date').val();
+				var subject=$('#subject').val();
+				var contents=$('#contents').val();
+				if(fname.length==0){
+					sweetAlert("Sorry...", "請輸入姓名!", "error");
+					return false;
+				}
+				else if(recipients.length==0){
+					sweetAlert("Sorry...", "請輸入E-mail!", "error");
+					return false;
+				}else if(!recipients.match(mail_check)){
+					sweetAlert("Sorry...", "請輸入正確E-mail格式!", "error");
+					return false;
+				}else if(subject.length==0){
+					sweetAlert("Sorry...", "請輸入subject!", "error");
+					return false;
+				}else if(contents.length==0){
+					sweetAlert("Sorry...", "請輸入contents!", "error");
+					return false;
+				}
+				
+				 $.ajax({
+		                "url": "ContactUsServlet",
+		                "type": "post",
+		                "data": {'action': 'contactus','name':fname,'recipients':recipients,
+		                	'frommail':frommail,'date':date,'subject':subject,'contents':contents},
+		                "dataType": "text", //json,xml
+		                "success": function(data) {
+		               		if($.trim(data)=="ok"){
+		               			swal({ title: "已成功!",   
+		         				   text: "3秒後自動關閉視窗",   
+		         				   timer: 3000 ,
+		         				   type:"success"});
+		               			$('#fname').val("");
+		        				$('#recipients').val("");
+		        				$('#subject').val("");
+		        				$('#contents').val("");
+		               		}else{
+		               			sweetAlert("申請失敗", "請確定網路是否順暢!", "error");
+		               		}
+		                }
+		            });
+				
+				
+				
+			});
+					
+
+					//     	$(function () {
+					//     	  $('input, textarea').each(function() {
+					//     	        $(this).on('focus', function() {
+					//     	            $(this).parent('.input').addClass('active');
+					//     	        });
+
+					//     	        $(this).on('blur', function() {
+					//     	            if ($(this).val().length == 0) {
+					//     	                $(this).parent('.input').removeClass('active');
+					//     	            }
+					//     	        });
+					//     	        if ($(this).val() != '') $(this).parent('.input').addClass('active');
+					//     	    });
+					//     	});
+
+				})(jQuery);
+	</script>
 </body>
 </html>

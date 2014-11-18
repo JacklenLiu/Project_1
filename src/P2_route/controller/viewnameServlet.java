@@ -39,6 +39,35 @@ public class viewnameServlet extends HttpServlet {
 		
 		String action = request.getParameter("action");
 		
+		if("increaseHitRate".equals(action)){
+			String routeResultJSONStr = request.getParameter("routeResult");
+			try {
+				JSONArray routeJSONObjArray = new JSONArray(routeResultJSONStr);
+				System.out.println(routeJSONObjArray);
+				
+				List<String> routeResultArray = new ArrayList<String>();
+				for(int i=0; i< routeJSONObjArray.length(); i++){
+					routeResultArray.add(routeJSONObjArray.getString(i));
+				}
+				
+				viewnameService vnService = new viewnameService();
+				
+				
+				for(int i=0; i < routeResultArray.size(); i++){
+					String routeResultView = routeResultArray.get(i);
+					int hitRate = vnService.getHitRate(routeResultView);
+					//System.out.println("routeResultView= "+routeResultView +", hitRate= "+hitRate);
+					hitRate++;
+					//System.out.println("hitRateAfter="+hitRate);
+					vnService.increaseHitRate(routeResultView, hitRate);
+				}
+				
+				
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		if("saveRoute".equals(action)){
 			String routeJSONStr = request.getParameter("routeJSONStr");
 			System.out.println(routeJSONStr);
@@ -64,7 +93,7 @@ public class viewnameServlet extends HttpServlet {
 					for(int i=0; i < routeResultArray.size(); i++){
 						String routeResultView = routeResultArray.get(i);
 						//i -> routeResultViewOrder
-						System.out.println("routeResultView = " + routeResultView + ", routeResultViewOrder = " + i);
+						//System.out.println("routeResultView = " + routeResultView + ", routeResultViewOrder = " + i);
 						status = vnService.insertRouteViewByRouteID(routeID, routeResultView, i+1);
 					}
 				}
@@ -95,6 +124,13 @@ public class viewnameServlet extends HttpServlet {
 			viewnameService vnService = new viewnameService();
 			String routeOrder = vnService.getRouteOrderByRouteID(routeID);
 			out.println(routeOrder);
+		}
+		
+		if("DeleteRouteByRouteID".equals(action)){
+			Integer routeID = Integer.parseInt(request.getParameter("routeID"));
+			viewnameService vnService = new viewnameService();
+			String status = vnService.deleteRouteByID(routeID);
+			out.println(status);
 		}
 		
 		if("GetRouteFisrtByRouteID".equals(action)){

@@ -182,9 +182,12 @@ public class TravelDiaryServlet extends HttpServlet {
 				TravelDiaryService travelDirarySvc = new TravelDiaryService();
 				travelDirarySvc.deleteTravelDiary(TravelDiary_ID);
 				/************************* 3.刪除完成後轉頁 ***********************/
-				String url = "/P3_TravelDiary/blog_manage.jsp";
-				RequestDispatcher successView = req.getRequestDispatcher(url);
-				successView.forward(req, res);
+//				String url = "/P3_TravelDiary/blog_manage.jsp"; req.getContextPath()
+//				RequestDispatcher successView = req.getRequestDispatcher(url);
+//				successView.forward(req, res);
+				String projectName=req.getContextPath();
+				String url = projectName+"/P3_TravelDiary/blog_manage.jsp"; 
+				res.sendRedirect(url);
 			} catch (Exception e) {
 				errorMsgs.add("刪除失敗" + e.getMessage());
 				RequestDispatcher failureView = req
@@ -261,11 +264,13 @@ public class TravelDiaryServlet extends HttpServlet {
 
 				/********************* 3.查詢完畢，轉到修改的頁面 **************************/
 				// req.setAttribute("travelDiaryVO", travelDiaryVO);
-				String url = "/P3_TravelDiary/blog_manage.jsp";
+//				String url = "/P3_TravelDiary/blog_manage.jsp";
 				// 查詢到的資料轉道update畫面之後用EL取內容
-				RequestDispatcher successView = req.getRequestDispatcher(url);
-				successView.forward(req, res);
-
+//				RequestDispatcher successView = req.getRequestDispatcher(url);
+//				successView.forward(req, res);
+				String projectName=req.getContextPath();
+				String url= projectName+"/P3_TravelDiary/blog_manage.jsp";
+				res.sendRedirect(url);
 			} catch (Exception e) {
 				// 將catch的錯誤訊息寫到errorMsgs
 				errorMsgs.add("修改資料失敗" + e.getMessage());
@@ -382,9 +387,12 @@ public class TravelDiaryServlet extends HttpServlet {
 
 				/*************************** 3.新增完成,準備轉交(Send the Success view) ***********/
 				// 新增文章成功後轉回到全部文章的頁面
-				String url = "TravelDiaryServlet?action=blog.do";
-				RequestDispatcher successView = req.getRequestDispatcher(url);
-				successView.forward(req, res);
+				String projectName=req.getContextPath();
+				String url = projectName+"/P3_TravelDiary/TravelDiaryServlet?action=blog.do";
+//				RequestDispatcher successView = req.getRequestDispatcher(url);
+//				successView.forward(req, res);
+				res.sendRedirect(url);
+				return;
 				/*************************** 其他可能的錯誤處理 **********************************/
 
 			} catch (Exception e) {

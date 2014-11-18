@@ -44,6 +44,9 @@ public class viewnameDAO implements viewnameDAO_interface {
 	private static final String GET_ROUTE_STMT_MEMID ="SELECT routeID, routeName, buildTime FROM route where member_loginID=?  order by buildTime desc";
 	private static final String GET_ROUTEORDER_STMT_ROUTEID ="SELECT viewID, RouteViewOrder FROM routeView where routeID=?  order by RouteViewOrder";
 	private static final String GET_ROUTEFIRST_STMT_ROUTEID ="SELECT top(1) viewID FROM routeView where routeID=?  order by RouteViewOrder";
+	private static final String DELETE_ROUTE_STMT_MEMID ="DELETE FROM route where routeID = ?";
+	private static final String UPDATE_VIEWHITRATE_STMT_VIEWID ="UPDATE viewname set view_HitRate=? where viewID = ?";
+	private static final String GET_VIEWHITRATE_STMT_VIEWID ="SELECT view_HitRate FROM viewname where viewID = ?";
 	
 	
 	@Override
@@ -551,5 +554,122 @@ try{
 			}
 		}		
 		return routeFirst;
+	}
+
+	@Override
+	public String deleteRouteByID(Integer routeID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int count=0;
+		String status="";
+		
+try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(DELETE_ROUTE_STMT_MEMID);	
+			
+			pstmt.setInt(1, routeID);
+			count = pstmt.executeUpdate();			
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		if(count!=0){
+			status = "success";
+		}
+			return status;
+	}
+
+	@Override
+	public Integer increaseHitRate(String routeResultView, Integer hitRate) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int count = 0;
+		
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(UPDATE_VIEWHITRATE_STMT_VIEWID);	
+			
+			pstmt.setInt(1, hitRate);
+			pstmt.setString(2, routeResultView);
+			count = pstmt.executeUpdate();
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return count;
+	}
+
+	@Override
+	public Integer getHitRate(String routeResultView) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Integer hitRate=0;
+		
+try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_VIEWHITRATE_STMT_VIEWID);	
+			
+			pstmt.setString(1, routeResultView);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				hitRate = rs.getInt(1);
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}		
+		return hitRate;
 	}
 }

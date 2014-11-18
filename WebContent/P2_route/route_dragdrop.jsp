@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -100,8 +98,13 @@
 	<div id="mapdiv" class="ui-widget-content ui-state-default">
 		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">地圖</span> 地圖</h4>
 		<div id="map"></div>		
+<<<<<<< HEAD
 	</div>
 	</div>
+=======
+	</div>
+	</div>
+>>>>>>> 45c52ea5fdcfd25268cef59027acfb7e3131c163
 	
 	<div id="route" class="ui-widget-content ui-state-default">
 		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">路徑規劃</span> 路徑規劃</h4>
@@ -587,6 +590,41 @@
                 	ResultShowInMap();
                 	ResultShowInText();
                 	
+                	function copyResulttoResultToServlet(){
+                		$.each(result, function(i, viewID){
+                			resultToServlet[i] = viewID;
+                		});
+                		console.log("resultToServlet");
+                		console.log(resultToServlet);
+                	}
+                	
+                	function ResultShowInText(){
+                		var viewsObj2 = new Array();
+                    	viewsObj2 = $('#route .gallery li');
+
+                    	var resultStr = "";
+                		$.each(result, function(i, viewName){
+                			$.each(viewsObj2, function(j, viewObj){
+                				if(viewName == $(viewObj).attr("id")){
+                					resultName[i] = $(viewObj).find("h5").text();
+                				}
+                			});
+                		});
+                		//console.log(result);
+                		//console.log(resultName);
+                		
+                		$.each(resultName, function(i, viewNameCH){	
+                			resultStr += String.fromCharCode(i+65) + ": " + viewNameCH;
+                			
+                			if(i < result.length-1){
+                				resultStr += " &gt ";
+                			}
+                			if((i+1)%3==0){
+                				resultStr += "<br>";
+                			}
+                		})
+                		$('#inner').html(resultStr);
+                	}
                 	
                 	function copyResulttoResultToServlet(){
                 		$.each(result, function(i, viewID){

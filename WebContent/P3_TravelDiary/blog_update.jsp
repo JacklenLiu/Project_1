@@ -1,6 +1,9 @@
-<%@page import="P3_TravelDiary.model.TravelDiaryVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="P3_TravelDiary.model.TravelDiaryVO"%>
+
+
+<!-- 1.使用Date因為要抓建立文章的時期 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,9 +30,8 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     	<!-- sweetalert -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="seeetalertcss/sweet-alert.css">
+    <link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
     <script src="../js/jquery-1.11.0.js"></script>
-
 
     <style>
     /*登入畫面寬度改變*/

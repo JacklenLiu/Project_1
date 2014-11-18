@@ -71,7 +71,10 @@
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 45c52ea5fdcfd25268cef59027acfb7e3131c163
 	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 <script src='../Script/jquery-ui.js'></script>
