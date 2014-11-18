@@ -16,6 +16,7 @@
 
 <link rel="stylesheet" href="../P6_ContactUs/css/bootstrap.min.css">
 <link rel="stylesheet" href="../P6_ContactUs/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
 <title>ForgetPassWord</title>
 
 <style>
@@ -133,7 +134,7 @@ input[type="text"] {
 						"<script src='../P6_ContactUs/js/jquery-2.1.1.min.js'><\/script>")
 	</script>
 	<script src="../P6_ContactUs/js/bootstrap.min.js"></script>
-
+	<script src="../seetalertjs/sweet-alert.js"></script>
 
 	<!-- ************************/script jQuery ************************ -->
 
@@ -153,7 +154,7 @@ input[type="text"] {
 						<span class="col-md-2 col-md-offset-2 text-center">Your
 							ID</span>
 						<div class="col-md-4">
-							<input type="text" class="form-control" name="userid"
+							<input type="text" class="form-control" name="userid" id="userid"
 								placeholder="UserID" id="checkid" required="" autofocus="" />
 							
 						</div>
@@ -163,7 +164,7 @@ input[type="text"] {
 						<span class="col-md-2 col-md-offset-2 text-center">Your
 							Email</span>
 						<div class="col-md-4">
-							<input type="email" class="form-control" name="email"
+							<input type="email" class="form-control" name="email" id="email"
 								placeholder="Email" required="" autofocus="" />
 						</div>
 					</div>
@@ -186,7 +187,8 @@ input[type="text"] {
 					
 					<div class="form-group">
 						<div class="col-md-4 col-md-offset-4">
-							<button class="btn btn-lg btn-primary btn-block" type="submit">送出</button>
+						<input type="button" class="btn btn-lg btn-primary btn-block" id="send" value="送出">
+<!-- 							<button class="btn btn-lg btn-primary btn-block" type="submit">送出</button> -->
 							<input type="hidden" name="action" value="forget">
 						</div>
 					</div>
@@ -208,6 +210,70 @@ input[type="text"] {
 	
 		<script>
 		(function($) {
+			
+			$('#send').click(function(){
+				var mail_check= /.+@.+\..+/;
+				var id=$('#userid').val();
+				var email=$('#email').val();
+				if(id.length==0){
+					sweetAlert("Sorry...", "請輸入ID!", "error");
+					return false;
+				}
+				else if(email.length==0){
+					sweetAlert("Sorry...", "請輸入E-mail!", "error");
+					return false;
+				}else if(!email.match(mail_check)){
+					sweetAlert("Sorry...", "請輸入正確E-mail格式!", "error");
+					return false;
+				}
+				
+				
+				
+				
+				  $.ajax({
+		                "url": "ForgetPassWordServlet",
+		                "type": "post",
+		                "data": {'action': 'forget','userid':id,'email':email},
+		                "dataType": "text", //json,xml
+		                "success": function(data) {
+		               		if($.trim(data)=="ok"){
+		               			swal({ title: "已成功!",   
+		         				   text: "3秒後自動關閉視窗",   
+		         				   timer: 3000 ,
+		         				   type:"success"});
+		               			$('#userid').val("");
+		               			$('#email').val("");
+		               		}else{
+		               			sweetAlert("申請失敗", "請確定帳號與Mail是否正確!", "error");
+		               		}
+		                }
+		            });
+			                
+			          
+            });   
+				
+				
+				
+				
+				
+// 				 $.ajax({
+// 							 "url":"ForgetPassWordServlet",
+// 							 "type":"post",
+// 							 "data":{'action':'forget'},
+// 							 "dataType":"text",  //json,xml
+// 							 "success":function(data){
+								
+// 							 }
+// 						 });
+				
+// 				});
+			
+			
+			
+			
+			
+			
+			
 			
 // 			   $('#checkid').blur(function(){
 // 				   var name=$('#checkid').val();

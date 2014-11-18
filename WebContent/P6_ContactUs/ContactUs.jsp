@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/bootstrap-theme.min.css" media="screen">
 <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
-
+<link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -85,26 +85,8 @@
 						"<script src='js/jquery-2.1.1.min.js'><\/script>")
 	</script>
 	<script src="js/bootstrap.min.js"></script>
-	<script>
-		(function($) {
-
-					//     	$(function () {
-					//     	  $('input, textarea').each(function() {
-					//     	        $(this).on('focus', function() {
-					//     	            $(this).parent('.input').addClass('active');
-					//     	        });
-
-					//     	        $(this).on('blur', function() {
-					//     	            if ($(this).val().length == 0) {
-					//     	                $(this).parent('.input').removeClass('active');
-					//     	            }
-					//     	        });
-					//     	        if ($(this).val() != '') $(this).parent('.input').addClass('active');
-					//     	    });
-					//     	});
-
-				})(jQuery);
-	</script>
+	<script src="../seetalertjs/sweet-alert.js"></script>
+	
 
 
 
@@ -144,7 +126,7 @@
               <span class="col-md-2 col-md-offset-2 text-center">Your Name</span>              
               <div class="col-md-4">
                 <input id="fname" name="name" type="text" placeholder="John Stuart" class="form-control" required>
-              	  <input type="hidden" name="frommail" size="30" value="cecj0601@gmail.com" />
+              	  <input type="hidden" id="frommail" name="frommail" size="30" value="cecj0601@gmail.com" />
       			  <input type="hidden"  id="date" name="date" value="<%=new java.sql.Timestamp(right.getTime())%>" readonly="<%=new java.sql.Timestamp(right.getTime())%>">
               </div>
             </div>    
@@ -174,7 +156,8 @@
             <div class="form-group">
               <div class="col-md-12 text-center">
               	<button class="btn btn-danger " type="reset">RESET</button>
-                <button type="submit" name="Submit" class="btn btn-primary">Submit</button>
+              	<input type="button" class="btn btn-primary" name="send" id="send" value="送出">
+<!--                 <button type="submit" name="Submit" class="btn btn-primary">Submit</button> -->
                 <input type="hidden" name="action" value="contactus" />
               </div>
             </div>
@@ -213,5 +196,80 @@
 	<!-- 	</form> -->
     
 <%@ include file="../platform/include_script.jsp" %>	
+
+
+<script>
+		(function($) {
+			
+			$('#send').click(function(){
+				var mail_check= /.+@.+\..+/;
+				var fname=$('#fname').val();
+				var recipients=$('#recipients').val();
+				var frommail=$('#frommail').val();
+				var date=$('#date').val();
+				var subject=$('#subject').val();
+				var contents=$('#contents').val();
+				if(fname.length==0){
+					sweetAlert("Sorry...", "請輸入姓名!", "error");
+					return false;
+				}
+				else if(recipients.length==0){
+					sweetAlert("Sorry...", "請輸入E-mail!", "error");
+					return false;
+				}else if(!recipients.match(mail_check)){
+					sweetAlert("Sorry...", "請輸入正確E-mail格式!", "error");
+					return false;
+				}else if(subject.length==0){
+					sweetAlert("Sorry...", "請輸入subject!", "error");
+					return false;
+				}else if(contents.length==0){
+					sweetAlert("Sorry...", "請輸入contents!", "error");
+					return false;
+				}
+				
+				 $.ajax({
+		                "url": "ContactUsServlet",
+		                "type": "post",
+		                "data": {'action': 'contactus','name':fname,'recipients':recipients,
+		                	'frommail':frommail,'date':date,'subject':subject,'contents':contents},
+		                "dataType": "text", //json,xml
+		                "success": function(data) {
+		               		if($.trim(data)=="ok"){
+		               			swal({ title: "已成功!",   
+		         				   text: "3秒後自動關閉視窗",   
+		         				   timer: 3000 ,
+		         				   type:"success"});
+		               			$('#fname').val("");
+		        				$('#recipients').val("");
+		        				$('#subject').val("");
+		        				$('#contents').val("");
+		               		}else{
+		               			sweetAlert("申請失敗", "請確定網路是否順暢!", "error");
+		               		}
+		                }
+		            });
+				
+				
+				
+			});
+					
+
+					//     	$(function () {
+					//     	  $('input, textarea').each(function() {
+					//     	        $(this).on('focus', function() {
+					//     	            $(this).parent('.input').addClass('active');
+					//     	        });
+
+					//     	        $(this).on('blur', function() {
+					//     	            if ($(this).val().length == 0) {
+					//     	                $(this).parent('.input').removeClass('active');
+					//     	            }
+					//     	        });
+					//     	        if ($(this).val() != '') $(this).parent('.input').addClass('active');
+					//     	    });
+					//     	});
+
+				})(jQuery);
+	</script>
 </body>
 </html>

@@ -1,14 +1,25 @@
 <%@page import="P3_TravelDiary.model.TravelDiaryVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<!-- 使用Date因為要抓建立文章的時期 -->
+
+<!-- 1.使用Date因為要抓建立文章的時期 -->
 <%@ page import="java.util.*"%>
-<%@ include file="../platform/include_start.jsp" %>
+<%
+	Date date = new Date();
+	java.util.Date right = new java.util.Date();
+%>
+	<%
+		Object sionName = session.getAttribute("userName");
+		Object sionLoginId = session.getAttribute("userLoginId");
+		Object serverName = request.getServerName();
+		Object serverPort = request.getServerPort();
+		Object contextPath = request.getContextPath();
+	%>
 <%
 TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO");
 %>
@@ -32,7 +43,7 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <!-- sweetalert -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="seeetalertcss/sweet-alert.css">
+    <link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
     
     <title>Hello Bootstrap</title>
 
@@ -103,7 +114,7 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
     <!-- 載入文字編輯器 -->
     <script src="js/summernote.min.js"></script>
     <!-- sweetalert -->
-    <script src="seetalertjs/sweet-alert.js"></script>
+    <script src="../seetalertjs/sweet-alert.js"></script>
     
     <!-- ************************/載入 jQuery bootstrap  summernote js套件************************ -->
 	<script type="text/javascript">
