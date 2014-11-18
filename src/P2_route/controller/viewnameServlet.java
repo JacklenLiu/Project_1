@@ -97,6 +97,13 @@ public class viewnameServlet extends HttpServlet {
 			out.println(routeOrder);
 		}
 		
+		if("DeleteRouteByRouteID".equals(action)){
+			Integer routeID = Integer.parseInt(request.getParameter("routeID"));
+			viewnameService vnService = new viewnameService();
+			String status = vnService.deleteRouteByID(routeID);
+			out.println(status);
+		}
+		
 		if("GetRouteFisrtByRouteID".equals(action)){
 			Integer routeID = Integer.parseInt(request.getParameter("routeID"));
 			viewnameService vnService = new viewnameService();

@@ -19,18 +19,20 @@
             border-top:1.5px solid #F00;
         }
     
-    #mainDiv{margin: 0px auto; width:70%}
+    #mainDiv{margin: 0px auto; width:75%}
     
-    #gallery { width: 70% min-height: 12em; /*for grid*/ padding: 0;  list-style: none; overflow: auto; height:525px}
+    #gallery { margin: 0px auto; min-height: 12em; /*for grid*/ padding: 0;  list-style: none; overflow: auto; height:525px}
    	.gallery.custom-state-active { background: #eee; }
-  	.gallery li { float: left; width: 300px; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden;}
+  	.gallery li { float: left; width: 30%; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden;}
   	.gallery li h3 { margin: 0 0 0.4em;}
   	.gallery li img { width: 100%; cursor: pointer; }
+  	.gallery li a { float: right; }
   	
   	.viewimge{
 			width:200px;
 			height:200px;
 		}
+	.validateTips { border: 1px solid transparent; padding: 0.3em; text-align:center;}
     </style>
     
 	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
@@ -197,12 +199,10 @@
 	
 	<div id="titlediv"><h2>我的路線</h2></div>
 	<div id="mainDiv" class="ui-widget ui-helper-clearfix">
-		<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
-<!-- 			<li class="ui-widget-content ui-corner-tr"> -->
-<!-- 				<h3 class="ui-widget-header">墾丁一日遊</h3>  -->
-<!-- 				<img src="images/C_7fy_01.jpg" alt="The peaks of High Tatras" width="200" height="200"> -->
-<!-- 			</li> -->
-		</ul>
+		<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"></ul>
+	</div>
+	<div id="dialog-delete" title="刪除路線">
+		<h2 class="validateTips">真的要刪除?</h2>
 	</div>
 
 
@@ -210,8 +210,7 @@
 
 
 
-
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 <script src='../Script/jquery-ui.js'></script>
 	
@@ -239,12 +238,29 @@
 				var routeFirstimg = $('<img></img>').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id=' + firstView)
 													.addClass("viewimge");
 				
+				//<a href='#' title='移除景點' class='ui-icon ui-icon-close'>移除景點</a>
+				var recycle_icon = $('<a></a>').attr("href", "#")
+											   .attr("title", "移除此路線")
+											   .addClass("ui-icon ui-icon-close")
+											   .text("移除此路線");
+				
 				//<li class="ui-widget-content ui-corner-tr"></li>
 				var liObj = $('<li></li>').append(routeName)
 										  .append(routeFirstimg)
-										  .addClass("ui-widget-content ui-corner-tr");
+										  .append(recycle_icon)
+										  .attr("id", "liID_" + route.routeID)
+										  .addClass("ui-widget-content ui-corner-tr")
+										  .click(function click(event){
+            								        	 var $item = $( this ),
+            							                 $target = $( event.target );
+            							              	 if ( $target.is( "a.ui-icon-close" ) ) {
+            							              		 dialog.data("self",$item)
+            							              		 	   .dialog( "open" );
+            							              	 }
+            							         		 return false;
+            								     });
 				
-				$("#gallery").append(liObj);//jkl
+				$("#gallery").append(liObj);
 				
         	});
         	
@@ -264,6 +280,38 @@
         		});
 				return firstViewInner;
 			}
+        	
+        	//刪除路線
+        	function deleteRoute($item){
+        		//console.log($item.attr("id").substr(5));
+        		var url = "viewnameServlet";
+        		$.get(url, {'routeID':$item.attr("id").substr(5),'action':'DeleteRouteByRouteID'});
+        		$item.fadeOut(function() {
+                    $item
+                      .find( "a.ui-icon-close" )
+                        .remove()
+                      .end();
+        		});
+        	}
+        	
+        	//刪除路徑
+            var dialog = $( "#dialog-delete" ).dialog({
+                  autoOpen: false,
+                  height: 300,
+                  width: 350,
+                  modal: true,
+                  buttons: {
+                    "確定": function(){
+                      deleteRoute($(this).data('self'));
+                      dialog.dialog( "close" );
+                    },
+                    "取消": function() {
+                      dialog.dialog( "close" );
+                    }
+                  },
+                  close: function() {
+                  }
+                });
         	
         	
         })(jQuery);

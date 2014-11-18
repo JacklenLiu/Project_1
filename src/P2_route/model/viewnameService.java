@@ -106,4 +106,8 @@ public class viewnameService {
 	public String getRouteFisrtByRouteID(Integer routeID){
 		return dao.getRouteFisrtByRouteID(routeID);
 	}
+	
+	public String deleteRouteByID(Integer routeID){
+		return dao.deleteRouteByID(routeID);
+	}
 }

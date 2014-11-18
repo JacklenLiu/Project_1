@@ -91,13 +91,17 @@
 	
 	<div id="mainDiv" class="ui-widget ui-helper-clearfix">
 	<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"></ul>
+	<div id="resultdiv" style="width:410px; display:inline"><div id="inner"></div>
 	<div id="mapdiv" class="ui-widget-content ui-state-default">
 		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">地圖</span> 地圖</h4>
-		<div id="map"></div>
+		<div id="map"></div>		
 	</div>
+	</div>
+	
 	<div id="route" class="ui-widget-content ui-state-default">
 		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">路徑規劃</span> 路徑規劃</h4>
 	</div>
+	
 	<span class="span-route">
 	<label>出發地</label><select id="startid"></select><br>
 	<label>目的地</label><select id="endid"></select>
@@ -105,7 +109,7 @@
 	<input type="button" id="computeRoute" value="開始規劃"/>
 	<input type="button" id="saveRoute" class="saveRoute" value="儲存路徑" disabled/>
 	</span>
-
+	
 </div>
 <div id="dialog-save" title="儲存路線">
   <h2 class="validateTips">路線名稱</h2>
@@ -130,6 +134,7 @@
 		
         (function ($) {      	
         	var result = new Array();//路徑規劃結果
+        	var resultName = new Array(); //中文結果
 			var nextimgcss=null;
          	$(window).load(function() {
 	        	var area = $("#resp").val();
@@ -542,7 +547,7 @@
                 
                 //路徑規劃
                 $("#computeRoute").click(function(){
-                	//
+                	
                 	$('#saveRoute').prop("disabled", false)
                 				   .removeClass("saveRoute");
                 	
@@ -551,38 +556,67 @@
                 	
                 	//抓出發地id, 建立nowmark座標物件
                 	var start = ($('#startid > :selected').attr("id")).substr(7);
+                	var startName = $('#startid > :selected').val();
+                	console.log(startName);
                 	var nowmarker = createMarker(start);
                 	
                 	//抓目的地id
                 	var end = ($('#endid > :selected').attr("id")).substr(6);
+                	var endName = $('#endid > :selected').val();
+                	console.log(endName);
                 	var endmarker = createMarker(end);
                 	
                 	//抓取剩下的景點轉成座標放入 allMarkers 物件陣列
                 	var allMarkers = getOtherMarkers();
-                	console.log("allMarkers");
-                	console.log(allMarkers);
-                	
-                	
-                	
-                	
-                	
+                	//console.log("allMarkers");
+                	//console.log(allMarkers);                	
                 	
                 	//取得路徑計算結果
                 	result.push(start);
+                	//resultName.push(startName);
                 	computeRoute(allMarkers, nowmarker, allMarkersAfterOrder);
                 	result.push(end);
-                	console.log("result");
-                	console.log(result);
+                	//resultName.push(endName);
+                	console.log("resultName");
+                	console.log(resultName);
                 	ResultShowInMap();
-
+                	ResultShowInText();
                 	
+                	
+                	function ResultShowInText(){
+                		var viewsObj2 = new Array();
+                    	viewsObj2 = $('#route .gallery li');
+
+                    	var resultStr = "";
+                		$.each(result, function(i, viewName){
+                			$.each(viewsObj2, function(j, viewObj){
+                				if(viewName == $(viewObj).attr("id")){
+                					resultName[i] = $(viewObj).find("h5").text();
+                				}
+                			});
+                		});
+                		//console.log(result);
+                		//console.log(resultName);
+                		
+                		$.each(resultName, function(i, viewNameCH){	
+                			resultStr += String.fromCharCode(i+65) + ": " + viewNameCH;
+                			
+                			if(i < result.length-1){
+                				resultStr += " &gt ";
+                			}
+                			if((i+1)%3==0){
+                				resultStr += "<br>";
+                			}
+                		})
+                		$('#inner').html(resultStr);
+                	}
                 	
                 	//結果顯示在地圖
                 	//顯示在地圖
                 	function ResultShowInMap(){
                 		$.each(allMarkersAfterOrder, function(i,viewmarker){
-                			console.log("allMarkersAfterOrder");
-                			console.log(viewmarker);
+                			//console.log("allMarkersAfterOrder");
+                			//console.log(viewmarker);
                 			waypoints[i]={'location':[viewmarker.k , viewmarker.B], 'text': result[i+1]};
                 		});
                 		
@@ -610,8 +644,8 @@
                 	function computeRoute(allMarkers, nowmarker){
                 		while(allMarkers.length!=0){
                             var prepareOrder = transferToDist(allMarkers, nowmarker);
-                            console.log("prepareOrder");
-                            console.log(prepareOrder);
+                            //console.log("prepareOrder");
+                            //console.log(prepareOrder);
 
                             //最近距離
                             var sortResult = sortByDist(prepareOrder);
@@ -620,7 +654,7 @@
                             //將此點的id加入result陣列
                             result.push(nearest.name);
                             allMarkersAfterOrder.push(nearest.marker);
-                            console.log(result);
+                            //console.log(result);
 
                             //找到最近的點在陣列中的index
                             var index = arrayObjectIndexOf(allMarkers, nearest.name);
@@ -646,10 +680,10 @@
                 	function sortByDist(toOrder) {
                 	       toOrder.sort(function (a, b) {
                 	            if (a.dist > b.dist) {
-                	                console.log("hi");
+                	                //console.log("hi");
                 	                return 1;
                 	            }else{
-                	                console.log("here");
+                	                //console.log("here");
                 	                return -1;
                 	            }
                 	        });
@@ -667,7 +701,8 @@
                 	
                 	
                 	
-                	//取得出發地及目的地以外的景點座標 	
+                	//取得出發地及目的地以外的景點座標 
+                	
                 	function getOtherMarkers(){
                 		var allMarkersInner = new Array();
                 		var viewsObj = new Array();
@@ -717,7 +752,13 @@
                     	return marker;
                 	}//end of createMarker
                 	
+                	//clear result array
+                	result = [];
+                	resultName = [];
                 });//end of computeRoute button click eventHandler
+              	
+                
+                
                 
                 
               //儲存路徑
@@ -733,7 +774,7 @@
                     	var routeJSON ={"memID": sionLoginId,
                     					"routeName": $('#dialog-save :text').val(),
                     					"routeResult": result};
-                    	console.log(JSON.stringify(routeJSON));
+                    	//console.log(JSON.stringify(routeJSON));
                     	$.ajax({
                     		  "type": 'POST',
                     		  "url": 'viewnameServlet',
