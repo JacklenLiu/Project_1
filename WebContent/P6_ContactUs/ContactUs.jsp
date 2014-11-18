@@ -1,13 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<%@ page import="java.util.*"%>
-<%
-	Date date = new Date();
-	java.util.Date right = new java.util.Date();
-%>
- 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,33 +7,33 @@
 <!-- Bootstrap 的 RWD 套件 -->
 <!-- 載入Bootstrap css樣式 -->
 
+<%@ include file="../platform/include_title.jsp" %>
+<%
+	Date date = new Date();
+	java.util.Date right = new java.util.Date();
+%>
 <%@ include file="../platform/include_start.jsp" %>
 
 
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/bootstrap-theme.min.css" media="screen">
 <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
-
-<title>Insert title here</title>
+<link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
+<script src="../js/jquery-1.11.0.js"></script>
 </head>
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                 <a class="navbar-brand" href="../index.jsp">下一站，幸福</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
+			<%@ include file="../platform/include_A_href/toIndex.jsp" %>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                	<c:if test="<%= sionName == null %>">
+                		<li>
+                  			<a href="../P0_login/login.jsp" id="indexLoginBtn">登入</a>
+                  	 	</li>
+                	</c:if>
                 	<%@ include file="../platform/include_A_href/P2_route.jsp" %>
                     <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %>
                     <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
@@ -51,7 +43,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">聯絡我們<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="ContactUs.jsp">聯絡我們</a>
+                                <a href="ContactUs.jsp" class="noChange">聯絡我們</a>
                             </li>
                             <li>
                                 <a href="../sidebar.html">Sidebar Page</a>
@@ -67,14 +59,18 @@
                             </li>
                         </ul>
                     </li>
-                    <%@ include file="../platform/include_A_href/memberSession.jsp" %>   
+                    <c:if test="<%=sionName != null %>">
+                    	<%@ include file="../platform/include_A_href/memberSession.jsp" %>
+                    </c:if>   
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
-	<%@ include file="../platform/include_picture.jsp" %>
+        <!--  end row  -->
+	</div>
+    <!-- /.container -->
+</nav>
+	<%@ include file="../platform/include_picture/include_picture.jsp" %>
 
 	<!-- ************************載入 jQuery bootstrapjs套件************************ -->
 	<script
@@ -85,26 +81,8 @@
 						"<script src='js/jquery-2.1.1.min.js'><\/script>")
 	</script>
 	<script src="js/bootstrap.min.js"></script>
-	<script>
-		(function($) {
-
-					//     	$(function () {
-					//     	  $('input, textarea').each(function() {
-					//     	        $(this).on('focus', function() {
-					//     	            $(this).parent('.input').addClass('active');
-					//     	        });
-
-					//     	        $(this).on('blur', function() {
-					//     	            if ($(this).val().length == 0) {
-					//     	                $(this).parent('.input').removeClass('active');
-					//     	            }
-					//     	        });
-					//     	        if ($(this).val() != '') $(this).parent('.input').addClass('active');
-					//     	    });
-					//     	});
-
-				})(jQuery);
-	</script>
+	<script src="../seetalertjs/sweet-alert.js"></script>
+	
 
 
 
@@ -144,7 +122,7 @@
               <span class="col-md-2 col-md-offset-2 text-center">Your Name</span>              
               <div class="col-md-4">
                 <input id="fname" name="name" type="text" placeholder="John Stuart" class="form-control" required>
-              	  <input type="hidden" name="frommail" size="30" value="cecj0601@gmail.com" />
+              	  <input type="hidden" id="frommail" name="frommail" size="30" value="cecj0601@gmail.com" />
       			  <input type="hidden"  id="date" name="date" value="<%=new java.sql.Timestamp(right.getTime())%>" readonly="<%=new java.sql.Timestamp(right.getTime())%>">
               </div>
             </div>    
@@ -174,7 +152,8 @@
             <div class="form-group">
               <div class="col-md-12 text-center">
               	<button class="btn btn-danger " type="reset">RESET</button>
-                <button type="submit" name="Submit" class="btn btn-primary">Submit</button>
+              	<input type="button" class="btn btn-primary" name="send" id="send" value="送出">
+<!--                 <button type="submit" name="Submit" class="btn btn-primary">Submit</button> -->
                 <input type="hidden" name="action" value="contactus" />
               </div>
             </div>
@@ -211,7 +190,87 @@
 	<!-- 		<input type="submit" name="Submit" value="送出" />  -->
 	<!-- 		<input type="hidden" name="action" value="contactus" /> -->
 	<!-- 	</form> -->
-    
+<script type="text/javascript">
+	//******昱豪 登入處裡*****************************
+	
+	var sionLog = "<%=sionLoginId%>";
+	if(sionLog == "null"){
+		//alert(sionName);
+		$(".navbar-right a[class != 'noChange'] ").prop("href","../P0_login/login.jsp");
+	}
+	//******昱豪 登入處裡*****************************
+		(function($) {
+			
+			$('#send').click(function(){
+				var mail_check= /.+@.+\..+/;
+				var fname=$('#fname').val();
+				var recipients=$('#recipients').val();
+				var frommail=$('#frommail').val();
+				var date=$('#date').val();
+				var subject=$('#subject').val();
+				var contents=$('#contents').val();
+				if(fname.length==0){
+					sweetAlert("Sorry...", "請輸入姓名!", "error");
+					return false;
+				}
+				else if(recipients.length==0){
+					sweetAlert("Sorry...", "請輸入E-mail!", "error");
+					return false;
+				}else if(!recipients.match(mail_check)){
+					sweetAlert("Sorry...", "請輸入正確E-mail格式!", "error");
+					return false;
+				}else if(subject.length==0){
+					sweetAlert("Sorry...", "請輸入subject!", "error");
+					return false;
+				}else if(contents.length==0){
+					sweetAlert("Sorry...", "請輸入contents!", "error");
+					return false;
+				}
+				
+				 $.ajax({
+		                "url": "ContactUsServlet",
+		                "type": "post",
+		                "data": {'action': 'contactus','name':fname,'recipients':recipients,
+		                	'frommail':frommail,'date':date,'subject':subject,'contents':contents},
+		                "dataType": "text", //json,xml
+		                "success": function(data) {
+		               		if($.trim(data)=="ok"){
+		               			swal({ title: "已成功!",   
+		         				   text: "3秒後自動關閉視窗",   
+		         				   timer: 3000 ,
+		         				   type:"success"});
+		               			$('#fname').val("");
+		        				$('#recipients').val("");
+		        				$('#subject').val("");
+		        				$('#contents').val("");
+		               		}else{
+		               			sweetAlert("申請失敗", "請確定網路是否順暢!", "error");
+		               		}
+		                }
+		            });
+				
+				
+				
+			});
+					
+
+					//     	$(function () {
+					//     	  $('input, textarea').each(function() {
+					//     	        $(this).on('focus', function() {
+					//     	            $(this).parent('.input').addClass('active');
+					//     	        });
+
+					//     	        $(this).on('blur', function() {
+					//     	            if ($(this).val().length == 0) {
+					//     	                $(this).parent('.input').removeClass('active');
+					//     	            }
+					//     	        });
+					//     	        if ($(this).val() != '') $(this).parent('.input').addClass('active');
+					//     	    });
+					//     	});
+
+				})(jQuery);
+</script>  
 <%@ include file="../platform/include_script.jsp" %>	
 </body>
 </html>

@@ -1,40 +1,23 @@
 <%@page import="P3_TravelDiary.model.TravelDiaryVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ include file="../platform/include_start.jsp"%>
-
-<!-- 使用Date因為要抓建立文章的時期 -->
-
-
-<%
-	TravelDiaryVO travelDiaryVO = (TravelDiaryVO) request
-			.getAttribute("travelDiaryVO");
-%>
-
-
-
-
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<%@ include file="../platform/include_title.jsp" %>
+<%@ include file="../platform/include_start.jsp"%>
+<script src="../js/jquery-1.11.0.js"></script>
+<%
+	TravelDiaryVO travelDiaryVO = (TravelDiaryVO) request
+			.getAttribute("travelDiaryVO");
+%>
 <!-- Bootstrap 的 RWD 套件 -->
 <!-- 載入Bootstrap css樣式 -->
 <link rel="stylesheet" href="css/bootstrap.css">
 
 <!-- 圖案icon -->
 <link rel="stylesheet" href="css/font-awesome.min.css">
-<title>Hello Bootstrap</title>
 
 
 <style>
@@ -53,8 +36,9 @@
 
 <body>
 	<!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
             <%@ include file="../platform/include_A_href/toIndex.jsp" %> 	
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -81,10 +65,12 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
+        <!--  end row  -->
+	</div>
+    <!-- /.container -->
+</nav>
 	
-	<%@ include file="../platform/include_picture.jsp" %>
+	<%@ include file="../platform/include_picture/include_picture.jsp" %>
     
 	<br>
 	<br>

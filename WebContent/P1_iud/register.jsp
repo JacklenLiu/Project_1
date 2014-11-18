@@ -3,12 +3,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <link href="css/jquery-ui.css" rel="stylesheet">
+	<%@ include file="../platform/include_title.jsp" %>   
+	<%@ include file="../platform/include_start.jsp" %>  
+	<script src="../js/jquery-1.11.0.js"></script>
+    
 <style>
 	body{
-		font: 62.5% "Trebuchet MS", sans-serif;
+		/*font: 100% "Trebuchet MS", sans-serif;*/
 		margin: 50px;
 	}
 	.demoHeaders {
@@ -52,7 +54,54 @@
 </head>
 
 <body >
-   
+   	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
+			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="route_plan.jsp">路經規劃</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-item.html">Single Portfolio Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %> 
+                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+                    <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp"%>
+					<%@ include file="../platform/include_A_href/P6_contactUs.jsp"%>
+                    <%@ include file="../platform/include_A_href/memberSession.jsp"%>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!--  end row  -->
+    </div>
+    <!-- /.container -->
+</nav>
+<%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
+<%@ include file="../platform/include_picture/include_picture.jsp" %>
+
+
+<!-- ******************************************************************* -->
+
+
+
     <div id="body" style=" width:600px;padding:100px;margin-top:0px; margin-left:150px;">
         <form >
              <fieldset style="border-radius:20px;margin-top:20px;" >
@@ -97,11 +146,8 @@
     </div>
     
 <!--     <script src="external/jquery/jquery.js"></script> -->
-   <script src="../js/jquery-1.11.0.js"></script>
-    
+   	<script src="../js/jquery-1.11.0.js"></script>
 	<script src="js/jquery-ui.js"></script>
-	
-	
     <script type="text/javascript">
     
     $(function() {
@@ -305,5 +351,7 @@
 
 	
 </script>
+<script src='../js/bootstrap.min.js'></script>
+<%@ include file="../platform/include_script.jsp" %>
 </body>
 </html>

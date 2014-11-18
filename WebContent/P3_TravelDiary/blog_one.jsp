@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="../platform/include_start.jsp" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
+<%@ include file="../platform/include_title.jsp" %>
+<%@ include file="../platform/include_start.jsp" %>
+<script src="../js/jquery-1.11.0.js"></script>
 <!-- wookmark -->
     <!-- CSS Reset -->
     <link rel="stylesheet" href="wookmarkcss/reset.css">
@@ -51,9 +50,10 @@
 
 </head>
 <body>
-<!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
             <%@ include file="../platform/include_A_href/toIndex.jsp" %> 	
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -75,16 +75,18 @@
                         </ul>
                     </li>
                     <%@ include file="../platform/include_A_href/P6_contactUs.jsp" %>
-                    <%@ include file="../platform/include_A_href/memberSession.jsp" %>	
-                </ul>
-            </div>
+                    <%@ include file="../platform/include_A_href/memberSession.jsp" %>
+               </ul>	
+               </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
+        <!--  end row  -->
+	</div>
+    <!-- /.container -->
+</nav>
 	
-	<%@ include file="../platform/include_picture.jsp" %>
-    
+<%-- 	<%@ include file="../platform/include_picture/include_picture.jsp" %> --%>
+    <%@ include file="../platform/include_picture/include_picture.jsp" %>
 	<br><br><br><br><br><br><br>
     <!-- ************************載入 jQuery bootstrap  summernote js套件************************ -->
     <!--  <script src="http://code.jquery.com/jquery.js"></script> -->
@@ -306,5 +308,4 @@
  
  <%@ include file="../platform/include_script.jsp" %>
 </body>
-
 </html>

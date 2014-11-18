@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="../platform/include_title.jsp" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ page import="P4_MessageBoard.model.*"%>
-<%@ page import="java.util.*"%>
+
 <%
 	MsgService msgSvc = new MsgService();
 	List<MsgVO> list = msgSvc.getAll();
@@ -12,13 +12,13 @@
 %>
 <%@ include file="../platform/include_start.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 
 <link rel="stylesheet" href="styles/msg.css">
 <link rel="stylesheet" href="styles/showmsg.css">
 
-<title>ALL message</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>!window.jQuery && document.write("<script src='Scripts/jquery-2.1.1.min.js'><\/script>")</script>
 <script type="text/javascript" src="Scripts/msg.js"></script>
@@ -84,8 +84,9 @@ function ShowReply(x){
 	
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -101,9 +102,11 @@ function ShowReply(x){
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
-	<%@ include file="../platform/include_picture.jsp" %>
+        <!--  end row  -->
+	</div>
+    <!-- /.container -->
+</nav>
+	<%@ include file="../platform/include_picture/include_picture.jsp" %>
 	
 <%-- 		<h1>${myinfo}，來留言喔~~</h1> --%>
 		<br>

@@ -1,40 +1,34 @@
 <%@page import="P3_TravelDiary.model.TravelDiaryVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-<!-- 使用Date因為要抓建立文章的時期 -->
-<%@ page import="java.util.*"%>
-<%@ include file="../platform/include_start.jsp" %>
-<%
-TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO");
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Bootstrap 的 RWD 套件 -->
-    <!-- 載入Bootstrap css樣式 -->
+    <%@ include file="../platform/include_title.jsp" %>
+	<%@ include file="../platform/include_start.jsp" %>
+	<%
+		TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO");
+	%>
+<!-- 1.使用Date因為要抓建立文章的時期 -->
+<%
+	Date date = new Date();
+	java.util.Date right = new java.util.Date();
+%>
+	    <!-- Bootstrap 的 RWD 套件 -->
+	    <!-- 載入Bootstrap css樣式 -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css" media="screen">
     <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
-    <!-- 使用 RWD 功能 -->
-    <!-- 文字編輯器css樣式 -->
+	    <!-- 使用 RWD 功能 -->
+	    <!-- 文字編輯器css樣式 -->
     <link rel="stylesheet" href="css/summernote.css">
     <link rel="stylesheet" href="css/codemirror.css">
-    <!-- 圖案icon -->
+	    <!-- 圖案icon -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <!-- sweetalert -->
+    	<!-- sweetalert -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="seeetalertcss/sweet-alert.css">
-    
-    <title>Hello Bootstrap</title>
+    <script src="../js/jquery-1.11.0.js"></script>
 
 
     <style>
@@ -50,9 +44,10 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
 </head>
 
 <body>
-<!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
             <%@ include file="../platform/include_A_href/toIndex.jsp" %> 	
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -79,9 +74,11 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
-	<%@ include file="../platform/include_picture.jsp" %>
+        <!--  end row  -->
+	</div>
+    <!-- /.container -->
+</nav>
+	<%@ include file="../platform/include_picture/include_picture.jsp" %>
 
 	<br><br><br><br><br><br><br>
 
@@ -103,7 +100,7 @@ TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO"
     <!-- 載入文字編輯器 -->
     <script src="js/summernote.min.js"></script>
     <!-- sweetalert -->
-    <script src="seetalertjs/sweet-alert.js"></script>
+    <script src="../seetalertjs/sweet-alert.js"></script>
     
     <!-- ************************/載入 jQuery bootstrap  summernote js套件************************ -->
 	<script type="text/javascript">

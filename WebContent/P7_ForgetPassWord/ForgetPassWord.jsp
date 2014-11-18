@@ -1,14 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<%@ page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
+<%@ include file="../platform/include_title.jsp" %>
 <%@ include file="../platform/include_start.jsp" %>
 
 <!-- Bootstrap 的 RWD 套件 -->
@@ -16,8 +11,8 @@
 
 <link rel="stylesheet" href="../P6_ContactUs/css/bootstrap.min.css">
 <link rel="stylesheet" href="../P6_ContactUs/css/bootstrap-theme.min.css">
-<title>ForgetPassWord</title>
-
+<script src="../js/jquery-1.11.0.js"></script>
+<link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
 <style>
 
 body {
@@ -80,49 +75,31 @@ input[type="text"] {
 
 </head>
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                	<li>
+                  		<a href="../P0_login/login.jsp" id="indexLoginBtn">登入</a>
+                  	</li>
                 	<%@ include file="../platform/include_A_href/P2_route.jsp" %>
                     <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %>
                     <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
                     <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp" %>
                     <%@ include file="../platform/include_A_href/P6_contactUs.jsp" %>
-                    <%@ include file="../platform/include_A_href/memberSession.jsp" %>
                 </ul>
-            </div>
+           </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
-		<%@ include file="../platform/include_picture.jsp" %>
+        <!--  end row  -->
+	</div>
+    <!-- /.container -->
+</nav>
+		<%@ include file="../platform/include_picture/include_picture.jsp" %>
                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- ************************載入 jQuery bootstrapjs套件************************ -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -133,14 +110,10 @@ input[type="text"] {
 						"<script src='../P6_ContactUs/js/jquery-2.1.1.min.js'><\/script>")
 	</script>
 	<script src="../P6_ContactUs/js/bootstrap.min.js"></script>
-
+	<script src="../seetalertjs/sweet-alert.js"></script>
 
 	<!-- ************************/script jQuery ************************ -->
 
-
-
-
-	
 
 	<!-- 	************************************************************** -->
 	<div class="container">
@@ -153,7 +126,7 @@ input[type="text"] {
 						<span class="col-md-2 col-md-offset-2 text-center">Your
 							ID</span>
 						<div class="col-md-4">
-							<input type="text" class="form-control" name="userid"
+							<input type="text" class="form-control" name="userid" id="userid"
 								placeholder="UserID" id="checkid" required="" autofocus="" />
 							
 						</div>
@@ -163,7 +136,7 @@ input[type="text"] {
 						<span class="col-md-2 col-md-offset-2 text-center">Your
 							Email</span>
 						<div class="col-md-4">
-							<input type="email" class="form-control" name="email"
+							<input type="email" class="form-control" name="email" id="email"
 								placeholder="Email" required="" autofocus="" />
 						</div>
 					</div>
@@ -186,7 +159,8 @@ input[type="text"] {
 					
 					<div class="form-group">
 						<div class="col-md-4 col-md-offset-4">
-							<button class="btn btn-lg btn-primary btn-block" type="submit">送出</button>
+						<input type="button" class="btn btn-lg btn-primary btn-block" id="send" value="送出">
+<!-- 							<button class="btn btn-lg btn-primary btn-block" type="submit">送出</button> -->
 							<input type="hidden" name="action" value="forget">
 						</div>
 					</div>
@@ -208,6 +182,70 @@ input[type="text"] {
 	
 		<script>
 		(function($) {
+			
+			$('#send').click(function(){
+				var mail_check= /.+@.+\..+/;
+				var id=$('#userid').val();
+				var email=$('#email').val();
+				if(id.length==0){
+					sweetAlert("Sorry...", "請輸入ID!", "error");
+					return false;
+				}
+				else if(email.length==0){
+					sweetAlert("Sorry...", "請輸入E-mail!", "error");
+					return false;
+				}else if(!email.match(mail_check)){
+					sweetAlert("Sorry...", "請輸入正確E-mail格式!", "error");
+					return false;
+				}
+				
+				
+				
+				
+				  $.ajax({
+		                "url": "ForgetPassWordServlet",
+		                "type": "post",
+		                "data": {'action': 'forget','userid':id,'email':email},
+		                "dataType": "text", //json,xml
+		                "success": function(data) {
+		               		if($.trim(data)=="ok"){
+		               			swal({ title: "已成功!",   
+		         				   text: "3秒後自動關閉視窗",   
+		         				   timer: 3000 ,
+		         				   type:"success"});
+		               			$('#userid').val("");
+		               			$('#email').val("");
+		               		}else{
+		               			sweetAlert("申請失敗", "請確定帳號與Mail是否正確!", "error");
+		               		}
+		                }
+		            });
+			                
+			          
+            });   
+				
+				
+				
+				
+				
+// 				 $.ajax({
+// 							 "url":"ForgetPassWordServlet",
+// 							 "type":"post",
+// 							 "data":{'action':'forget'},
+// 							 "dataType":"text",  //json,xml
+// 							 "success":function(data){
+								
+// 							 }
+// 						 });
+				
+// 				});
+			
+			
+			
+			
+			
+			
+			
 			
 // 			   $('#checkid').blur(function(){
 // 				   var name=$('#checkid').val();

@@ -15,6 +15,15 @@
     <res-type>javax.sql.DataSource</res-type>
     <res-auth>Container</res-auth>
   </resource-ref>
+  
+  	<!--    昱豪     初始執行   抓動態天氣   -->
+<!--   <servlet> -->
+<!--     <servlet-name>importWeather</servlet-name> -->
+<!--     <servlet-class>P2_route.controller.importWeatherServlet</servlet-class> -->
+<!--       <load-on-startup>5</load-on-startup> -->
+<!--   </servlet> -->
+	<!--    昱豪     初始執行   抓動態天氣   -->
+  
   <servlet>
     <servlet-name>LoginServlet_boot</servlet-name>
     <servlet-class>P0_login.controller.LoginServlet</servlet-class>
@@ -47,6 +56,8 @@
     <servlet-name>daleteServlet</servlet-name>
     <url-pattern>/P1_iud/delete</url-pattern>
   </servlet-mapping>
+  
+  <!-- ************************* 信豪 ************************* -->
   <servlet>
     <servlet-name>MsgServlet</servlet-name>
     <servlet-class>P4_MessageBoard.controller.MsgServlet</servlet-class>
@@ -63,6 +74,9 @@
     <servlet-name>RRServlet</servlet-name>
     <url-pattern>/P4_MessageBoard/leave_msg2.do</url-pattern>
   </servlet-mapping>
+  <!-- ************************* 信豪 ************************* -->
+  
+  <!-- ************************* 昱豪 ************************* -->
   <servlet>
     <servlet-name>selPlace</servlet-name>
     <servlet-class>P2_route.controller.viewnameServlet</servlet-class>
@@ -87,6 +101,9 @@
     <servlet-name>logOut</servlet-name>
     <url-pattern>/logOut</url-pattern>
   </servlet-mapping>
+  <!-- ************************* 昱豪 ************************* -->
+  
+  <!-- ************************* 明儒 ************************* -->
   <servlet>
     <servlet-name>TravelDiaryServlet</servlet-name>
     <servlet-class>P3_TravelDiary.controller.TravelDiaryServlet</servlet-class>
@@ -95,5 +112,5 @@
     <servlet-name>TravelDiaryServlet</servlet-name>
     <url-pattern>/blog.do</url-pattern>
   </servlet-mapping>
-
+  <!-- ************************* 明儒 ************************* -->
 </web-app>

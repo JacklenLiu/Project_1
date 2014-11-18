@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.*"%>
 <%@ page import="P3_TravelDiary.model.*"%>
- <%@ include file="../platform/include_start.jsp" %>
+<!DOCTYPE html>
+<html>
+<head>
+<%@ include file="../platform/include_title.jsp" %>
+<%@ include file="../platform/include_start.jsp" %>
+<script src="../js/jquery-1.11.0.js"></script>
 <!-- 採用EL取值 -->
 <% 
 	//建立service去呼叫getll方法
@@ -11,15 +14,9 @@
 	List<TravelDiaryVO> list=travelDiarySvc.getAll(memberid);
 	pageContext.setAttribute("list",list);
 %>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 使用 RWD 功能 -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- 載入 Bootstrap -->
     <link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> <!-- Bootstrap 的 RWD 套件 -->
-    <title>Hello Bootstrap</title>
+
 <style type="text/css">
 	.boxer {
 	box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.0980392);
@@ -34,9 +31,10 @@
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
             <%@ include file="../platform/include_A_href/toIndex.jsp" %> 	
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -63,11 +61,13 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
+        <!--  end row  -->
+	</div>
+    <!-- /.container -->
+</nav>
 	
-	<%@ include file="../platform/include_picture.jsp" %>
-    
+<%-- 	<%@ include file="../platform/include_picture/include_picture.jsp" %> --%>
+    <%@ include file="../platform/include_picture/include_picture.jsp" %>
    
     <!-- ************************載入 jQuery bootstrap  summernote js套件************************ -->
     <!--  <script src="http://code.jquery.com/jquery.js"></script> -->

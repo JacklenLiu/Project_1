@@ -1,27 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
-<!-- 1.使用Date因為要抓建立文章的時期 -->
-<%@ page import="java.util.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<%@ include file="../platform/include_title.jsp" %>
+<script src="../js/jquery-1.11.0.js"></script>
 <%
 	Date date = new Date();
 	java.util.Date right = new java.util.Date();
 %>
-	<%
-		Object sionName = session.getAttribute("userName");
-		Object sionLoginId = session.getAttribute("userLoginId");
-		Object serverName = request.getServerName();
-		Object serverPort = request.getServerPort();
-		Object contextPath = request.getContextPath();
-	%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <!-- Bootstrap 的 RWD 套件 -->
 <!-- 載入Bootstrap css樣式 -->
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -33,16 +19,14 @@
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <!-- sweetalert -->
 <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
-<link rel="stylesheet" href="seeetalertcss/sweet-alert.css">
-
-<title>Hello Bootstrap</title>
-
+<link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
 </head>
 
 <body>
 	<!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
             <%@ include file="../platform/include_A_href/toIndex.jsp" %> 	
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -69,9 +53,11 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
-
+        <!--  end row  -->
+	</div>
+    <!-- /.container -->
+</nav>
+<%@ include file="../platform/include_picture/include_picture.jsp" %>
 	<div style="visibility: hidden">
 		<c:out value="${MSG}"></c:out>
 	</div>
@@ -89,7 +75,7 @@
 	<!-- 載入文字編輯器 -->
 	<script src="js/summernote.min.js"></script>
 	<!-- sweetalert -->
-	<script src="seetalertjs/sweet-alert.js"></script>
+	<script src="../seetalertjs/sweet-alert.js"></script>
 
 	<!-- ************************/載入 jQuery bootstrap  summernote js套件************************ -->
 	<script type="text/javascript">
@@ -105,15 +91,6 @@
 		});
 		//上方工具列滑鼠滑入自動彈出
 	</script>
-
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 	<!-- ************************************************文字編輯器**************************************************** -->
 	<!-- 編輯器 -->
 	<div class="row" style="padding-top: 50px">
@@ -251,6 +228,4 @@
 
 <%@ include file="../platform/include_script.jsp" %>
 </body>
-
 </html>
-

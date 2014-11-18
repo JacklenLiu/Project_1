@@ -4,17 +4,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <%@ include file="../platform/include_start.jsp" %>
 <head>
+	<%@ include file="../platform/include_title.jsp" %>
+    <%@ include file="../platform/include_start.jsp" %>
+    <script src="../js/jquery-1.11.0.js"></script>
     <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
     <link rel="stylesheet" href="Jacklen_css/Jacklen.css"> <!--蕙齊css-->
 	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -47,10 +50,12 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
-	<%@ include file="../platform/include_picture.jsp"%>
-
+        <!--  end row  -->
+    </div>
+    <!-- /.container -->
+</nav>
+<%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
+<%@ include file="../platform/include_picture/include_picture.jsp" %>
 <!-- ******************************************************************* -->
  <div>
     <img src = "images/02.gif" /> 欲選擇其他地區
@@ -91,13 +96,17 @@
 	
 	<div id="mainDiv" class="ui-widget ui-helper-clearfix">
 	<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"></ul>
+	<div id="resultdiv" style="width:410px; display:inline"><div id="inner"></div>
 	<div id="mapdiv" class="ui-widget-content ui-state-default">
 		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">地圖</span> 地圖</h4>
-		<div id="map"></div>
+		<div id="map"></div>		
 	</div>
+	</div>
+	
 	<div id="route" class="ui-widget-content ui-state-default">
 		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">路徑規劃</span> 路徑規劃</h4>
 	</div>
+	
 	<span class="span-route">
 	<label>出發地</label><select id="startid"></select><br>
 	<label>目的地</label><select id="endid"></select>
@@ -105,7 +114,7 @@
 	<input type="button" id="computeRoute" value="開始規劃"/>
 	<input type="button" id="saveRoute" class="saveRoute" value="儲存路徑" disabled/>
 	</span>
-
+	
 </div>
 <div id="dialog-save" title="儲存路線">
   <h2 class="validateTips">路線名稱</h2>
@@ -130,6 +139,8 @@
 		
         (function ($) {      	
         	var result = new Array();//路徑規劃結果
+        	var resultName = new Array(); //中文結果
+        	var resultToServlet = new Array(); //傳到servlet
 			var nextimgcss=null;
          	$(window).load(function() {
 	        	var area = $("#resp").val();
@@ -542,7 +553,7 @@
                 
                 //路徑規劃
                 $("#computeRoute").click(function(){
-                	//
+                	
                 	$('#saveRoute').prop("disabled", false)
                 				   .removeClass("saveRoute");
                 	
@@ -551,38 +562,74 @@
                 	
                 	//抓出發地id, 建立nowmark座標物件
                 	var start = ($('#startid > :selected').attr("id")).substr(7);
+                	var startName = $('#startid > :selected').val();
+                	console.log(startName);
                 	var nowmarker = createMarker(start);
                 	
                 	//抓目的地id
                 	var end = ($('#endid > :selected').attr("id")).substr(6);
+                	var endName = $('#endid > :selected').val();
+                	console.log(endName);
                 	var endmarker = createMarker(end);
                 	
                 	//抓取剩下的景點轉成座標放入 allMarkers 物件陣列
                 	var allMarkers = getOtherMarkers();
-                	console.log("allMarkers");
-                	console.log(allMarkers);
-                	
-                	
-                	
-                	
-                	
+                	//console.log("allMarkers");
+                	//console.log(allMarkers);                	
                 	
                 	//取得路徑計算結果
                 	result.push(start);
                 	computeRoute(allMarkers, nowmarker, allMarkersAfterOrder);
                 	result.push(end);
-                	console.log("result");
-                	console.log(result);
+                	console.log("resultName");
+                	console.log(resultName);
+                	copyResulttoResultToServlet();
                 	ResultShowInMap();
-
+                	ResultShowInText();
                 	
+                	
+                	function copyResulttoResultToServlet(){
+                		$.each(result, function(i, viewID){
+                			resultToServlet[i] = viewID;
+                		});
+                		console.log("resultToServlet");
+                		console.log(resultToServlet);
+                	}
+                	
+                	function ResultShowInText(){
+                		var viewsObj2 = new Array();
+                    	viewsObj2 = $('#route .gallery li');
+
+                    	var resultStr = "";
+                		$.each(result, function(i, viewName){
+                			$.each(viewsObj2, function(j, viewObj){
+                				if(viewName == $(viewObj).attr("id")){
+                					resultName[i] = $(viewObj).find("h5").text();
+                				}
+                			});
+                		});
+                		//console.log(result);
+                		//console.log(resultName);
+                		
+                		$.each(resultName, function(i, viewNameCH){	
+                			resultStr += String.fromCharCode(i+65) + ": " + viewNameCH;
+                			
+                			if(i < result.length-1){
+                				resultStr += " &gt ";
+                			}
+                			if((i+1)%3==0){
+                				resultStr += "<br>";
+                			}
+                		})
+                		$('#inner').html(resultStr);
+                	}
                 	
                 	//結果顯示在地圖
                 	//顯示在地圖
                 	function ResultShowInMap(){
                 		$.each(allMarkersAfterOrder, function(i,viewmarker){
-                			console.log("allMarkersAfterOrder");
-                			console.log(viewmarker);
+                			//console.log("allMarkersAfterOrder");
+                			//console.log(viewmarker);
                 			waypoints[i]={'location':[viewmarker.k , viewmarker.B], 'text': result[i+1]};
                 		});
                 		
@@ -610,8 +657,8 @@
                 	function computeRoute(allMarkers, nowmarker){
                 		while(allMarkers.length!=0){
                             var prepareOrder = transferToDist(allMarkers, nowmarker);
-                            console.log("prepareOrder");
-                            console.log(prepareOrder);
+                            //console.log("prepareOrder");
+                            //console.log(prepareOrder);
 
                             //最近距離
                             var sortResult = sortByDist(prepareOrder);
@@ -620,7 +667,7 @@
                             //將此點的id加入result陣列
                             result.push(nearest.name);
                             allMarkersAfterOrder.push(nearest.marker);
-                            console.log(result);
+                            //console.log(result);
 
                             //找到最近的點在陣列中的index
                             var index = arrayObjectIndexOf(allMarkers, nearest.name);
@@ -646,10 +693,10 @@
                 	function sortByDist(toOrder) {
                 	       toOrder.sort(function (a, b) {
                 	            if (a.dist > b.dist) {
-                	                console.log("hi");
+                	                //console.log("hi");
                 	                return 1;
                 	            }else{
-                	                console.log("here");
+                	                //console.log("here");
                 	                return -1;
                 	            }
                 	        });
@@ -667,7 +714,8 @@
                 	
                 	
                 	
-                	//取得出發地及目的地以外的景點座標 	
+                	//取得出發地及目的地以外的景點座標 
+                	
                 	function getOtherMarkers(){
                 		var allMarkersInner = new Array();
                 		var viewsObj = new Array();
@@ -717,7 +765,13 @@
                     	return marker;
                 	}//end of createMarker
                 	
+                	//clear result array
+                	result = [];
+                	resultName = [];
                 });//end of computeRoute button click eventHandler
+              	
+                
+                
                 
                 
               //儲存路徑
@@ -728,22 +782,33 @@
                     modal: true,
                     buttons: {
                       "儲存": function(){
+                    	var url = "viewnameServlet";
                     	//產生json字串送到server
                     	//{"memID":"id", "routeName":"routename", "routeResult":[...,...]}
                     	var routeJSON ={"memID": sionLoginId,
                     					"routeName": $('#dialog-save :text').val(),
-                    					"routeResult": result};
-                    	console.log(JSON.stringify(routeJSON));
+                    					"routeResult": resultToServlet};
+                    	//console.log(JSON.stringify(routeJSON));
                     	$.ajax({
                     		  "type": 'POST',
-                    		  "url": 'viewnameServlet',
+                    		  "url": url,
                     		  "data": {"action":"saveRoute", "routeJSONStr": JSON.stringify(routeJSON)},
                     		  "async":false,
-                    		  "success":function(datas){
-                    				  dialog.dialog( "close" );
-                    				  dialog1.dialog( "open" );
+                    		  "success":function(data){
+                    				//增加景點hitRate
+                    				$.ajax({
+                              			"type": 'POST',
+                          		  		"url": url,
+                          		  		"data": {"action":"increaseHitRate", "routeResult": JSON.stringify(resultToServlet)},
+                          		  		"async":false,
+                          		  		"success":function(data){
+                          		  			dialog.dialog( "close" );
+                            				dialog1.dialog( "open" );
+                          		  		}
+                              		});
                     		  }
                     		});
+                    	resultToServlet = [];
                       },
                       "取消": function() {
                         dialog.dialog( "close" );
