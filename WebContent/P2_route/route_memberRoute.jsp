@@ -7,35 +7,8 @@
 
 <head>
     <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
-<style type="text/css">
-        table {
-            border-right: 1.5px solid #F00;
-            border-bottom:1.5px solid #F00;
-            
-        }
-        
-         td {
-            border-left: 1.5px solid #F00;
-            border-top:1.5px solid #F00;
-        }
-    
-    #mainDiv{margin: 0px auto; width:75%}
-    
-    #gallery { margin: 0px auto; min-height: 12em; /*for grid*/ padding: 0;  list-style: none; overflow: auto; height:525px}
-   	.gallery.custom-state-active { background: #eee; }
-  	.gallery li { float: left; width: 30%; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden;}
-  	.gallery li h3 { margin: 0 0 0.4em;}
-  	.gallery li img { width: 100%; cursor: pointer; }
-  	.gallery li a { float: right; }
-  	
-  	.viewimge{
-			width:200px;
-			height:200px;
-		}
-	.validateTips { border: 1px solid transparent; padding: 0.3em; text-align:center;}
-    </style>
-    
-	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
+    <link rel="stylesheet" href="Jacklen_css/Jacklen.css"> <!--蕙齊css-->
+	<link rel="stylesheet" href="../Styles/jquery-ui.min.css">
 </head>
 
 <body>
@@ -198,11 +171,11 @@
 <%-- 	${memRoute} --%>
 	
 	<div id="titlediv"><h2>我的路線</h2></div>
-	<div id="mainDiv" class="ui-widget ui-helper-clearfix">
-		<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"></ul>
+	<div id="memRouteDiv" class="ui-widget ui-helper-clearfix">
+		<ul id="memRouteGallery" class="memRoute-gallery ui-helper-reset ui-helper-clearfix"></ul>
 	</div>
 	<div id="dialog-delete" title="刪除路線">
-		<h2 class="validateTips">真的要刪除?</h2>
+		<h2 class="memRoute-validateTips">真的要刪除?</h2>
 	</div>
 
 
@@ -236,7 +209,7 @@
 				
 				//<img src="images/C_7fy_01.jpg" alt="The peaks of High Tatras" width="200" height="200">
 				var routeFirstimg = $('<img></img>').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id=' + firstView)
-													.addClass("viewimge");
+													.addClass("memRoute-viewimge");
 				
 				//<a href='#' title='移除景點' class='ui-icon ui-icon-close'>移除景點</a>
 				var recycle_icon = $('<a></a>').attr("href", "#")
@@ -260,7 +233,7 @@
             							         		 return false;
             								     });
 				
-				$("#gallery").append(liObj);
+				$("#memRouteGallery").append(liObj);
 				
         	});
         	

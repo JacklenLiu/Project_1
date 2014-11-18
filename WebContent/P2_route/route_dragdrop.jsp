@@ -135,6 +135,7 @@
         (function ($) {      	
         	var result = new Array();//路徑規劃結果
         	var resultName = new Array(); //中文結果
+        	var resultToServlet = new Array(); //傳到servlet
 			var nextimgcss=null;
          	$(window).load(function() {
 	        	var area = $("#resp").val();
@@ -573,15 +574,22 @@
                 	
                 	//取得路徑計算結果
                 	result.push(start);
-                	//resultName.push(startName);
                 	computeRoute(allMarkers, nowmarker, allMarkersAfterOrder);
                 	result.push(end);
-                	//resultName.push(endName);
                 	console.log("resultName");
                 	console.log(resultName);
+                	copyResulttoResultToServlet();
                 	ResultShowInMap();
                 	ResultShowInText();
                 	
+                	
+                	function copyResulttoResultToServlet(){
+                		$.each(result, function(i, viewID){
+                			resultToServlet[i] = viewID;
+                		});
+                		console.log("resultToServlet");
+                		console.log(resultToServlet);
+                	}
                 	
                 	function ResultShowInText(){
                 		var viewsObj2 = new Array();
@@ -769,22 +777,33 @@
                     modal: true,
                     buttons: {
                       "儲存": function(){
+                    	var url = "viewnameServlet";
                     	//產生json字串送到server
                     	//{"memID":"id", "routeName":"routename", "routeResult":[...,...]}
                     	var routeJSON ={"memID": sionLoginId,
                     					"routeName": $('#dialog-save :text').val(),
-                    					"routeResult": result};
+                    					"routeResult": resultToServlet};
                     	//console.log(JSON.stringify(routeJSON));
                     	$.ajax({
                     		  "type": 'POST',
-                    		  "url": 'viewnameServlet',
+                    		  "url": url,
                     		  "data": {"action":"saveRoute", "routeJSONStr": JSON.stringify(routeJSON)},
                     		  "async":false,
-                    		  "success":function(datas){
-                    				  dialog.dialog( "close" );
-                    				  dialog1.dialog( "open" );
+                    		  "success":function(data){
+                    				//增加景點hitRate
+                    				$.ajax({
+                              			"type": 'POST',
+                          		  		"url": url,
+                          		  		"data": {"action":"increaseHitRate", "routeResult": JSON.stringify(resultToServlet)},
+                          		  		"async":false,
+                          		  		"success":function(data){
+                          		  			dialog.dialog( "close" );
+                            				dialog1.dialog( "open" );
+                          		  		}
+                              		});
                     		  }
                     		});
+                    	resultToServlet = [];
                       },
                       "取消": function() {
                         dialog.dialog( "close" );

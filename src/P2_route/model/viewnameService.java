@@ -110,4 +110,12 @@ public class viewnameService {
 	public String deleteRouteByID(Integer routeID){
 		return dao.deleteRouteByID(routeID);
 	}
+	
+	public Integer increaseHitRate(String routeResultView, Integer hitRate){
+		return dao.increaseHitRate(routeResultView, hitRate);
+	}
+	
+	public Integer getHitRate(String routeResultView){
+		return dao.getHitRate(routeResultView);
+	}
 }
