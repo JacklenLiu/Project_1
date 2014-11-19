@@ -670,19 +670,20 @@ insert into messageboard values('cc123','台北遊','動物園','2014-10-10','n'
 create table member_friend (
 	friendNum      int IDENTITY (1,1)	 not null,
 	member_loginID nvarchar(20)			 not null,
-	friend_loginID nvarchar(20)					 ,
-	
+	friend_loginID nvarchar(20)			 not null,
+	invite_msg	   nvarchar(100)		 not null,
+	relationship_status int			     not null,
 	
 	CONSTRAINT friend_member_loginID_fK  FOREIGN KEY (member_loginID) REFERENCES sysmember (member_loginID),
 	CONSTRAINT friend_friendNum_PK		 PRIMARY KEY (friendNum)
 	
 );
 
-insert into member_friend values ('aa123','bb123');
-insert into member_friend values ('aa123','cc123');
-insert into member_friend values ('aa123','dd123');
-insert into member_friend values ('dd123','bb123');
-insert into member_friend values ('ee123','bb123');
+insert into member_friend values ('aa123','bb123','我是你高中同學',0);
+insert into member_friend values ('aa123','cc123','不，我是你高中老師',0);
+insert into member_friend values ('aa123','dd123','交個朋友',0);
+insert into member_friend values ('dd123','bb123','嗨你好',0);
+insert into member_friend values ('ee123','bb123','好久不見',0);
 
 
 /*路徑規劃*/
