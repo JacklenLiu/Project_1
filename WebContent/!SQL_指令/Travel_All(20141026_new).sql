@@ -1,6 +1,7 @@
-﻿use project_1;
-drop table helper;
 
+USE Project_1;
+
+drop table helper;
 drop table questions;
 drop table myfootmark;
 drop table knowledge;
@@ -17,6 +18,7 @@ drop table member_friend;
 drop table messageboard;
 drop table sysmember;
 drop table persontype;
+drop table contactus;
 
 create table helper(
 	helperNum           int IDENTITY (1,1)	not null,
@@ -777,18 +779,18 @@ insert into knowledge_type values ('樂');
 
 CREATE TABLE knowledge ( 
 
- knowledge_idenity          int identity(1,1)	not null,
+ knowledge_identity         int identity(1,1)	not null,
  knowledge_type             nvarchar(10)	    not null,
  knowledge_title			nvarchar(50)		not null,
  knowledge_content			nvarchar(50)		not null,
  knowledge_img				image						,
  
-  CONSTRAINT pk_knowledge	PRIMARY KEY (knowledge_idenity)
+  CONSTRAINT pk_knowledge	PRIMARY KEY (knowledge_identity)
  );
 
-insert into knowledge values ('食','title1','文章內文1','z:\\');
-insert into knowledge values ('衣','title2','文章內文2','z:\\');
-insert into knowledge values ('住','title3','文章內文3','z:\\');
+insert into knowledge values ('食','食安問題','食安問題，日益嚴重','');
+insert into knowledge values ('衣','塑化劑','塑化劑，日益嚴重','');
+insert into knowledge values ('住','海砂屋','海砂屋，日益嚴重','');
 
 
 
@@ -808,9 +810,9 @@ CONSTRAINT news_news_image_fK		FOREIGN KEY (news_image)	REFERENCES viewname (vie
 CONSTRAINT news_news_identity_pK		PRIMARY KEY (news_identity)
  );
 
-insert into news values ('2014-09-25','title1','Chingtienkang','文章內文1');
-insert into news values ('2014-09-25','title2','Chingtienkang','文章內文2');
-insert into news values ('2014-09-25','title3','Maokong','文章內文3');
+insert into news values ('2014-09-25','擎天崗','Chingtienkang','擎天崗~海芋季');
+insert into news values ('2014-09-25','擎天崗','Chingtienkang','擎天崗~海芋季');
+insert into news values ('2014-09-25','貓空','Maokong','貓空~喝茶');
 
 
 

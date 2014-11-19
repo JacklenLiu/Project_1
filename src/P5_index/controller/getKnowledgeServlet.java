@@ -13,13 +13,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import P3_TravelDiary.model.TravelDiaryService;
+import P3_TravelDiary.model.TravelDiaryVO;
 import P5_index.model.*;
 
 /**
  * Servlet implementation class viewnameServlet
  */
-@WebServlet("/newsTop6Servlet")
-public class newsTop6Servlet extends HttpServlet {
+@WebServlet("/getKnowledgeServlet")
+public class getKnowledgeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -33,37 +35,12 @@ public class newsTop6Servlet extends HttpServlet {
 		
 		String action = request.getParameter("action");
 		
-		if("GetNewsTop6".equals(action)){
-			//String area = request.getParameter("area");
-			
-			newsService newsService = new newsService();
-			String news = newsService.getAllNewsJSON();
-			out.println(news);
+		if("getKnowledge".equals(action)){
+			knowledgeService knowSvc = new knowledgeService();
+			String knowledges = knowSvc.getAllKnowledgeJSON();
+			out.println(knowledges);
 		}
-			
-//		if ("news.do".equals(action)) {
-//			List<String> errorMsgs = new LinkedList<String>();
-//			//req.setAttribute("errorMsgs", errorMsgs);
-//			try {				
-//				HttpSession session = request.getSession();
-//				String memberinfo=(String)session.getAttribute("userLoginId");	
-//				TravelDiaryService travelDiarySvc=new TravelDiaryService();	
-//				
-//				List<TravelDiaryVO> travelDiaryVO=travelDiarySvc.getPic2(memberinfo);
-//				
-//				request.setAttribute("travelDiaryVO", travelDiaryVO);
-//				String url = "/P3_TravelDiary/blog_one.jsp";
-//				RequestDispatcher successView = request.getRequestDispatcher(url);
-//				successView.forward(request, response);
-//			} catch (Exception e) {
-//				errorMsgs.add("upload" + e.getMessage());
-//				RequestDispatcher failureView = request
-//						.getRequestDispatcher("/P3_TravelDiary/blog_all.jsp");
-//				failureView.forward(request, response);
-//
-//			}
-//
-//		}
+		
 	}
 
 	/**

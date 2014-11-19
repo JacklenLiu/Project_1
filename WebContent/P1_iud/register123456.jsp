@@ -100,50 +100,130 @@
 
 <!-- ******************************************************************* -->
 
-
-
-    <div id="body" style=" width:600px;padding:100px;margin-top:0px; margin-left:150px;">
-        <form >
-             <fieldset style="border-radius:20px;margin-top:20px;" >
-                  <legend style="color:black;margin-left:20px; ">註冊會員</legend>
-                     <div class="tabletxt" style="margin:20px;">
-                       <p>
-                          	帳號: <input type="text" id="idName"  placeholder="請輸入帳號" />
-                            <img src="images/ajax-loader.gif" id="loadding"><span id="checkAccount" style="font-size:16px;"></span>
-                            <br/>
-                            <label class="lable">(不可空白，至少兩個中文字以上)</label>  
-                       </p>
-                    </div>
+<!--     <div id="body" style=" width:600px;padding:100px;margin-top:0px; margin-left:150px;"> -->
+<!--         <form > -->
+<!--              <fieldset style="border-radius:20px;margin-top:20px;" > -->
+<!--                   <legend style="color:black;margin-left:20px; ">註冊會員</legend> -->
+<!--                      <div class="tabletxt" style="margin:20px;"> -->
+<!--                        <p> -->
+<!--                           	帳號: <input type="text" id="idName"  placeholder="請輸入帳號" /> -->
+<!--                             <img src="images/ajax-loader.gif" id="loadding"><span id="checkAccount" style="font-size:16px;"></span> -->
+<!--                             <br/> -->
+<!--                             <label class="lable">(不可空白，至少兩個中文字以上)</label>   -->
+<!--                        </p> -->
+<!--                     </div> -->
                      
-                    <div class="tabletxt" style="width:600px;margin:20px;">                  
-                         <p>
-                           	 密碼: <input type="text" id="idPwd"  placeholder="請輸入密碼"/>
-                            <span id="pwdOk" style="font-size:4px;color:red;"></span> 
-                            <br />
-                            <label class="lable" >(不可空白，不可為中文字，至少六個字且包含英文字母、數字)</label>
-                         </p>
-                    </div>
-                     <div class="tabletxt" style="width:600px;margin:20px;">                  
-                         <p>
-                           	 確認密碼: <input type="text" id="doubleIdPwd"  placeholder="請再次輸入密碼"/>
-                            <span id="pwdOk2" style="font-size:4px;color:red;"></span> 
-                         </p>
-                    </div>
+<!--                     <div class="tabletxt" style="width:600px;margin:20px;">                   -->
+<!--                          <p> -->
+<!--                            	 密碼: <input type="text" id="idPwd"  placeholder="請輸入密碼"/> -->
+<!--                             <span id="pwdOk" style="font-size:4px;color:red;"></span>  -->
+<!--                             <br /> -->
+<!--                             <label class="lable" >(不可空白，不可為中文字，至少六個字且包含英文字母、數字)</label> -->
+<!--                          </p> -->
+<!--                     </div> -->
+<!--                      <div class="tabletxt" style="width:600px;margin:20px;">                   -->
+<!--                          <p> -->
+<!--                            	 確認密碼: <input type="text" id="doubleIdPwd"  placeholder="請再次輸入密碼"/> -->
+<!--                             <span id="pwdOk2" style="font-size:4px;color:red;"></span>  -->
+<!--                          </p> -->
+<!--                     </div> -->
                     
-                    <div class="tabletxt" style="margin:20px;">
-						<p>生日: <input type="text" id="datepicker" readonly>&nbsp;</p>
-                    </div>
+<!--                     <div class="tabletxt" style="margin:20px;"> -->
+<!-- 						<p>生日: <input type="text" id="datepicker" readonly>&nbsp;</p> -->
+<!--                     </div> -->
                     
                     
-                    <div class="tabletxt1" style="margin:30px;">
-                        <p>
-                            <input type="reset" id="clean" value="Reset" onclick="ret()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="button" id="button" value="確    認" onclick="but()"/></p>
-                    </div>
-             </fieldset>
-        </form>
+<!--                     <div class="tabletxt1" style="margin:30px;"> -->
+<!--                         <p> -->
+<!--                             <input type="reset" id="clean" value="Reset" onclick="ret()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<!--                             <input type="button" id="button" value="確    認" onclick="but()"/></p> -->
+<!--                     </div> -->
+<!--              </fieldset> -->
+<!--         </form> -->
 
-    </div>
+<!--     </div> -->
+    <!-- ********************************************************* -->
+<div class="container">
+	<div class="row">
+        <div class="col-sm-12">
+            <legend>Next Station , Blessed(下一站，幸福)</legend>
+        </div>
+        <!-- panel preview -->
+        <div class="col-sm-1"></div>
+        <div class="col-sm-8">
+            <h4>Register Member(註冊會員): </h4>
+            <div class="" >
+                <div class="panel-body form-horizontal payment-form">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Account(帳號)</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="concept" name="concept">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">UserName姓名</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="userName" name="concept">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-sm-3 control-label">Password</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="description" name="description">
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label for="amount" class="col-sm-3 control-label">Again Check Password</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="amount" name="amount">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="status" class="col-sm-3 control-label">E-mail</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="status" name="status">
+                                <option>Paid</option>
+                                <option>Unpaid</option>
+                            </select>
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                    	<label for="concept" class="col-sm-3 control-label">gender</label>
+                    	<div class="col-sm-9">
+				      		<span class="form-control">
+				        		<input type="radio" id="radio_male">Male&nbsp;
+				        		<input type="radio" id="radio_female">Female
+				      		</span>
+				     	</div>
+				    </div><!-- /input-group -->
+                    <div class="form-group">
+                        <label for="date" class="col-sm-3 control-label">Birthday</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="date" name="date">
+                        </div>
+                    </div>   
+                    <div class="form-group">
+                        <div class="col-sm-12 text-right">
+                            <button type="button" class="btn btn-default preview-add-button">
+                                <span class="glyphicon glyphicon-plus"></span> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div> <!-- / panel preview -->
+        <div class="col-sm-3"></div>
+	</div>
+</div>
+    
+    
+   <div class="row">
+ 
+  <div class="col-lg-6">
+    
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+    
     
 <!--     <script src="external/jquery/jquery.js"></script> -->
    	<script src="../js/jquery-1.11.0.js"></script>
@@ -151,9 +231,15 @@
     <script type="text/javascript">
     
     $(function() {
-    	
-    	
-		// ***************帳號*****************
+    	$("#radio_male").click(function(){
+    		$("#radio_female").prop("checked",false);
+    		$(this).prop("checked",true);
+    	});
+    	$("#radio_female").click(function(){
+    		$("#radio_male").prop("checked",false);
+    		$(this).prop("checked",true);
+    	});
+    	// ***************帳號*****************
     	$("#loadding").prop("hidden",true);
     	
     	$(':text[id="idName"]').focus(function(){

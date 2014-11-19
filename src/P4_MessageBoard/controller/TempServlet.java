@@ -29,7 +29,6 @@ public class TempServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-		System.out.println("test123");
 		req.setCharacterEncoding("UTF-8");
 		String account = req.getParameter("account");// 抓輸入的帳號
 		

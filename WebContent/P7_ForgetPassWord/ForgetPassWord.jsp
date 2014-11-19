@@ -1,14 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<%@ page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-
+<%@ include file="../platform/include_title.jsp" %>
 <%@ include file="../platform/include_start.jsp" %>
 
 <!-- Bootstrap 的 RWD 套件 -->
@@ -16,8 +11,8 @@
 
 <link rel="stylesheet" href="../P6_ContactUs/css/bootstrap.min.css">
 <link rel="stylesheet" href="../P6_ContactUs/css/bootstrap-theme.min.css">
+<script src="../js/jquery-1.11.0.js"></script>
 <link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
-<title>ForgetPassWord</title>
 
 <style>
 
@@ -81,49 +76,31 @@ input[type="text"] {
 
 </head>
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                	<li>
+                  		<a href="../P0_login/login.jsp" id="indexLoginBtn">登入</a>
+                  	</li>
                 	<%@ include file="../platform/include_A_href/P2_route.jsp" %>
                     <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %>
                     <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
                     <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp" %>
                     <%@ include file="../platform/include_A_href/P6_contactUs.jsp" %>
-                    <%@ include file="../platform/include_A_href/memberSession.jsp" %>
                 </ul>
-            </div>
+           </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
-		<%@ include file="../platform/include_picture.jsp" %>
+        <!--  end row  -->
+	</div>
+    <!-- /.container -->
+</nav>
+		<%@ include file="../platform/include_picture/include_picture.jsp" %>
                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- ************************載入 jQuery bootstrapjs套件************************ -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -138,10 +115,6 @@ input[type="text"] {
 
 	<!-- ************************/script jQuery ************************ -->
 
-
-
-
-	
 
 	<!-- 	************************************************************** -->
 	<div class="container">

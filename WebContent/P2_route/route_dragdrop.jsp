@@ -1,20 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <%@ include file="../platform/include_start.jsp" %>
 <head>
+	<%@ include file="../platform/include_title.jsp" %>
+    <%@ include file="../platform/include_start.jsp" %>
+    <script src="../js/jquery-1.11.0.js"></script>
     <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
     <link rel="stylesheet" href="Jacklen_css/Jacklen.css"> <!--蕙齊css-->
 	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -47,10 +48,12 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
-	<%@ include file="../platform/include_picture.jsp"%>
-
+        <!--  end row  -->
+    </div>
+    <!-- /.container -->
+</nav>
+<%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
+<%@ include file="../platform/include_picture/include_picture.jsp" %>
 <!-- ******************************************************************* -->
  <div style="display:inline">
     <img src = "images/02.gif" /> 欲選擇其他地區
@@ -93,11 +96,12 @@
 	
 	<div id="mainDiv" class="ui-widget ui-helper-clearfix">
 	<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"></ul>
-	<div id="resultdiv" style="width:410px; display:inline"><div id="inner"></div>
-	<div id="mapdiv" class="ui-widget-content ui-state-default">
-		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">地圖</span> 地圖</h4>
-		<div id="map"></div>		
-	</div>
+	<div id="resultdiv" style="width:410px; display:inline">
+		<div id="inner"></div>
+		<div id="mapdiv" class="ui-widget-content ui-state-default">
+			<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">地圖</span> 地圖</h4>
+			<div id="map"></div>		
+		</div>
 	</div>
 	
 	<div id="route" class="ui-widget-content ui-state-default">
@@ -584,6 +588,41 @@
                 	ResultShowInMap();
                 	ResultShowInText();
                 	
+                	function copyResulttoResultToServlet(){
+                		$.each(result, function(i, viewID){
+                			resultToServlet[i] = viewID;
+                		});
+                		console.log("resultToServlet");
+                		console.log(resultToServlet);
+                	}
+                	
+                	function ResultShowInText(){
+                		var viewsObj2 = new Array();
+                    	viewsObj2 = $('#route .gallery li');
+
+                    	var resultStr = "";
+                		$.each(result, function(i, viewName){
+                			$.each(viewsObj2, function(j, viewObj){
+                				if(viewName == $(viewObj).attr("id")){
+                					resultName[i] = $(viewObj).find("h5").text();
+                				}
+                			});
+                		});
+                		//console.log(result);
+                		//console.log(resultName);
+                		
+                		$.each(resultName, function(i, viewNameCH){	
+                			resultStr += String.fromCharCode(i+65) + ": " + viewNameCH;
+                			
+                			if(i < result.length-1){
+                				resultStr += " &gt ";
+                			}
+                			if((i+1)%3==0){
+                				resultStr += "<br>";
+                			}
+                		})
+                		$('#inner').html(resultStr);
+                	}
                 	
                 	function copyResulttoResultToServlet(){
                 		$.each(result, function(i, viewID){

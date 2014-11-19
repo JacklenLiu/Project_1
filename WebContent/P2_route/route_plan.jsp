@@ -5,7 +5,9 @@
 
 <html>
   <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
+  <%@ include file="../platform/include_title.jsp" %>
   <%@ include file="../platform/include_start.jsp" %>
+  <script src="../js/jquery-1.11.0.js"></script> 
     <style type="text/css">
         table {
             border-right: 1.5px solid #F00;
@@ -21,10 +23,10 @@
     
 
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+	<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -57,10 +59,12 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
-	<%@ include file="../platform/include_picture.jsp"%>
-
+        <!--  end row  -->
+	</div>
+    <!-- /.container -->
+</nav>
+<%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
+	<%@ include file="../platform/include_picture/include_picture.jsp" %>
 <div style="float:left;width:650px;height:343px; margin:100px auto;">
 	<img id="imgMap" alt="" src="images/map00.png" style="float:left;width: 189px;margin-left:50px; height: 343px" usemap="#FPMap0" />
 	<table class="tooltip1" border="0" cellspacing="0" cellpadding="0"  hidden style="width:400px;">
