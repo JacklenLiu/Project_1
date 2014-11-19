@@ -11,6 +11,8 @@
 	<link href="css/signin.css" rel="stylesheet">
 	<script src="js/ie-emulation-modes-warning.js"></script>
   	<script src="../js/jquery-1.11.0.js"></script>	
+  	<link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
+  	
 <style>
 	.form-group .glyphicon {
      display:none; 
@@ -146,7 +148,6 @@
       	  <div class="col-xs-1"></div>
           <div class="modal-header col-xs-11">
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
-              <h1 id="noLoginView"></h1>
               <h2 class="modal-title" id="myModalLabel">會員登入   &nbsp; &nbsp;&nbsp; &nbsp;</h2><h4><span style="color:red;">${errorMSG }</span></h4>
           </div>
           <div class="modal-body">
@@ -210,7 +211,7 @@
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
 <script src="../js/bootstrap.js"></script>
-
+<script src="../seetalertjs/sweet-alert.js"></script>
 <script type="text/javascript">
 (function ($) {
 	//照片輪播間格秒數
@@ -253,9 +254,13 @@
   
   
   
-	var css1 = {"color":"red"};
-	$(".noLogin").click(function(){	    	
-		$("#noLoginView").text("請先行登入會員系統!!").css(css1);
+	$(".noLogin").click(function(){	
+		//alert("請先登入會員!!");
+		sweetAlert("此功能需先行登入會員!!","","warning");
+		$("#ok_btn123456").click(function(){
+			window.location.href="http://localhost:8081/Project_1/P0_login/login.jsp";
+		});
+			
 	});
 	
 	

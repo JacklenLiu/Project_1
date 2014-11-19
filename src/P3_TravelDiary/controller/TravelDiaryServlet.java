@@ -30,13 +30,10 @@ public class TravelDiaryServlet extends HttpServlet {
 		
 		// 測試判別帳號id
 		if ("login".equals(action)) {
-			// System.out.println("login");
 //			String account = req.getParameter("account");
-			// System.out.println(account);
 			// 建立session
 //			HttpSession session = req.getSession();
 //			session.setAttribute("memberinfo", account);
-			//System.out.println("我取到的"+session.getAttribute("memberinfo"));
 			String url = "/P3_TravelDiary/blog_all.jsp";
 			RequestDispatcher successView = req.getRequestDispatcher(url);
 			successView.forward(req, res);
@@ -131,7 +128,7 @@ public class TravelDiaryServlet extends HttpServlet {
 		
 		// 搜尋每篇文章的第一張圖片
 		if ("SelectBlog".equals(action)) {
-			System.out.println("post成功");
+
 			//錯誤訊息
 			List<String> errorMsgs = new LinkedList<String>();
 			//req.setAttribute("errorMsgs", errorMsgs);
@@ -139,17 +136,11 @@ public class TravelDiaryServlet extends HttpServlet {
 			//Set<String> list=new TreeSet<String>();
 			try {
 				//取id sesion
-				//System.out.println("Servlet1");
 				HttpSession session = req.getSession();
 				String memberinfo=(String)session.getAttribute("userLoginId");
-				//System.out.println("memberinfo="+memberinfo);
 				TravelDiaryService travelDiarySvc=new TravelDiaryService();
-				//System.out.println("Servlet2");
 				list=travelDiarySvc.getPic(memberinfo);
-				//System.out.println(list.get(0));
-				//System.out.println("Servlet");
 				req.setAttribute("test", list);
-				System.out.println(list.size());
 				String url = "/P3_TravelDiary/blog_one.jsp";
 				RequestDispatcher successView = req.getRequestDispatcher(url);
 				successView.forward(req, res);
@@ -202,7 +193,6 @@ public class TravelDiaryServlet extends HttpServlet {
 			// 錯誤訊息
 			List<String> errorMsgs = new LinkedList<String>();
 			req.setAttribute("errorMsgs", errorMsgs);
-			// System.out.println("AAAA");
 			try {
 				// 抓取第幾篇文章
 				Integer TravelDiary_ID = new Integer(
@@ -285,7 +275,6 @@ public class TravelDiaryServlet extends HttpServlet {
 		// 選到一筆資料的修改功能 來自blog_manage.jsp請求
 		if ("GetOneForUpdate".equals(action)) {
 			// 測試是否有收到請求
-			// System.out.println("刪除");
 			// 錯誤處理放的字串
 			List<String> errorMsgs = new LinkedList<String>();
 			req.setAttribute("errorMsgs", errorMsgs);
@@ -295,7 +284,6 @@ public class TravelDiaryServlet extends HttpServlet {
 				// jsp取name=TravelDiary_ID的值
 				Integer TravelDiary_ID = new Integer(
 						req.getParameter("TravelDiary_ID"));
-				// System.out.println("GetOneForUpdate-id:"+TravelDiary_ID);
 				/********************* 2.開始查詢資料 ******************************/
 				// 請工頭去叫工人做事
 				TravelDiaryService travelDirarySvc = new TravelDiaryService();
@@ -326,37 +314,29 @@ public class TravelDiaryServlet extends HttpServlet {
 			try {
 				// 1.抓取id欄位
 				String member_loginID = req.getParameter("member_loginID");
-				System.out.println("有抓到ID:" + member_loginID);
 				// 1.若id沒有輸入
 				if (member_loginID == null
 						|| (member_loginID.trim()).length() == 0) {
 					errorMsgs.add("請輸入ID");
-					// System.out.println("請輸入ID");
 				}
 				// 2.抓取title欄位
 				String TravelDiary_Name = req.getParameter("TravelDiary_Name");
-				System.out.println("有抓到title:" + TravelDiary_Name);
 				// 2.若沒有輸入title
 				if (TravelDiary_Name == null
 						|| (TravelDiary_Name.trim()).length() == 0) {
 					errorMsgs.add("請輸入title");
-					// System.out.println("請輸入title");
 				}
 				// 3.抓取文章內容
 				// 因為jquery他自動把我把值放在name=content
 				String TravelDiary_Content = req.getParameter("content");
-				System.out.println("有抓到TravelDiary_Content:"
-						+ TravelDiary_Content);
 				if (TravelDiary_Content == null
 						|| (TravelDiary_Content.trim()).length() == 0) {
 					errorMsgs.add("請輸入content");
-					// System.out.println("請輸入content");
 				}
 				// 4.抓取發佈日期 要轉日期格式
 				java.sql.Timestamp publish_date = null;
 				publish_date = java.sql.Timestamp.valueOf(req
 						.getParameter("publish_date"));
-				System.out.println("有抓到publish_date:" + publish_date);
 				// new一個VO1用來收集資料
 				TravelDiaryVO travelDiaryVO = new TravelDiaryVO();
 				// 執行set各別收集資料
@@ -368,7 +348,6 @@ public class TravelDiaryServlet extends HttpServlet {
 				// 若有錯誤就轉到原本畫面，並保留原本輸入的值(就是空值)
 				// 利用setAttribute 把剛剛errorMsgs與travelDiaryVO傳送到jsp來顯示
 				if (!errorMsgs.isEmpty()) {
-					System.out.println("有error");
 					req.setAttribute("travelDiaryVO", travelDiaryVO);
 					// 之後在jsp用${failureView}讀取錯誤訊息
 					RequestDispatcher failureView = req
@@ -379,7 +358,6 @@ public class TravelDiaryServlet extends HttpServlet {
 
 				/*************************** 2.開始新增資料 ***************************************/
 				// 建立一個service(工頭)用來叫工人做事並在Service.java包裝成VO
-				System.out.println("呼叫service");
 				TravelDiaryService travelDirarySvc = new TravelDiaryService();
 				// 工頭先收集剛剛的資料轉到TravelDiaryService.java做方法的overload
 				travelDirarySvc.addBlog(TravelDiary_Name, publish_date,

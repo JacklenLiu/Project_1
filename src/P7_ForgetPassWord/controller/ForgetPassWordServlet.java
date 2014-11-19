@@ -36,14 +36,12 @@ public class ForgetPassWordServlet extends HttpServlet {
 		PrintWriter out=res.getWriter();
 		String action = req.getParameter("action");
 		if("forget".equals(action)){
-			System.out.println("summit");
 			//錯誤訊息
 			List<String> errorMsgs = new LinkedList<String>();	
 			//記得要set否則前端抓不到值
 			req.setAttribute("errorMsgs", errorMsgs);
 			String member_loginID=req.getParameter("userid");
 			String member_email=req.getParameter("email");
-			System.out.println(member_loginID+member_email);
 			try {
 				//驗證格式
 				
@@ -72,7 +70,6 @@ public class ForgetPassWordServlet extends HttpServlet {
 				
 				//請工頭叫工人做事(查詢是否有這個會員)
 				ForgetPassWordService forgetPassWordSvc=new ForgetPassWordService();
-				System.out.println("ddd");
 				//用來存取有無此帳號
 				ForgetPassWordVO forgetPassWordVO=forgetPassWordSvc.checkMember(member_loginID);
 				
@@ -87,9 +84,6 @@ public class ForgetPassWordServlet extends HttpServlet {
 					String inputMail=req.getParameter("email");
 					//取從資料庫撈出來的email
 					String checkMail=forgetPassWordVO.getMember_email();
-					//測試抓值
-					System.out.println("inputmial:"+inputMail);
-					System.out.println("dbmial:"+checkMail);
 					if(inputMail.equals(checkMail)){
 						//帳號密碼都符合
 						//step1.先去產生亂碼並用String 接住
@@ -99,7 +93,6 @@ public class ForgetPassWordServlet extends HttpServlet {
 						//step3.塞完資料庫寄信始
 						forgetPassWordSvc.autoEmail(member_loginID, member_email,create);
 					}else{
-						System.out.println("mail有誤");
 						errorMsgs.add("請檢查mail是否填寫正確");						
 					}
 					
@@ -110,7 +103,6 @@ public class ForgetPassWordServlet extends HttpServlet {
 				
 				if(!errorMsgs.isEmpty()){		
 					out.println("notok");
-					//System.out.println(errorMsgs.get(0));
 					RequestDispatcher failureView = req
 							.getRequestDispatcher("/P7_ForgetPassWord/ForgetPassWord.jsp");
 					failureView.forward(req, res);
@@ -119,7 +111,6 @@ public class ForgetPassWordServlet extends HttpServlet {
 				
 				
 				/********************* 3.查詢完畢，轉到修改的頁面 **************************/
-				System.out.println("???");
 //				String url = "/P7_ForgetPassWord/ForgetPassWordOK.jsp";
 				// 查詢到的資料轉道update畫面之後用EL取內容
 //				RequestDispatcher successView = req.getRequestDispatcher(url);

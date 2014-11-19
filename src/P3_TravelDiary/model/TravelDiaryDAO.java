@@ -173,22 +173,14 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 				travelDiaryVO=new TravelDiaryVO();
 				//取文章title
 				travelDiaryVO.setTravelDiary_Name(rs.getString("TravelDiary_Name"));
-				//System.out.println("title:"+rs.getString("TravelDiary_Name"));
 				//取文章日期
 				travelDiaryVO.setPublish_date(rs.getTimestamp("publish_date"));
-				//System.out.println("date:"+rs.getDate("publish_date"));
 				//取ID
 				travelDiaryVO.setTravelDiary_ID(rs.getInt("TravelDiary_ID"));
-				//System.out.println("count:"+rs.getInt("TravelDiary_ID"));
 				//取會員編號
 				travelDiaryVO.setMember_loginID(rs.getString("member_loginID"));
-				//System.out.println("memberid:"+rs.getString("member_loginID"));
-				
-				
-				
-				
+							
 				//一次將這4筆資料放到list 之後jsp取出
-//				System.out.println("*******************************");
 				list.add(travelDiaryVO);
 			}			
 		}catch(SQLException e){
@@ -227,7 +219,6 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 		Connection con=null;
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
-		//System.out.println("3");
 		try{
 			con =ds.getConnection();
 			pstmt=con.prepareStatement(GET_ONE_STMT);
@@ -238,18 +229,13 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 				travelDiaryVO=new TravelDiaryVO();
 				//取文章title 並放剛new的vo
 				travelDiaryVO.setTravelDiary_Name(rs.getString("TravelDiary_Name"));
-				//System.out.println("title:"+rs.getString("TravelDiary_Name"));
 				//取文章日期 	   並放剛new的vo
 				travelDiaryVO.setPublish_date(rs.getTimestamp("publish_date"));
-				//System.out.println("date:"+rs.getDate("publish_date"));
 				//取文章內容    並放剛new的vo
 				travelDiaryVO.setTravelDiary_Content(rs.getString("TravelDiary_Content"));
-				//System.out.println("count:"+rs.getInt("TravelDiary_ID"));
 				//取會員編號    並放剛new的vo
 				travelDiaryVO.setMember_loginID(rs.getString("member_loginID"));
-				//System.out.println("memberid:"+rs.getString("member_loginID"));
 				travelDiaryVO.setTravelDiary_ID(rs.getInt("TravelDiary_ID"));
-				//System.out.println("memberid:"+rs.getString("TravelDiary_ID"));
 				
 				
 			}
@@ -324,7 +310,6 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 				list.add(cut2);
 			}
 			
-			//System.out.println("rs.getString(TravelDiary_Content)="+rs.getString("TravelDiary_Content"));
 			
 		}catch(SQLException e){
 			throw new RuntimeException("A database error occured."+e.getMessage());

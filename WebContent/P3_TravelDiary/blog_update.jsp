@@ -41,6 +41,14 @@
         transition: all .5s ease-in-out;
     }
     /*/登入畫面寬度改變*/
+    
+    /*button*/
+    .between{ 
+    	position:relative ; 
+    	left:-20px;
+    }
+    /*/button*/
+    
     </style>
 </head>
 
@@ -81,7 +89,7 @@
 </nav>
 	<%@ include file="../platform/include_picture/include_picture.jsp" %>
 
-	<br><br><br><br><br><br><br>
+	
 
 	<div style="visibility:hidden"><c:out value="${MSG}"></c:out>
 	</div>
@@ -123,10 +131,8 @@
             <div class="col-lg-8">
                 <form method="post" action="TravelDiaryServlet">
                     <div class="form-group">
-                        <label for="" style="">文章編輯</label>
-                        <div class="post">
-                            <img src="img/aa123.jpg" height="80" width="80" alt="aa123" title="aa123">
-                        </div>
+                        <h2>文章編輯</h2>
+                        <br>
                         <!-- 寫入DB測試用假表格 -->
                         <div class="row">
                             <!-- ID獲取 -->
@@ -154,10 +160,10 @@
                         
                     </div>
                     
-                    <input type="submit" class="btn btn-submit pull-right" id="submit" value="更新">
+                    <input type="submit" class="btn btn-submit btn-primary pull-right" id="submit" value="更新">
                     <input type="hidden" name="TravelDiary_ID" value="<%=travelDiaryVO.getTravelDiary_ID() %>">
                     <input type="hidden" name="action" value="update">
-                    <input type="button" class="btn btn-submit pull-right" id="cancel" value="取消">
+                    <input type="button" class="btn between btn-submit btn-danger pull-right" id="cancel" value="取消">
                 </form>
               	
 <!--                 <button type="button" class="btn btn-submit pull-right" id="submit1">jquery post測試</button> -->
@@ -184,7 +190,7 @@
 
         //設定summernote的工具有哪些
         $('#summernote').summernote({
-            height: 300,
+            height: 600,
             focus: true,
             toolbar: [
                 ['style', ['style']], // no style button
@@ -208,6 +214,7 @@
 		//為了讓編輯器一開始內容清空因為一開始產生出來會有<p></br></p>佔了空間導致無法偵測是否有字串
         $(window).load(function() {
 //         	$('#summernote').code("");
+        	$('.note-editable').css("background-color","white");
         });
         //測試讀取content內容資料
 //         var TravelDiary_Content;

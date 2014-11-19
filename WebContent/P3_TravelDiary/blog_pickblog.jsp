@@ -74,11 +74,7 @@
     
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+
 	<div style="visibility: hidden">
 		<c:out value="${MSG}"></c:out>
 	</div>
@@ -133,7 +129,7 @@
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<div style="border: 1px solid gray; border-radius: 15px">
+				<div style="border: 1px solid gray; border-radius: 15px;background-color:white">
 					<h2><%=travelDiaryVO.getTravelDiary_Name()%></h2>
 					<%=travelDiaryVO.getTravelDiary_Content()%>
 
@@ -143,19 +139,7 @@
 		</div>
 	</div>
 
-
-
-
 	<!-- ***********************/撈出文章 *********************************-->
-
-
-
-
-
-
-
-
-
 
 	<%-- <c:if test="${not empty errorMsgs}"> --%>
 	<!-- 	<font color='red'>請修正以下錯誤: -->
@@ -167,20 +151,6 @@
 	<!-- 	</font> -->
 	<%-- </c:if> --%>
 	<!-- ************************************************文字編輯器**************************************************** -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 	<!-- *********************************************jQuery程式寫入 ************************************************-->

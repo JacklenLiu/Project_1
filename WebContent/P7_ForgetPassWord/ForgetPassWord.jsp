@@ -84,7 +84,7 @@ input[type="text"] {
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                 	<li>
-                  		<a href="../P0_login/login.jsp" id="indexLoginBtn">登入</a>
+                  		<a href="../P0_login/login.jsp" id="indexLoginBtn" class="noChange">登入</a>
                   	</li>
                 	<%@ include file="../platform/include_A_href/P2_route.jsp" %>
                     <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %>
@@ -156,8 +156,6 @@ input[type="text"] {
 </c:if>
 </center>
 	<%-- /錯誤表列 --%>
-	
-					
 					<div class="form-group">
 						<div class="col-md-4 col-md-offset-4">
 						<input type="button" class="btn btn-lg btn-primary btn-block" id="send" value="送出">
@@ -171,63 +169,49 @@ input[type="text"] {
 	</div>
 	
 	
+<script>
+(function($) {
 	
-
-	
-
-	
-
-	
-	
-	
-	
-		<script>
-		(function($) {
-			
-			$('#send').click(function(){
-				var mail_check= /.+@.+\..+/;
-				var id=$('#userid').val();
-				var email=$('#email').val();
-				if(id.length==0){
-					sweetAlert("Sorry...", "請輸入ID!", "error");
-					return false;
-				}
-				else if(email.length==0){
-					sweetAlert("Sorry...", "請輸入E-mail!", "error");
-					return false;
-				}else if(!email.match(mail_check)){
-					sweetAlert("Sorry...", "請輸入正確E-mail格式!", "error");
-					return false;
-				}
+	$('#send').click(function(){
+		var mail_check= /.+@.+\..+/;
+		var id=$('#userid').val();
+		var email=$('#email').val();
+		if(id.length==0){
+			sweetAlert("Sorry...", "請輸入ID!", "error");
+			return false;
+		}
+		else if(email.length==0){
+			sweetAlert("Sorry...", "請輸入E-mail!", "error");
+			return false;
+		}else if(!email.match(mail_check)){
+			sweetAlert("Sorry...", "請輸入正確E-mail格式!", "error");
+			return false;
+		}
 				
 				
 				
 				
-				  $.ajax({
-		                "url": "ForgetPassWordServlet",
-		                "type": "post",
-		                "data": {'action': 'forget','userid':id,'email':email},
-		                "dataType": "text", //json,xml
-		                "success": function(data) {
-		               		if($.trim(data)=="ok"){
-		               			swal({ title: "已成功!",   
-		         				   text: "3秒後自動關閉視窗",   
-		         				   timer: 3000 ,
-		         				   type:"success"});
-		               			$('#userid').val("");
-		               			$('#email').val("");
-		               		}else{
-		               			sweetAlert("申請失敗", "請確定帳號與Mail是否正確!", "error");
-		               		}
-		                }
-		            });
-			                
-			          
-            });   
-				
-				
-				
-				
+		$.ajax({
+            "url": "ForgetPassWordServlet",
+            "type": "post",
+            "data": {'action': 'forget','userid':id,'email':email},
+            "dataType": "text", //json,xml
+            "success": function(data) {
+           		if($.trim(data)=="ok"){
+           			swal({ title: "已成功!",   
+     				   text: "3秒後自動關閉視窗",   
+     				   timer: 3000 ,
+     				   type:"success"});
+           			$('#userid').val("");
+           			$('#email').val("");
+           		}else{
+           			sweetAlert("申請失敗", "請確定帳號與Mail是否正確!", "error");
+           		}
+            }
+        });
+             
+       
+      });   
 				
 // 				 $.ajax({
 // 							 "url":"ForgetPassWordServlet",
@@ -240,12 +224,6 @@ input[type="text"] {
 // 						 });
 				
 // 				});
-			
-			
-			
-			
-			
-			
 			
 			
 // 			   $('#checkid').blur(function(){
@@ -263,18 +241,31 @@ input[type="text"] {
 
 // 			   });
 			
-			
 		$('#checkid').blur(function(){
 			
 			$('#errorMsg').hide();
 			
 		});
-			
-			
-			
-			
-		})(jQuery);
-	</script>
-	<%@ include file="../platform/include_script.jsp" %>	
+		
+		//**********************昱豪  登入問題**********************
+		var sionLog = "<%=sionLoginId%>";
+		if(sionLog == "null"){
+			//alert(sionName);
+			$(".navbar-right a[class != 'noChange'] ").prop("href","#");
+		}
+		
+		$(".noLogin").click(function(){	
+			//alert("請先登入會員!!");
+			sweetAlert("此功能需先行登入會員!!","","warning");
+			$("#ok_btn123456").click(function(){
+				window.location.href="http://localhost:8081/Project_1/P0_login/login.jsp";
+			});
+				
+		});
+		//**********************昱豪  登入問題**********************
+		
+})(jQuery);
+</script>
+<%@ include file="../platform/include_script.jsp" %>	
 </body>
 </html>

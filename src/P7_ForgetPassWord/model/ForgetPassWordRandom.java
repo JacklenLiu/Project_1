@@ -21,7 +21,6 @@ public class ForgetPassWordRandom {
 		for (int j = 0; j < 8; j++) {
 			newPassword.append((char) word[j]);
 		}
-		System.out.println(newPassword);
 		newPass=newPassword.toString();
 		
 		return newPass;

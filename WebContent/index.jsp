@@ -17,7 +17,7 @@
 	<!-- jQuery Version 1.11.0 -->
 	<script src="js/jquery-1.11.0.js"></script> 
 	
-	
+	<link rel="stylesheet" href="seeetalertcss/sweet-alert.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -72,7 +72,7 @@
             	<ul class="nav navbar-nav navbar-right">
                 	<c:if test="<%=sionName == null%>">
                   		<li class="dropdown">
-                  			<a href="P0_login/login.jsp" name="indexLoginBtn">登入</a>
+                  			<a href="P0_login/login.jsp" name="indexLoginBtn" class="noChange">登入</a>
                   	 	</li>
                   	</c:if>
                    	<li class="dropdown">
@@ -339,7 +339,7 @@
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
 <script src="js/bootstrap.js"></script>
-     
+<script src="seetalertjs/sweet-alert.js"></script>  
 <!-- <script type="text/javascript" src="P0_login/js/jquery.validate.js"></script>  -->
 
 
@@ -366,10 +366,15 @@
 			
     	var sionLog = "<%=sionLoginId%>";
     	if(sionLog == "null"){
-    		//alert(sionName);
-    		$(".navbar-right a[class != 'noChange'] ").prop("href","P0_login/login.jsp");
+     		//$(".navbar-right a[class != 'noChange'] ").prop("href","P0_login/login.jsp");
+    		$(".navbar-right a[class != 'noChange'] ").prop("href","#");
     		$("a[name != 'indexLoginBtn']").click(function(){
-    			alert("請先登入會員!!");
+    			//alert("請先登入會員!!");
+    			sweetAlert("此功能需先行登入會員!!","","warning");
+    			$("#ok_btn123456").click(function(){
+    				window.location.href="http://localhost:8081/Project_1/P0_login/login.jsp";
+    			});
+    				
     		});
     	}
     	//******昱豪 登入處裡*****************************
@@ -483,5 +488,4 @@
     </script>
 
 </body>
-
 </html>

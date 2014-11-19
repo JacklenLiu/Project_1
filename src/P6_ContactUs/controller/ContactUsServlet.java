@@ -46,36 +46,30 @@ public class ContactUsServlet extends HttpServlet {
 			try{
 				//Contact欄位抓取並判別輸入是否OK(姓名 信箱 時間 標題 內容 要塞資料庫)
 				String contactUsName = req.getParameter("name");
-				System.out.println(contactUsName);
 				if(contactUsName==null||(contactUsName.trim()).length()==0){
 					errorMsgs.add("請輸入姓名");	
 				}
 				
 				String contactUsMail = req.getParameter("recipients");
-				System.out.println(contactUsMail);
 				if(contactUsMail==null||(contactUsMail.trim()).length()==0){
 					errorMsgs.add("請輸入信箱");	
 				}
 						
 				String fromuser = req.getParameter("frommail");
-				System.out.println(fromuser);
 				if(fromuser==null||(fromuser.trim()).length()==0){
 					errorMsgs.add("客服信箱有error");	
 				}
 				
 				java.sql.Timestamp contactUsDate = java.sql.Timestamp.valueOf(req.getParameter("date"));
-				System.out.println(contactUsDate);
 				if(contactUsDate==null){
 					errorMsgs.add("時間無法抓取");	
 				}
 				
 				String contactUsSubject = req.getParameter("subject");
-				System.out.println(contactUsSubject);
 				if(contactUsSubject==null||(contactUsSubject.trim()).length()==0){
 					errorMsgs.add("請輸入主題");	
 				}
 				String contactUsContent = req.getParameter("contents");
-				System.out.println(contactUsContent);
 				if(contactUsContent==null||(contactUsContent.trim()).length()==0){
 					errorMsgs.add("請輸入內容");	
 				}
@@ -92,7 +86,6 @@ public class ContactUsServlet extends HttpServlet {
 				
 				//若有錯誤訊息要在原頁面顯示錯誤原因
 				if (!errorMsgs.isEmpty()) {
-					System.out.println("有error");
 					req.setAttribute("ContactUsVO", contactUsVO);
 					// 之後在jsp用${failureView}讀取錯誤訊息
 					RequestDispatcher failureView = req
@@ -108,12 +101,10 @@ public class ContactUsServlet extends HttpServlet {
 				ContactUsService contactUsSvc=new ContactUsService();
 				//傳參數到service 做autoEmail
 				contactUsSvc.autoEmail(contactUsName, contactUsMail, contactUsDate, contactUsSubject, contactUsContent,fromuser);
-				System.out.println("已送出");
 				/************************************新增資料開始******************************************/
 				//step2.
 				//當自動送信成功後開始做insert ContactUs內容到資料庫
 				contactUsSvc.insertContactUs(contactUsName, contactUsMail, contactUsDate, contactUsSubject, contactUsContent);
-				System.out.println("資料庫新增OK");
 				/************************************新增資料完成******************************************/
 //				String url = "/P6_ContactUs/ContactUsOK.jsp";
 //				RequestDispatcher successView = req.getRequestDispatcher(url);
@@ -121,7 +112,6 @@ public class ContactUsServlet extends HttpServlet {
 				out.println("ok");
 		
 			}catch(Exception e){
-				System.out.println("信件無法送出請稍後再試");
 				errorMsgs.add(e.getMessage());
 				// 之後在jsp用${failureView}讀取錯誤訊息
 				RequestDispatcher failureView = req

@@ -20,6 +20,19 @@
 <!-- sweetalert -->
 <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
 <link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
+<style>
+ 	/*button*/
+    .between{ 
+    	position:relative ; 
+    	left:-20px;
+    }
+    /*/button*/
+
+</style>
+
+
+
+
 </head>
 
 <body>
@@ -99,11 +112,8 @@
 			<div class="col-lg-8">
 				<form method="post" action="TravelDiaryServlet">
 					<div class="form-group">
-						<label for="" style="">文章編輯</label>
-						<div class="post">
-							<img src="img/aa123.jpg" height="80" width="80" alt="aa123"
-								title="aa123">
-						</div>
+						<h2>文章編輯</h2>
+						<br>
 						<!-- 寫入DB測試用假表格 -->
 						<div class="row">
 							<!-- ID獲取 -->
@@ -118,7 +128,7 @@
 							<label for="" class="col-xs-1">Title:</label>
 							<div class="col-md-3">
 								<input type="text" class="form-control " id="TravelDiary_Name"
-									name="TravelDiary_Name" value="擎天崗一日遊超好玩">
+									name="TravelDiary_Name" value="">
 								<!-- <input type="text" class="form-control " id="TravelDiary_Name" name="TravelDiary_Name" > -->
 							</div>
 							<!-- 建置日期 -->
@@ -134,10 +144,10 @@
 						<textarea name="content" id="summernote" rows="10"
 							class="form-control active_textarea"></textarea>
 					</div>
-					<input type="submit" class="btn btn-submit pull-right" id="submit"
+					<input type="submit" class="btn btn-submit btn-primary pull-right" id="submit"
 						value="送出"> <input type="hidden" name="action"
 						value="InsertBlog"> <input type="button"
-						class="btn btn-submit pull-right" id="cancel" value="取消">
+						class="between btn btn-submit btn-danger pull-right" id="cancel" value="取消">
 				</form>
 				<!-- <button type="button" class="btn btn-submit pull-right" id="submit1">jquery post測試</button> -->
 
@@ -166,7 +176,7 @@
 			//設定summernote的工具有哪些
 			$('#summernote').summernote(
 					{
-						height : 300,
+						height : 600,
 						focus : true,
 						toolbar : [
 								[ 'style', [ 'style' ] ], // no style button
@@ -185,6 +195,7 @@
 			//為了讓編輯器一開始內容清空因為一開始產生出來會有<p></br></p>佔了空間導致無法偵測是否有字串
 			$(window).load(function() {
 				$('#summernote').code("");
+				$('.note-editable').css("background-color","white");
 			});
 			//測試讀取content內容資料
 			//         var TravelDiary_Content;

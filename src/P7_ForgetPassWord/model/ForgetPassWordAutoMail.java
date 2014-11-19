@@ -58,8 +58,6 @@ public class ForgetPassWordAutoMail extends Thread{
 	        
 	     
 
-	        System.out.println("usermail"+member_email);
-	        System.out.println("frommail"+fromuser);
 	        Message msg = new MimeMessage(session);
 	        msg.setFrom(new InternetAddress( fromuser ));
 	        msg.setRecipient(Message.RecipientType.TO, new InternetAddress( member_email ));
@@ -73,17 +71,16 @@ public class ForgetPassWordAutoMail extends Thread{
 	        
 	        //取要寄給user的mail
 	        String to = InternetAddress.toString(msg.getRecipients(Message.RecipientType.TO)); 
-	        System.out.println(to);
+//	        System.out.println(to);
 	        //取送信者的mail
-	        System.out.println("Reply-to: " + InternetAddress.toString(msg.getReplyTo()));
+//	        System.out.println("Reply-to: " + InternetAddress.toString(msg.getReplyTo()));
 	        //取送信者的mail
-	        System.out.println("Reply-to: " + InternetAddress.toString(msg.getFrom()));
+//	        System.out.println("Reply-to: " + InternetAddress.toString(msg.getFrom()));
 	       
 	        
 	        //開始寄信
 	        transport.sendMessage( msg ,msg.getRecipients(Message.RecipientType.TO) );
 	       
-	        System.out.println("成功寄信" );  
 	        transport.close();
 	        } catch (MessagingException e) {  
 	            throw new RuntimeException(e);  

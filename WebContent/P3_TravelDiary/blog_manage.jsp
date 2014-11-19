@@ -121,7 +121,7 @@
                		 		<td>${travelDiaryVO.member_loginID}</td>  	 		
                 	 		<td>
                 	 			<form method="post" action="<%=request.getContextPath()%>/P3_TravelDiary/TravelDiaryServlet">
-                	 				<input type="submit" value="修改">
+                	 				<input type="submit" class="btn btn-submit btn-warning" value="修改">
                 	 				<input type="hidden" name="TravelDiary_ID" value="${travelDiaryVO.travelDiary_ID}">
                 	 				<input type="hidden" name="action" value="GetOneForUpdate">
                 	 			</form>
@@ -129,7 +129,7 @@
                 	 		
                 	 		<td>
                 	 			<form method="post" action="<%=request.getContextPath()%>/P3_TravelDiary/TravelDiaryServlet">
-                	 				<input type="submit" value="刪除">
+                	 				<input type="submit" class="btn btn-submit btn-danger" value="刪除">
                 	 				<input type="hidden" name="TravelDiary_ID" value="${travelDiaryVO.travelDiary_ID}">
                 	 				<input type="hidden" name="action" value="GetOneForDelete">             	 			
                 	 			</form>
@@ -138,7 +138,7 @@
             		</c:forEach>
       			</tbody>
     		</table>
-    		<div class="col-xs-5"></div><%@ include file="page2.file" %>
+    		<%@ include file="page2.file" %>
 		</div>
 	</div>
 
