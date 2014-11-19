@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ include file="../platform/include_title.jsp"%>
 <%@ page import="P4_MessageBoard.model.*"%>
-<%@ page import="java.util.*"%>
 <%@ include file="../platform/include_start.jsp" %>
 <%
 // 	FrdService frdSvc = new FrdService();
@@ -31,8 +29,6 @@ pageContext.setAttribute("invite_count",invite_count);
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <link rel="stylesheet" href="styles/showinvite.css">
 <style>
 	body{
@@ -69,6 +65,33 @@ pageContext.setAttribute("invite_count",invite_count);
 	   
 })(jQuery)
 </script>
+<!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="rowHeader">
+        	<div class="container">
+			<%@ include file="../platform/include_A_href/toIndex.jsp" %>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <%@ include file="../platform/include_A_href/P2_route.jsp" %>
+                    <li>
+                        <a href="showALL.jsp">留言板</a>
+                    </li>
+                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+                    <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp" %>
+                    <%@ include file="../platform/include_A_href/P6_contactUs.jsp" %>
+                    <%@ include file="../platform/include_A_href/memberSession.jsp" %>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!--  end row  -->
+	</div>
+    <!-- /.container -->
+</nav>
+	<%@ include file="../platform/include_picture/include_picture.jsp" %>
+
+<!-- ****************************************************** -->
+
 
 <h2><%=sionLoginId %>的世界~</h2>
 
@@ -91,7 +114,7 @@ pageContext.setAttribute("invite_count",invite_count);
 <!-- 					<ul> -->
 <%-- 					<c:forEach var="list" items="${list}"> --%>
 <!-- 						<li> -->
-<!-- <!-- 						<a href=""> -->						 -->
+<!-- <!-- 						<a href=""> -->						
 <!-- 								<form action="FrdServlet" method="post"> -->
 <%-- 									<span class="">${list.member_loginID} &nbsp&nbsp --%>
 <!-- 									<input type="submit" style="width:50px;height:30px;font-size:8px;" class="testbtn" value="accept"> -->
@@ -100,7 +123,7 @@ pageContext.setAttribute("invite_count",invite_count);
 <!-- 									<input type="hidden" name="action" value="accept_invite">	 -->
 <!-- 								</span>	 -->
 <!-- 								</form>	 -->
-<!-- <!-- 						</a> -->						 -->
+<!-- <!-- 						</a> -->						
 <!-- 							<ul> -->
 <%-- 								<li>${list.invite_msg}</li> --%>
 <!-- 							</ul></li> -->
@@ -111,6 +134,7 @@ pageContext.setAttribute("invite_count",invite_count);
 
 <!-- 以上是顯示有哪些邀請 END~~~~ -->
 
-
+<script src='../js/bootstrap.min.js'></script>
+<%@ include file="../platform/include_script.jsp" %>
 </body>
 </html>
