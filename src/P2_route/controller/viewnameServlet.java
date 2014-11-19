@@ -39,6 +39,48 @@ public class viewnameServlet extends HttpServlet {
 		
 		String action = request.getParameter("action");
 		
+		if("GetRouteDetail".equals(action)){
+			Integer routeID = Integer.parseInt(request.getParameter("routeID"));
+			viewnameService vnService = new viewnameService();
+			String routeName = vnService.getRouteNameByRouteID(routeID);
+			String routeOrder = vnService.getRouteOrderByRouteID(routeID);
+			//System.out.println(routeOrder);
+			
+			try {
+				JSONArray routeJSONArray = new JSONArray(routeOrder);
+				List<JSONObject> routeJSONObj = new ArrayList<JSONObject>();
+				
+				
+				for(int i=0; i< routeJSONArray.length(); i++){
+					routeJSONObj.add(routeJSONArray.getJSONObject(i));
+				}
+				String viewDetailArray ="{\"routeName\":\"" + routeName + "\",\"views\":[";
+				for(int i=0; i< routeJSONObj.size(); i++){
+					//System.out.println(routeJSONObj.get(i).get("RouteViewOrder"));
+					//System.out.println(routeJSONObj.get(i).get("viewID"));
+					String viewID = routeJSONObj.get(i).get("viewID").toString();
+					String viewDetail = vnService.getViewDetailByViewID(viewID);
+					//System.out.println("viewDetail= "+ viewDetail);
+					if(i!= routeJSONObj.size()-1){
+						viewDetail+=",";
+					}
+					viewDetailArray += viewDetail;
+				}
+				viewDetailArray += "]}";
+				//System.out.println(viewDetailArray);
+				//out.println(viewDetailArray);
+				
+				request.setAttribute("viewDetails", viewDetailArray);
+				//轉頁到 會員路線
+				String url = "route_memRouteDetail.jsp";
+				RequestDispatcher rd = request.getRequestDispatcher(url);
+				rd.forward(request, response);			
+				
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		if("increaseHitRate".equals(action)){
 			String routeResultJSONStr = request.getParameter("routeResult");
 			try {
