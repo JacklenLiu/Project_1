@@ -52,8 +52,9 @@
 	<%@ include file="../platform/include_picture.jsp"%>
 
 <!-- ******************************************************************* -->
- <div>
+ <div style="display:inline">
     <img src = "images/02.gif" /> 欲選擇其他地區
+    <span>
 	<select  id="sel1">
 		<option value="北部" id="N">北部</option>
   		<option value="中部" id="C">中部</option>
@@ -83,6 +84,7 @@
 	        <td class='td1'></td>  
 	    </tr>
 	</table>
+	</span>
 </div>	
 	
 	<!-- 放抓到的area值 -->
@@ -390,9 +392,9 @@
                 $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
                 	
                   $item
-                    .animate({ width: "145px" })
+                    .animate({ width: "45%" })
                     .find( "img" )
-                      .animate({ height: "130px", width:"130px" });
+                      .animate({ height: "130px", width:"100%" });
                 });
               });
             	//增加景點名稱到出發地及目的地
