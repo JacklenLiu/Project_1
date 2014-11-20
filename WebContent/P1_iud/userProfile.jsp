@@ -76,19 +76,15 @@
                         <td>${list.member_loginID}</td>
                       </tr>
                       <tr>
-                        <td>Hire date:</td>
-                        <td>06/23/2013</td>
+                        <td>會員姓名:</td>
+                        <td>${list.member_name}</td>
                       </tr>
                       <tr>
                         <td>會員信箱:</td>
                         <td>${list.member_email}</td>
                       </tr>
                       <tr>
-                        <td>會員姓名:</td>
-                        <td>${list.member_name}</td>
-                      </tr>
-                      <tr>
-                        <td>會員姓名:</td>
+                        <td>會員性別:</td>
                         <td>${list.member_gender}</td>
                       </tr>
                       <tr>
@@ -114,7 +110,7 @@
                  <div class="panel-footer">
                         <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
                         <span class="pull-right">
-                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="updateProfile.jsp" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
                             <a href="../index.jsp" data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                         </span>
                     </div>

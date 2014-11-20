@@ -1,21 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<link href="css/jquery-ui.css" rel="stylesheet">
-	
 	<%@ include file="../platform/include_title.jsp" %>   
-	<%@ include file="../platform/include_start.jsp" %>  
-	<%@ page import="java.text.*" %>
+	<%@ include file="../platform/include_start.jsp" %> 
+	<%@ page import="P1_iud.model.*"%> 
 	<script src="../js/jquery-1.11.0.js"></script>
 	<link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
 	<!-- 昱豪 日期選今天 (縮排後)-->
     <%
     	Date date = new Date();
 		java.util.Date right = new java.util.Date();
+		//int a = ((right.toInstant()).toString()).lastIndexOf("-");
+		String newA = ((right.toInstant()).toString()).substring(0, (((right.toInstant()).toString()).lastIndexOf("-"))+3);
+		//System.out.println(newA);
    	%>
     <!-- 昱豪 日期選今天(縮排後) -->
+    <%
+		MemberService memSvc = new MemberService();
+	 	String userId = (String)session.getAttribute("userLoginId"); 
+		MemberVO list = memSvc.getOneMem(userId);
+		pageContext.setAttribute("list",list);
+	%>
 <style>
 	body{
 		/*font: 100% "Trebuchet MS", sans-serif;*/
@@ -69,14 +76,12 @@
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                	<li class="dropdown">
-                  			<a href="../P0_login/login.jsp" name="indexLoginBtn" class="noChange">登入</a>
-                  	</li>
                   	<%@ include file="../platform/include_A_href/P2_route.jsp" %>
                     <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %> 
                     <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
                     <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp"%>
 					<%@ include file="../platform/include_A_href/P6_contactUs.jsp"%>
+					<%@ include file="../platform/include_A_href/memberSession.jsp"%>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -89,51 +94,6 @@
 <%@ include file="../platform/include_picture/include_picture.jsp" %>
 
 
-<!-- ******************************************************************* -->
-
-<!--     <div id="body" style=" width:600px;padding:100px;margin-top:0px; margin-left:150px;"> -->
-<!--         <form > -->
-<!--              <fieldset style="border-radius:20px;margin-top:20px;" > -->
-<!--                   <legend style="color:black;margin-left:20px; ">註冊會員</legend> -->
-<!--                      <div class="tabletxt" style="margin:20px;"> -->
-<!--                        <p> -->
-<!--                           	帳號: <input type="text" id="idName"  placeholder="請輸入帳號" /> -->
-<!--                             <img src="images/ajax-loader.gif" id="loadding"><span id="checkAccount" style="font-size:16px;"></span> -->
-<!--                             <br/> -->
-<!--                             <label class="lable">(不可空白，至少兩個中文字以上)</label>   -->
-<!--                        </p> -->
-<!--                     </div> -->
-                     
-<!--                     <div class="tabletxt" style="width:600px;margin:20px;">                   -->
-<!--                          <p> -->
-<!--                            	 密碼: <input type="text" id="idPwd"  placeholder="請輸入密碼"/> -->
-<!--                             <span id="pwdOk" style="font-size:4px;color:red;"></span>  -->
-<!--                             <br /> -->
-<!--                             <label class="lable" >(不可空白，不可為中文字，至少六個字且包含英文字母、數字)</label> -->
-<!--                          </p> -->
-<!--                     </div> -->
-<!--                      <div class="tabletxt" style="width:600px;margin:20px;">                   -->
-<!--                          <p> -->
-<!--                            	 確認密碼: <input type="text" id="doubleIdPwd"  placeholder="請再次輸入密碼"/> -->
-<!--                             <span id="pwdOk2" style="font-size:4px;color:red;"></span>  -->
-<!--                          </p> -->
-<!--                     </div> -->
-                    
-<!--                     <div class="tabletxt" style="margin:20px;"> -->
-<!-- 						<p>生日: <input type="text" id="datepicker" readonly>&nbsp;</p> -->
-<!--                     </div> -->
-                    
-                    
-<!--                     <div class="tabletxt1" style="margin:30px;"> -->
-<!--                         <p> -->
-<!--                             <input type="reset" id="clean" value="Reset" onclick="ret()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-<!--                             <input type="button" id="button" value="確    認" onclick="but()"/></p> -->
-<!--                     </div> -->
-<!--              </fieldset> -->
-<!--         </form> -->
-
-<!--     </div> -->
-
     <!-- ********************************************************* -->
 <div class="container">
 	<div class="row">
@@ -145,13 +105,12 @@
         <div class="col-sm-8">
             <h4>Register Member(註冊會員): </h4>
             <div class="" >
-            	<form method="post" action="register">
+            	<form method="post" action="update">
                 <div class="panel-body form-horizontal payment-form">
                     <div class="form-group">
                         <label class="col-sm-3 control-label">帳號:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="idName"  placeholder="請輸入帳號" name="idName">
-                        	<img src="images/ajax-loader.gif" id="loadding">
+                            <input type="text" class="form-control" id="idName"  placeholder="請輸入帳號" name="idName" value="${list.member_loginID}" readonly="readonly">
                         	<span id="checkAccount" style="font-size:18px;color:red;">${errorMsgAccount}${errorMsgs}</span>                            
                        		<label class="lable" id="accountLabel">&nbsp;&nbsp;&nbsp;(帳號需填寫6碼包含英文、數字且不能空格!!)</label>
                         </div>
@@ -159,7 +118,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">姓名:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="userName" name="userName" placeholder="請輸入姓名">
+                            <input type="text" class="form-control" id="userName" name="userName" placeholder="請輸入姓名" value="${list.member_name}">
                             <span id="nameOk" style="font-size:18px;color:red;">${errorMsgName}</span>
                              <label class="lable" id="nameLabel">&nbsp;&nbsp;&nbsp;(不可空白，需為中文字，至少2個字)</label>
                         </div>
@@ -182,7 +141,7 @@
                     <div class="form-group">
                         <label for="status" class="col-sm-3 control-label">E-mail信箱:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="請輸入信箱">
+                            <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="請輸入信箱" value="${list.member_email}" >
                             <span id="emailOk" style="font-size:18px;color:red;">${errorMsgEmail}</span>
                         </div>
                     </div> 
@@ -190,15 +149,15 @@
                     	<label for="concept" class="col-sm-3 control-label">性別:</label>
                     	<div class="col-sm-2">
 				      		<span class="form-control">
-				        		<input type="radio" id="radio_male" name="genderChecked" value="男" checked>男&nbsp;
-				        		<input type="radio" id="radio_female" name="genderChecked" value="女">女 ${errorMsgGender}
+				        		<input type="radio" id="radio_male" name="genderChecked" >男&nbsp;
+				        		<input type="radio" id="radio_female" name="genderChecked" >女 ${errorMsgGender}
 				      		</span>
 				     	</div>
 				    </div><!-- /input-group -->
                     <div class="form-group">
                         <label for="date" class="col-sm-3 control-label">生日:</label>
                         <div class="col-sm-9">
-                        	<input type="text" id="datepicker" name="datepicker" class="form-control" readonly="readonly"  placeholder="請選擇生日日期">
+                        	<input type="text" id="datepicker" name="datepicker" class="form-control" readonly="readonly"  placeholder="請選擇生日日期" value="${list.member_birthday}">
 							<span id="dateOk" style="font-size:18px;color:red;">${errorMsgDate}</span>
 <!--                             <input type="date" class="form-control" id="date" name="date"> -->
                         </div>
@@ -206,7 +165,7 @@
                     <div class="form-group">
                         <label for="addr" class="col-sm-3 control-label">地址:</label>
                         <div class="col-sm-9">
-                        	<input type="text" id="userAddr" name="userAddr" class="form-control" placeholder="請輸入聯絡地址">
+                        	<input type="text" id="userAddr" name="userAddr" class="form-control" placeholder="請輸入聯絡地址" value="${list.member_address}">
 							<span id="addrOk" style="font-size:18px;color:red;">${errorMsgAddr}</span>
 <!--                             <input type="date" class="form-control" id="date" name="date"> -->
                         </div>
@@ -222,20 +181,17 @@
     					</div>
 					</div>    
                     <div class="form-group">
-                    	<div class="col-sm-4 text-right">
-							<input type="button" class="btn btn-default preview-add-button btn-warning"  id="fakeData" value="data"/>
-						</div>
-                        <div class="col-sm-8 text-right">
+                        <div class="col-sm-12 text-right">
 <!--                             <button type="button" class="btn btn-default preview-add-button"> -->
 <!--                                 <span class="glyphicon glyphicon-plus"></span> Add -->
 <!--                             </button> -->
 <!-- 							<input type="submit" class="btn btn-default preview-add-button" value="送出"> -->
-                        	<input type="reset"  class="btn btn-default preview-add-button btn-danger" value="Reset" id="cleanBtn" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        	<a href="userProfile.jsp"><input type="button"  class="btn btn-default preview-add-button btn-danger" value="Cancel" id="cleanBtn" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                             <input type="submit" class="btn btn-default preview-add-button btn-success"  id="subBtn" value="送 出"/>
-                            <input type="hidden" name="action" value="register"/>
+                            <input type="hidden" name="action" value="Update"/>
                             <input type="hidden" name="member_class" value="1">
 							<input type="hidden" name="member_stop" value="N">
-							<input type="hidden" name="member_buildtime" value="<%=new java.sql.Timestamp(right.getTime())%>">
+							<input type="hidden" name="member_updateTime" value="<%=new java.sql.Timestamp(right.getTime())%>">
                         </div>
                     </div>
                 </div>
@@ -253,23 +209,6 @@
 <script type="text/javascript">
     
 (function ($) {
-			
-		var sionLog = "<%=sionLoginId%>";
-		if(sionLog == "null"){
-	 		//$(".navbar-right a[class != 'noChange'] ").prop("href","P0_login/login.jsp");
-			$(".navbar-right a[class != 'noChange'] ").prop("href","#");
-			$("a[name != 'indexLoginBtn']").click(function(){
-				//alert("請先登入會員!!");
-				sweetAlert("此功能需先行登入會員!!","","warning");
-				$("#ok_btn123456").click(function(){
-					window.location.href="http://localhost:8081/Project_1/P0_login/login.jsp";
-				});
-					
-			});
-		}
-	
-	
-	
 		//****************************
 //     	$("#radio_male").click(function(){
 //     		$("#radio_female").prop("checked",false);
@@ -281,45 +220,6 @@
 //     		$(this).prop("checked",true);
 //     		$(this).prop("name","genderChecked");
 //     	});
-
-    	// ***************帳號*****************
-    	$("#loadding").prop("hidden",true);
-    	
-    	$(':text[id="idName"]').focus(function(){
-    		$("#chkAccount").remove();
-    		$("#checkAccount").empty();
-    	});
-    	$(':text[id="idName"]').blur(function(){
-    		$("#chkAccount").remove();
-    		$("#checkAccount").empty();
-    		
-    		$("#loadding").prop("hidden",false);
-    		var name = $(this).val();
-    		var reV1 = /^(?=.*\d)(?=.*[a-zA-Z]).{6,30}$/;
-            if (!reV1.test(name)) {
-    			$("#loadding").prop("hidden",true);
-    			$("#checkAccount").html("<img src=images/errorImg.png />  帳號格式錯誤!!\n");
-    			$("#accountLabel").prop("hidden",false);
-    			return;
-    		}    
-            
-    		$.get("checkAccount.jsp",{"name":name},function(data){
-    			//$("#errName").text(data);
-    			
-    			if(data==1){
-    				$("#checkAccount").html("<span id='chkAccount' style='color:red;'><img src=images/errorImg.png />此組帳號已有人使用</span>");
-    				$("#accountLabel").prop("hidden",false);
-    			}else{
-    				$("#checkAccount").html("<span id='chkAccount' style='color:blue;'><img src=images/OK.png />此組帳號可以使用</span>");
-    				$("#accountLabel").prop("hidden",true);
-    			}
-    			$("#loadding").prop("hidden",true);
-    		});
-    	});
-    	// ***************帳號*****************
-    	
-    
-    	
     	// ***************密碼*****************
     	$(':text[id="idPwd"]').focus(function(){
     		$("#pwdOk").html("");
@@ -351,15 +251,8 @@
     			$("#pwdOk2").html("<img src=images/OK.png />");
     			$("#pwdLabel").prop("hidden",true);
     		}
-//     		else{
-//     			if(doublePwd.length == 0 ){
-//     				$("#pwdOk").html("<img src=images/OK.png />");
-//     			}else{
-//     				$("#pwdOk").html("<img src=images/OK.png />");
-//     				$("#pwdOk2").html("<img src=images/errorImg.png />");
-//     			}
-//     		}	
     	});
+    	
     	$(':text[id="doubleIdPwd"]').blur(function(){
     		var doublePwd = $.trim($("#doubleIdPwd").val());
     		var pwd = $("#idPwd").val();
@@ -398,6 +291,19 @@
             $("#nameLabel").prop("hidden",true);
     	});
     	// ***************姓名*****************
+    	
+    	// ***************性別*****************
+    	var memGender = "${list.member_gender}";
+    	if(memGender == "男"){
+    		$("#radio_female").prop("checked",false);
+    		$("#radio_male").prop("checked",true);
+    	}else{
+    		$("#radio_male").prop("checked",false);
+    		$("#radio_female").prop("checked",true);
+    	}
+    	// ***************性別*****************
+    	
+    	
     	
     	// ***************信箱*****************
     	$(':text[id="userEmail"]').focus(function(){
@@ -458,6 +364,13 @@
     	});
     	// ***************生日*****************
 
+    	// ***************興趣*****************
+		var hobbySelect = "${list.member_type}";
+		$("#hobbySel").val($.trim(hobbySelect));
+		
+    	// ***************興趣*****************
+    	
+    	
     	// ***************清除*****************
     	$("#cleanBtn").click(function(){
     		$("#checkAccount").html("");
@@ -504,20 +417,31 @@
 				}
 				return false;
 			}
+			var pwd = $.trim($("#idPwd").val());
+    		var reV1 = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*\w).{6,30}$/;
+            if (!reV1.test(pwd)) {
+            	$("#pwdOk").html("<img src=images/errorImg.png />密碼格式錯誤");
+            	$("#pwdLabel").prop("hidden",false);
+            	return false;
+    		}
+            var reV2 = /^(?!.*[\s])[\u4E00-\u9FFF]{2,}$/;
+            if (!reV2.test($("#userName").val())){
+            	$("#nameOk").html("<img src=images/errorImg.png />姓名格式錯誤");
+            	$("#nameLabel").prop("hidden",false);
+            	return false;
+    		}
+            var reV3 = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+            if (!reV3.test(email)) {
+            	$("#emailOk").html("<img src=images/errorImg.png />email信箱格式錯誤 <span style='color:orange;'>(ex: abc@yahoo.com.tw)</span>");
+            	return false;
+    		}
+            var reV4 = /^(?!.*[\s])[\u4E00-\u9FFF]{2,}$/;
+            if (!reV4.test($("#userAddr").val())){
+            	$("#addrOk").html("<img src=images/errorImg.png />地址格式錯誤");
+            	return false;
+    		}
 		});
 		// ***************submit*****************
-    	
-		$("#fakeData").click(function(){
-			var Today = new Date();
-			$("#idName").val("test123");  
-			$("#userName").val("王小明");
-			$("#idPwd").val("test123");
-			$("#doubleIdPwd").val("test123"); 
-			$("#userEmail").val("abc@yahoo.com.tw"); 
- 			$("#datepicker").val(Today.getFullYear()+ "-" + (Today.getMonth()+1) + "-" + Today.getDate());
-			$("#userAddr").val("台北市大安區復興南路一段390號樓204室");
-		});
-		
 })(jQuery);
 </script>
 <script src='../js/bootstrap.min.js'></script>

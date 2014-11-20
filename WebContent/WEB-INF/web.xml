@@ -57,6 +57,15 @@
     <url-pattern>/P1_iud/delete</url-pattern>
   </servlet-mapping>
   
+  <!-- **** -->
+  <servlet>
+    <servlet-name>registerServlet</servlet-name>
+    <servlet-class>P1_iud.controller.IUDServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>registerServlet</servlet-name>
+    <url-pattern>/P1_iud/register</url-pattern>
+  </servlet-mapping>
   <!-- ************************* 信豪 ************************* -->
   <servlet>
     <servlet-name>MsgServlet</servlet-name>

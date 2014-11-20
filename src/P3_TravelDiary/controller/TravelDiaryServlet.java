@@ -39,9 +39,6 @@ public class TravelDiaryServlet extends HttpServlet {
 			successView.forward(req, res);
 
 		}
-
-		
-		
 		
 		//在全部文章點下某一篇文章
 		if("pickblog".equals(action)){
@@ -74,18 +71,6 @@ public class TravelDiaryServlet extends HttpServlet {
 			
 		
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		// 搜尋每篇文章的第一張圖片
 				if ("blog.do".equals(action)) {

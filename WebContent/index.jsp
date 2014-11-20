@@ -4,8 +4,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-	 <%@ include file="../platform/include_title.jsp" %>
-    <!-- Bootstrap Core CSS -->
+	<%@ include file="platform/include_title.jsp" %>
+	<%@ page import="P1_iud.model.*"%>
+	<%
+		if(sionName != null){
+			MemberService memSvc = new MemberService();
+		 	String userId = (String)session.getAttribute("userLoginId"); 
+			MemberVO list = memSvc.getOneMem(userId);
+			session.setAttribute("userName",list.getMember_name());
+		}
+	%>
+	<!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -24,6 +33,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <style>
 	body {
     	background-image: url("Images/backgound.png");
@@ -152,10 +164,10 @@
                     <c:if test="<%=sionName != null%>">
                  		<li class="dropdown">
                     		<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-                    		會員，<%=sionName%>你好<b class="caret"></b></a>
+                    		會員，${userName}你好<b class="caret"></b></a>
                  			<ul class="dropdown-menu">
 		                       <li>
-		                           <a href="P1_iud/userProfile.jsp">會員基本資料修改</a>
+		                           <a href="P1_iud/userProfile.jsp">會員基本資料</a>
 		                       </li>
 		                       <li>
 		                           <a href="portfolio-2-col.html">會員好友管理</a>
@@ -214,10 +226,8 @@
 <!--     </header> -->
 
 <!-- 照片輪播 -->
-
 <%@ include file="platform/index_Use/include_picture.jsp" %> 
 <!-- 照片輪播 -->
-
 
     <!-- Page Content -->
     <div class="container">
@@ -336,15 +346,30 @@
     </div>
     
 
+ 
+<div id="dialog-message" title="註冊成功"  hidden>
+  <h5>
+    <span class="ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+   	恭喜您，註冊成功，請重新登入!
+  </h5>
+</div>
+<div id="dialog-update" title="修改個人資料成功"  hidden>
+  <h5>
+    <span class="ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+   	您修改的個人資料已成功，請牢記您的密碼!!
+  </h5>
+</div>
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
 <script src="js/bootstrap.js"></script>
 <script src="seetalertjs/sweet-alert.js"></script>  
 <!-- <script type="text/javascript" src="P0_login/js/jquery.validate.js"></script>  -->
-
-
 <!-- Script to Activate the Carousel -->
 <script>
+$(function() {
+		
+    
+  });
 	//照片輪播間格秒數
 //     $('.carousel').carousel({
 //         interval: 5000 //changes the speed
@@ -377,7 +402,42 @@
     				
     		});
     	}
-    	//******昱豪 登入處裡*****************************
+    	
+    	//********昱豪   註冊處裡********
+    	var register = "<%=session.getAttribute("current")%>";
+    	
+    	if(register != "null" ){
+    		$("#dialog-message").dialog({
+  		      modal: true,
+  		      buttons: {
+  		        Ok: function() {
+  		          $( this ).dialog( "close" );
+  		        }
+  		      }
+  		    });
+    		$(".ui-dialog-titlebar-close").html("<img src='Images/dialog_close.png' />");
+// 			sweetAlert("此功能需先行登入會員!!","","warning");
+    		<%session.setAttribute("current",null);%>
+    	}
+    	//********昱豪   註冊處裡********
+    	
+    	//********昱豪  修改個人資料處裡********
+		var updateSession = "<%=session.getAttribute("updateCurrent")%>";
+    	
+    	if(updateSession != "null" ){
+    		$("#dialog-update").dialog({
+  		      modal: true,
+  		      buttons: {
+  		        Ok: function() {
+  		          $( this ).dialog( "close" );
+  		        }
+  		      }
+  		    });
+    		$(".ui-dialog-titlebar-close").html("<img src='Images/dialog_close.png' />");
+    		<%session.setAttribute("updateCurrent",null);%>
+    	}
+    	
+    	//********昱豪  修改個人資料處裡********
     	
     	
     	//***************昱豪_抓排行榜圖片***************
@@ -485,7 +545,6 @@
 	 })(jQuery);
 	//***********昱豪*********** 
     
-    </script>
-
+</script>
 </body>
 </html>
