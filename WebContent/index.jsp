@@ -4,8 +4,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-	 <%@ include file="../platform/include_title.jsp" %>
-    <!-- Bootstrap Core CSS -->
+	<%@ include file="platform/include_title.jsp" %>
+	<%@ page import="P1_iud.model.*"%>
+	<%
+		if(sionName != null){
+			MemberService memSvc = new MemberService();
+		 	String userId = (String)session.getAttribute("userLoginId"); 
+			MemberVO list = memSvc.getOneMem(userId);
+			session.setAttribute("userName",list.getMember_name());
+		}
+	%>
+	<!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -27,6 +36,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <style>
 	body {
     	background-image: url("Images/backgound.png");
@@ -50,6 +62,18 @@
 		font-size:26px;
 		border-radius:15px;
 	}
+<<<<<<< HEAD
+=======
+	.marquee {
+/*   		 width: 300px; */
+  		overflow: hidden;
+/*  		 border: 1px solid #ccc; */
+/*  		 background: #DDDDDD; */
+  		color: #FF5511;
+  		background-image: url("Images/backgound.png");
+	}
+</style>
+>>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
 	
 	.navbar-nav > li > a{
 		color:#FFF;
@@ -197,11 +221,16 @@
                     </li>
                     <c:if test="<%=sionName != null%>">
                  		<li class="dropdown">
+<<<<<<< HEAD
                     		<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
                     		<i class="fa fa-user"></i><%=sionName%>你好<b class="caret"></b></a>
+=======
+                    		<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
+                    		會員，${userName}你好<b class="caret"></b></a>
+>>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
                  			<ul class="dropdown-menu">
 		                       <li>
-		                           <a href="P1_iud/userProfile.jsp">會員基本資料修改</a>
+		                           <a href="P1_iud/userProfile.jsp">會員基本資料</a>
 		                       </li>
 		                       <li>
 		                           <a href="portfolio-2-col.html">會員好友管理</a>
@@ -260,19 +289,63 @@
 <!--     </header> -->
 
 <!-- 照片輪播 -->
-
 <%@ include file="platform/index_Use/include_picture.jsp" %> 
 <!-- 照片輪播 -->
 
-
     <!-- Page Content -->
+    <div class="col-lg-12">
+<!--         <h1 class="page-header"> ＊~歡迎來到下一站幸福網~＊</h1> -->
+		<h1 class="page-header marquee">歡迎光臨<b style='color:red;'>下一站，幸福</b>網</h1>
+    </div>
     <div class="container">
-
+		<!-- Portfolio Section -->
+        <div class="row">
+            <div class="col-lg-12">
+               	 <h3 class="page-header"> ＊~景點熱搜排行榜~＊</h3>
+            </div>
+            <div class="col-md-2">
+                <a href="portfolio-item.html" >
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
+                	<img src="Images/1.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a href="portfolio-item.html" >
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
+                    <img src="Images/2.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
+                    <img src="Images/3.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
+                    <img src="Images/4.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
+                    <img src="Images/5.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
+                    <img src="Images/6.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                </a>
+            </div>
+        </div>
+        <!-- /.row -->
+        
         <!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Welcome to Modern Business
                 </h1>
             </div>
             <div class="col-md-4">
@@ -309,6 +382,7 @@
             </div>
         </div>
         <!-- /.row -->
+<<<<<<< HEAD
 <center>
         <!-- Portfolio Section -->
         <div class="row">
@@ -354,6 +428,11 @@
         </div>
         <!-- /.row -->
 </center>
+=======
+
+        
+
+>>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
         <hr>
 
         <!-- Call to Action Section -->
@@ -380,6 +459,7 @@
             <div class="row">
             <div class="col-md-3 col-lg-3">
             </div>
+<<<<<<< HEAD
                 <div class="col-md-6 col-lg-6">
                     <div class="wow shake" data-wow-delay="0.4s">
                     <div class="page-scroll marginbot-30">
@@ -393,7 +473,26 @@
             </div>  
         </div>
     </footer>     
+=======
+        </footer>
 
+    </div><!-- end container -->
+    
+>>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
+
+ 
+<div id="dialog-message" title="註冊成功"  hidden>
+  <h5>
+    <span class="ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+   	恭喜您，註冊成功，請重新登入!
+  </h5>
+</div>
+<div id="dialog-update" title="修改個人資料成功"  hidden>
+  <h5>
+    <span class="ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+   	您修改的個人資料已成功，請牢記您的密碼!!
+  </h5>
+</div>
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
 <script src="js/bootstrap.js"></script>
@@ -406,10 +505,14 @@
 <!-- 可以往上rooler效果 -->
  
 <!-- <script type="text/javascript" src="P0_login/js/jquery.validate.js"></script>  -->
-
-
 <!-- Script to Activate the Carousel -->
+<script type='text/javascript' src='js/1.3.1_jquery.marquee.min.js'></script>
+
 <script>
+$(function() {
+	$('.marquee').marquee({duration: 12000});	
+    
+  
 	//照片輪播間格秒數
 //     $('.carousel').carousel({
 //         interval: 5000 //changes the speed
@@ -423,7 +526,8 @@
             $(this).removeClass('open');
         });
   //上方工具列滑鼠滑入自動彈出
-   
+});
+
    //***********昱豪*********** 
 	(function($){   
 		
@@ -442,7 +546,42 @@
     				
     		});
     	}
-    	//******昱豪 登入處裡*****************************
+    	
+    	//********昱豪   註冊處裡********
+    	var register = "<%=session.getAttribute("current")%>";
+    	
+    	if(register != "null" ){
+    		$("#dialog-message").dialog({
+  		      modal: true,
+  		      buttons: {
+  		        Ok: function() {
+  		          $( this ).dialog( "close" );
+  		        }
+  		      }
+  		    });
+    		$(".ui-dialog-titlebar-close").html("<img src='Images/dialog_close.png' />");
+// 			sweetAlert("此功能需先行登入會員!!","","warning");
+    		<%session.setAttribute("current",null);%>
+    	}
+    	//********昱豪   註冊處裡********
+    	
+    	//********昱豪  修改個人資料處裡********
+		var updateSession = "<%=session.getAttribute("updateCurrent")%>";
+    	
+    	if(updateSession != "null" ){
+    		$("#dialog-update").dialog({
+  		      modal: true,
+  		      buttons: {
+  		        Ok: function() {
+  		          $( this ).dialog( "close" );
+  		        }
+  		      }
+  		    });
+    		$(".ui-dialog-titlebar-close").html("<img src='Images/dialog_close.png' />");
+    		<%session.setAttribute("updateCurrent",null);%>
+    	}
+    	
+    	//********昱豪  修改個人資料處裡********
     	
     	
     	//***************昱豪_抓排行榜圖片***************
@@ -453,7 +592,7 @@
 		var leaderboardUrl = "ImgTop6servlet";
        	$.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
        		$.each(datas,function(i,item){
-  				$('.col-sm-6:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
+  				$('.col-md-2:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
        		});
        	});
       //***************昱豪_抓排行榜圖片***************
@@ -550,7 +689,6 @@
 	 })(jQuery);
 	//***********昱豪*********** 
     
-    </script>
-
+</script>
 </body>
 </html>

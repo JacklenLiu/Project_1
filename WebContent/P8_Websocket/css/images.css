@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+
+.viewimge{
+	width:100px;
+	height:100px;
+}
+.fixli{
+	float:left;
+	border:2px solid red;
+}

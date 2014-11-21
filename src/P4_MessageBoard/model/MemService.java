@@ -13,4 +13,7 @@ public class MemService {
 		return dao.getAll(query_string);
 	}
 	
+	public String getAllJSON(String query_string) {
+		return dao.getAllJSON(query_string);
+	}
 }

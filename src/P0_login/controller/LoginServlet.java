@@ -70,7 +70,6 @@ public class LoginServlet extends HttpServlet {
 		
 
 		if ("LoginIdCheck".equals(action)) {
-			//System.out.println("123");
 			try {
 			
 				if (userId == null || userId.trim().length() == 0) {
@@ -98,10 +97,6 @@ public class LoginServlet extends HttpServlet {
 				}
 				
 
-				System.out.println(userId);
-				System.out.println(mb.getMember_email());
-				System.out.println(password);
-				System.out.println(mb.getMember_password());
 				if (mb != null && mb.getMember_loginID().equals(userId) && mb.getMember_password().equals(password)) {
 					//request.setAttribute("userId", mb.getMember_name());
 					//request.setAttribute("userloginid", mb.getMember_loginID());

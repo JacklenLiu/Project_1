@@ -45,8 +45,10 @@ public class viewnameDAO implements viewnameDAO_interface {
 	private static final String GET_ROUTEORDER_STMT_ROUTEID ="SELECT viewID, RouteViewOrder FROM routeView where routeID=?  order by RouteViewOrder";
 	private static final String GET_ROUTEFIRST_STMT_ROUTEID ="SELECT top(1) viewID FROM routeView where routeID=?  order by RouteViewOrder";
 	private static final String DELETE_ROUTE_STMT_MEMID ="DELETE FROM route where routeID = ?";
+	private static final String GET_ROUTENAME_STMT_ROUTEID ="SELECT routeName FROM route where routeID = ?";
 	private static final String UPDATE_VIEWHITRATE_STMT_VIEWID ="UPDATE viewname set view_HitRate=? where viewID = ?";
 	private static final String GET_VIEWHITRATE_STMT_VIEWID ="SELECT view_HitRate FROM viewname where viewID = ?";
+	private static final String GET_VIEWDETAIL_STMT_VIEWID ="SELECT top(1) viewID, viewname, viewaddr, imgDescript FROM viewname JOIN images ON viewname.viewID=images.imagesName WHERE viewID= ?";
 	
 	
 	@Override
@@ -671,5 +673,102 @@ try{
 			}
 		}		
 		return hitRate;
+	}
+
+	@Override
+	public String getViewDetailByViewID(String viewID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<String> cols = new ArrayList<String>();
+		String viewDetail="";
+		
+try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_VIEWDETAIL_STMT_VIEWID);	
+			
+			pstmt.setString(1, viewID);
+			rs = pstmt.executeQuery();
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int count = rsmd.getColumnCount();
+			for(int i = 1; i <= count; i++) {
+				cols.add(rsmd.getColumnLabel(i));
+			}
+			JSONObject jsonObj = new JSONObject();
+			while(rs.next()){
+				jsonObj = new JSONObject();
+				jsonObj.put(cols.get(0), rs.getString(1));//viewID
+				jsonObj.put(cols.get(1), rs.getString(2));//viewname
+				jsonObj.put(cols.get(2), rs.getString(3));//viewaddr
+				jsonObj.put(cols.get(3), rs.getString(4));//imgDescript
+			}
+			
+			viewDetail = jsonObj.toString();
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}catch (JSONException e) {
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}		
+		return viewDetail;
+	}
+
+	@Override
+	public String getRouteNameByRouteID(Integer routeID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String routeName="";
+		
+try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ROUTENAME_STMT_ROUTEID);	
+			
+			pstmt.setInt(1, routeID);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				routeName = rs.getString(1);//routeName
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}		
+		return routeName;
 	}
 }

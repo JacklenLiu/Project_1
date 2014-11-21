@@ -2,19 +2,26 @@ package P1_iud.model;
 
 import java.sql.Date;
 public class MemberVO {
-	private String			member_loginID ;
-	private String			member_password ;
-	private String			member_email ;
-	private int				member_class ;
-	private String			member_name ;
-	private String			member_stop ;
-	private String			member_gender; 
-	private java.sql.Date	member_birthday; 
-	private String			member_address ;
-	private Date			member_buildtime; 
-	private String			member_type ;
-	private String			typeName ;
+	private String				member_loginID ;
+	private String				member_password ;
+	private String				member_email ;
+	private int					member_class ;
+	private String				member_name ;
+	private String				member_stop ;
+	private String				member_gender; 
+	private Date				member_birthday; 
+	private String				member_address ;
+	private java.sql.Timestamp	member_buildtime; 
+	private java.sql.Timestamp	member_updateTime; 
+	private String				member_type ;
+	private String				typeName ;
 	
+	public java.sql.Timestamp getMember_updateTime() {
+		return member_updateTime;
+	}
+	public void setMember_updateTime(java.sql.Timestamp member_updateTime) {
+		this.member_updateTime = member_updateTime;
+	}
 	public String getMember_loginID() {
 		return member_loginID;
 	}
@@ -57,10 +64,10 @@ public class MemberVO {
 	public void setMember_gender(String member_gender) {
 		this.member_gender = member_gender;
 	}
-	public java.sql.Date getMember_birthday() {
+	public Date getMember_birthday() {
 		return member_birthday;
 	}
-	public void setMember_birthday(java.sql.Date member_birthday) {
+	public void setMember_birthday(Date member_birthday) {
 		this.member_birthday = member_birthday;
 	}
 	public String getMember_address() {
@@ -69,10 +76,10 @@ public class MemberVO {
 	public void setMember_address(String member_address) {
 		this.member_address = member_address;
 	}
-	public Date getMember_buildtime() {
+	public java.sql.Timestamp getMember_buildtime() {
 		return member_buildtime;
 	}
-	public void setMember_buildtime(Date member_buildtime) {
+	public void setMember_buildtime(java.sql.Timestamp member_buildtime) {
 		this.member_buildtime = member_buildtime;
 	}
 	public String getMember_type() {

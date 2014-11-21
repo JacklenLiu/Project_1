@@ -111,11 +111,19 @@ public class viewnameService {
 		return dao.deleteRouteByID(routeID);
 	}
 	
+	public String getRouteNameByRouteID(Integer routeID){
+		return dao.getRouteNameByRouteID(routeID);
+	}
+	
 	public Integer increaseHitRate(String routeResultView, Integer hitRate){
 		return dao.increaseHitRate(routeResultView, hitRate);
 	}
 	
 	public Integer getHitRate(String routeResultView){
 		return dao.getHitRate(routeResultView);
+	}
+	
+	public String getViewDetailByViewID(String viewID){
+		return dao.getViewDetailByViewID(viewID);
 	}
 }

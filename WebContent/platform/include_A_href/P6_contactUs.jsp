@@ -3,7 +3,7 @@
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">聯絡我們<b class="caret"></b></a>
     <ul class="dropdown-menu">
         <li>
-            <a href="../P6_ContactUs/ContactUs.jsp" class="noChange">聯絡我們</a>
+            <a href="../P6_ContactUs/ContactUs.jsp" class="noChange" name="indexLoginBtn">聯絡我們</a>
         </li>
         <li>
             <a href="../sidebar.html">Sidebar Page</a>

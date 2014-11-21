@@ -7,6 +7,6 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="../index.jsp">下一站，幸福</a>
+    <a class="navbar-brand" href="../index.jsp" name="indexLoginBtn">下一站，幸福</a>
 </div>
 <!-- Collect the nav links, forms, and other content for toggling -->

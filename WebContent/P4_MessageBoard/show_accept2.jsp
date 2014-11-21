@@ -27,6 +27,19 @@ pageContext.setAttribute("invite_count",invite_count);
 
 <style>
 
+#submitid2 {
+	width:28px;
+	height:28px;
+	border-radius: 14px;
+	background-color:#FF00CC;
+	font-size:16px;
+	text-align:center;
+	position:relative; 
+/* 	float: right; */
+	
+}
+
+
 #submitid {
 	width:28px;
 	height:28px;
@@ -78,6 +91,12 @@ pageContext.setAttribute("invite_count",invite_count);
 
 <h2>現在身分:<%=sionLoginId %></h2>
 
+
+
+<input type="button" id="submitid2" value="${invite_count}">
+<div id = "testappendmenu"></div>
+
+
 <!-- <input type="button" id="testid" value="test"/> -->
 
 <!-- <a href="#" class="button button-circle button-flat-caution button-tiny">press me</a> -->
@@ -93,6 +112,7 @@ var contextPath = "<%= contextPath %>"; //Project_1
 
 (function($){
 	   //jQuery的程式碼寫在這裡
+
 	   	
 	    setInterval(function(){
 // $("#testid").click(function (){
@@ -107,7 +127,8 @@ var contextPath = "<%= contextPath %>"; //Project_1
  			"dataType":"text",
  			"success":function(data){
 //  				$('#div1').html("<h2>您有" + data + "個交友邀請</h2>");
- 				$('#submitid').val(data);				
+ 				$('#submitid').val(data);
+ 				$('#submitid2').val(data);
  			}
  			});
  		
@@ -123,10 +144,10 @@ var contextPath = "<%= contextPath %>"; //Project_1
 // 				}
 // 			});
   		
-//   		ajax的重導似乎有問題  先用window.location.href吧
-  		window.location.href="http://"+serverName + ":" + serverPort + contextPath+ "/P4_MessageBoard/FrdServlet?action=" + "show_invite" + "&vmember_loginID="+ID;
+//   		若ajax的重導似乎有問題  先用window.location.href吧
+//   		window.location.href="http://"+serverName + ":" + serverPort + contextPath+ "/P4_MessageBoard/FrdServlet?action=" + "show_invite2" + "&vmember_loginID="+ID;
   		
-//   		window.location.href="http://localhost:8081/Project_1/P4_MessageBoard/FrdServlet?action=show_invite&vmember_loginID="+ID;
+  		window.location.href="http://localhost:8081/Project_1/P4_MessageBoard/FrdServlet?action=show_invite2&vmember_loginID="+ID;
   				
 			}, 20000);
 // });	   
@@ -179,7 +200,7 @@ var contextPath = "<%= contextPath %>"; //Project_1
 									<input type="submit" class="acceptbtn" value="accept">
 									<input type="hidden" name="vmember_loginID" value="<%=sionLoginId %>">
 									<input type="hidden" name="vfriendNum" value="${list.friendNum}">
-									<input type="hidden" name="action" value="accept_invite">	
+									<input type="hidden" name="action" value="accept_invite2">	
 								</span>	
 								</form>	
 <!-- 						</a> -->						
@@ -191,7 +212,20 @@ var contextPath = "<%= contextPath %>"; //Project_1
 		</ul>
 	</div>
 	
-
+<script>	
+(function($){
+	   //jQuery的程式碼寫在這裡	
+	
+		   $("#menu").hide();
+	   $("#submitid2").click(function (){
+		   $(this).hide();
+			//alert("按下按鈕想做啥");
+			$("#menu").show();
+			
+	   });
+	
+})(jQuery)
+</script>
 <!-- @@@@   顯示有多少則邀請   @@@@ -->
 
 <%-- <h2><%=sionLoginId %>的世界~</h2> --%>

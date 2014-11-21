@@ -27,7 +27,23 @@ public class TravelDiaryServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		// 取name=actoin 的value判別是按到哪一個功能
 		String action = req.getParameter("action");
+<<<<<<< HEAD
 				
+=======
+		
+		// 測試判別帳號id
+		if ("login".equals(action)) {
+//			String account = req.getParameter("account");
+			// 建立session
+//			HttpSession session = req.getSession();
+//			session.setAttribute("memberinfo", account);
+			String url = "/P3_TravelDiary/blog_all.jsp";
+			RequestDispatcher successView = req.getRequestDispatcher(url);
+			successView.forward(req, res);
+
+		}
+		
+>>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
 		//在全部文章點下某一篇文章
 		if("pickblog".equals(action)){
 			
@@ -59,18 +75,6 @@ public class TravelDiaryServlet extends HttpServlet {
 			
 		
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		// 搜尋每篇文章的第一張圖片
 				if ("blog.do".equals(action)) {

@@ -58,12 +58,12 @@
 <%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
 <%@ include file="../platform/include_picture/include_picture.jsp" %>
 <!-- ******************************************************************* -->
-<%-- 	${memRoute} --%>
 	
 	<div id="titlediv"><h2>我的路線</h2></div>
-	<div id="memRouteDiv" class="ui-widget ui-helper-clearfix">
+    <div id="memRouteDiv" class="ui-widget ui-helper-clearfix">
 		<ul id="memRouteGallery" class="memRoute-gallery ui-helper-reset ui-helper-clearfix"></ul>
 	</div>
+	
 	<div id="dialog-delete" title="刪除路線">
 		<h2 class="memRoute-validateTips">真的要刪除?</h2>
 	</div>
@@ -72,10 +72,18 @@
 <%@ include file="../platform/include_footer.jsp" %>    
 <!-- /footer用 -->  
 
+<<<<<<< HEAD
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+=======
+
+
+
+
+	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+>>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 <script src='../Script/jquery-ui.js'></script>
-	
+        	
 <script>
 		var serverName = "<%= serverName %>"; //localhost
 		var serverPort = "<%= serverPort %>"; //8081
@@ -83,8 +91,8 @@
 		var sionLoginId = "<%= sionLoginId %>"; //aa123
 		var memRoutes = ${memRoute};//取得 會員路線
 		//console.log(memRoute);
-		(function ($) {      	
-        	$.each(memRoutes, function(i, route){
+		(function ($) {
+			$.each(memRoutes, function(i, route){
         		console.log(i);
         		console.log(route);
         		
@@ -96,9 +104,13 @@
 				var firstView = findFirstView(route.routeID);
 				//console.log(firstView);
 				
-				//<img src="images/C_7fy_01.jpg" alt="The peaks of High Tatras" width="200" height="200">
+				//<a><img src="images/C_7fy_01.jpg" alt="The peaks of High Tatras" width="200" height="200"></a>
 				var routeFirstimg = $('<img></img>').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id=' + firstView)
 													.addClass("memRoute-viewimge");
+				
+				var alinkimg = $('<a></a>').attr("href","#")
+										   .attr("id", "aID#"+route.routeID)
+										   .append(routeFirstimg);
 				
 				//<a href='#' title='移除景點' class='ui-icon ui-icon-close'>移除景點</a>
 				var recycle_icon = $('<a></a>').attr("href", "#")
@@ -108,7 +120,7 @@
 				
 				//<li class="ui-widget-content ui-corner-tr"></li>
 				var liObj = $('<li></li>').append(routeName)
-										  .append(routeFirstimg)
+										  .append(alinkimg)
 										  .append(recycle_icon)
 										  .attr("id", "liID_" + route.routeID)
 										  .addClass("ui-widget-content ui-corner-tr")
@@ -125,6 +137,23 @@
 				$("#memRouteGallery").append(liObj);
 				
         	});
+        	
+        	
+			//ul mouseover mouseout
+			$('#memRouteGallery').mouseover(function(){
+										$(this).css("overflow","auto");
+									})
+								 .mouseout(function(){
+									 	$(this).css("overflow","hidden");
+								 	});
+			
+        	//a link to get detail
+        	$('a').click(function(event){
+        		event.preventDefault();
+        		//console.log($(this).attr("id").substr(4));
+        		var routeID = $(this).attr("id").substr(4);
+        		window.location.href="http://" + serverName + ":" + serverPort + contextPath +"/P2_route" + "/viewnameServlet?action=GetRouteDetail&routeID="+ routeID;
+        	})
         	
         	//找路線中的第一個景點
         	function findFirstView(routeID){

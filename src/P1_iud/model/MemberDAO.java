@@ -29,7 +29,7 @@ public class MemberDAO implements MemberDAO_interface{
 	private static final String DELETE =
 		      "DELETE FROM sysmember where member_loginID = ?";
 	private static final String UPDATE =
-		      "UPDATE sysmember set member_password=? ,member_name=? ,member_gender=?, member_birthday=?, member_address=?  where member_loginID = ?";
+		      "UPDATE sysmember set member_password=? ,member_name=? ,member_gender=?, member_birthday=?, member_address=? , member_updateTime=? , member_type=? where member_loginID = ?";
 
 	@Override
 	public void insert(MemberVO memVO) {
@@ -41,7 +41,6 @@ public class MemberDAO implements MemberDAO_interface{
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(INSERT_STMT);
 			 
-			System.out.println("新增會員");
 			pstmt.setString(1, memVO.getMember_loginID());
 			pstmt.setString(2, memVO.getMember_password());
 			pstmt.setString(3, memVO.getMember_email());			
@@ -51,11 +50,9 @@ public class MemberDAO implements MemberDAO_interface{
 			pstmt.setString(7, memVO.getMember_gender());
 			pstmt.setDate(8, memVO.getMember_birthday());
 			pstmt.setString(9, memVO.getMember_address());
-			pstmt.setDate(10, memVO.getMember_buildtime());
+			pstmt.setTimestamp(10, memVO.getMember_buildtime());
 			pstmt.setString(11, memVO.getMember_type());
-			System.out.println("98kkd7654");
 			pstmt.executeUpdate();
-			System.out.println("98uikd7654");
 			// Handle any SQL errors
 		} catch (SQLException se) {
 			throw new RuntimeException("A database error occured. "
@@ -82,7 +79,6 @@ public class MemberDAO implements MemberDAO_interface{
 
 	@Override
 	public void update(MemberVO memVO) {
-		System.out.println("update");
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
@@ -90,13 +86,14 @@ public class MemberDAO implements MemberDAO_interface{
             
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(UPDATE);
-            System.out.println("update");
 			pstmt.setString(1,memVO.getMember_password());
 			pstmt.setString(2, memVO.getMember_name());
 			pstmt.setString(3, memVO.getMember_gender());
 			pstmt.setDate(4, memVO.getMember_birthday());
 			pstmt.setString(5, memVO.getMember_address());
-			pstmt.setString(6, memVO.getMember_loginID());
+			pstmt.setTimestamp(6, memVO.getMember_updateTime());
+			pstmt.setString(7, memVO.getMember_type());
+			pstmt.setString(8, memVO.getMember_loginID());
 			
 			
 			pstmt.executeUpdate();
@@ -133,15 +130,12 @@ public class MemberDAO implements MemberDAO_interface{
 		PreparedStatement pstmt = null;
 		
 		try {
-			System.out.println("delete1");
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(DELETE);
 			
 			pstmt.setString(1,member_loginID);
-			System.out.println("delete1.8");
 			pstmt.executeUpdate();
 			
-			System.out.println("delete2");
 			
 			
 		} catch (SQLException se) {
@@ -194,8 +188,9 @@ public class MemberDAO implements MemberDAO_interface{
 				memVO.setMember_name(rs.getString("member_name"));
 				//memVO.setMember_stop(rs.getString("member_stop"));
 				memVO.setMember_gender(rs.getString("member_gender"));
-				memVO.setMember_birthday(rs.getDate("member_birthday"));
+				memVO.setMember_birthday((rs.getDate("member_birthday")));
 				memVO.setMember_address(rs.getString("member_address"));
+				memVO.setMember_type(rs.getString("member_type"));
 				//memVO.setMember_buildtime(rs.getDate("member_buildtime"));
 				memVO.setTypeName(rs.getString("typeName"));
 				
@@ -248,7 +243,6 @@ public class MemberDAO implements MemberDAO_interface{
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				// empVO �]�٬� Domain objects
 				memVO = new MemberVO();
 				memVO.setMember_loginID(rs.getString("member_loginID"));
 				memVO.setMember_password(rs.getString("member_password"));
@@ -259,7 +253,7 @@ public class MemberDAO implements MemberDAO_interface{
 				memVO.setMember_gender(rs.getString("member_gender"));
 				memVO.setMember_birthday(rs.getDate("member_birthday"));
 				memVO.setMember_address(rs.getString("member_address"));
-				memVO.setMember_buildtime(rs.getDate("member_buildtime"));
+				memVO.setMember_buildtime(rs.getTimestamp("member_buildtime"));
 				memVO.setMember_type(rs.getString("member_type"));
 				list.add(memVO); // Store the row in the list
 			}
