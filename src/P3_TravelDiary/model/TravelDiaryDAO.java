@@ -37,9 +37,6 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 	
 	
 	
-	//先取每篇文章內容指令 之後再去切字串
-	private static final String GET_PIC="select TravelDiary_Content from TravelDiary where member_loginID=? order by publish_date  desc";
-	
 	
 	//取文章測試2
 	private static final String GET_PIC2="select TravelDiary_ID,TravelDiary_Name,TravelDiary_Content from TravelDiary where member_loginID=? order by publish_date  desc";
@@ -271,78 +268,7 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 				
 		return travelDiaryVO;
 	}
-	@Override
-	public ArrayList<String> getPic(String memberinfo) {
-		ArrayList<String> list=new ArrayList<String>();
-		Connection con=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
-		
-		try{
-			con =ds.getConnection();
-			pstmt=con.prepareStatement(GET_PIC);
-			pstmt.setString(1,memberinfo );
-			rs=pstmt.executeQuery();
-			//String TravelContent="";
-			
-			while(rs.next()){
-				//計算有幾次
-				
-				String Content="";
-				Content=rs.getString("TravelDiary_Content");
-				//取img標籤
-				//找<img開頭位置
-				int idx=Content.indexOf("<img");
-				String cut2="";
-				if(idx==-1){
-					//若沒有img標籤
-					cut2="<img src='img/error.jpg'>";
-				}else{
-					//有img標籤
-					//刪除<img 之前的所有字串
-					String cut1=Content.substring(idx);
-					//找img結尾>位置
-					int end=cut1.indexOf(">");
-					cut2=cut1.substring(0,end+1);
-				}
-				
-				
-				list.add(cut2);
-			}
-			
-			
-		}catch(SQLException e){
-			throw new RuntimeException("A database error occured."+e.getMessage());
-		}finally{
-			if(rs!=null){
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			if(pstmt!=null){
-				try {
-					pstmt.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			if(con!=null){
-				try {
-					con.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-		
-		
-		return list;
-	}
+	//抓取某一篇
 	@Override
 	public List<TravelDiaryVO> getPic2(String memberinfo) {
 		TravelDiaryVO travelDiaryVO =null;
@@ -370,7 +296,7 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 				String cut2="";
 				if(idx==-1){
 					//若沒有img標籤
-					cut2="<img src='img/error.jpg'>";
+					cut2="<img src='../Images/nopic.jpg'>";
 					
 				}else{
 					//有img標籤

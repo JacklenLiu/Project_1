@@ -6,20 +6,14 @@
 
 <head>
 <%@ include file="../platform/include_title.jsp" %>
-<%@ include file="../platform/include_start.jsp"%>
 <script src="../js/jquery-1.11.0.js"></script>
 <%
 	TravelDiaryVO travelDiaryVO = (TravelDiaryVO) request
 			.getAttribute("travelDiaryVO");
 %>
-<!-- Bootstrap 的 RWD 套件 -->
-<!-- 載入Bootstrap css樣式 -->
-<link rel="stylesheet" href="css/bootstrap.css">
-
-<!-- 圖案icon -->
-<link rel="stylesheet" href="css/font-awesome.min.css">
-
-
+<%@ include file="../platform/include_start.jsp"%>
+<!-- 調整navbar btn -->
+<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 <style>
 .boxer {
 	box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.0980392);
@@ -36,7 +30,7 @@
 
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
             <%@ include file="../platform/include_A_href/toIndex.jsp" %> 	
@@ -139,6 +133,9 @@
 		</div>
 	</div>
 
+	<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 --> 
 	<!-- ***********************/撈出文章 *********************************-->
 
 	<%-- <c:if test="${not empty errorMsgs}"> --%>

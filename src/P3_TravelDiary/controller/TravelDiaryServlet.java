@@ -27,22 +27,7 @@ public class TravelDiaryServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		// 取name=actoin 的value判別是按到哪一個功能
 		String action = req.getParameter("action");
-		
-		// 測試判別帳號id
-		if ("login".equals(action)) {
-//			String account = req.getParameter("account");
-			// 建立session
-//			HttpSession session = req.getSession();
-//			session.setAttribute("memberinfo", account);
-			String url = "/P3_TravelDiary/blog_all.jsp";
-			RequestDispatcher successView = req.getRequestDispatcher(url);
-			successView.forward(req, res);
-
-		}
-
-		
-		
-		
+				
 		//在全部文章點下某一篇文章
 		if("pickblog".equals(action)){
 			
@@ -113,47 +98,6 @@ public class TravelDiaryServlet extends HttpServlet {
 				}
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		// 搜尋每篇文章的第一張圖片
-		if ("SelectBlog".equals(action)) {
-
-			//錯誤訊息
-			List<String> errorMsgs = new LinkedList<String>();
-			//req.setAttribute("errorMsgs", errorMsgs);
-			ArrayList list = new ArrayList();
-			//Set<String> list=new TreeSet<String>();
-			try {
-				//取id sesion
-				HttpSession session = req.getSession();
-				String memberinfo=(String)session.getAttribute("userLoginId");
-				TravelDiaryService travelDiarySvc=new TravelDiaryService();
-				list=travelDiarySvc.getPic(memberinfo);
-				req.setAttribute("test", list);
-				String url = "/P3_TravelDiary/blog_one.jsp";
-				RequestDispatcher successView = req.getRequestDispatcher(url);
-				successView.forward(req, res);
-			} catch (Exception e) {
-				errorMsgs.add("upload" + e.getMessage());
-				RequestDispatcher failureView = req
-						.getRequestDispatcher("/P3_TravelDiary/blog_all.jsp");
-				failureView.forward(req, res);
-
-			}
-
-		}
-
 		
 		
 		

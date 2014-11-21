@@ -1,0 +1,340 @@
+
+/* ==== Google font ==== */
+@import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic');
+
+
+/* a { */
+/*     color: #28c3ab; */
+/*     -webkit-transition: all .2s ease-in-out; */
+/*     -moz-transition: all .2s ease-in-out; */
+/*     transition: all .2s ease-in-out; */
+/* } */
+
+/* a:hover, */
+/* a:focus { */
+/*     text-decoration: none; */
+/*     color: #176e61; */
+/* } */
+
+.light {
+    font-weight: 400;
+}
+
+
+
+
+/* margins */
+.marginbot-0{margin-bottom:0 !important;}
+.marginbot-10{margin-bottom:10px !important;}
+.marginbot-20{margin-bottom:20px !important;}
+.marginbot-30{margin-bottom:20px !important;}
+.marginbot-40{margin-bottom:40px !important;}
+.marginbot-50{margin-bottom:50px !important;}
+
+/
+
+
+
+/* ===========================
+--- Intro
+============================ */
+
+.intro {
+	width:100%;
+	position:relative;
+
+	background: url(../img/bg1.jpg) no-repeat top center;
+}
+
+
+
+.intro .slogan h4 {
+	color: #fff;
+	text-shadow: -1px 1px 1px #000;
+}
+
+
+/* ===========================
+--- Services
+============================ */
+
+
+
+/* ===========================
+--- Contact
+============================ */
+
+
+/* ===========================
+--- Footer
+============================ */
+
+footer {
+	text-align: center;
+	padding: 10px 0 ;
+	
+}
+
+footer p {
+	color: #f8f8f8;
+}
+
+/* ===========================
+--- Elements
+============================ */
+
+
+
+
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+    padding: 7px 16px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 40px;
+    color: #fff;
+    background: 0 0;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.btn-circle.btn-dark {
+    border: 2px solid #666;
+    color: #666;
+}
+
+
+.btn-circle:hover,
+.btn-circle:focus {
+    outline: 0;
+    color: #fff;
+    background: rgba(255,255,255,.1);
+}
+
+.btn-circle.btn-dark :hover,
+.btn-circle.btn-dark :focus {
+    outline: 0;
+    color: #999;
+    background: #fff;
+}
+
+.btn-circle.btn-dark :hover i,
+.btn-circle.btn-dark :focus i{
+    color: #999;
+}
+
+.page-scroll .btn-circle i.animated {
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1s;
+    -moz-transition-property: -moz-transform;
+    -moz-transition-duration: 1s;
+}
+
+.page-scroll .btn-circle:hover i.animated {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: pulse;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+}
+
+@-webkit-keyframes pulse {    
+    0 {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-moz-keyframes pulse {    
+    0 {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+
+    50% {
+        -moz-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+/**********animated****************/
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.pulse {
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+@-webkit-keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translateX(-10px);
+    -ms-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+}
+
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake;
+}
+
+
+.swing {
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-name: swing;
+  animation-name: swing;
+}
+/**********animated****************/
+
+
+
+/**********default****************/
+
+
+/* a,.tp-caption a.btn:hover { */
+/*   color: #67b0d1; */
+/* } */
+.top-nav-collapse {
+  background: #67b0d1;
+}
+
+.navbar-custom ul.nav ul.dropdown-menu li a:hover {
+  color: #67b0d1;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span {
+    background-color: #67b0d1;
+}
+
+.widget-avatar .avatar:hover {
+    border: 5px solid #67b0d1;
+}
+
+.bg-skin {
+  background: #67b0d1;
+}
+
+form#contact-form input:focus,form#contact-form select:focus,form#contact-form textarea:focus {
+  border-color: #67b0d1;
+}
+
+footer {
+    background-color: #67b0d1;
+}
+
+.btn-skin {
+  color: #fff;
+  background-color: #67b0d1;
+  border-color: #67b0d1;
+}
+
+
+
+/**********default****************/

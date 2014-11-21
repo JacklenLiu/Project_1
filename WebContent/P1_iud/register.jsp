@@ -117,7 +117,7 @@
                      
                     <div class="tabletxt" style="width:600px;margin:20px;">                  
                          <p>
-                           	 密碼: <input type="text" id="idPwd"  placeholder="請輸入密碼"/>
+                           	 密碼: <input type="password" id="idPwd"  placeholder="請輸入密碼"/>
                             <span id="pwdOk" style="font-size:4px;color:red;"></span> 
                             <br />
                             <label class="lable" >(不可空白，不可為中文字，至少六個字且包含英文字母、數字)</label>
@@ -125,7 +125,7 @@
                     </div>
                      <div class="tabletxt" style="width:600px;margin:20px;">                  
                          <p>
-                           	 確認密碼: <input type="text" id="doubleIdPwd"  placeholder="請再次輸入密碼"/>
+                           	 確認密碼: <input type="password" id="doubleIdPwd"  placeholder="請再次輸入密碼"/>
                             <span id="pwdOk2" style="font-size:4px;color:red;"></span> 
                          </p>
                     </div>

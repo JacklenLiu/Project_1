@@ -4,7 +4,6 @@
 <html>
 <head>
 <%@ include file="../platform/include_title.jsp" %>
-<%@ include file="../platform/include_start.jsp" %>
 <script src="../js/jquery-1.11.0.js"></script>
 <!-- 採用EL取值 -->
 <% 
@@ -14,9 +13,9 @@
 	List<TravelDiaryVO> list=travelDiarySvc.getAll(memberid);
 	pageContext.setAttribute("list",list);
 %>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen"> <!-- 載入 Bootstrap -->
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet" media="screen"> <!-- Bootstrap 的 RWD 套件 -->
-
+	<%@ include file="../platform/include_start.jsp" %>	
+	 <!-- 調整navbar btn -->
+	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 <style type="text/css">
 	.boxer {
 	box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.0980392);
@@ -32,7 +31,7 @@
 
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
             <%@ include file="../platform/include_A_href/toIndex.jsp" %> 	
@@ -141,7 +140,9 @@
     		<%@ include file="page2.file" %>
 		</div>
 	</div>
-
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->  
 <!---------------------------------/全部文章show出------------------------------------------->
 
 <%@ include file="../platform/include_script.jsp" %>

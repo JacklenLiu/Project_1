@@ -3,7 +3,7 @@
 <%@page import="P3_TravelDiary.model.TravelDiaryVO"%>
 
 
-<!-- 1.使用Date因為要抓建立文章的時期 -->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,50 +11,47 @@
 	<%
 		TravelDiaryVO travelDiaryVO=(TravelDiaryVO) request.getAttribute("travelDiaryVO");
 	%>
-<!-- 1.使用Date因為要抓建立文章的時期 -->
+
 <%
 	Date date = new Date();
 	java.util.Date right = new java.util.Date();
 %>
-	    <!-- Bootstrap 的 RWD 套件 -->
-	    <!-- 載入Bootstrap css樣式 -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css" media="screen">
-    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
-	    <!-- 使用 RWD 功能 -->
-	    <!-- 文字編輯器css樣式 -->
+	    <!-- Bootstrap  RWD  -->
+	    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+	    <!--  RWD  -->
+	    <!-- css -->
     <link rel="stylesheet" href="css/summernote.css">
-    <link rel="stylesheet" href="css/codemirror.css">
-	    <!-- 圖案icon -->
+	    <!-- icon -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     	<!-- sweetalert -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
     <script src="../js/jquery-1.11.0.js"></script>
-
+	<!-- navbar btn -->
+	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
     <style>
-    /*登入畫面寬度改變*/
+    
 
     .form-container {
         margin: 0 auto;
         max-width: 33em;
         transition: all .5s ease-in-out;
     }
-    /*/登入畫面寬度改變*/
+   
     
     /*button*/
     .between{ 
     	position:relative ; 
     	left:-20px;
     }
-    /*/button*/
+   
     
     </style>
 </head>
 
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
             <%@ include file="../platform/include_A_href/toIndex.jsp" %> 	
@@ -125,7 +122,6 @@
 
     <!-- ************************************************文字編輯器**************************************************** -->
     <!-- 編輯器 -->
-    <div class="row" style="padding-top:50px">
         <div class="container">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
@@ -170,7 +166,6 @@
              
             </div>
         </div>
-    </div>
 
 <c:if test="${not empty errorMsgs}">
 	<font color='red'>請修正以下錯誤:

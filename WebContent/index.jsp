@@ -18,6 +18,9 @@
 	<script src="js/jquery-1.11.0.js"></script> 
 	
 	<link rel="stylesheet" href="seeetalertcss/sweet-alert.css">
+	
+	<!-- footercss -->
+	<link href="footercss/style.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -29,13 +32,13 @@
     	background-image: url("Images/backgound.png");
 	}
 	#indexBtn > a {
-		font-size:24px;color:blue;font-weight:bold;
+		font-size:24px;color:#FFF;font-weight:bold;
 	}
 	#indexBtn > a:hover{
-		color:yellow;
+		color:black;
 	}
 	.rowHeader{
-		background-color:#DDDDDD;
+		background-color:#67B0D1;
 	}
 	#tooltip{
         position:absolute;
@@ -47,14 +50,57 @@
 		font-size:26px;
 		border-radius:15px;
 	}
-</style>
 	
+	.navbar-nav > li > a{
+		color:#FFF;
+	}
+	
+	.topNewsEgy{
+		color:#FFF;
+	}
+	
+	/*navbar btn hover過去方塊顏色 */	
+	.nav .open > a,
+	.nav .open > a:hover,
+	.nav .open > a:focus {
+ 	 background-color: rgba(255, 255, 255, 0.2);
+  	 border-color: #428bca;
+	}
+	/*navbar btn hover過去方塊顏色 */
+	
+	/*navbar btn 按下去方塊顏色*/
+	.nav > li > a:hover,
+	.nav > li > a:focus {
+ 		 text-decoration: none;
+ 		 background-color: rgba(255, 255, 255, 0.2);
+	}
+	/*/navbar btn 按下去方塊顏色*/
+	
+	/*因為navbar沒有用navbR-inverse並自己增加背景顏色所以漢堡顏色會被蓋去*/
+	/*default navbar-toogle邊框、漢堡肉、背景、hover狀態*/
+	.navbar-toggle{
+  		border-color: #fff;
+	}
+	.navbar-toggle .icon-bar {
+  		display: block;
+  		width: 22px;
+  		height: 2px;
+ 		border-radius: 1px;
+ 		background-color:#fff;
+	}
+	.navbar-toggle:hover{
+		 background-color: #39a9d6;
+	}
+	/*/default navbar-toogle邊框、漢堡肉、背景、hover狀態*/
+
+</style>
+
 </head>
 
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar  navbar-fixed-top" role="navigation">
 	<div class="rowHeader">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -130,7 +176,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="P6_ContactUs/ContactUs.jsp" class="dropdown-toggle" data-toggle="dropdown">聯絡我們<b class="caret"></b></a>
+                        <a href="P6_ContactUs/ContactUs.jsp" class="dropdown-toggle noChange" data-toggle="dropdown" name="indexLoginBtn">聯絡我們<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="P6_ContactUs/ContactUs.jsp" class="noChange" name="indexLoginBtn">聯絡我們</a>
@@ -151,8 +197,8 @@
                     </li>
                     <c:if test="<%=sionName != null%>">
                  		<li class="dropdown">
-                    		<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-                    		會員，<%=sionName%>你好<b class="caret"></b></a>
+                    		<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
+                    		<i class="fa fa-user"></i><%=sionName%>你好<b class="caret"></b></a>
                  			<ul class="dropdown-menu">
 		                       <li>
 		                           <a href="P1_iud/userProfile.jsp">會員基本資料修改</a>
@@ -231,8 +277,8 @@
             </div>
             <div class="col-md-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> 熱門景點排行榜</h4>
+                    <div class="panel-heading" style="background-color:#67B0D1">
+                        <h4 class="topNewsEgy"><i class="fa fa-thumbs-up "></i> 熱門景點排行榜</h4>
                     </div>
                     <div class="panel-body leaderboard">
                     </div>
@@ -240,8 +286,8 @@
             </div>
             <div class="col-md-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i> 最新消息</h4>
+                    <div class="panel-heading" style="background-color:#67B0D1">
+                        <h4 class="topNewsEgy"><i class="fa fa-bullhorn"></i> 最新消息</h4>
                     </div>
                     <div class="panel-body news">
                     </div>
@@ -249,8 +295,8 @@
             </div>
             <div class="col-md-4">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i>急救知識補給站</h4>
+                    <div class="panel-heading" style="background-color:#67B0D1">
+                        <h4 class="topNewsEgy"><i class="fa fa-plus-square"></i> 急救知識補給站</h4>
                     </div>
                     <div class="panel-body knowledge">
 <!--                        <a href="#"><p>※濕搓沖捧擦</p></a> -->
@@ -263,51 +309,51 @@
             </div>
         </div>
         <!-- /.row -->
-
+<center>
         <!-- Portfolio Section -->
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header">Portfolio Heading</h2>
+                <h1 class="page-header">TOP 6</h1>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
-                	<img src="Images/1.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:300px;height:290px;float:none;">
+                	<img src="Images/1.png" style="margin-top:-340px;margin-left:-180px;width:100px;hieght:100px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
-                    <img src="Images/2.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:300px;height:290px;float:none;">
+                    <img src="Images/2.png" style="margin-top:-340px;margin-left:-180px;width:100px;hieght:100px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/3.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:300px;height:290px;">
+                    <img src="Images/3.png" style="margin-top:-340px;margin-left:-180px;width:100px;hieght:100px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/4.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:300px;height:290px;">
+                    <img src="Images/4.png" style="margin-top:-340px;margin-left:-180px;width:100px;hieght:100px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/5.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:300px;height:290px;">
+                    <img src="Images/5.png" style="margin-top:-340px;margin-left:-180px;width:100px;hieght:100px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-4 col-sm-6">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/6.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:300px;height:290px;">
+                    <img src="Images/6.png" style="margin-top:-340px;margin-left:-180px;width:100px;hieght:100px;position:absolute;">
                 </a>
             </div>
         </div>
         <!-- /.row -->
-
+</center>
         <hr>
 
         <!-- Call to Action Section -->
@@ -324,22 +370,41 @@
 
         <hr>
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
-
     </div>
-    
+
+
+<!-- 把用到的超連結id="intro" 放到picture_body內 就可以動了..    要去修改margin 不然底下會空白 -->
+	<footer>
+	<img src="Images/LineQRCode.png" style="float:left;position:absolute;left:20px">
+        <div class="container" >
+            <div class="row">
+            <div class="col-md-3 col-lg-3">
+            </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="wow shake" data-wow-delay="0.4s">
+                    <div class="page-scroll marginbot-30">
+                        <a href="#intro" id="totop" class="btn btn-circle noChange" name="indexLoginBtn">
+                            <i class="fa fa-angle-double-up animated "></i>
+                        </a>
+                    </div>
+                    </div>
+                    <p>&copy;Copyright 2014 - Next Travel. All rights reserved.</p>
+                </div>
+            </div>  
+        </div>
+    </footer>     
 
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
 <script src="js/bootstrap.js"></script>
-<script src="seetalertjs/sweet-alert.js"></script>  
+<script src="seetalertjs/sweet-alert.js"></script> 
+
+<!-- footer可以往上rooler效果 -->
+<script src="footerjs/wow.min.js"></script>
+<script src="footerjs/custom.js"></script>
+<script src="footerjs/jquery.easing.min.js"></script>
+<!-- 可以往上rooler效果 -->
+ 
 <!-- <script type="text/javascript" src="P0_login/js/jquery.validate.js"></script>  -->
 
 

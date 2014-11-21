@@ -29,7 +29,7 @@
 
         <!-- Slides Container -->
         <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 980px; height: 380px;
-            overflow: hidden;">
+            overflow: hidden;" id="intro">
            	<div>
                 <img u="image" src="Images/E_Changhong Bridge_01.bmp" />
                 <div u=caption t="CLIP|LR" du="1500" class="captionOrange"  style="position:absolute; left:20px; top: 35px; width:300px; height:30px;"> 

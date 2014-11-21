@@ -4,18 +4,18 @@
 <html>
 <head>
 <%@ include file="../platform/include_title.jsp" %>
-<%@ include file="../platform/include_start.jsp" %>
+
 
 <!-- Bootstrap 的 RWD 套件 -->
 <!-- 載入Bootstrap css樣式 -->
 
 <link rel="stylesheet" href="../P6_ContactUs/css/bootstrap.min.css">
-<link rel="stylesheet" href="../P6_ContactUs/css/bootstrap-theme.min.css">
 <script src="../js/jquery-1.11.0.js"></script>
 <link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
-
+<%@ include file="../platform/include_start.jsp" %>
+<!-- 調整navbar btn-->
+<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 <style>
-
 body {
 	background: #eee !important;
 }
@@ -77,7 +77,7 @@ input[type="text"] {
 </head>
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar  navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %>
@@ -168,7 +168,9 @@ input[type="text"] {
 		</div>
 	</div>
 	
-	
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->  
 <script>
 (function($) {
 	

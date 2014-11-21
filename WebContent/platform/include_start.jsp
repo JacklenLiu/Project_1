@@ -9,5 +9,8 @@
 
     <!-- Custom Fonts -->
     <link href="../font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<!-- footercss -->
+	<link href="../footercss/style.css" rel="stylesheet">
 </head>
 

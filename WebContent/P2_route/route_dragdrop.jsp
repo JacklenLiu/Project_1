@@ -9,11 +9,13 @@
     <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
     <link rel="stylesheet" href="Jacklen_css/Jacklen.css"> <!--蕙齊css-->
 	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
+	<!-- 調整navbar btn -->
+	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 </head>
 
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
@@ -124,6 +126,10 @@
 <div id="dialog-savefinished" title="儲存成功">
   <h2 class="validateTips">儲存成功</h2>
 </div>
+	
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->  
 
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>

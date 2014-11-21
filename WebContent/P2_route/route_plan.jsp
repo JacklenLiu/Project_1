@@ -7,6 +7,8 @@
   <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
   <%@ include file="../platform/include_title.jsp" %>
   <%@ include file="../platform/include_start.jsp" %>
+  <!-- 調整navbar btn -->
+  <link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
   <script src="../js/jquery-1.11.0.js"></script> 
     <style type="text/css">
         table {
@@ -24,7 +26,7 @@
 
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
@@ -129,16 +131,14 @@
 </table>
 </div> 
 <div>
-<!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </footer>
 </div>
 
+<!-- 多加這個讓地圖不會吃到footer -->
+<div class="row"></div>	
+
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->  
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 

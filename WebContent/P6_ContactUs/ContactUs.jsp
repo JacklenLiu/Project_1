@@ -8,22 +8,20 @@
 <!-- 載入Bootstrap css樣式 -->
 
 <%@ include file="../platform/include_title.jsp" %>
+<%@ include file="../platform/include_start.jsp" %>
 <%
 	Date date = new Date();
 	java.util.Date right = new java.util.Date();
 %>
-<%@ include file="../platform/include_start.jsp" %>
-
-
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/bootstrap-theme.min.css" media="screen">
-<link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
 <link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
 <script src="../js/jquery-1.11.0.js"></script>
+<!-- 調整navbar btn -->
+<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
+
 </head>
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %>
@@ -99,15 +97,8 @@
 		</font>
 	</c:if>
 
-	
-
-
-
 
 	<!-- 	************************************************************** -->
-
-
-
 
 
 	<div class="container">
@@ -176,7 +167,9 @@
     }
 </style>
 
-
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->  
 
 
 	<!-- 	<form action="SendMail" method="post"> -->
@@ -280,8 +273,6 @@
 				})(jQuery);
 </script>  
 <%@ include file="../platform/include_script.jsp" %>	
-
-
 
 </body>
 </html>

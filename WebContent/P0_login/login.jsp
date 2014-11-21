@@ -12,7 +12,7 @@
 	<script src="js/ie-emulation-modes-warning.js"></script>
   	<script src="../js/jquery-1.11.0.js"></script>	
   	<link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
-  	
+  	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 <style>
 	.form-group .glyphicon {
      display:none; 
@@ -27,7 +27,7 @@
 
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
             <%@ include file="../platform/include_A_href/toIndex.jsp" %>
@@ -202,7 +202,10 @@
 
 
 
-
+	
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->  
 <!-- ***********************script************************** -->
    
 <!-- jQuery Version 1.11.0 -->

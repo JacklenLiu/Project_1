@@ -1,0 +1,53 @@
+	/*navbar btn小三角形顏色 */
+	.nav .caret {
+		border-top-color: #FFF; 
+		border-bottom-color: #2a6496;
+	}
+	
+	.nav a:hover .caret {
+		border-top-color: #FFF;
+		border-bottom-color: #2a6496;
+	}
+	/*/navbar btn小三角形顏色 */
+	
+	/*navbar btn字體顏色 */
+	.navbar-nav > li > a{
+		color:#FFF;
+	}
+	/*/navbar btn字體顏色 */
+	
+	/*navbar btn hover過去方塊顏色 */
+	.nav>li>a:hover,
+	.nav .open > a,
+	.nav .open > a:hover,
+	.nav .open > a:focus {
+ 	 background-color: rgba(255, 255, 255, 0.2);
+  	 border-color: #428bca;
+	}
+	/*navbar btn hover過去方塊顏色 */
+	
+	/*navbar btn 按下去方塊顏色*/
+	.nav > li > a:hover,
+	.nav > li > a:focus {
+ 		 text-decoration: none;
+ 		 background-color: rgba(255, 255, 255, 0.2);
+	}
+	/*/navbar btn 按下去方塊顏色*/
+	
+		/*因為navbar沒有用navbR-inverse並自己增加背景顏色所以漢堡顏色會被蓋去*/
+	/*default navbar-toogle邊框、漢堡肉、背景、hover狀態*/
+	.navbar-toggle{
+  		border-color: #fff;
+	}
+	.navbar-toggle .icon-bar {
+  		display: block;
+  		width: 22px;
+  		height: 2px;
+ 		border-radius: 1px;
+ 		background-color:#fff;
+	}
+	.navbar-toggle:hover{
+		 background-color: #39a9d6;
+	}
+	/*/default navbar-toogle邊框、漢堡肉、背景、hover狀態*/
+	

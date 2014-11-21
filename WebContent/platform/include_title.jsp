@@ -22,14 +22,24 @@
     	background-image: url("../Images/backgound.png");
 	}
 	.rowHeader{
-		background-color:#DDDDDD;
+		background-color:#67B0D1;
 	}
 	#indexBtn > a {
-		font-size:24px;color:blue;font-weight:bold;
+		font-size:24px;color:#FFF;font-weight:bold;
 	}
 	#indexBtn > a:hover{
-		color:yellow;
+		color:black;
 	}
 	
 	</style>
+	<!-- 客服系統 要寫在<head>內 -->
+<script type="text/javascript">
+(function(){
+	var c = document.createElement("script");
+	c.type = "text/javascript";
+	c.src = ("https:" == document.location.protocol ? "https" : "http") + "://29.cami.yesing.com.tw/patrol/slide/department/image/hotman0901?ft=rd";
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(c, s);
+})();
+</script>
 </head>

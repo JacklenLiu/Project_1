@@ -10,7 +10,6 @@
 	pageContext.setAttribute("list",list);
 
 %>
-<%@ include file="../platform/include_start.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -18,7 +17,9 @@
 
 <link rel="stylesheet" href="styles/msg.css">
 <link rel="stylesheet" href="styles/showmsg.css">
-
+<%@ include file="../platform/include_start.jsp" %>
+<!-- 調整navbar btn -->
+<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>!window.jQuery && document.write("<script src='Scripts/jquery-2.1.1.min.js'><\/script>")</script>
 <script type="text/javascript" src="Scripts/msg.js"></script>
@@ -84,7 +85,7 @@ function ShowReply(x){
 	
 <body>
     <!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %>
@@ -221,6 +222,11 @@ function ShowReply(x){
 <p class="collapse_buttons"><a href="#" class="show_all_message">顯示全部留言</a> <a href="#" class="show_recent_only">只顯示最新5筆留言</a> <a href="#" class="collpase_all_message">只顯示留言標題</a></p>
 
 </div>		
+<br>
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->  
+
 <script src='../js/bootstrap.min.js'></script>
 <%@ include file="../platform/include_script.jsp" %>
 </body>

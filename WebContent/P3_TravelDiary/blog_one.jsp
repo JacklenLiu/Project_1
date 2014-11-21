@@ -8,15 +8,16 @@
 <script src="../js/jquery-1.11.0.js"></script>
 <!-- wookmark -->
     <!-- CSS Reset -->
-    <link rel="stylesheet" href="wookmarkcss/reset.css">
+    <!-- wookmark的CSS跟navbar btn 相衝先diasble -->
+	<!--<link rel="stylesheet" href="wookmarkcss/reset.css"> -->
 
     <!-- Global CSS for the page and tiles -->
     <link rel="stylesheet" href="wookmarkcss/main.css">
-
+    
+	<!-- 調整navbar btn -->
+	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">	
     <!-- Specific CSS for the example -->
 <!-- /wookmark -->
-
-
 
 <!-- css設定 -->
     <style>
@@ -31,8 +32,6 @@
         transition: all 0.3s ease-out;
     }
     
-    
-    
     .boxer {
 	box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.0980392);
 	height: 1600px;
@@ -43,7 +42,6 @@
 	border: 1px #dedfe0 solid;
 }
     
-    
     </style>
 
 <!-- /css設定 -->
@@ -51,7 +49,7 @@
 </head>
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
             <%@ include file="../platform/include_A_href/toIndex.jsp" %> 	
@@ -125,20 +123,7 @@
 	
 	</script>
 
-
-
-
-
-
-
-
-
-
-
-
 <!-- 	foreach抓值 -->
-
-
 
 <%--   <c:forEach var="travelDiaryVO" items="${travelDiaryVO}" > --%>
 <!--             			<tr> -->
@@ -173,10 +158,6 @@
             	
             	<!-- ****************/尚未有文章********************* -->
             	
-            	
-            	
-            	
-				<!-- ****************已有文章********************* -->
             	 <c:forEach var="travelDiaryVO" items="${travelDiaryVO}" >
             
                 <li id="${travelDiaryVO.travelDiary_ID}">
@@ -188,28 +169,13 @@
          		</c:forEach>
          		<!-- ****************/已有文章********************* -->
             </div>
-
         </div>
     </div>
- 
- 	
- 	
- 	
- 	
  	</div>
  
- 
- 	
-    
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ <!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 --> 
  
  
   <!-- *********************************************jQuery程式寫入 ************************************************-->
@@ -223,7 +189,6 @@
     	var picknum=$(this).attr("id");
     	//動態取網頁contextPath
     	
-		
     	
     	//用一個作弊方法:因為無法在這使用.get .post等等，再使servlet做forward轉頁 會失敗
     	//window.location.href="http://localhost:8081/wookmark/P3_TravelDiary/TravelDiaryServlet?action=pickblog&picknum="+picknum;
@@ -296,15 +261,6 @@
 
     })(jQuery);
     </script>
- 
- 
- 
- 
- 
- 
- 
- 
- 
  
  <%@ include file="../platform/include_script.jsp" %>
 </body>

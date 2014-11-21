@@ -59,10 +59,6 @@ public class TravelDiaryService {
 	}
 	
 	//讀圖片1
-	public ArrayList<String> getPic(String memberinfo){
-		return dao.getPic(memberinfo);
-	}
-	
 	public List<TravelDiaryVO> getPic2(String memberinfo){
 		return dao.getPic2(memberinfo);
 	}

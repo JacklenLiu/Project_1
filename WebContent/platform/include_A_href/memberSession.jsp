@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <li class="dropdown">
-   	<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-   		會員，<%= session.getAttribute("userName") %>你好<b class="caret"></b></a>
+   	<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
+   		<i class="fa fa-user"></i><%= session.getAttribute("userName") %>你好<b class="caret"></b></a>
 	<ul class="dropdown-menu">
          <li>
              <a href="../P1_iud/userProfile.jsp">會員基本資料修改</a>

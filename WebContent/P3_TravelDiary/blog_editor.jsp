@@ -8,18 +8,22 @@
 	Date date = new Date();
 	java.util.Date right = new java.util.Date();
 %>
+
 <!-- Bootstrap 的 RWD 套件 -->
 <!-- 載入Bootstrap css樣式 -->
-<link rel="stylesheet" href="css/bootstrap.css">
+<!-- footercss -->
+
+<link href="../css/bootstrap.min.css" rel="stylesheet">
 <!-- 使用 RWD 功能 -->
 <!-- 文字編輯器css樣式 -->
 <link rel="stylesheet" href="css/summernote.css">
-<link rel="stylesheet" href="css/codemirror.css">
-<!-- 圖案icon -->
+<!-- Custom Fonts -->
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <!-- sweetalert -->
-<!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
 <link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
+<link rel="stylesheet" href="../footercss/style.css">
+<!-- 調整navbar btn -->
+<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 <style>
  	/*button*/
     .between{ 
@@ -29,15 +33,12 @@
     /*/button*/
 
 </style>
-
-
-
-
+	
 </head>
 
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
             <%@ include file="../platform/include_A_href/toIndex.jsp" %> 	
@@ -106,7 +107,7 @@
 	</script>
 	<!-- ************************************************文字編輯器**************************************************** -->
 	<!-- 編輯器 -->
-	<div class="row" style="padding-top: 50px">
+	
 		<div class="container">
 			<div class="col-lg-2"></div>
 			<div class="col-lg-8">
@@ -153,7 +154,7 @@
 
 			</div>
 		</div>
-	</div>
+	
 
 
 
@@ -167,6 +168,10 @@
 			</ul>
 		</font>
 	</c:if>
+	
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->  
 	<!-- ************************************************文字編輯器**************************************************** -->
 
 	<!-- *********************************************jQuery程式寫入 ************************************************-->
