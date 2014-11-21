@@ -30,8 +30,8 @@ create table helper(
 	CONSTRAINT helper_helperNum_PK PRIMARY KEY (helperNum)
 );
 
-insert into helper values( 'aa123','abcd@yahoo.com.tw','王小明','救我','無法註冊會員');
-insert into helper values( 'aa123','abcd@yahoo.com.tw','','救我','無法註冊會員');
+insert into helper values( 'aaa123','abcd@yahoo.com.tw','王小明','救我','無法註冊會員');
+insert into helper values( 'aaa123','abcd@yahoo.com.tw','','救我','無法註冊會員');
 insert into helper values( '','home@gmail.com','陳小花','救你','無法註冊會員');
 
 
@@ -630,16 +630,17 @@ CREATE TABLE sysmember(
 	member_birthday		date			NOT NULL,
 	member_address		nvarchar(50) ,
 	member_buildtime	datetime		NOT NULL,
+	member_updateTime	datetime				,
 	member_type         char(2)			not null,				
 	CONSTRAINT sysmember_member_type_FK		FOREIGN KEY (member_type)	REFERENCES persontype (typeID),
 	CONSTRAINT sysmember_member_loginID_PK	PRIMARY KEY (member_loginID)
 );
 
-insert into sysmember values ('aa123','bb123','aa123@gmail.com',1,'宋楚魚','N','男','2014-01-01','台北市大安區','2014-02-02','A');
-insert into sysmember values ('bb123','cc123','bb123@gmail.com',2,'陳水貶','N','男','2013-10-05','台北市信義區','2014-01-06','B');
-insert into sysmember values ('cc123','dd123','cc123@yahoo.com.tw',3,'王今平','N','男','2012-08-11','台北市內湖區','2013-10-02','C');
-insert into sysmember values ('dd123','ee123','dd123@gmail.com',4,'馬因九','N','男','2011-07-01','台北市木柵區','2012-08-07','A');
-insert into sysmember values ('ee123','aa123','ee123@yahoo.com.tw',5,'連剩文','N','男','2010-11-21','台北市文山區','2011-06-18','C');
+insert into sysmember values ('aaa123','bbb123','aaa123@gmail.com',1,'宋楚魚','N','男','2014-01-01','台北市大安區','2014-02-02','2014-02-02','A');
+insert into sysmember values ('bbb123','ccc123','bbb123@gmail.com',2,'陳水貶','N','男','2013-10-05','台北市信義區','2014-01-06','2014-02-02','B');
+insert into sysmember values ('ccc123','ddd123','ccc123@yahoo.com.tw',3,'王今平','N','男','2012-08-11','台北市內湖區','2014-02-02','','C');
+insert into sysmember values ('ddd123','eee123','dd123@gmail.com',4,'馬因九','N','男','2011-07-01','台北市木柵區','2012-08-07','','A');
+insert into sysmember values ('eee123','aaa123','ee123@yahoo.com.tw',5,'連剩文','N','男','2010-11-21','台北市文山區','2011-06-18','','C');
 
 /*
 SELECT *
@@ -662,28 +663,28 @@ create table messageboard(
  	CONSTRAINT messageboard_messageNum_PK				PRIMARY KEY (messageNum)
 );
 
-insert into messageboard values('aa123','台北一日遊','貓空好多貓','2014-10-10','n',0);
-insert into messageboard values('bb123','一日遊','陽明山好多花','2014-10-10','n',0);
-insert into messageboard values('cc123','台北遊','動物園','2014-10-10','n',0);
+insert into messageboard values('aaa123','台北一日遊','貓空好多貓','2014-10-10','n',0);
+insert into messageboard values('bbb123','一日遊','陽明山好多花','2014-10-10','n',0);
+insert into messageboard values('ccc123','台北遊','動物園','2014-10-10','n',0);
 
 /*好友管理*/
 create table member_friend (
-	friendNum      int IDENTITY (1,1)	 not null,
-	member_loginID nvarchar(20)			 not null,
-	friend_loginID nvarchar(20)			 not null,
-	invite_msg	   nvarchar(100)		 not null,
-	relationship_status int			     not null,
+	friendNum      		int IDENTITY (1,1)	 not null,
+	member_loginID 		nvarchar(20)		 not null,
+	friend_loginID 		nvarchar(20)		 not null,
+	invite_msg	   		nvarchar(100)		 not null,
+	relationship_status int			    	 not null,
 	
 	CONSTRAINT friend_member_loginID_fK  FOREIGN KEY (member_loginID) REFERENCES sysmember (member_loginID),
 	CONSTRAINT friend_friendNum_PK		 PRIMARY KEY (friendNum)
 	
 );
 
-insert into member_friend values ('aa123','bb123','我是你高中同學',0);
-insert into member_friend values ('aa123','cc123','不，我是你高中老師',0);
-insert into member_friend values ('aa123','dd123','交個朋友',0);
-insert into member_friend values ('dd123','bb123','嗨你好',0);
-insert into member_friend values ('ee123','bb123','好久不見',0);
+insert into member_friend values ('aaa123','bbb123','我是你高中同學',0);
+insert into member_friend values ('aaa123','ccc123','不，我是你高中老師',0);
+insert into member_friend values ('aaa123','dd123','交個朋友',0);
+insert into member_friend values ('ddd123','bbb123','嗨你好',0);
+insert into member_friend values ('eee123','bbb123','好久不見',0);
 
 
 /*路徑規劃*/
@@ -698,8 +699,8 @@ create table route
   CONSTRAINT route_routeID_PK			PRIMARY KEY (routeID)
 );
 
-insert into route values ('北區鶯歌淡水一日遊', '2014-10-06','aa123');
-insert into route values ('北區擎天崗貓空淡水三日遊','2014-10-06', 'bb123');
+insert into route values ('北區鶯歌淡水一日遊', '2014-10-06','aaa123');
+insert into route values ('北區擎天崗貓空淡水三日遊','2014-10-06', 'bbb123');
 
 
 /*路徑規劃的圖片及安排路徑順序*/
@@ -738,8 +739,8 @@ CREATE TABLE TravelDiary(
   CONSTRAINT TravelDiary_TravelDiary_ID_PK PRIMARY KEY (TravelDiary_ID)
 )
 
-insert into TravelDiary values ('擎天崗一日遊超好玩','2014-10-05','我在擎天崗遇到超多牛和牛屎~','aa123',0);
-insert into TravelDiary values ('淡水一日遊超好玩','2014-10-05','我在淡水老街漁人碼頭夜景好美~','bb123',1);
+insert into TravelDiary values ('擎天崗一日遊超好玩','2014-10-05','我在擎天崗遇到超多牛和牛屎~','aaa123',0);
+insert into TravelDiary values ('淡水一日遊超好玩','2014-10-05','我在淡水老街漁人碼頭夜景好美~','bbb123',1);
 
 
 /*會員心情札記圖片*/
@@ -829,10 +830,10 @@ create table myfootmark(
 	CONSTRAINT myfootmark_footmarkid_PK		 PRIMARY KEY (footmarkid)
 );
 						
-INSERT  INTO  myfootmark  VALUES  ('aa123', 'Chingtienkang', '2014-09-25',1 );
-INSERT  INTO  myfootmark  VALUES  ('aa123', 'Maokong', '2014-10-01',1);
-INSERT  INTO  myfootmark  VALUES  ('bb123', 'Chingtienkang', '2014-10-04',1);
-INSERT  INTO  myfootmark  VALUES  ('cc123', 'Maokong', '2014-10-04',0);
+INSERT  INTO  myfootmark  VALUES  ('aaa123', 'Chingtienkang', '2014-09-25',1 );
+INSERT  INTO  myfootmark  VALUES  ('aaa123', 'Maokong', '2014-10-01',1);
+INSERT  INTO  myfootmark  VALUES  ('bbb123', 'Chingtienkang', '2014-10-04',1);
+INSERT  INTO  myfootmark  VALUES  ('ccc123', 'Maokong', '2014-10-04',0);
 
 
 /*心理測驗*/

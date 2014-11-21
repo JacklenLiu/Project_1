@@ -59,6 +59,14 @@
 		font-size:26px;
 		border-radius:15px;
 	}
+	.marquee {
+/*   		 width: 300px; */
+  		overflow: hidden;
+/*  		 border: 1px solid #ccc; */
+/*  		 background: #DDDDDD; */
+  		color: #FF5511;
+  		background-image: url("Images/backgound.png");
+	}
 </style>
 	
 </head>
@@ -230,13 +238,59 @@
 <!-- 照片輪播 -->
 
     <!-- Page Content -->
+    <div class="col-lg-12">
+<!--         <h1 class="page-header"> ＊~歡迎來到下一站幸福網~＊</h1> -->
+		<h1 class="page-header marquee">歡迎光臨<b style='color:red;'>下一站，幸福</b>網</h1>
+    </div>
     <div class="container">
-
+		<!-- Portfolio Section -->
+        <div class="row">
+            <div class="col-lg-12">
+               	 <h3 class="page-header"> ＊~景點熱搜排行榜~＊</h3>
+            </div>
+            <div class="col-md-2">
+                <a href="portfolio-item.html" >
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
+                	<img src="Images/1.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a href="portfolio-item.html" >
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
+                    <img src="Images/2.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
+                    <img src="Images/3.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
+                    <img src="Images/4.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
+                    <img src="Images/5.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
+                    <img src="Images/6.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                </a>
+            </div>
+        </div>
+        <!-- /.row -->
+        
         <!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Welcome to Modern Business
                 </h1>
             </div>
             <div class="col-md-4">
@@ -274,49 +328,7 @@
         </div>
         <!-- /.row -->
 
-        <!-- Portfolio Section -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Portfolio Heading</h2>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
-                	<img src="Images/1.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
-                    <img src="Images/2.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/3.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/4.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/5.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/6.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
-                </a>
-            </div>
-        </div>
-        <!-- /.row -->
+        
 
         <hr>
 
@@ -343,7 +355,7 @@
             </div>
         </footer>
 
-    </div>
+    </div><!-- end container -->
     
 
  
@@ -365,11 +377,13 @@
 <script src="seetalertjs/sweet-alert.js"></script>  
 <!-- <script type="text/javascript" src="P0_login/js/jquery.validate.js"></script>  -->
 <!-- Script to Activate the Carousel -->
+<script type='text/javascript' src='js/1.3.1_jquery.marquee.min.js'></script>
+
 <script>
 $(function() {
-		
+	$('.marquee').marquee({duration: 12000});	
     
-  });
+  
 	//照片輪播間格秒數
 //     $('.carousel').carousel({
 //         interval: 5000 //changes the speed
@@ -383,7 +397,8 @@ $(function() {
             $(this).removeClass('open');
         });
   //上方工具列滑鼠滑入自動彈出
-   
+});
+
    //***********昱豪*********** 
 	(function($){   
 		
@@ -448,7 +463,7 @@ $(function() {
 		var leaderboardUrl = "ImgTop6servlet";
        	$.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
        		$.each(datas,function(i,item){
-  				$('.col-sm-6:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
+  				$('.col-md-2:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
        		});
        	});
       //***************昱豪_抓排行榜圖片***************
