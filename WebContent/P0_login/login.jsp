@@ -163,7 +163,7 @@
                               </div>
                               <div class="form-group">
                                   <label for="password" class="control-label">Password</label>
-                                  <input type="password" class="form-control" id="inputPassword" name="inputPassword" value="" required="" title="Please enter your password"><span style="color:red;" id="errorPassword"> ${errorMsgPwd}</span>
+                                  <input type="password" class="form-control" id="inputPassword" name="inputPassword" value="" required="" title="Please enter your password" placeholder="請輸入密碼"><span style="color:red;" id="errorPassword"> ${errorMsgPwd}</span>
                                   <span class="help-block glyphicon glyphicon-eye-open" style="margin-top:115px;margin-right:20px;"></span>
                               </div>
                               <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
@@ -184,10 +184,10 @@
                   <div class="col-xs-5">
                       <p class="lead">Register now for <span class="text-success">FREE</span></p>
                       <ul class="list-unstyled" style="line-height: 2">
-                          <li><span class="fa fa-check text-success"></span> 功能最齊全</li>
-                          <li><span class="fa fa-check text-success"></span> 旅遊景點一覽無遺</li>
-                          <li><span class="fa fa-check text-success"></span> 儲存您的最愛景點</li>
-                          <li><span class="fa fa-check text-success"></span> 快速指引您的旅途</li>
+                          <li><span class="fa fa-check text-success"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 功能最齊全</li>
+                          <li><span class="fa fa-check text-success"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 旅遊景點一覽無遺</li>
+                          <li><span class="fa fa-check text-success"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 儲存您的最愛景點</li>
+                          <li><span class="fa fa-check text-success"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 快速指引您的旅途</li>
 <!--                           <li><span class="fa fa-check text-success"></span> Get a gift <small>(only new customers)</small></li> -->
 <!--                           <li><a href="/read-more/"><u>Read more</u></a></li> -->
                       </ul>
