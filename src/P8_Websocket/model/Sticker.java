@@ -6,8 +6,25 @@ public class Sticker {
     private int y;
     private String image;
     private String viewname;
+    private String chat;
+    private String action;
+    public String getAction() {
+		return action;
+	}
 
-    public String getViewname() {
+	public void setAction(String action) {
+		this.action = action;
+	}
+
+	public String getChat() {
+		return chat;
+	}
+
+	public void setChat(String chat) {
+		this.chat = chat;
+	}
+
+	public String getViewname() {
 		return viewname;
 	}
 

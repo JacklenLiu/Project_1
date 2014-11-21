@@ -31,13 +31,18 @@
       
     </aside>
     
-    <div id="content">
-     <div id="board" style="width:1000px ;height:500px;" ondrop="drop(event);" 
-          ondragover="allowDrop(event);">
-      </div>
+    <div id="content" style="width:1000px ;height:95%;">
+     <div id="board" style="width:1000px ;height:50%; overflow:auto" ondrop="drop(event);" 
+          ondragover="allowDrop(event);" >
+      </div >
+      
+     <div id="chatDiv" >00</div> 
+     <span>
+     <input id="chatinput" type="text"></input>
+     <input id="chatbt" type="button" value="送出">
+     </span>
+     
     </div>
-    
-    
     <footer>
       <small></small>
       <ol>
@@ -55,11 +60,12 @@
 <script src="js/story-page.js" type="text/javascript"></script>
   
     <script>
-    
+    var sionName = "<%= sionName %>";//username
     var serverName = "<%= serverName %>"; //localhost
 	var serverPort = "<%= serverPort %>"; //8081
 	var contextPath = "<%= contextPath %>"; //Project_1
-
+	
+	
    (function ($){
 	   
 	   jQuery.event.props.push('dataTransfer');
@@ -145,7 +151,14 @@
                 }
             });
 	*/
-	
+	$('#chatbt').click(function(){
+		var userchat = $('#chatinput').val();
+		var chat = sionName +" : " + userchat;
+		
+		chatsend(chat);
+
+	});
+
     	
     })(jQuery);
     

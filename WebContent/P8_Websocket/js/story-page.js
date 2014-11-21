@@ -45,12 +45,25 @@ function drop(ev) {
         x: ev.clientX - draggedSticker.offsetX - bounds.left,
         y: ev.clientY - draggedSticker.offsetY - bounds.top,
         sticker: draggedSticker.sticker,
-        viewname: draggedSticker.viewname
+        viewname: draggedSticker.viewname,
+        
     };
     
     socket.send(JSON.stringify(stickerToSend));//轉成JSON字串並send
     log("Sending Object " + JSON.stringify(stickerToSend));//轉成JSON字串並將Sending座標log
 }
+
+function chatsend(chat){
+	var chatToSend = {
+			action:"addchat",
+			chat: chat,//userchat
+	};
+	socket.send(JSON.stringify(chatToSend));//object轉成字串送出
+	console.log(JSON.stringify(chatToSend));
+	console.log(chatToSend);
+}
+
+
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -62,7 +75,10 @@ function onSocketMessage(event) {
       var receivedSticker = JSON.parse(event.data);//建立接收sticker的物件 <- data轉成JSON物件 
       log("Received Object: " + JSON.stringify(receivedSticker));//轉成JSON字串並將Received座標log
       console.log(receivedSticker.viewname);
-      if (receivedSticker.action === "add") {
+      
+      console.log(receivedSticker.chat);
+      
+      if (receivedSticker.action == "add") {
     	 var eleH = document.createElement("h5");
     	 var txtName = document.createTextNode(receivedSticker.viewname);
     	 eleH.appendChild(txtName);
@@ -77,8 +93,11 @@ function onSocketMessage(event) {
          
          var rightDiv = document.getElementById("board"); 
          rightDiv.appendChild(eleli);//<div> <li> <h5>viewname</h5> <img></img> </li></div>
-         
-
+      }
+      if(receivedSticker.action == "addchat"){
+    	  console.log(receivedSticker.chat +"there is if()");
+    	  document.getElementById("chatDiv")
+    	  .insertAdjacentHTML("BeforeEnd" ,receivedSticker.chat+"<br>");
       }
    }
 }
