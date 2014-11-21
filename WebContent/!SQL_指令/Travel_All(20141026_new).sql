@@ -640,6 +640,10 @@ insert into sysmember values ('bb123','cc123','bb123@gmail.com',2,'陳水貶','N
 insert into sysmember values ('cc123','dd123','cc123@yahoo.com.tw',3,'王今平','N','男','2012-08-11','台北市內湖區','2013-10-02','C');
 insert into sysmember values ('dd123','ee123','dd123@gmail.com',4,'馬因九','N','男','2011-07-01','台北市木柵區','2012-08-07','A');
 insert into sysmember values ('ee123','aa123','ee123@yahoo.com.tw',5,'連剩文','N','男','2010-11-21','台北市文山區','2011-06-18','C');
+insert into sysmember values ('xx123','yy123','xx123@yahoo.com.tw',5,'連剩文x','N','男','2010-11-21','台北市文山區','2011-06-18','C');
+insert into sysmember values ('yy123','zz123','yy123@yahoo.com.tw',5,'連剩文y','N','男','2010-11-21','台北市文山區','2011-06-18','C');
+insert into sysmember values ('zz123','xx123','zz123@yahoo.com.tw',5,'連剩文z','N','男','2010-11-21','台北市文山區','2011-06-18','C');
+
 
 /*
 SELECT *
@@ -685,6 +689,9 @@ insert into member_friend values ('aa123','dd123','交個朋友',0);
 insert into member_friend values ('dd123','bb123','嗨你好',0);
 insert into member_friend values ('ee123','bb123','好久不見',0);
 
+insert into member_friend values ('xx123','aa123','xx好久不見xx',0);
+insert into member_friend values ('yy123','aa123','yy好久不見yy',0);
+insert into member_friend values ('zz123','aa123','zz好久不見zz',0);
 
 /*路徑規劃*/
 create table route

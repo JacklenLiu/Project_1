@@ -7,5 +7,6 @@ public interface FrdDAO_interface {
     public void update(FrdVO frdVO);//接受邀請(可能有錯!!)
     public void update(int friendNum);//接受邀請
     public List<FrdVO> getPart(String friend_loginID);   //列出那些人邀請你
+    public int getsame(String member_loginID, String friend_loginID);
 
 }

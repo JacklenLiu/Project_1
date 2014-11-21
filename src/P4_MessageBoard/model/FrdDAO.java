@@ -28,6 +28,7 @@ public class FrdDAO implements FrdDAO_interface {
 	private static final String INSERT_FRD = "INSERT INTO member_friend (member_loginID, friend_loginID, invite_msg, relationship_status) VALUES (?,?,?,?)"; // 新增一個朋友邀請
 	private static final String UPDATE_FRD = "UPDATE member_friend set relationship_status=1 where friendNum = ?";
 	private static final String SELECT_FRD = "SELECT friendNum, member_loginID, invite_msg from member_friend where relationship_status=0 and friend_loginID = ?";
+	private static final String SELECT_COUNT = "SELECT Count(*) from member_friend where member_loginID=? and friend_loginID = ?"; // 回傳此條件的搜尋筆數
 
 
 	@Override
@@ -243,6 +244,62 @@ public class FrdDAO implements FrdDAO_interface {
 		}
 
 	} // end of update
+
+
+	@Override
+	public int getsame(String member_loginID, String friend_loginID) {
+		
+		
+		int count = 0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(SELECT_COUNT);
+			pstmt.setString(1,member_loginID);
+			pstmt.setString(2,friend_loginID);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				
+				count = rs.getInt(1);
+//				System.out.println("The count is " + rs.getInt(1));
+
+			}
+
+		} catch (SQLException se) {
+			throw new RuntimeException("A DB (getALL) error occured. "
+					+ se.getMessage());
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace(System.err);
+				}
+			}
+
+		}
+		
+		return count;
+	}
 
 
 
