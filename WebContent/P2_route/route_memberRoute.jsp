@@ -72,15 +72,12 @@
 <%@ include file="../platform/include_footer.jsp" %>    
 <!-- /footer用 -->  
 
-<<<<<<< HEAD
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
-=======
 
 
 
 
 	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
->>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 <script src='../Script/jquery-ui.js'></script>
         	

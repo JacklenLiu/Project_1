@@ -156,7 +156,6 @@
                        		<label class="lable" id="accountLabel">&nbsp;&nbsp;&nbsp;(帳號需填寫6碼包含英文、數字且不能空格!!)</label>
                         </div>
                     </div>
-<<<<<<< HEAD
                      
                     <div class="tabletxt" style="width:600px;margin:20px;">                  
                          <p>
@@ -171,7 +170,6 @@
                            	 確認密碼: <input type="password" id="doubleIdPwd"  placeholder="請再次輸入密碼"/>
                             <span id="pwdOk2" style="font-size:4px;color:red;"></span> 
                          </p>
-=======
                     <div class="form-group">
                         <label class="col-sm-3 control-label">姓名:</label>
                         <div class="col-sm-9">
@@ -194,7 +192,6 @@
                             <input type="text" class="form-control" id="doubleIdPwd"  placeholder="請再次輸入密碼" name="amount">
                         	<span id="pwdOk2" style="font-size:18px;color:red;"></span>
                         </div>
->>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
                     </div>
                     <div class="form-group">
                         <label for="status" class="col-sm-3 control-label">E-mail信箱:</label>
