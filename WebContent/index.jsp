@@ -14,6 +14,7 @@
 			session.setAttribute("userName",list.getMember_name());
 		}
 	%>
+</script>
 	<!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -39,6 +40,7 @@
      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+ 
 <style>
 	body {
     	background-image: url("Images/backgound.png");
@@ -203,9 +205,6 @@
                                 <a href="P6_ContactUs/ContactUs.jsp" class="noChange" name="indexLoginBtn">聯絡我們</a>
                             </li>
                             <li>
-                                <a href="sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
                                 <a href="faq.html">FAQ</a>
                             </li>
                             <li>
@@ -225,7 +224,7 @@
 		                           <a href="P1_iud/userProfile.jsp">會員基本資料</a>
 		                       </li>
 		                       <li>
-		                           	<a href="P4_MessageBoard/SeekFriend2.jsp">會員好友管理
+		                           	<a href="P4_MessageBoard/SeekFriend2.jsp">會員好友管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		                           		<span id="friendManage"></span>
 		                           	</a>
 		                       </li>
@@ -518,7 +517,11 @@ $(function() {
 
    //***********昱豪*********** 
 	(function($){   
-		
+		var inviteCount = "${invite_count}";
+    	if(inviteCount != 0 ){
+    		$("#friendManage").html("<b>${invite_count}</b>").css("color","blue");
+    	}
+
 		//******昱豪 登入處裡*****************************
 			
     	var sionLog = "<%=sionLoginId%>";
@@ -669,8 +672,6 @@ $(function() {
                        		 });
         });
 		//***********昱豪_滑鼠移入出現div*********** 
-       	
-       	
        	
 	 })(jQuery);
 	//***********昱豪*********** 
