@@ -228,7 +228,7 @@
 		                           	</a>
 		                       	</li>
 		                        <li>
-           							 <a href="P2_route/route_memberRoute.jsp">我的路線</a>
+           							 <a href="http://<%=serverName%>:<%=serverPort%><%=contextPath%>/P2_route/viewnameServlet?action=GetRouteByMemID&memID=${userLoginId}">我的路線</a>
         					 	</li>
 		                       	<li>
 		                           <a href="LoginServlet?action=logOut">登出系統</a>
@@ -288,10 +288,9 @@
 <!-- 照片輪播 -->
 
     <!-- Page Content -->
-    <div class="col-lg-12">
-<!--         <h1 class="page-header"> ＊~歡迎來到下一站幸福網~＊</h1> -->
-		<h1 class="page-header marquee">歡迎光臨<b style='color:red;'>下一站，幸福</b>網</h1>
-    </div>
+<!--     <div class="col-lg-12"> -->
+<!-- 		<h1 class="page-header marquee">歡迎光臨<b style='color:red;'>下一站，幸福</b>網</h1> -->
+<!--     </div> -->
    <div class="container">
 		<!-- Portfolio Section -->
 		<center>
@@ -340,10 +339,9 @@
         
         <!-- Marketing Icons Section -->
         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                </h1>
-            </div>
+<!--             <div class="col-lg-12"> -->
+<!--                 <h1 class="page-header"></h1> -->
+<!--             </div> -->
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#67B0D1">

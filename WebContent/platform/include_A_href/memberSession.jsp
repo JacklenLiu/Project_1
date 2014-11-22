@@ -11,8 +11,8 @@
            		<span id="friendManage"></span>
            	</a>
          </li>
-         <li>
-             <a href="../P2_route/route_memberRoute.jsp">我的路線</a>
+         <li> 
+             <a href="http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/P2_route/viewnameServlet?action=GetRouteByMemID&memID=${userLoginId}">我的路線</a>
          </li>
          <li>
              <a href="../LoginServlet?action=logOut">登出系統</a>
