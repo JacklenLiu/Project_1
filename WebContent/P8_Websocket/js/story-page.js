@@ -54,9 +54,9 @@ function drop(ev) {
 }
 
 function chatsend(chat){
-	var chatToSend = {
-			action:"addchat",
-			chat: chat,//userchat
+	var chatToSend = {  // 給屬性  ← chatToSend ← chatsend　
+			action:"addchat",//給action屬性  送server時用來判斷是傳img還是text
+			chat: chat,//使用者+內容(userchat)
 	};
 	socket.send(JSON.stringify(chatToSend));//object轉成字串送出
 	console.log(JSON.stringify(chatToSend));
@@ -95,9 +95,9 @@ function onSocketMessage(event) {
          rightDiv.appendChild(eleli);//<div> <li> <h5>viewname</h5> <img></img> </li></div>
       }
       if(receivedSticker.action == "addchat"){
-    	  console.log(receivedSticker.chat +"there is if()");
-    	  document.getElementById("chatDiv")
-    	  .insertAdjacentHTML("BeforeEnd" ,receivedSticker.chat+"<br>");
+    	  var myDiv = document.getElementById("chatDiv"); //取得對話框
+    	  myDiv.insertAdjacentHTML("BeforeEnd" ,receivedSticker.chat+"<br>");//將內容放入
+    	  myDiv.scrollTop = myDiv.scrollHeight;//讓scrollbar自動下滑
       }
    }
 }
