@@ -3,7 +3,6 @@
 <%@ include file="../platform/include_title.jsp" %>        
 <%@ include file="../platform/include_start.jsp" %>
 
-
 <%
 	String friend_loginID=(String)session.getAttribute("userLoginId");
 	FrdService frdSvc = new FrdService();
