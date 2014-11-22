@@ -14,7 +14,6 @@
 			session.setAttribute("userName",list.getMember_name());
 		}
 	%>
-</script>
 	<!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -375,51 +374,6 @@
             </div>
         </div>
         <!-- /.row -->
-<center>
-        <!-- Portfolio Section -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">TOP 6</h1>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:300px;height:290px;float:none;">
-                	<img src="Images/1.png" style="margin-top:-340px;margin-left:-180px;width:100px;hieght:100px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:300px;height:290px;float:none;">
-                    <img src="Images/2.png" style="margin-top:-340px;margin-left:-180px;width:100px;hieght:100px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:300px;height:290px;">
-                    <img src="Images/3.png" style="margin-top:-340px;margin-left:-180px;width:100px;hieght:100px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:300px;height:290px;">
-                    <img src="Images/4.png" style="margin-top:-340px;margin-left:-180px;width:100px;hieght:100px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:300px;height:290px;">
-                    <img src="Images/5.png" style="margin-top:-340px;margin-left:-180px;width:100px;hieght:100px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:300px;height:290px;">
-                    <img src="Images/6.png" style="margin-top:-340px;margin-left:-180px;width:100px;hieght:100px;position:absolute;">
-                </a>
-            </div>
-        </div>
-        <!-- /.row -->
-</center>
 
         
 
