@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import P4_MessageBoard.model.FrdDAO;
 import P4_MessageBoard.model.FrdService;
@@ -31,6 +32,9 @@ public class FrdServlet extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	/* (non-Javadoc)
+	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
@@ -108,7 +112,9 @@ public class FrdServlet extends HttpServlet {
 
 			String path = getServletContext().getContextPath();
 			System.out.println(path);
-			res.sendRedirect(path+"/P4_MessageBoard/show_accept2.jsp");	//使重新整理無作用!!!!
+			HttpSession session = req.getSession();
+			session.setAttribute("sendFrined","yes");
+			res.sendRedirect(path+"/P4_MessageBoard/SeekFriend2.jsp");	//使重新整理無作用!!!!
 			return;
 				
 		}
@@ -136,11 +142,36 @@ public class FrdServlet extends HttpServlet {
 			// 按下確認 更新此筆友誼狀態
 			
 			int friendNum = new Integer(req.getParameter("vfriendNum"));
+			
+			
+			
+			System.out.println(req.getParameter("whataction"));
+//			如果是接受  資料庫狀態更新為1
+//			如果是拒絕  資料庫狀態更新為9
+			
 	
 			FrdService frdSvc = new FrdService();
 			frdSvc.updateFrd(friendNum);  // update到資料庫
 			String path = getServletContext().getContextPath();
-			res.sendRedirect(path+"/P4_MessageBoard/show_accept2.jsp");	//使重新整理無作用!!!!
+//			res.sendRedirect(path+"/P4_MessageBoard/show_accept2.jsp");	//使重新整理無作用!!!!
+			res.sendRedirect(path+"/P4_MessageBoard/SeekFriend2.jsp");	//使重新整理無作用!!!!
+			
+			return;
+		}
+		
+		
+		// 如果按下拒絕
+		if("reject_invite2".equals(action)){
+			// 按下確認 更新此筆友誼狀態
+			
+			int friendNum = new Integer(req.getParameter("vfriendNum"));
+	
+			FrdService frdSvc = new FrdService();
+			frdSvc.updateFrd(friendNum);  // update到資料庫  9==>代表拒絕QQ
+			String path = getServletContext().getContextPath();
+//			res.sendRedirect(path+"/P4_MessageBoard/show_accept2.jsp");	//使重新整理無作用!!!!
+			res.sendRedirect(path+"/P4_MessageBoard/SeekFriend2.jsp");	//使重新整理無作用!!!!
+			
 			return;
 		}
 		

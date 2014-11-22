@@ -62,8 +62,6 @@
 		font-size:26px;
 		border-radius:15px;
 	}
-<<<<<<< HEAD
-=======
 	.marquee {
 /*   		 width: 300px; */
   		overflow: hidden;
@@ -73,8 +71,7 @@
   		background-image: url("Images/backgound.png");
 	}
 </style>
->>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
-	
+<style>	
 	.navbar-nav > li > a{
 		color:#FFF;
 	}
@@ -221,19 +218,16 @@
                     </li>
                     <c:if test="<%=sionName != null%>">
                  		<li class="dropdown">
-<<<<<<< HEAD
                     		<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
                     		<i class="fa fa-user"></i><%=sionName%>你好<b class="caret"></b></a>
-=======
-                    		<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-                    		會員，${userName}你好<b class="caret"></b></a>
->>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
                  			<ul class="dropdown-menu">
 		                       <li>
 		                           <a href="P1_iud/userProfile.jsp">會員基本資料</a>
 		                       </li>
 		                       <li>
-		                           <a href="portfolio-2-col.html">會員好友管理</a>
+		                           	<a href="P4_MessageBoard/SeekFriend2.jsp">會員好友管理
+		                           		<span id="friendManage"></span>
+		                           	</a>
 		                       </li>
 		                       <li>
 		                           <a href="LoginServlet?action=logOut">登出系統</a>
@@ -382,7 +376,6 @@
             </div>
         </div>
         <!-- /.row -->
-<<<<<<< HEAD
 <center>
         <!-- Portfolio Section -->
         <div class="row">
@@ -428,11 +421,9 @@
         </div>
         <!-- /.row -->
 </center>
-=======
 
         
 
->>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
         <hr>
 
         <!-- Call to Action Section -->
@@ -459,7 +450,6 @@
             <div class="row">
             <div class="col-md-3 col-lg-3">
             </div>
-<<<<<<< HEAD
                 <div class="col-md-6 col-lg-6">
                     <div class="wow shake" data-wow-delay="0.4s">
                     <div class="page-scroll marginbot-30">
@@ -473,12 +463,10 @@
             </div>  
         </div>
     </footer>     
-=======
         </footer>
 
     </div><!-- end container -->
     
->>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
 
  
 <div id="dialog-message" title="註冊成功"  hidden>
@@ -583,7 +571,6 @@ $(function() {
     	
     	//********昱豪  修改個人資料處裡********
     	
-    	
     	//***************昱豪_抓排行榜圖片***************
     	var serverName = "<%= request.getServerName()%>";
 		var serverPort = "<%= request.getServerPort()%>";
@@ -596,7 +583,6 @@ $(function() {
        		});
        	});
       //***************昱豪_抓排行榜圖片***************
-      
       
       //***************昱豪_抓排行榜文字欄***************
       $.getJSON(leaderboardUrl,{'action':'GetTop6'}, function(datas){

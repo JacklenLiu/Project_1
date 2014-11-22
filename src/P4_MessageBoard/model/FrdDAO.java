@@ -30,6 +30,8 @@ public class FrdDAO implements FrdDAO_interface {
 	private static final String SELECT_FRD = "SELECT friendNum, member_loginID, invite_msg from member_friend where relationship_status=0 and friend_loginID = ?";
 	private static final String SELECT_COUNT = "SELECT Count(*) from member_friend where member_loginID=? and friend_loginID = ?"; // 回傳此條件的搜尋筆數
 
+	private static final String SELECT_FRDSTATUS = "SELECT friendNum, member_loginID, friend_loginID, invite_msg, relationship_status from member_friend where friend_loginID = ?";
+
 
 	@Override
 	public void insert(FrdVO frdVO) {
@@ -299,6 +301,68 @@ public class FrdDAO implements FrdDAO_interface {
 		}
 		
 		return count;
+	}
+
+
+	@Override
+	public List<FrdVO> getMyFrdStatus(String friend_loginID) {
+		
+		List<FrdVO> list = new ArrayList<FrdVO>();
+		FrdVO frdVO = null;
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(SELECT_FRDSTATUS);
+			pstmt.setString(1, friend_loginID);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {				
+				frdVO = new FrdVO();
+				
+				frdVO.setFriendNum(rs.getInt("friendNum"));
+				frdVO.setMember_loginID(rs.getString("member_loginID"));
+				frdVO.setFriend_loginID(rs.getString("friend_loginID"));
+				frdVO.setInvite_msg(rs.getString("invite_msg"));
+				frdVO.setRelationship_status(rs.getInt("relationship_status"));
+				
+								
+				list.add(frdVO);
+			}
+
+		} catch (SQLException se) {
+			throw new RuntimeException("A DB (getPart) error occured. "
+					+ se.getMessage());
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace(System.err);
+				}
+			}
+
+		}
+		return list;
 	}
 
 

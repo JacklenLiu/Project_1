@@ -5,16 +5,7 @@
 <%@ include file="../platform/include_start.jsp"%>
 
 
-<%
 
-FrdDAO dao=new FrdDAO();
-String member_loginID=(String)session.getAttribute("userLoginId"); 
-List<FrdVO> list=dao.getPart(member_loginID);
-int invite_count = list.size();
-pageContext.setAttribute("list",list);
-pageContext.setAttribute("invite_count",invite_count);
-
-%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

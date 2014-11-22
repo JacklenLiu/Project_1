@@ -7,12 +7,12 @@
 
 <%
 
-FrdDAO dao=new FrdDAO();
-String member_loginID=(String)session.getAttribute("userLoginId"); 
-List<FrdVO> list=dao.getPart(member_loginID);
-int invite_count = list.size();
-pageContext.setAttribute("list",list);
-pageContext.setAttribute("invite_count",invite_count);
+// FrdDAO dao=new FrdDAO();
+// String member_loginID=(String)session.getAttribute("userLoginId"); 
+// List<FrdVO> list=dao.getPart(member_loginID);
+// int invite_count = list.size();
+// pageContext.setAttribute("list",list);
+// pageContext.setAttribute("invite_count",invite_count);
 
 %>
 
