@@ -861,7 +861,8 @@ CREATE TABLE ContactUs(
   contactUsMail			nvarchar(40)  		not null,
   contactUsDate			datetime			not null,
   contactUsSubject		nvarchar(20)		not null,
-  contactUsContent		nvarchar(300)		not null,				
+  contactUsContent		nvarchar(300)		not null,
+  contactUsReply		int					not null,	
 
 );
 

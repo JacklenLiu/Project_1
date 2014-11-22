@@ -112,9 +112,11 @@
             <div class="form-group">              
               <span class="col-md-2 col-md-offset-2 text-center">Your Name</span>              
               <div class="col-md-4">
-                <input id="fname" name="name" type="text" placeholder="John Stuart" class="form-control" required>
-              	  <input type="hidden" id="frommail" name="frommail" size="30" value="cecj0601@gmail.com" />
+                <input id="fname" name="name" type="text" placeholder="John Stuart" class="form-control" value="${userName}" required>
+              	  <input type="hidden"  id="frommail" name="frommail" size="30" value="cecj0601@gmail.com" />
       			  <input type="hidden"  id="date" name="date" value="<%=new java.sql.Timestamp(right.getTime())%>" readonly="<%=new java.sql.Timestamp(right.getTime())%>">
+              	  <input type="hidden"  id="contactUsReply" name="contactUsReply" value="0" />
+              	
               </div>
             </div>    
                <div class="form-group">
@@ -211,6 +213,7 @@
 				var date=$('#date').val();
 				var subject=$('#subject').val();
 				var contents=$('#contents').val();
+				var contactUsReply=$('#contactUsReply').val();
 				if(fname.length==0){
 					sweetAlert("Sorry...", "請輸入姓名!", "error");
 					return false;
@@ -228,12 +231,11 @@
 					sweetAlert("Sorry...", "請輸入contents!", "error");
 					return false;
 				}
-				
 				 $.ajax({
 		                "url": "ContactUsServlet",
 		                "type": "post",
 		                "data": {'action': 'contactus','name':fname,'recipients':recipients,
-		                	'frommail':frommail,'date':date,'subject':subject,'contents':contents},
+		                	'frommail':frommail,'date':date,'subject':subject,'contents':contents,'contactUsReply':contactUsReply},
 		                "dataType": "text", //json,xml
 		                "success": function(data) {
 		               		if($.trim(data)=="ok"){

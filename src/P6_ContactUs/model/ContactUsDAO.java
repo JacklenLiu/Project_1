@@ -18,7 +18,7 @@ public class ContactUsDAO implements ContactUs_Interface{
 	
 	//準備insert contact指令
 	private static final String INSERT_STMT=
-			"insert into ContactUs (contactUsName, contactUsMail, contactUsDate, contactUsSubject, contactUsContent)values(?,?,?,?,?)";
+			"insert into ContactUs (contactUsName, contactUsMail, contactUsDate, contactUsSubject, contactUsContent ,contactUsReply)values(?,?,?,?,?,?)";
 
 	
 
@@ -40,6 +40,8 @@ public class ContactUsDAO implements ContactUs_Interface{
 			pstmt.setString(4,contactUsVO.getContactUsSubject());
 			//內容
 			pstmt.setString(5,contactUsVO.getContactUsContent());
+			//內容
+			pstmt.setInt(6,contactUsVO.getContactUsReply());
 			//執行
 			pstmt.executeUpdate();
 		}catch(SQLException e){
