@@ -13,11 +13,13 @@
 	<link rel="stylesheet" href="Jacklen_css/component.css"> <!--蕙齊css-->
     <link rel="stylesheet" href="Jacklen_css/demo.css"> <!--蕙齊css-->
     <link rel="stylesheet" href="Jacklen_css/normalize.css"> <!--蕙齊css-->
+    <!-- 調整navbar btn -->
+	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
     		<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
@@ -83,7 +85,10 @@
 	</div>
 </div><!-- /container -->
 
-
+	
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->
 
 
 	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->

@@ -39,6 +39,7 @@
      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+ 
 <style>
 	body {
     	background-image: url("Images/backgound.png");
@@ -62,7 +63,6 @@
 		font-size:26px;
 		border-radius:15px;
 	}
-
 	.marquee {
 /*   		 width: 300px; */
   		overflow: hidden;
@@ -72,7 +72,7 @@
   		background-image: url("Images/backgound.png");
 	}
 </style>
-<style>
+<style>	
 	.navbar-nav > li > a{
 		color:#FFF;
 	}
@@ -204,9 +204,6 @@
                                 <a href="P6_ContactUs/ContactUs.jsp" class="noChange" name="indexLoginBtn">聯絡我們</a>
                             </li>
                             <li>
-                                <a href="sidebar.html">Sidebar Page</a>
-                            </li>
-                            <li>
                                 <a href="faq.html">FAQ</a>
                             </li>
                             <li>
@@ -221,14 +218,14 @@
                  		<li class="dropdown">
                     		<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
                     		<i class="fa fa-user"></i><%=sionName%>你好<b class="caret"></b></a>
-                    		<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-                    		會員，${userName}你好<b class="caret"></b></a>
                  			<ul class="dropdown-menu">
 		                       <li>
 		                           <a href="P1_iud/userProfile.jsp">會員基本資料</a>
 		                       </li>
 		                       <li>
-		                           <a href="portfolio-2-col.html">會員好友管理</a>
+		                           	<a href="P4_MessageBoard/SeekFriend2.jsp">會員好友管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                           		<span id="friendManage"></span>
+		                           	</a>
 		                       </li>
 		                       <li>
 		                           <a href="LoginServlet?action=logOut">登出系統</a>
@@ -474,7 +471,11 @@ $(function() {
 
    //***********昱豪*********** 
 	(function($){   
-		
+		var inviteCount = "${invite_count}";
+    	if(inviteCount != 0 ){
+    		$("#friendManage").html("<b>${invite_count}</b>").css("color","blue");
+    	}
+
 		//******昱豪 登入處裡*****************************
 			
     	var sionLog = "<%=sionLoginId%>";
@@ -527,7 +528,6 @@ $(function() {
     	
     	//********昱豪  修改個人資料處裡********
     	
-    	
     	//***************昱豪_抓排行榜圖片***************
     	var serverName = "<%= request.getServerName()%>";
 		var serverPort = "<%= request.getServerPort()%>";
@@ -540,7 +540,6 @@ $(function() {
        		});
        	});
       //***************昱豪_抓排行榜圖片***************
-      
       
       //***************昱豪_抓排行榜文字欄***************
       $.getJSON(leaderboardUrl,{'action':'GetTop6'}, function(datas){
@@ -627,8 +626,6 @@ $(function() {
                        		 });
         });
 		//***********昱豪_滑鼠移入出現div*********** 
-       	
-       	
        	
 	 })(jQuery);
 	//***********昱豪*********** 

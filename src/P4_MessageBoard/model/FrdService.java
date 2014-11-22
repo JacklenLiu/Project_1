@@ -48,4 +48,11 @@ public class FrdService {
 		
 	}
 	
+	//從jsp呼叫service getMyFrdStatus方法 
+		public List<FrdVO> getMyFrdStatus(String friend_loginID){
+		//叫工人去做getMyFrdStatus 先去DAO 從資料庫抓全部資料出來
+			return dao.getMyFrdStatus(friend_loginID);
+			
+		}
+	
 }

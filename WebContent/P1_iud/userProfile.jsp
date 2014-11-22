@@ -7,6 +7,8 @@
 <%@ page import="P1_iud.model.*"%>
 <%@ include file="../platform/include_title.jsp" %>
 <%@ include file="../platform/include_start.jsp" %>
+<!-- 調整navbar btn -->
+<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 <script src="../js/jquery-1.11.0.js"></script>
 <%
 	MemberService memSvc = new MemberService();
@@ -18,7 +20,7 @@
 </head>
 <body>
 	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
         	<%@ include file="../platform/include_A_href/toIndex.jsp" %>

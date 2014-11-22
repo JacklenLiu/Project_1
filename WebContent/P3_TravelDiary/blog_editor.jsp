@@ -12,13 +12,12 @@
 <!-- Bootstrap 的 RWD 套件 -->
 <!-- 載入Bootstrap css樣式 -->
 <!-- footercss -->
-
+<%@ include file="../platform/include_start.jsp" %>	
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <!-- 使用 RWD 功能 -->
 <!-- 文字編輯器css樣式 -->
 <link rel="stylesheet" href="css/summernote.css">
 <!-- Custom Fonts -->
-<link rel="stylesheet" href="css/font-awesome.min.css">
 <!-- sweetalert -->
 <link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
 <link rel="stylesheet" href="../footercss/style.css">
@@ -154,7 +153,8 @@
 
 			</div>
 		</div>
-	
+		<br>
+		<br>
 
 
 

@@ -44,7 +44,7 @@
      <input id="chatinput" type="text"></input>
      <input id="chatbt" type="button" value="送出">
      </span>
-     
+     <input id="myRoute" type="button" value="儲存路線">
     </div>
     <footer>
       <small></small>
@@ -140,12 +140,11 @@
 	}   
 	
 	  
-	$('#chatbt').click(function(){
-		var userchat = $('#chatinput').val();
-		var chat = sionName +" : " + userchat;
-		
-		chatsend(chat);
-
+	$('#chatbt').click(function(){  //送出 -> click事件
+		var userchat = $('#chatinput').val();//讀取chatinput所輸入的值-> 並放入userchat
+		$('#chatinput').val("");//將值拿掉
+		var chat = sionName +" : " + userchat; //將使用者(sionName) 跟 userchat 串在一起
+		chatsend(chat);//呼叫story-page.js 的 chatsend並帶參數
 	});
 
     	

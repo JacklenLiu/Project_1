@@ -132,7 +132,9 @@
 			</div>
 		</div>
 	</div>
-
+	<br>
+	<br>
+	<br>
 	<!-- footer用 -->    
 <%@ include file="../platform/include_footer.jsp" %>    
 <!-- /footer用 --> 
@@ -155,10 +157,14 @@
 		(function($) {
 
 			$(window).load(function() {
-
-				$('img').attr({
-					class : 'img-responsive',
-				});
+				
+				//增加class屬性用這個
+				$('img').addClass('img-responsive');
+				
+				//使用這個會將原本有的class消除
+// 				$('img').attr({
+// 					class : 'img-responsive',
+// 				});
 
 			});
 
