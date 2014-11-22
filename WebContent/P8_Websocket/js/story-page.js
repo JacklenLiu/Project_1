@@ -26,7 +26,6 @@ function drag(ev) {
     };
     var draggedText = JSON.stringify(draggedSticker);//轉換成JSON字串
     console.log(draggedText);
-   // ev.originalEvent.dataTransfer.setData("text", draggedText);
     ev.dataTransfer.setData("text", draggedText);//將拖移的元素id記錄起來 key:Text
     
 }
@@ -34,7 +33,6 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();//取消預設功能
     var bounds = document.getElementById("board").getBoundingClientRect();//取得canvas於瀏覽器頁面的位置
-   // var draggedText = ev.originalEvent.dataTransfer.getData("text");
     var draggedText = ev.dataTransfer.getData("text");//取得拖移的元素id
     var draggedSticker = JSON.parse(draggedText);//將JSON字串轉換為物件
     console.log(draggedSticker);
@@ -83,16 +81,18 @@ function onSocketMessage(event) {
     	 var txtName = document.createTextNode(receivedSticker.viewname);
     	 eleH.appendChild(txtName);
          var imageObj = new Image();
-         imageObj.width=100;
-         imageObj.height=100;
+//         imageObj.width=100;
+//         imageObj.height=100;
          imageObj.src = "http://"+ serverName +":"+ serverPort + contextPath +"/GetImageServlet?id=" + receivedSticker.sticker;//放上images sources
+         imageObj.className = imageObj.className + "viewimge";
          
          var eleli = document.createElement("li");
-         eleli.className = eleli.className + "fixli";
-    	 eleli.appendChild(eleH).appendChild(imageObj);// <li> <h5>viewname</h5> <img></img>> </li> 
+         eleli.appendChild(eleH).appendChild(imageObj);// <li> <h5>viewname</h5> <img></img>> </li> 
+         eleli.className = eleli.className + "ui-widget-content ui-corner-tr";
+    	 
          
-         var rightDiv = document.getElementById("board"); 
-         rightDiv.appendChild(eleli);//<div> <li> <h5>viewname</h5> <img></img> </li></div>
+         var rightUL = document.getElementById("boardulID"); 
+         rightUL.appendChild(eleli);//<div> <li> <h5>viewname</h5> <img></img> </li></div>
       }
       if(receivedSticker.action == "addchat"){
     	  console.log(receivedSticker.chat +"there is if()");

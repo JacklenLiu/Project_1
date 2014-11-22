@@ -7,7 +7,7 @@
     <title>Sticker Story</title>
     <link href="css/styles.css" rel="stylesheet" type="text/css" >
      <link href="css/images.css" rel="stylesheet" type="text/css" >
-   <!--  <link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link--> 
+    <link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link -->
   </head>
   <body>
     <header>
@@ -27,13 +27,16 @@
   		<option value="東部" id="E">東部</option>
 	  </select>
 	  
-      <div id="stickerContainer"></div>
+      <div id="stickerContainer">
+      	<ul id="viewulID" class="viewul"></ul>
+      </div>
       
     </aside>
     
-    <div id="content" style="width:1000px ;height:95%;">
-     <div id="board" style="width:1000px ;height:50%; overflow:auto" ondrop="drop(event);" 
+    <div id="content" style="width:70% ;height:95%;">
+     <div id="board" style="width:100% ;height:50%; overflow:auto" ondrop="drop(event);" 
           ondragover="allowDrop(event);" >
+          <ul id="boardulID" class="boardul"></ul>
       </div >
       
      <div id="chatDiv" ></div> 
@@ -91,7 +94,7 @@
 		});
 	   
 	function view(area ,datas){   //用each切割出datas裡每個object
-		$('#stickerContainer').empty();
+		$('#viewulID').empty();
 		$.each(datas,function(i,item){// i   -> index
 			console.log(item);        //item -> item
 			
@@ -119,38 +122,24 @@
 		 	.addClass("viewimge");
 			console.log(imgarea + item.viewID +'_01');
 			
-		 	var viewimg = $('<li></li>')
+			var viewimg = $('<li></li>')
 		 	.attr("data-sticker", imgarea + item.viewID +'_01')
 		 	.attr("data-viewname", item.viewname)
-		 	.attr("draggable",'true').attr("ondragstart",'drag(event)')
-		 /*	.draggable({
-            	 cancel: "a.ui-icon", // clicking an icon won't initiate dragging
-             	 revert: "invalid", // when not dropped, the item will revert back to its initial position
-             	 containment: "document",
-             	 helper: "clone",
-             	 cursor: "move",
-             	 drag: function(event, ui){
-                	drag(event);
-	             	 	   }
-            	 })*/
-		 	.addClass("fixli")
+		 	//.attr("draggable",'true').attr("ondragstart",'drag(event)')
+		 	.attr("draggable",'true')
+		 	.bind('dragstart', function(event){
+		        drag(event);
+		    })
+		 	.addClass("fixli ui-widget-content ui-corner-tr")
 		 	.append(imgtitle).append(imgs);
-		        
-		    $('#stickerContainer').append(viewimg);
+		    
+			
+		    $('#viewulID').append(viewimg);
 		});
 
 	}   
 	
-	   /*      var dropdiv = $('#board');
-	         dropdiv.droppable({
-	        	 
-                accept: "#stickerContainer > li",
-                activeClass: "ui-state-highlight",
-                drop: function( event, ui ) {
-                	drop(event);
-                }
-            });
-	*/
+	  
 	$('#chatbt').click(function(){
 		var userchat = $('#chatinput').val();
 		var chat = sionName +" : " + userchat;
