@@ -26,6 +26,7 @@ public class StickerEncoder implements Encoder.TextStream<Sticker> {
             .add("y", sticker.getY())
             .add("sticker", sticker.getImage())
             .add("viewname", sticker.getViewname())
+            .add("viewID", sticker.getViewID())
             .build();}
   
     	if("addchat".equals(sticker.getAction())){

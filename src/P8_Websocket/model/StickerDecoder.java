@@ -28,6 +28,7 @@ public class StickerDecoder implements Decoder.TextStream<Sticker> {
   sticker.setY(jsonSticker.getInt("y"));
   sticker.setImage(jsonSticker.getString("sticker"));
   sticker.setViewname(jsonSticker.getString("viewname"));
+  sticker.setViewID(jsonSticker.getString("viewID"));
   
   }
   if("addchat".equals(jsonSticker.getString("action"))){

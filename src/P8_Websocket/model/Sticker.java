@@ -8,7 +8,16 @@ public class Sticker {
     private String viewname;
     private String chat;
     private String action;
-    public String getAction() {
+    private String viewID;
+    public String getViewID() {
+		return viewID;
+	}
+
+	public void setViewID(String viewID) {
+		this.viewID = viewID;
+	}
+
+	public String getAction() {
 		return action;
 	}
 

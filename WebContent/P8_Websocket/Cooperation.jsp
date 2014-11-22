@@ -121,10 +121,11 @@
 			.attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+imgarea+ item.viewID + '_01')
 		 	.addClass("viewimge");
 			console.log(imgarea + item.viewID +'_01');
-			
+			console.log(item.viewID);
 			var viewimg = $('<li></li>')
 		 	.attr("data-sticker", imgarea + item.viewID +'_01')
 		 	.attr("data-viewname", item.viewname)
+		 	.attr("data-viewID", item.viewID)
 		 	//.attr("draggable",'true').attr("ondragstart",'drag(event)')
 		 	.attr("draggable",'true')
 		 	.bind('dragstart', function(event){
@@ -146,7 +147,14 @@
 		var chat = sionName +" : " + userchat; //將使用者(sionName) 跟 userchat 串在一起
 		chatsend(chat);//呼叫story-page.js 的 chatsend並帶參數
 	});
-
+	
+	$('#myRoute').click(function(){
+		$('#board li').each(function(){
+			 var array = new Array($(this).attr("id"));
+			 console.log(array);
+		});
+		
+	});
     	
     })(jQuery);
     
