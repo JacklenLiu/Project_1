@@ -8,6 +8,8 @@
 	<%@ page import="P1_iud.model.*"%> 
 	<script src="../js/jquery-1.11.0.js"></script>
 	<link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
+	<!-- 調整navbar btn -->
+	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 	<!-- 昱豪 日期選今天 (縮排後)-->
     <%
     	Date date = new Date();
@@ -70,7 +72,7 @@
 
 <body>
    	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
@@ -201,6 +203,10 @@
         <div class="col-sm-3"></div>
 	</div>
 </div>
+ 
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->   
     
 <!--<script src="external/jquery/jquery.js"></script>-->
 <script src="../js/jquery-1.11.0.js"></script>

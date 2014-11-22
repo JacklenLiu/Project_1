@@ -31,13 +31,18 @@
       
     </aside>
     
-    <div id="content">
-     <div id="board" style="width:1000px ;height:500px;" ondrop="drop(event);" 
-          ondragover="allowDrop(event);">
-      </div>
+    <div id="content" style="width:1000px ;height:95%;">
+     <div id="board" style="width:1000px ;height:50%; overflow:auto" ondrop="drop(event);" 
+          ondragover="allowDrop(event);" >
+      </div >
+      
+     <div id="chatDiv" ></div> 
+     <span>
+     <input id="chatinput" type="text"></input>
+     <input id="chatbt" type="button" value="送出">
+     </span>
+     <input id="myRoute" type="button" value="儲存路線">
     </div>
-    
-    
     <footer>
       <small></small>
       <ol>
@@ -55,11 +60,12 @@
 <script src="js/story-page.js" type="text/javascript"></script>
   
     <script>
-    
+    var sionName = "<%= sionName %>";//username
     var serverName = "<%= serverName %>"; //localhost
 	var serverPort = "<%= serverPort %>"; //8081
 	var contextPath = "<%= contextPath %>"; //Project_1
-
+	
+	
    (function ($){
 	   
 	   jQuery.event.props.push('dataTransfer');
@@ -145,7 +151,16 @@
                 }
             });
 	*/
-	
+	$('#chatbt').click(function(){  //送出 -> click事件
+		var userchat = $('#chatinput').val();//讀取chatinput所輸入的值-> 並放入userchat
+		$('#chatinput').val("");//將值拿掉
+		var chat = sionName +" : " + userchat; //將使用者(sionName) 跟 userchat 串在一起
+		chatsend(chat);//呼叫story-page.js 的 chatsend並帶參數
+		
+		
+
+	});
+
     	
     })(jQuery);
     

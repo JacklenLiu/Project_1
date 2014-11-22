@@ -126,7 +126,9 @@
 <div id="dialog-savefinished" title="儲存成功">
   <h2 class="validateTips">儲存成功</h2>
 </div>
-	
+<br>
+<br>
+<br>	
 <!-- footer用 -->    
 <%@ include file="../platform/include_footer.jsp" %>    
 <!-- /footer用 -->  

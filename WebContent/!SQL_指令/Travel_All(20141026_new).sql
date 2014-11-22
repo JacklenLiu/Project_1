@@ -636,23 +636,13 @@ CREATE TABLE sysmember(
 	CONSTRAINT sysmember_member_loginID_PK	PRIMARY KEY (member_loginID)
 );
 
-<<<<<<< HEAD
-insert into sysmember values ('aa123','bb123','aa123@gmail.com',1,'宋楚魚','N','男','2014-01-01','台北市大安區','2014-02-02','A');
-insert into sysmember values ('bb123','cc123','bb123@gmail.com',2,'陳水貶','N','男','2013-10-05','台北市信義區','2014-01-06','B');
-insert into sysmember values ('cc123','dd123','cc123@yahoo.com.tw',3,'王今平','N','男','2012-08-11','台北市內湖區','2013-10-02','C');
-insert into sysmember values ('dd123','ee123','dd123@gmail.com',4,'馬因九','N','男','2011-07-01','台北市木柵區','2012-08-07','A');
-insert into sysmember values ('ee123','aa123','ee123@yahoo.com.tw',5,'連剩文','N','男','2010-11-21','台北市文山區','2011-06-18','C');
-insert into sysmember values ('xx123','yy123','xx123@yahoo.com.tw',5,'連剩文x','N','男','2010-11-21','台北市文山區','2011-06-18','C');
-insert into sysmember values ('yy123','zz123','yy123@yahoo.com.tw',5,'連剩文y','N','男','2010-11-21','台北市文山區','2011-06-18','C');
-insert into sysmember values ('zz123','xx123','zz123@yahoo.com.tw',5,'連剩文z','N','男','2010-11-21','台北市文山區','2011-06-18','C');
 
-=======
-insert into sysmember values ('aaa123','bbb123','aaa123@gmail.com',1,'宋楚魚','N','男','2014-01-01','台北市大安區','2014-02-02','2014-02-02','A');
-insert into sysmember values ('bbb123','ccc123','bbb123@gmail.com',2,'陳水貶','N','男','2013-10-05','台北市信義區','2014-01-06','2014-02-02','B');
-insert into sysmember values ('ccc123','ddd123','ccc123@yahoo.com.tw',3,'王今平','N','男','2012-08-11','台北市內湖區','2014-02-02','','C');
-insert into sysmember values ('ddd123','eee123','dd123@gmail.com',4,'馬因九','N','男','2011-07-01','台北市木柵區','2012-08-07','','A');
-insert into sysmember values ('eee123','aaa123','ee123@yahoo.com.tw',5,'連剩文','N','男','2010-11-21','台北市文山區','2011-06-18','','C');
->>>>>>> 2af346eb27430e9e0b7b2833906f352de98c5f41
+insert into sysmember values ('aaa123','bbb123','aa123@gmail.com',1,'宋楚魚','N','男','2014-01-01','台北市大安區','2014-02-02','2011-06-18','A');
+insert into sysmember values ('bbb123','ccc123','bb123@gmail.com',2,'陳水貶','N','男','2013-10-05','台北市大安區','2014-01-06','2011-06-18','B');
+insert into sysmember values ('ccc123','ddd123','cc123@yahoo.com.tw',3,'王今平','N','男','2012-08-11','台北市大安區','2013-10-02','','C');
+insert into sysmember values ('ddd123','eee123','dd123@gmail.com',4,'馬因九','N','男','2011-07-01','台北市大安區','2012-08-07','','A');
+insert into sysmember values ('eee123','aaa123','ee123@yahoo.com.tw',5,'連剩文','N','男','2010-11-21','台北市大安區','2011-06-18','','C');
+
 
 /*
 SELECT *
@@ -694,13 +684,9 @@ create table member_friend (
 
 insert into member_friend values ('aaa123','bbb123','我是你高中同學',0);
 insert into member_friend values ('aaa123','ccc123','不，我是你高中老師',0);
-insert into member_friend values ('aaa123','dd123','交個朋友',0);
+insert into member_friend values ('aaa123','ddd123','交個朋友',0);
 insert into member_friend values ('ddd123','bbb123','嗨你好',0);
 insert into member_friend values ('eee123','bbb123','好久不見',0);
-
-insert into member_friend values ('xx123','aa123','xx好久不見xx',0);
-insert into member_friend values ('yy123','aa123','yy好久不見yy',0);
-insert into member_friend values ('zz123','aa123','zz好久不見zz',0);
 
 /*路徑規劃*/
 create table route

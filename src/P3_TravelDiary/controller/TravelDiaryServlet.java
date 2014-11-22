@@ -27,9 +27,7 @@ public class TravelDiaryServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		// 取name=actoin 的value判別是按到哪一個功能
 		String action = req.getParameter("action");
-<<<<<<< HEAD
 				
-=======
 		
 		// 測試判別帳號id
 		if ("login".equals(action)) {
@@ -43,7 +41,6 @@ public class TravelDiaryServlet extends HttpServlet {
 
 		}
 		
->>>>>>> 0fbbb6d387dd3eda4216e218c678101e5f1fadb9
 		//在全部文章點下某一篇文章
 		if("pickblog".equals(action)){
 			
