@@ -107,6 +107,7 @@
 				
 				var alinkimg = $('<a></a>').attr("href","#")
 										   .attr("id", "aID#"+route.routeID)
+										   .addClass("link-to-detail")
 										   .append(routeFirstimg);
 				
 				//<a href='#' title='移除景點' class='ui-icon ui-icon-close'>移除景點</a>
@@ -145,7 +146,7 @@
 								 	});
 			
         	//a link to get detail
-        	$('a').click(function(event){
+        	$("a.link-to-detail").click(function(event){
         		event.preventDefault();
         		//console.log($(this).attr("id").substr(4));
         		var routeID = $(this).attr("id").substr(4);

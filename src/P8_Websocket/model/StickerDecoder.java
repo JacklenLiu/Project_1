@@ -18,6 +18,7 @@ public class StickerDecoder implements Decoder.TextStream<Sticker> {
   JsonReader jsonReader = provider.createReader(reader);
   JsonObject jsonSticker = jsonReader.readObject();
   
+  System.out.println(jsonSticker.getString("action"));
   
   Sticker sticker = new Sticker();  //此時sticker為空的要用 Sticker.java裡的setter來給屬性
                                     

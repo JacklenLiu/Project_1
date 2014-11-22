@@ -132,7 +132,7 @@
 <!-- 	<form name="myData" method="post" action="TestSeekServlet"> -->
 		<input type="text" name="keyword" id="keyword" placeholder="搜尋人"> <span id="loader"></span>
 <!-- 		<input type="submit" value="搜尋(換頁)"> -->
-		<input type="button" value="搜尋(不換頁)" id="but_seek">
+		<input type="button" value="搜尋" id="but_seek">
 <!-- 		<input type="hidden" name="action" value="seek_friend"> -->
 <!-- 	</form> -->
 	<div id="div1"></div>

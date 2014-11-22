@@ -10,20 +10,11 @@
 	%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 	<%@ page import="java.util.*" %>
-	<%@ page import="P4_MessageBoard.model.*"%>
-	<%
-		FrdDAO dao=new FrdDAO();
-		String member_loginID=(String)session.getAttribute("userLoginId"); 
-		List<FrdVO> listFriend = dao.getPart(member_loginID);
-		int invite_count = listFriend.size();
-		pageContext.setAttribute("listFriend",listFriend);
-		pageContext.setAttribute("invite_count",invite_count);
-	%>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	
+
 	<title>Insert title here</title>
 	<style type="text/css">
 	body {

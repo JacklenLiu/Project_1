@@ -204,6 +204,7 @@ figure, figcaption, h3, p {
 
 #detailtable td .desctitle{
 	color:#458b74;
+	font-weight: bold;
 }
 
 .detailname{
