@@ -25,7 +25,12 @@
 	background-color: white;
 	margin: 1px 50px 50px 50px;
 	border: 1px #dedfe0 solid;
-}
+	}
+	
+/* 	footer的btn css被吃掉所以重新寫 */
+	.btn-circle {
+		padding: 0px 16px;
+	}
 </style>
 </head>
 

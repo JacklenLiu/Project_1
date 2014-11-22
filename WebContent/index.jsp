@@ -221,8 +221,6 @@
                  		<li class="dropdown">
                     		<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
                     		<i class="fa fa-user"></i><%=sionName%>你好<b class="caret"></b></a>
-                    		<a href="#"  class="dropdown-toggle" data-toggle="dropdown"  style="color:red;">
-                    		會員，${userName}你好<b class="caret"></b></a>
                  			<ul class="dropdown-menu">
 		                       <li>
 		                           <a href="P1_iud/userProfile.jsp">會員基本資料</a>
@@ -294,47 +292,49 @@
     </div>
     <div class="container">
 		<!-- Portfolio Section -->
+		<center>
         <div class="row">
             <div class="col-lg-12">
                	 <h3 class="page-header"> ＊~景點熱搜排行榜~＊</h3>
             </div>
             <div class="col-md-2">
                 <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
-                	<img src="Images/1.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:170px;height:170px;float:none;">
+                	<img src="Images/1.png" style="margin-top:-205px;margin-left:-75px;width:50px;hieght:50px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-2">
                 <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
-                    <img src="Images/2.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:170px;height:170px;float:none;">
+                    <img src="Images/2.png" style="margin-top:-205px;margin-left:-75px;width:50px;hieght:50px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-2">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/3.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
+                    <img src="Images/3.png" style="margin-top:-205px;margin-left:-75px;width:50px;hieght:50px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-2">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/4.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
+                    <img src="Images/4.png" style="margin-top:-205px;margin-left:-75px;width:50px;hieght:50px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-2">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/5.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
+                    <img src="Images/5.png" style="margin-top:-205px;margin-left:-75px;width:50px;hieght:50px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-2">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/6.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
+                    <img src="Images/6.png" style="margin-top:-205px;margin-left:-75px;width:50px;hieght:50px;position:absolute;">
                 </a>
             </div>
         </div>
+        </center>
         <!-- /.row -->
         
         <!-- Marketing Icons Section -->
@@ -401,11 +401,10 @@
 
 <!-- 把用到的超連結id="intro" 放到picture_body內 就可以動了..    要去修改margin 不然底下會空白 -->
 	<footer>
-	<img src="Images/LineQRCode.png" style="float:left;position:absolute;left:20px">
+	<img src="Images/LineQRCode.png" class="img-responsive" style="float:left;position:absolute;left:10px">
         <div class="container" >
             <div class="row">
-            <div class="col-md-3 col-lg-3">
-            </div>
+            <div class="col-md-3 col-lg-3"></div>
                 <div class="col-md-6 col-lg-6">
                     <div class="wow shake" data-wow-delay="0.4s">
                     <div class="page-scroll marginbot-30">
@@ -419,9 +418,8 @@
             </div>  
         </div>
     </footer>     
-        </footer>
+  
 
-    </div><!-- end container -->
     
 
  

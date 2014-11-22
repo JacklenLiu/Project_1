@@ -10,6 +10,8 @@
 	<%@ page import="java.text.*" %>
 	<script src="../js/jquery-1.11.0.js"></script>
 	<link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
+	<!-- 調整navbar btn -->
+	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 	<!-- 昱豪 日期選今天 (縮排後)-->
     <%
     	Date date = new Date();
@@ -63,7 +65,7 @@
 
 <body>
    	<!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
@@ -156,21 +158,7 @@
                        		<label class="lable" id="accountLabel">&nbsp;&nbsp;&nbsp;(帳號需填寫6碼包含英文、數字且不能空格!!)</label>
                         </div>
                     </div>
-                     
-                    <div class="tabletxt" style="width:600px;margin:20px;">                  
-                         <p>
-                           	 密碼: <input type="password" id="idPwd"  placeholder="請輸入密碼"/>
-                            <span id="pwdOk" style="font-size:4px;color:red;"></span> 
-                            <br />
-                            <label class="lable" >(不可空白，不可為中文字，至少六個字且包含英文字母、數字)</label>
-                         </p>
-                    </div>
-                     <div class="tabletxt" style="width:600px;margin:20px;">                  
-                         <p>
-                           	 確認密碼: <input type="password" id="doubleIdPwd"  placeholder="請再次輸入密碼"/>
-                            <span id="pwdOk2" style="font-size:4px;color:red;"></span> 
-                         </p>
-                    <div class="form-group">
+                        <div class="form-group">
                         <label class="col-sm-3 control-label">姓名:</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="userName" name="userName" placeholder="請輸入姓名">
@@ -259,6 +247,11 @@
         <div class="col-sm-3"></div>
 	</div>
 </div>
+
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->  
+
     
 <!--<script src="external/jquery/jquery.js"></script>-->
 <script src="../js/jquery-1.11.0.js"></script>

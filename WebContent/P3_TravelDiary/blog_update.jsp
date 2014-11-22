@@ -16,11 +16,10 @@
 	Date date = new Date();
 	java.util.Date right = new java.util.Date();
 %>
-	    <!-- Bootstrap  RWD  -->
-	    <!-- Bootstrap css -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-	    <!--  RWD  -->
-	    <!-- css -->
+	 <!-- Bootstrap  RWD  -->
+	<!-- footercss -->
+	<%@ include file="../platform/include_start.jsp" %>
+	<!-- css -->
     <link rel="stylesheet" href="css/summernote.css">
 	    <!-- icon -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -29,6 +28,8 @@
     <script src="../js/jquery-1.11.0.js"></script>
 	<!-- navbar btn -->
 	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
+	
+	
     <style>
     
 
@@ -166,6 +167,9 @@
              
             </div>
         </div>
+        <br>
+        <br>
+        
 
 <c:if test="${not empty errorMsgs}">
 	<font color='red'>請修正以下錯誤:
@@ -176,6 +180,12 @@
 	</ul>
 	</font>
 </c:if>
+
+
+
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->  
     <!-- ************************************************文字編輯器**************************************************** -->
 
     <!-- *********************************************jQuery程式寫入 ************************************************-->
