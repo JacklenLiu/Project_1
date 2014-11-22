@@ -36,7 +36,7 @@
           ondragover="allowDrop(event);" >
       </div >
       
-     <div id="chatDiv" >00</div> 
+     <div id="chatDiv" ></div> 
      <span>
      <input id="chatinput" type="text"></input>
      <input id="chatbt" type="button" value="送出">
