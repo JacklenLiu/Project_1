@@ -31,21 +31,21 @@
         <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 980px; height: 380px;
             overflow: hidden;" id="intro">
            	<div>
-                <img u="image" src="../Images/E_Changhong Bridge_01.bmp" />
+                <img u="image" src="../Images/pic1.jpg" />
                 <div u=caption t="CLIP|LR" du="1500" class="captionOrange"  style="position:absolute; left:20px; top: 35px; width:300px; height:30px;"> 
-                		石門水庫~~~
+                		野琉
                 </div>
             </div>
             <div> 
-                <img u="image" src="../Images/E_Changhong Bridge_02.bmp" />
+                <img u="image" src="../Images/pic2.jpg" />
                 <div u="caption" t="T|IB" t2="R" d=-600 class=captionOrange style="position:absolute; left:20px; top:35px; width:300px; height:30px;">
-                   		 高屏溪
+                   		 中正紀念堂
                 </div>
             </div>
             <div> 
-                <img u="image" src="../Images/E_Changhong Bridge_03.bmp" />
+                <img u="image" src="../Images/pic3.jpg" />
                 <div u=caption t="DDGDANCE|RB" t2="RTT|10" d=-800 du=3800 class="captionOrange" style="position:absolute; left:20px; top:35px; width:300px; height:30px;">
-                 		濁水溪~~~
+                 		太魯閣
                 </div>
             </div>
 

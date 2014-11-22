@@ -184,17 +184,13 @@
   text-decoration: none;
   border-bottom: 2px solid #0d864b;
 }
-
-/* 與footer的css相衝 */
 .btn:hover {
-/*   border-top: 2px solid #0f9d58; */
-/*   border-bottom: none; */
+  border-top: 2px solid #0f9d58;
+  border-bottom: none;
 }
-
-/* 與footer的css相衝 */
 .btn:active {
   margin-top: none;
-/*   border-top: 2px solid #0d864b; */
+  border-top: 2px solid #0d864b;
 }
 
 .__top_space {

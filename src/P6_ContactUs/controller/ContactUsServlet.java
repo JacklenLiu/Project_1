@@ -43,6 +43,7 @@ public class ContactUsServlet extends HttpServlet {
 			List<String> errorMsgs=new LinkedList<String>();
 			//在jsp用來讀取${errorMsgs}方法
 			req.setAttribute("errorMsgs", errorMsgs);
+			System.out.println(action);
 			try{
 				//Contact欄位抓取並判別輸入是否OK(姓名 信箱 時間 標題 內容 要塞資料庫)
 				String contactUsName = req.getParameter("name");
@@ -73,6 +74,10 @@ public class ContactUsServlet extends HttpServlet {
 				if(contactUsContent==null||(contactUsContent.trim()).length()==0){
 					errorMsgs.add("請輸入內容");	
 				}
+				Integer contactUsReply = Integer.valueOf(req.getParameter("contactUsReply"));
+				if(contactUsReply==null){
+					errorMsgs.add("Reply數字無法抓取");	
+				}
 				
 				//new VO用來放資料
 				ContactUsVO contactUsVO =new ContactUsVO();
@@ -82,7 +87,7 @@ public class ContactUsServlet extends HttpServlet {
 				contactUsVO.setContactUsDate(contactUsDate);
 				contactUsVO.setContactUsSubject(contactUsSubject);
 				contactUsVO.setContactUsContent(contactUsContent);
-				
+				contactUsVO.setContactUsReply(contactUsReply);
 				
 				//若有錯誤訊息要在原頁面顯示錯誤原因
 				if (!errorMsgs.isEmpty()) {
@@ -104,7 +109,7 @@ public class ContactUsServlet extends HttpServlet {
 				/************************************新增資料開始******************************************/
 				//step2.
 				//當自動送信成功後開始做insert ContactUs內容到資料庫
-				contactUsSvc.insertContactUs(contactUsName, contactUsMail, contactUsDate, contactUsSubject, contactUsContent);
+				contactUsSvc.insertContactUs(contactUsName, contactUsMail, contactUsDate, contactUsSubject, contactUsContent, contactUsReply);
 				/************************************新增資料完成******************************************/
 //				String url = "/P6_ContactUs/ContactUsOK.jsp";
 //				RequestDispatcher successView = req.getRequestDispatcher(url);

@@ -10,14 +10,16 @@ public class ContactUsService {
 	
 	//資料庫insert
 	public ContactUsVO insertContactUs(
-			String contactUsName,String contactUsMail,java.sql.Timestamp contactUsDate,String contactUsSubject,String contactUsContent){		
+			String contactUsName,String contactUsMail,java.sql.Timestamp contactUsDate,String contactUsSubject,String contactUsContent,Integer contactUsReply){		
 		//再重新new VO給工人用
 		ContactUsVO  contactUsVO=new ContactUsVO();	
 		contactUsVO.setContactUsName(contactUsName);
 		contactUsVO.setContactUsMail(contactUsMail);
 		contactUsVO.setContactUsDate(contactUsDate);
 		contactUsVO.setContactUsSubject(contactUsSubject);
-		contactUsVO.setContactUsContent(contactUsContent);	
+		contactUsVO.setContactUsContent(contactUsContent);
+		contactUsVO.setContactUsReply(contactUsReply);
+
 		dao.insertContactUs(contactUsVO);
 		return contactUsVO;
 	}

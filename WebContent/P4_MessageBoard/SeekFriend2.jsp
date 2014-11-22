@@ -3,7 +3,6 @@
 <%@ include file="../platform/include_title.jsp" %>        
 <%@ include file="../platform/include_start.jsp" %>
 
-
 <%
 	String friend_loginID=(String)session.getAttribute("userLoginId");
 	FrdService frdSvc = new FrdService();
@@ -22,6 +21,8 @@
 
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/start/jquery-ui.css" rel="stylesheet">
 <link rel="stylesheet" href="styles/showinvite.css">
+<!-- 調整navbar btn -->
+<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>!window.jQuery && document.write("<script src='Scripts/jquery-2.1.1.min.js'><\/script>")</script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
@@ -90,7 +91,7 @@
 </head>
 <body>
 <!-- Navigation -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<nav class="navbar navbar-fixed-top" role="navigation">
 		<div class="rowHeader">
         	<div class="container">
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %>
@@ -287,6 +288,10 @@
   			
   		</p>
 	</div>
+	
+<!-- footer用 -->    
+<%@ include file="../platform/include_footer.jsp" %>    
+<!-- /footer用 -->  
 	
 <script>
 	$(function(){

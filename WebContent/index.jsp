@@ -219,17 +219,20 @@
                     		<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
                     		<i class="fa fa-user"></i><%=sionName%>你好<b class="caret"></b></a>
                  			<ul class="dropdown-menu">
-		                       <li>
+		                       	<li>
 		                           <a href="P1_iud/userProfile.jsp">會員基本資料</a>
-		                       </li>
-		                       <li>
+		                       	</li>
+		                      	<li>
 		                           	<a href="P4_MessageBoard/SeekFriend2.jsp">會員好友管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		                           		<span id="friendManage"></span>
 		                           	</a>
-		                       </li>
-		                       <li>
+		                       	</li>
+		                        <li>
+           							 <a href="http://<%=serverName%>:<%=serverPort%><%=contextPath%>/P2_route/viewnameServlet?action=GetRouteByMemID&memID=${userLoginId}">我的路線</a>
+        					 	</li>
+		                       	<li>
 		                           <a href="LoginServlet?action=logOut">登出系統</a>
-		                       </li>
+		                       	</li>
                   			</ul>
                      	</li>		
                   	</c:if>
@@ -285,61 +288,60 @@
 <!-- 照片輪播 -->
 
     <!-- Page Content -->
-    <div class="col-lg-12">
-<!--         <h1 class="page-header"> ＊~歡迎來到下一站幸福網~＊</h1> -->
-		<h1 class="page-header marquee">歡迎光臨<b style='color:red;'>下一站，幸福</b>網</h1>
-    </div>
-    <div class="container">
+<!--     <div class="col-lg-12"> -->
+<!-- 		<h1 class="page-header marquee">歡迎光臨<b style='color:red;'>下一站，幸福</b>網</h1> -->
+<!--     </div> -->
+   <div class="container">
 		<!-- Portfolio Section -->
+		<center>
         <div class="row">
             <div class="col-lg-12">
                	 <h3 class="page-header"> ＊~景點熱搜排行榜~＊</h3>
             </div>
             <div class="col-md-2">
                 <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
-                	<img src="Images/1.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:170px;height:170px;float:none;">
+                	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-2">
                 <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:350px;height:270px;float:none;">
-                    <img src="Images/2.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:170px;height:170px;float:none;">
+                    <img src="Images/2.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-2">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/3.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
+                    <img src="Images/3.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-2">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/4.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
+                    <img src="Images/4.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-2">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/5.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
+                    <img src="Images/5.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
                 </a>
             </div>
             <div class="col-md-2">
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:350px;height:270px;">
-                    <img src="Images/6.png" style="margin-top:-325px;margin-left:-15px;width:100px;hieght:100px;position:absolute;">
+                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
+                    <img src="Images/6.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
                 </a>
             </div>
         </div>
-        <!-- /.row -->
+        </center>
         
         <!-- Marketing Icons Section -->
         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                </h1>
-            </div>
+<!--             <div class="col-lg-12"> -->
+<!--                 <h1 class="page-header"></h1> -->
+<!--             </div> -->
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#67B0D1">
@@ -471,6 +473,10 @@ $(function() {
 
    //***********昱豪*********** 
 	(function($){   
+		var serverName = "<%= request.getServerName()%>";
+		var serverPort = "<%= request.getServerPort()%>";
+		var contextPath = "<%= request.getContextPath()%>";
+
 		var inviteCount = "${invite_count}";
     	if(inviteCount != 0 ){
     		$("#friendManage").html("<b>${invite_count}</b>").css("color","blue");
@@ -485,8 +491,8 @@ $(function() {
     		$("a[name != 'indexLoginBtn']").click(function(){
     			//alert("請先登入會員!!");
     			sweetAlert("此功能需先行登入會員!!","","warning");
-    			$("#ok_btn123456").click(function(){
-    				window.location.href="http://localhost:8081/Project_1/P0_login/login.jsp";
+    			$("#ok_sweetAlert").click(function(){
+    				window.location.href='http://'+ serverName +':'+ serverPort + contextPath +'/P0_login/login.jsp';
     			});
     				
     		});
@@ -529,9 +535,7 @@ $(function() {
     	//********昱豪  修改個人資料處裡********
     	
     	//***************昱豪_抓排行榜圖片***************
-    	var serverName = "<%= request.getServerName()%>";
-		var serverPort = "<%= request.getServerPort()%>";
-		var contextPath = "<%= request.getContextPath()%>";
+    	
     	//$('#gallery').empty();//clear images in maindiv
 		var leaderboardUrl = "ImgTop6servlet";
        	$.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){

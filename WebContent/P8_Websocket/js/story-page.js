@@ -26,7 +26,6 @@ function drag(ev) {
     };
     var draggedText = JSON.stringify(draggedSticker);//轉換成JSON字串
     console.log(draggedText);
-   // ev.originalEvent.dataTransfer.setData("text", draggedText);
     ev.dataTransfer.setData("text", draggedText);//將拖移的元素id記錄起來 key:Text
     
 }
@@ -34,7 +33,6 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();//取消預設功能
     var bounds = document.getElementById("board").getBoundingClientRect();//取得canvas於瀏覽器頁面的位置
-   // var draggedText = ev.originalEvent.dataTransfer.getData("text");
     var draggedText = ev.dataTransfer.getData("text");//取得拖移的元素id
     var draggedSticker = JSON.parse(draggedText);//將JSON字串轉換為物件
     console.log(draggedSticker);
@@ -54,9 +52,9 @@ function drop(ev) {
 }
 
 function chatsend(chat){
-	var chatToSend = {  // 給屬性  ← chatToSend ← chatsend　
-			action:"addchat",//給action屬性  送server時用來判斷是傳img還是text
-			chat: chat,//使用者+內容(userchat)
+	var chatToSend = {
+			action:"addchat",
+			chat: chat,//userchat
 	};
 	socket.send(JSON.stringify(chatToSend));//object轉成字串送出
 	console.log(JSON.stringify(chatToSend));
@@ -83,21 +81,23 @@ function onSocketMessage(event) {
     	 var txtName = document.createTextNode(receivedSticker.viewname);
     	 eleH.appendChild(txtName);
          var imageObj = new Image();
-         imageObj.width=100;
-         imageObj.height=100;
+//         imageObj.width=100;
+//         imageObj.height=100;
          imageObj.src = "http://"+ serverName +":"+ serverPort + contextPath +"/GetImageServlet?id=" + receivedSticker.sticker;//放上images sources
+         imageObj.className = imageObj.className + "viewimge";
          
          var eleli = document.createElement("li");
-         eleli.className = eleli.className + "fixli";
-    	 eleli.appendChild(eleH).appendChild(imageObj);// <li> <h5>viewname</h5> <img></img>> </li> 
+         eleli.appendChild(eleH).appendChild(imageObj);// <li> <h5>viewname</h5> <img></img>> </li> 
+         eleli.className = eleli.className + "ui-widget-content ui-corner-tr";
+    	 
          
-         var rightDiv = document.getElementById("board"); 
-         rightDiv.appendChild(eleli);//<div> <li> <h5>viewname</h5> <img></img> </li></div>
+         var rightUL = document.getElementById("boardulID"); 
+         rightUL.appendChild(eleli);//<div> <li> <h5>viewname</h5> <img></img> </li></div>
       }
       if(receivedSticker.action == "addchat"){
-    	  var myDiv = document.getElementById("chatDiv"); //取得對話框
-    	  myDiv.insertAdjacentHTML("BeforeEnd" ,receivedSticker.chat+"<br>");//將內容放入
-    	  myDiv.scrollTop = myDiv.scrollHeight;//讓scrollbar自動下滑
+    	  console.log(receivedSticker.chat +"there is if()");
+    	  document.getElementById("chatDiv")
+    	  .insertAdjacentHTML("BeforeEnd" ,receivedSticker.chat+"<br>");
       }
    }
 }
