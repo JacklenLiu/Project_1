@@ -219,17 +219,20 @@
                     		<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
                     		<i class="fa fa-user"></i><%=sionName%>你好<b class="caret"></b></a>
                  			<ul class="dropdown-menu">
-		                       <li>
+		                       	<li>
 		                           <a href="P1_iud/userProfile.jsp">會員基本資料</a>
-		                       </li>
-		                       <li>
+		                       	</li>
+		                      	<li>
 		                           	<a href="P4_MessageBoard/SeekFriend2.jsp">會員好友管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		                           		<span id="friendManage"></span>
 		                           	</a>
-		                       </li>
-		                       <li>
+		                       	</li>
+		                        <li>
+           							 <a href="P2_route/route_memberRoute.jsp">我的路線</a>
+        					 	</li>
+		                       	<li>
 		                           <a href="LoginServlet?action=logOut">登出系統</a>
-		                       </li>
+		                       	</li>
                   			</ul>
                      	</li>		
                   	</c:if>
@@ -472,6 +475,10 @@ $(function() {
 
    //***********昱豪*********** 
 	(function($){   
+		var serverName = "<%= request.getServerName()%>";
+		var serverPort = "<%= request.getServerPort()%>";
+		var contextPath = "<%= request.getContextPath()%>";
+
 		var inviteCount = "${invite_count}";
     	if(inviteCount != 0 ){
     		$("#friendManage").html("<b>${invite_count}</b>").css("color","blue");
@@ -486,8 +493,8 @@ $(function() {
     		$("a[name != 'indexLoginBtn']").click(function(){
     			//alert("請先登入會員!!");
     			sweetAlert("此功能需先行登入會員!!","","warning");
-    			$("#ok_btn123456").click(function(){
-    				window.location.href="http://localhost:8081/Project_1/P0_login/login.jsp";
+    			$("#ok_sweetAlert").click(function(){
+    				window.location.href='http://'+ serverName +':'+ serverPort + contextPath +'/P0_login/login.jsp';
     			});
     				
     		});
@@ -530,9 +537,7 @@ $(function() {
     	//********昱豪  修改個人資料處裡********
     	
     	//***************昱豪_抓排行榜圖片***************
-    	var serverName = "<%= request.getServerName()%>";
-		var serverPort = "<%= request.getServerPort()%>";
-		var contextPath = "<%= request.getContextPath()%>";
+    	
     	//$('#gallery').empty();//clear images in maindiv
 		var leaderboardUrl = "ImgTop6servlet";
        	$.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){

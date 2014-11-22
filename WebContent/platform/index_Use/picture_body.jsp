@@ -197,16 +197,12 @@
         <!--   <span u="arrowright" class="jssora20r" style="width: 55px; height: 55px; top: 123px; right: 8px">
         </span> -->
 
-        <a class="left carousel-control" href="#myCarousel">
+        <a class="left carousel-control noChangename" href="#myCarousel" name="indexLoginBtn">
             <span u="arrowright" class="icon-prev jssora20l"></span>
         </a>
-        <a class="right carousel-control" href="#myCarousel">
+        <a class="right carousel-control noChangename" href="#myCarousel" name="indexLoginBtn">
             <span u="arrowleft" class="icon-next jssora20l"></span>
         </a>
-
-
-
-
 
         <!-- Arrow Navigator Skin End -->
         <a style="display: none" href="http://www.jssor.com">image carousel</a>
