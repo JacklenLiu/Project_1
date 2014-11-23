@@ -89,14 +89,14 @@ function onSocketMessage(event) {
          imageObj.className = imageObj.className + "viewimge";
          
          var eleli = document.createElement("li");
-         eleli.setAttribute("id", receivedSticker.viewID);
+         eleli.setAttribute("id", receivedSticker.viewID);//取得viewID 並給<li>新屬性  = id
          console.log(eleli);
-         eleli.appendChild(eleH).appendChild(imageObj);// <li> <h5>viewname</h5> <img></img>> </li> 
+         eleli.appendChild(eleH).appendChild(imageObj);// <li id=".."> <h5>viewname</h5> <img></img>> </li> 
          eleli.className = eleli.className + "ui-widget-content ui-corner-tr";
     	 
          
          var rightUL = document.getElementById("boardulID"); 
-         rightUL.appendChild(eleli);//<div> <li> <h5>viewname</h5> <img></img> </li></div>
+         rightUL.appendChild(eleli);//<div> <ul><li> <h5>viewname</h5> <img></img> </li></ul></div>
       }
       if(receivedSticker.action == "addchat"){
     	  

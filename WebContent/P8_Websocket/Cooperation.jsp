@@ -44,7 +44,7 @@
      <input id="chatinput" type="text"></input>
      <input id="chatbt" type="button" value="送出">
      </span>
-     <input id="myRoute" type="button" value="儲存路線">
+     <input id="saveRoutebt" type="button" value="儲存路線">
     </div>
     <footer>
       <small></small>
@@ -140,19 +140,26 @@
 
 	}   
 	
-	  
+	//送出文字事件 
 	$('#chatbt').click(function(){  //送出 -> click事件
 		var userchat = $('#chatinput').val();//讀取chatinput所輸入的值-> 並放入userchat
 		$('#chatinput').val("");//將值拿掉
 		var chat = sionName +" : " + userchat; //將使用者(sionName) 跟 userchat 串在一起
 		chatsend(chat);//呼叫story-page.js 的 chatsend並帶參數
 	});
-	
-	$('#myRoute').click(function(){
-		$('#board li').each(function(){
-			 var array = new Array($(this).attr("id"));
-			 console.log(array);
+	//儲存路線事件
+	$('#saveRoutebt').click(function(){
+		var viewsObj = new Array();
+		viewsObj = $('#board li');
+		
+		console.log(viewsObj);
+		var viewsID = new Array();
+		// 將抓到的li(viewsObj) 用each切割 出id屬性 並放入陣列viewsID[]
+		$.each(viewsObj,function(i, item){
+			viewsID[i] = $(item).attr("id");
+			console.log(item);
 		});
+		console.log(viewsID);
 		
 	});
     	
