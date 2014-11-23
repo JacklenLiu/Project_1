@@ -34,7 +34,7 @@
     
     .boxer {
 	box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.0980392);
-	height: 1600px;
+/* 	height: 1600px; */
 	weight: 2000px;
 	border-radius: 25px;
 	background-color: white;

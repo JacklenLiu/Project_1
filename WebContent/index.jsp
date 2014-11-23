@@ -400,11 +400,11 @@
 
 <!-- 把用到的超連結id="intro" 放到picture_body內 就可以動了..    要去修改margin 不然底下會空白 -->
 	<footer>
-	<img src="Images/LineQRCode.png" style="float:left;position:absolute;left:20px">
         <div class="container" >
             <div class="row">
             <div class="col-md-3 col-lg-3">
-            </div>
+             <div class="col-md-1 col-lg-1"><img src="Images/LineQRCode.png"></div>
+             </div>
                 <div class="col-md-6 col-lg-6">
                     <div class="wow shake" data-wow-delay="0.4s">
                     <div class="page-scroll marginbot-30">
@@ -418,7 +418,6 @@
             </div>  
         </div>
     </footer>     
-        </footer>
 
     </div><!-- end container -->
     

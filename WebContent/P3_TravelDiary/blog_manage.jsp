@@ -19,7 +19,7 @@
 <style type="text/css">
 	.boxer {
 	box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.0980392);
-	height: 1600px;
+/* 	height: 1600px; */
 	weight: 2000px;
 	border-radius: 25px;
 	background-color: white;
@@ -87,7 +87,7 @@
     <script src="js/summernote.min.js"></script>
     <!-- ************************/載入 jQuery bootstrap  summernote js套件************************ -->
 	  
-<br><br><br><br><br><br><br>
+<br><br><br><br>
 
 <!---------------------------------全部文章show出------------------------------------------->
 
@@ -101,6 +101,7 @@
 		</div>
 		<div class="boxer" id='primary-content'>
 			<table class="table table-hover">
+				<br>
         		<thead>
             		<tr align='center' valign='middle'>
 <!--             			<th style="text-align: center">篇數</th> -->
@@ -142,7 +143,7 @@
             		</c:forEach>
       			</tbody>
     		</table>
-    		<%@ include file="page2.file" %>
+    		<%@ include file="page2.file" %><br><br>
 		</div>
 	</div>
 <!-- footer用 -->    
@@ -151,5 +152,16 @@
 <!---------------------------------/全部文章show出------------------------------------------->
 
 <%@ include file="../platform/include_script.jsp" %>
+<script>
+(function($) {
+	//當載入這個畫面時抓取現在是第幾頁並讓option停留在那個頁數(使用document速度比較快不用等網頁全部load完)
+	$(document).ready(function() {
+		var thispage='#'+<%=whichPage%>;
+		$(thispage).attr("selected", "true");
+	});
+
+})(jQuery);
+
+</script>
 </body>
 </html>

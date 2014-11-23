@@ -22,7 +22,7 @@
         <td>
            <select class="form-control size="1" name="whichPage">
         <%for (int i=1; i<=pageNumber; i++){%>
-           <option value="<%=i%>">第<%=i%>頁
+           <option value="<%=i%>" id="<%=i%>">第<%=i%>頁
         <%}%> 
            </select>
            <input type="submit" class="btn btn-info form-control" value="確定">  
