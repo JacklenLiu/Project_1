@@ -68,7 +68,7 @@
 <%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
 <%@ include file="../platform/include_picture/include_picture.jsp" %>
 <!-- ******************************************************************* -->
-<div class="container" style="float:left;margin-left:20px;width:100%;">
+<div class="container" style="float:left;margin-left:20px;margin-top:10px;width:100%;">
 	<div>
 	    <h4 class="glyphicon glyphicon-hand-right" style="float:left;display:inline;">&nbsp;欲選擇其他地區</h4>
 	    
@@ -79,7 +79,8 @@
 	  		<option value="東部" id="E">東部</option>
 		</select>
 	</div>
-	<div style="float:left;margin-left:-180px;">
+	<br>
+	<div style="float:left;">
 		<table class="tooltip1">
 		    <tr>
 		        <td></td>                
@@ -96,10 +97,10 @@
 		    </tr>
 		</table>
 	</div>
-	<div style="float:left;display:inline;width:100px;margin-left:500px;margin-top:-20px;">
-		<span class="span-route" style="width:100px;">
+	<div style="float:left;display:inline;width:200px;margin-left:340px;margin-top:-30px;">
+		<span class="span-route" style="width:200px;">
 			<center>
-				<label style="font-size:16px;">出發地</label>
+				<label style="font-size:20px;">出發地</label>
 				<select id="startid" class="form-control" style="width:100%;font-size:16px;"></select><br>
 				
 				<input type="button" id="computeRoute" class="btn btn-primary btn-lg" value="開始規劃"/>
@@ -107,9 +108,9 @@
 			</center>
 		</span>
 	</div>
-	<div style="float:left;display:inline;width:100px;margin-top:-20px;">	
+	<div style="float:left;display:inline;width:200px;margin-top:-30px;">	
 		<center>
-			<label style="font-size:16px;">目的地</label><select id="endid" class="form-control" style="width:100%;font-size:16px;"></select><br>
+			<label style="font-size:20px;">目的地</label><select id="endid" class="form-control" style="width:100%;font-size:16px;"></select><br>
 			<input type="button" id="saveRoute" class="saveRoute btn btn-danger btn-lg" value="儲存路徑" disabled/>
 		<center>
 	</div>
