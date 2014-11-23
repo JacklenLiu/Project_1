@@ -1,16 +1,5 @@
 
 
- table {
-     border-right: 1.5px solid #F00;
-     border-bottom:1.5px solid #F00;
-     
- }
- 
-  td {
-     border-left: 1.5px solid #F00;
-     border-top:1.5px solid #F00;
- }
-
 /*for route_dragdrop.jsp*/
     
 .viewimge{

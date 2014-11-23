@@ -116,6 +116,7 @@
 	<%@ include file="../platform/include_picture/include_picture.jsp" %>
 
 <!-- ****************************************************** -->
+<div class="container">
 	<h2>現在身分 : <%=sionLoginId %></h2>
 	
 
@@ -288,7 +289,7 @@
   			
   		</p>
 	</div>
-	
+</div>	
 <!-- footer用 -->    
 <%@ include file="../platform/include_footer.jsp" %>    
 <!-- /footer用 -->  

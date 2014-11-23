@@ -7,7 +7,7 @@
   <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
   <%@ include file="../platform/include_title.jsp" %>
   <%@ include file="../platform/include_start.jsp" %>
-  <link rel="stylesheet" href="Jacklen_css/yuHao_component.css">
+  <link rel="stylesheet" href="Jacklen_css/component.css"> <!--蕙齊css-->
   <!-- 調整navbar btn -->
   <link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
   <script src="../js/jquery-1.11.0.js"></script> 
@@ -68,11 +68,12 @@
 </nav>
 <%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
 	<%@ include file="../platform/include_picture/include_picture.jsp" %>
-<div class="component" style="float:left;width:650px;height:343px; margin:100px auto;">
-	<img id="imgMap" alt="" src="images/map00.png" style="float:left;width: 189px;margin-left:50px; height: 343px" usemap="#FPMap0" />
-	<table class="tooltip1" border="0" cellspacing="0" cellpadding="0"  hidden style="width:400px;">
-	    <tr style="background-color: pink;">
-	        <td></td>                
+
+<div style="float:left;height:390px;">
+	<img id="imgMap" alt="" src="images/map00.png" style="float:left;width:189px;margin-left:100px; height: 343px" usemap="#FPMap0" />
+<!-- 	<table class="tooltip1" border="0" cellspacing="0" cellpadding="0"  hidden style="float:left;"> -->
+<!-- 	    <tr style="background-color: pink;"> -->
+<!-- 	        <td></td>                 -->
 	        <%
 	        	String s[]={"星期日","星期一","星期二","星期三","星期四","星期五","星期六","星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
 	        	String newS[] = new String[7];
@@ -81,18 +82,18 @@
 	        		newS[i] = s[today++];        		
 	        	}                
 	        %>
-	        <td><%= newS[0]%></td>
-	        <td><%= newS[1]%></td>
-	        <td><%= newS[2]%></td>
-	        <td><%= newS[3]%></td>
-	        <td><%= newS[4]%></td>
-	        <td><%= newS[5]%></td>
-	        <td><%= newS[6]%></td>
-	    </tr>
-	    <tr class="weather">           
-	        <td class='td1'></td>                  
-	    </tr>
-	</table>
+<%-- 	        <td><%= newS[0]%></td> --%>
+<%-- 	        <td><%= newS[1]%></td> --%>
+<%-- 	        <td><%= newS[2]%></td> --%>
+<%-- 	        <td><%= newS[3]%></td> --%>
+<%-- 	        <td><%= newS[4]%></td> --%>
+<%-- 	        <td><%= newS[5]%></td> --%>
+<%-- 	        <td><%= newS[6]%></td> --%>
+<!-- 	    </tr> -->
+<!-- 	    <tr class="weather">            -->
+<!-- 	        <td class='td1'></td>                   -->
+<!-- 	    </tr> -->
+<!-- 	</table> -->
 	<form name="selPlace" method="post" action="selPlace">
 		<map id="FPMap0" name="FPMap0">
 		    <p><a href="javascript:selPlace.submit();" class="tooltip" id="a11"><area id="a1" alt="" coords="145,5,126,19,113,21,99,28,85,56,101,84,108,85,123,91,154,100,163,100,175,80,172,47,186,32,145,5" onmouseover="document.getElementById('imgMap').src='images/map01.png';" onmouseout="document.getElementById('imgMap').src='images/map00.png';"  shape="polygon" /></a></p>
@@ -114,8 +115,8 @@
 
 
 <!-- ***每個地區******************************** -->
-<div id="div1" class="component" style="float:left;width:500px;">
-<table class="weatherM" hidden cellspacing="0" cellpadding="0" style="margin-left:50px;margin-top:100px;">
+<div id="div1" class="component" style="float:right;width:60%;margin-right:200px;">
+<table class="weatherM" hidden cellspacing="0" cellpadding="0" >
 	<tr>
 		<td></td>              
         <td><%= newS[0]%></td>
@@ -133,7 +134,8 @@
 </div> 
 <div>
 </div>
-
+<div class="container">
+</div>
 
 
 <!-- 多加這個讓地圖不會吃到footer -->

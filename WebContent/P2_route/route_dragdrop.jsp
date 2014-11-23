@@ -9,10 +9,13 @@
     <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
     <link rel="stylesheet" href="Jacklen_css/Jacklen.css"> <!--蕙齊css-->
 	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
+	
 	<!-- 調整navbar btn -->
 	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
+	<link rel="stylesheet" href="Jacklen_css/yuHao_table.css">
+	<link rel="stylesheet" href="Jacklen_css/yuHao_component.css"> 
 </head>
-
+ 
 <body>
 	<!-- Navigation -->
 	<nav class="navbar navbar-fixed-top" role="navigation">
@@ -57,17 +60,18 @@
 <%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
 <%@ include file="../platform/include_picture/include_picture.jsp" %>
 <!-- ******************************************************************* -->
- <div style="display:inline">
-    <img src = "images/02.gif" /> 欲選擇其他地區
-    <span>
-	<select  id="sel1">
-		<option value="北部" id="N">北部</option>
+<div class="component " style="display:inline;width:50px;margin-left:20px;">
+    <h4 class="glyphicon glyphicon-hand-right" style="display:inline;">&nbsp;欲選擇其他地區</h4>
+    
+	<select id="sel1" class="form-control" style="display:inline;width:10%;font-size:18px;font-weight:bold;">
+		<option value="北部" id="N" >北部</option>
   		<option value="中部" id="C">中部</option>
   		<option value="南部" id="S">南部</option>
   		<option value="東部" id="E">東部</option>
 	</select>
-	<table class="tooltip1" border="0" cellspacing="0" cellpadding="0" style="width:400px;margin-bottom:10px;">
-	    <tr style="background-color: pink;">
+
+	<table class="tooltip1" style="margin-left:20px;">
+	    <tr >
 	        <td></td>                
 	        <%
 	        	String s[]={"星期日","星期一","星期二","星期三","星期四","星期五","星期六","星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
@@ -89,7 +93,6 @@
 	        <td class='td1'></td>  
 	    </tr>
 	</table>
-	</span>
 </div>	
 	
 	<!-- 放抓到的area值 -->
@@ -126,6 +129,9 @@
 <div id="dialog-savefinished" title="儲存成功">
   <h2 class="validateTips">儲存成功</h2>
 </div>
+
+
+   
 <br>
 <br>
 <br>	
@@ -139,6 +145,7 @@
 <script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
 <script src='../Script/jquery.tinyMap.js'></script>
+ 
 <script>
 
 		var serverName = "<%= serverName %>"; //localhost
@@ -968,6 +975,7 @@
       	  xhr.send();
        }
         
+        
        function callback(){
      	  if(xhr.readyState == 4){
      		if(xhr.status == 200){  			
@@ -977,6 +985,7 @@
      			for(var j=0;j<7;j++){
 	   			  	weather = locations[OverPlace].getElementsByTagName("text")[j].firstChild.nodeValue;
 	          	 	var opt="";
+	          	 	
 	          	 	if(weather=="多雲")
 	   				 	opt = $("<td title='多雲'></td>").html("<img src='images/02.gif'>");
 	   	       	 	if(weather=="多雲時陰")
