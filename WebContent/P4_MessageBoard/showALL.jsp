@@ -151,7 +151,6 @@ function ShowReply(x){
 <!-- old version -->
 	
 	<hr width="100%">
-	<br>
 	
 <div class="showallmsg">
 

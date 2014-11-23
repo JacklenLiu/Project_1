@@ -19,7 +19,7 @@
 <head>
 
 
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/start/jquery-ui.css" rel="stylesheet">
 <link rel="stylesheet" href="styles/showinvite.css">
 <!-- 調整navbar btn -->
 <link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
@@ -63,10 +63,29 @@
 /*             border-collapse:collapse; */
 /*         } */
 
-			#testtablesize{
-				width: 400px;
+
+/* 調整datatable的大小 */
+			#div_DataTable{
+				width: 500px;
+ 				float:left;
+ 				margin-right: 100px;
+ 				margin-left: 50px;
 			}
 
+/* 調整accordion的大小 */
+			#accordion{
+				width: 300px;
+				margin-left: 50px;
+
+			}
+			
+/* 調整搜尋列的大小 */
+			#div_searchtext{
+				float:left;
+				width: 300px;
+			}
+			
+			
 
 </style>
 </head>
@@ -99,49 +118,154 @@
 <!-- ****************************************************** -->
 	<h2>現在身分 : <%=sionLoginId %></h2>
 	
-	<div  id="menu" >
-		<ul>
+
+
+<!-- 來測試Accordion -->
+
+<h1 id="accordion2">您有&nbsp;<b style="color:red">${invite_count}</b>&nbsp;筆好友邀請 </h1>
+<div id="accordion">
+
+<c:forEach var="listFriend" items="${listFriend}">
+
+  <h3>${listFriend.member_loginID}</h3>
+  <div>
+    <p><span><b>想對你說:&nbsp;&nbsp;&nbsp;</b></span>${listFriend.invite_msg} </p>
+    <div>
+	 <form action="FrdServlet" method="post">
+<!-- 	 	<br> -->
+		<div class=""><input type="submit" class="acceptbtn" name="whataction" value="接受邀請">
+		<input type="submit" class="rejectbtn" name="whataction" value="拒絕"></div>
+		
+		<input type="hidden" name="vmember_loginID" value="<%=sionLoginId %>">
+<!-- 		value是假的!!!要再改 -->
+   <%-- <input type="hidden" name="vfriendNum" value="${listFriend.friendNum}"> --%>
+		<input type="hidden" name="vfriendNum" value="${listFriend.friendNum}">
+		<input type="hidden" name="action" value="accept_invite2">
+	</form>
+    </div>
+    
+  </div>
+
+</c:forEach>  
+
+</div>
+
+
+
+
+<!-- 舊的邀請清單~~~ 使用 -->
+<!-- 	<div  id="menu" > -->
+<!-- 		<ul> -->
 				
-					<li><a href="">好友邀請&nbsp;&nbsp;&nbsp; <span style="color:white;font-size:16px"><b>${invite_count}</b></span></a>
-					<ul>
-					<c:forEach var="listFriend" items="${listFriend}">
-						<li>
-<!-- 						<a href=""> -->						
-								<form action="FrdServlet" method="post">
-									<span class="">${listFriend.member_loginID} &nbsp;&nbsp;
-									<input type="submit" class="acceptbtn" name="whataction" value="接受邀請">
-									<!-- 試試用兩個submit是否可行 -->
-									<input type="submit" class="rejectbtn" name="whataction" value="拒絕">
+<%-- 					<li><a href="">好友邀請&nbsp;&nbsp;&nbsp; <span style="color:white;font-size:16px"><b>${invite_count}</b></span></a> --%>
+<!-- 					<ul> -->
+<%-- 					<c:forEach var="listFriend" items="${listFriend}"> --%>
+<!-- 						<li> -->
+					
+<!-- 								<form action="FrdServlet" method="post"> -->
+<%-- 									<span class="">${listFriend.member_loginID} &nbsp;&nbsp; --%>
+<!-- 									<input type="submit" class="acceptbtn" name="whataction" value="接受邀請"> -->
+<!-- 									試試用兩個submit是否可行 -->
+<!-- 									<input type="submit" class="rejectbtn" name="whataction" value="拒絕"> -->
 									
-									<input type="hidden" name="vmember_loginID" value="<%=sionLoginId %>">
-									<input type="hidden" name="vfriendNum" value="${listFriend.friendNum}">
-									<input type="hidden" name="action" value="accept_invite2">	
-								</span>	
-								</form>	
-<!-- 						</a> -->						
-							<ul>
-								<li>${listFriend.invite_msg}</li>
-							</ul></li>
-					</c:forEach>
-					</ul></li>			
-		</ul>
-	</div>
+<%-- 									<input type="hidden" name="vmember_loginID" value="<%=sionLoginId %>"> --%>
+<%-- 									<input type="hidden" name="vfriendNum" value="${listFriend.friendNum}"> --%>
+<!-- 									<input type="hidden" name="action" value="accept_invite2">	 -->
+<!-- 								</span>	 -->
+<!-- 								</form>	 -->
+					
+<!-- 							<ul> -->
+<%-- 								<li>${listFriend.invite_msg}</li> --%>
+<!-- 							</ul></li> -->
+<%-- 					</c:forEach> --%>
+<!-- 					</ul></li>			 -->
+<!-- 		</ul> -->
+<!-- 	</div> -->
+
+
+
+<!-- END 來測試Accordion -->
+
+	
+<!-- 	<div  id="menu" > -->
+<!-- 		<ul> -->
+				
+<%-- 					<li><a href="">好友邀請&nbsp;&nbsp;&nbsp; <span style="color:white;font-size:16px"><b>${invite_count}</b></span></a> --%>
+<!-- 					<ul> -->
+<%-- 					<c:forEach var="listFriend" items="${listFriend}"> --%>
+<!-- 						<li> -->
+					
+<!-- 								<form action="FrdServlet" method="post"> -->
+<%-- 									<span class="">${listFriend.member_loginID} &nbsp;&nbsp; --%>
+<!-- 									<input type="submit" class="acceptbtn" name="whataction" value="接受邀請"> -->
+<!-- 									試試用兩個submit是否可行 -->
+<!-- 									<input type="submit" class="rejectbtn" name="whataction" value="拒絕"> -->
+									
+<%-- 									<input type="hidden" name="vmember_loginID" value="<%=sionLoginId %>"> --%>
+<%-- 									<input type="hidden" name="vfriendNum" value="${listFriend.friendNum}"> --%>
+<!-- 									<input type="hidden" name="action" value="accept_invite2">	 -->
+<!-- 								</span>	 -->
+<!-- 								</form>	 -->
+					
+<!-- 							<ul> -->
+<%-- 								<li>${listFriend.invite_msg}</li> --%>
+<!-- 							</ul></li> -->
+<%-- 					</c:forEach> --%>
+<!-- 					</ul></li>			 -->
+<!-- 		</ul> -->
+<!-- 	</div> -->
 
 <hr>
+
+
+	<div id="div1"></div>
+	<div id="show_seek_div"></div>
+
+<!-- 	<br> -->
+
+<!--     列出此會員所有的朋友 -->
+		<h1>您的朋友列表</h1>
+
+
+<div id = "div_DataTable">
+	<table id="table2">
+         <thead>
+         <tr>
+             <th>ID</th>
+<!--              <th>暱稱</th> -->
+<!--              <th>性別</th> -->
+             <th>朋友狀態</th>
+         </tr>
+             </thead>
+             
+         <tbody>
+         
+        	 <c:forEach var="list" items="${list}">
+         		<tr>
+         			<td>${list.member_loginID}</td>
+         			<c:if test="${list.relationship_status == '0'}">
+         				<td>您尚未確認</td>
+         			</c:if>
+         			<c:if test="${list.relationship_status == '1'}">
+         				<td>已是朋友</td>
+         			</c:if>
+<%--          			<td>${list.relationship_status}</td> --%>
+        		</tr>
+        	 </c:forEach>		
+         </tbody>
+    </table>
+</div>
+
+
+<div id = "div_searchtext">
+
 <!-- 	<form name="myData" method="post" action="TestSeekServlet"> -->
 		<input type="text" name="keyword" id="keyword" placeholder="搜尋人"> <span id="loader"></span>
 <!-- 		<input type="submit" value="搜尋(換頁)"> -->
 		<input type="button" value="搜尋" id="but_seek">
 <!-- 		<input type="hidden" name="action" value="seek_friend"> -->
 <!-- 	</form> -->
-	<div id="div1"></div>
-	<div id="show_seek_div"></div>
 
-	<br>
-
-	
-	
-	
 	<table id="table1">
          <thead>
          <tr>
@@ -154,52 +278,9 @@
          <tbody>      
              </tbody>
     </table>
-    
-    
-    
-<!--     列出此會員所有的朋友 -->
-		<h1>朋友列表</h1>
 
-
-<div id = "testtablesize">
-	<table id="table2">
-         <thead>
-         <tr>
-             <th>ID</th>
-<!--              <th>暱稱</th> -->
-<!--              <th>性別</th> -->
-             <th>邀請狀態</th>
-         </tr>
-             </thead>
-             
-         <tbody>
-         <tr>
-         	<td>1</td>
-         	<td>10</td>
-
-         </tr>
-         <tr>
-         	<td>2</td>
-         	<td>20</td>
-
-         </tr>
-         
-         
-         <c:forEach var="list" items="${list}">
-         <tr>
-         	<td>${list.member_loginID}</td>
-         	
-         	<td>${list.relationship_status}</td>
-
-         </tr>
-         </c:forEach>		
-         
-               
-             </tbody>
-    </table>
 </div>
 
-	
 	
 <!-- 	對話方塊 -->
 	<div id="dialog" title="交友邀請">
@@ -216,10 +297,10 @@
 	$(function(){
 		
 		// 搜尋朋友  不轉頁
-		$("#table1").hide();
+// 		$("#table1").hide();
 		$("#but_seek").click(function(){					
 			$("#table1").show();			
-			$("td").remove();
+			$("#table1 td").remove();
 			var keyword=document.getElementById("keyword").value;			
 	 		$.ajax({ 
 	 			"url": "TestSeekServlet",
@@ -289,7 +370,10 @@ var contextPath = "<%= contextPath %>"; //Project_1
 
 	   });
 
-
+	   $( "#accordion" ).accordion({
+		   collapsible: true
+	   
+		   });
 	   
 	   
 	    setInterval(function(){
@@ -308,7 +392,6 @@ var contextPath = "<%= contextPath %>"; //Project_1
  				$('#submitid2').val(data);
  			}
  			});
- 		
   		
 //   		若ajax的重導似乎有問題  先用window.location.href吧
 //   		window.location.href="http://"+serverName + ":" + serverPort + contextPath+ "/P4_MessageBoard/FrdServlet?action=" + "show_invite2" + "&vmember_loginID="+ID;
@@ -323,6 +406,8 @@ var contextPath = "<%= contextPath %>"; //Project_1
 			$("#menu").prop("hidden",false);
 	   }else{
 		  	$("#menu").prop("hidden",true);
+		  	$("#accordion2").prop("hidden",true);
+		  	
 		  	//$("#submitid").hide();
 	   }
 })(jQuery);

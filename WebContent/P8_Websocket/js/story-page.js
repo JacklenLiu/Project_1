@@ -21,6 +21,7 @@ function drag(ev) {
     var draggedSticker = { 
         sticker: ev.target.getAttribute("data-sticker"),
         viewname: ev.target.getAttribute("data-viewname"),
+        viewID: ev.target.getAttribute("data-viewID"),
         offsetX: ev.clientX - bounds.left,
         offsetY: ev.clientY - bounds.top
     };
@@ -32,10 +33,10 @@ function drag(ev) {
 
 function drop(ev) {
     ev.preventDefault();//取消預設功能
-    var bounds = document.getElementById("board").getBoundingClientRect();//取得canvas於瀏覽器頁面的位置
+    var bounds = document.getElementById("board").getBoundingClientRect();//取得放圖div於瀏覽器頁面的位置
     var draggedText = ev.dataTransfer.getData("text");//取得拖移的元素id
     var draggedSticker = JSON.parse(draggedText);//將JSON字串轉換為物件
-    console.log(draggedSticker);
+    console.log(draggedSticker+" = draggedSticker");
     //再打包送Server
     var stickerToSend = {
     	//取得JSON物件的屬性↓  -> 物件.屬性 名稱   = 屬性值
@@ -44,6 +45,7 @@ function drop(ev) {
         y: ev.clientY - draggedSticker.offsetY - bounds.top,
         sticker: draggedSticker.sticker,
         viewname: draggedSticker.viewname,
+        viewID: draggedSticker.viewID
         
     };
     
@@ -87,6 +89,8 @@ function onSocketMessage(event) {
          imageObj.className = imageObj.className + "viewimge";
          
          var eleli = document.createElement("li");
+         eleli.setAttribute("id", receivedSticker.viewID);
+         console.log(eleli);
          eleli.appendChild(eleH).appendChild(imageObj);// <li> <h5>viewname</h5> <img></img>> </li> 
          eleli.className = eleli.className + "ui-widget-content ui-corner-tr";
     	 
@@ -95,9 +99,10 @@ function onSocketMessage(event) {
          rightUL.appendChild(eleli);//<div> <li> <h5>viewname</h5> <img></img> </li></div>
       }
       if(receivedSticker.action == "addchat"){
-    	  console.log(receivedSticker.chat +"there is if()");
-    	  document.getElementById("chatDiv")
-    	  .insertAdjacentHTML("BeforeEnd" ,receivedSticker.chat+"<br>");
+    	  
+    	  var chatdiv = document.getElementById("chatDiv");
+    	  chatdiv.insertAdjacentHTML("BeforeEnd" ,receivedSticker.chat+"<br>");
+    	  chatdiv.scrollTop = chatdiv.scrollHeight;
       }
    }
 }
