@@ -7,20 +7,21 @@
   <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
   <%@ include file="../platform/include_title.jsp" %>
   <%@ include file="../platform/include_start.jsp" %>
+  <link rel="stylesheet" href="Jacklen_css/yuHao_component.css">
   <!-- 調整navbar btn -->
   <link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
   <script src="../js/jquery-1.11.0.js"></script> 
     <style type="text/css">
-        table {
-            border-right: 1.5px solid #F00;
-            border-bottom:1.5px solid #F00;
+/*         table { */
+/*             border-right: 1.5px solid #F00; */
+/*             border-bottom:1.5px solid #F00; */
             
-        }
+/*         } */
         
-         td {
-            border-left: 1.5px solid #F00;
-            border-top:1.5px solid #F00;
-        }
+/*          td { */
+/*             border-left: 1.5px solid #F00; */
+/*             border-top:1.5px solid #F00; */
+/*         } */
     </style>
     
 
@@ -67,7 +68,7 @@
 </nav>
 <%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
 	<%@ include file="../platform/include_picture/include_picture.jsp" %>
-<div style="float:left;width:650px;height:343px; margin:100px auto;">
+<div class="component" style="float:left;width:650px;height:343px; margin:100px auto;">
 	<img id="imgMap" alt="" src="images/map00.png" style="float:left;width: 189px;margin-left:50px; height: 343px" usemap="#FPMap0" />
 	<table class="tooltip1" border="0" cellspacing="0" cellpadding="0"  hidden style="width:400px;">
 	    <tr style="background-color: pink;">
@@ -113,7 +114,7 @@
 
 
 <!-- ***每個地區******************************** -->
-<div id="div1" style="float:left;width:500px;">
+<div id="div1" class="component" style="float:left;width:500px;">
 <table class="weatherM" hidden cellspacing="0" cellpadding="0" style="margin-left:50px;margin-top:100px;">
 	<tr>
 		<td></td>              
@@ -133,6 +134,8 @@
 <div>
 </div>
 
+
+
 <!-- 多加這個讓地圖不會吃到footer -->
 <div class="row"></div>	
 
@@ -141,6 +144,7 @@
 <!-- /footer用 -->  
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
+<script src="test.js"></script>
 
 <script type="text/javascript">   
 (function ($) {
