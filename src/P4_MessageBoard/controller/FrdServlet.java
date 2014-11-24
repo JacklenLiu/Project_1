@@ -1,6 +1,7 @@
 package P4_MessageBoard.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class FrdServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
 		req.setCharacterEncoding("UTF-8");
+		PrintWriter out = res.getWriter();
 		String action = req.getParameter("action");
 		
 		if("invite_friend".equals(action)){
@@ -196,6 +198,13 @@ public class FrdServlet extends HttpServlet {
 			return;
 		}
 		
+		//取得會員好友
+		if("GetFriends".equals(action)){
+			String memID = req.getParameter("memID").toString();
+			FrdService frdSvc = new FrdService();
+			String friendsList = frdSvc.getFrds(memID);
+			out.print(friendsList);
+		}
 		
 	}
 
