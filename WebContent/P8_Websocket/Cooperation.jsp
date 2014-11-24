@@ -12,15 +12,15 @@
   </head>
   <body>
     <header>
-      <h1>Sticker Story Book</h1>
+      <h1>多人協作平台</h1>
     </header>
     <nav>
-      Drag Images from the left bar to the right.
+      
     </nav>
     <aside>
     
 
-      <h2>多人協作平台</h2>
+      <h2>地區選擇</h2>
       <select  id="sel1">
 		<option value="北部" id="N">北部</option>
   		<option value="中部" id="C">中部</option>
@@ -35,7 +35,7 @@
     </aside>
     
     <div id="content" style="width:70% ;height:95%;">
-     <div id="board" style="width:100% ;height:50%; overflow:auto" ondrop="drop(event);" 
+     <div id="board" style="width:100% ;height:50%;" ondrop="drop(event);" 
           ondragover="allowDrop(event);" >
           <ul id="boardulID" class="boardul"></ul>
       </div >
@@ -58,10 +58,8 @@
     </div>
     
     <footer>
-      <small></small>
-      <ol>
-        <li onclick="toggleLog();">Log</li>
-      </ol>
+     
+     
     </footer>
     <div id="logContainer">
       <h2>log</h2>

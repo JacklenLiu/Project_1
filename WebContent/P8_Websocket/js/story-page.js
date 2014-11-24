@@ -88,8 +88,7 @@ function onSocketMessage(event) {
     	 var txtName = document.createTextNode(receivedSticker.viewname);
     	 eleH.appendChild(txtName);
          var imageObj = new Image();
-//         imageObj.width=100;
-//         imageObj.height=100;
+
          imageObj.src = "http://"+ serverName +":"+ serverPort + contextPath +"/GetImageServlet?id=" + receivedSticker.sticker;//放上images sources
          imageObj.className = imageObj.className + "viewimge";
          
@@ -99,9 +98,10 @@ function onSocketMessage(event) {
          eleli.appendChild(eleH).appendChild(imageObj);// <li id=".."> <h5>viewname</h5> <img></img>> </li> 
          eleli.className = eleli.className + "ui-widget-content ui-corner-tr";
     	 
-         
+         var boardscol = document.getElementById("board");
          var rightUL = document.getElementById("boardulID"); 
          rightUL.appendChild(eleli);//<div> <ul><li> <h5>viewname</h5> <img></img> </li></ul></div>
+         boardscol.scrollTop = boardscol.scrollHeight;
       }
       if(receivedSticker.action == "addchat"){
     	  
@@ -114,14 +114,7 @@ function onSocketMessage(event) {
 
 
 //Logger
-function toggleLog() {
-    var log = document.getElementById("logContainer");//取得置放Log的Div ;
-    if (!log.getAttribute("style")) {                 //如果沒有Style屬性
-        log.setAttribute("style", "display:block;");  //則setAttribute(style="display:block")
-    } else {
-        log.setAttribute("style", "");//否則隱藏logContainer ;
-    }
-}
+
 
 var logCount = 0;
 
