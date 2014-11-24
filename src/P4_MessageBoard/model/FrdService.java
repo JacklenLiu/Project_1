@@ -55,4 +55,8 @@ public class FrdService {
 			
 		}
 	
+	//Get member's friends.
+	public String getFrds(String memID){
+		return dao.getFrds(memID);
+	}
 }

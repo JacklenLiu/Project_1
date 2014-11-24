@@ -12,6 +12,10 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class FrdDAO implements FrdDAO_interface {
 
 	// 一個應用程式中,針對一個資料庫 ,共用一個DataSource即可
@@ -31,6 +35,7 @@ public class FrdDAO implements FrdDAO_interface {
 	private static final String SELECT_COUNT = "SELECT Count(*) from member_friend where member_loginID=? and friend_loginID = ?"; // 回傳此條件的搜尋筆數
 
 	private static final String SELECT_FRDSTATUS = "SELECT friendNum, member_loginID, friend_loginID, invite_msg, relationship_status from member_friend where friend_loginID = ?";
+	private static final String GET_FRDS_BY_MEMID = "SELECT friend_loginID from member_friend where member_loginID = ? and relationship_status = 1";
 
 
 	@Override
@@ -366,5 +371,52 @@ public class FrdDAO implements FrdDAO_interface {
 	}
 
 
+	@Override
+	public String getFrds(String memID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String friendsList="";
+		
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_FRDS_BY_MEMID);	
+			
+			pstmt.setString(1, memID);
+			rs = pstmt.executeQuery();
+			
+			JSONArray jsonArray = new JSONArray();
+			JSONObject jsonObj = new JSONObject();
+			while(rs.next()){
+				jsonArray.put(rs.getString(1));
+			}
+			
+			jsonObj.put("friends", jsonArray);
+			friendsList = jsonObj.toString();
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}catch (JSONException e) {
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}		
+		return friendsList;
+	}
 
 }
