@@ -46,6 +46,8 @@
      </span>
      <input id="saveRoutebt" type="button" value="儲存路線">
     </div>
+    <div id="dialog-saveSuccess" title="儲存成功">
+    </div>
     <footer>
       <small></small>
       <ol>
@@ -67,7 +69,7 @@
     var serverName = "<%= serverName %>"; //localhost
 	var serverPort = "<%= serverPort %>"; //8081
 	var contextPath = "<%= contextPath %>"; //Project_1
-	
+	var sionLoginId = "<%= sionLoginId %>"; //aa123
 	
    (function ($){
 	   
@@ -157,12 +159,61 @@
 		// 將抓到的li(viewsObj) 用each切割 出id屬性 並放入陣列viewsID[]
 		$.each(viewsObj,function(i, item){
 			viewsID[i] = $(item).attr("id");
-			console.log(item);
 		});
 		console.log(viewsID);
 		
+		saveRouteDetail(viewsID);
+
 	});
-    	
+	//將viewsID陣列打包成物件
+	function saveRouteDetail(viewsID){
+		var detailToServlet = {
+				"memID": sionLoginId,
+				"routeName": "saveroutedetail",
+				"routeResult":viewsID,
+		};
+		console.log(JSON.stringify(detailToServlet));
+		
+		var url = "../P2_route/viewnameServlet";
+		console.log(url);
+
+		$.ajax({
+			"type":"POST",
+			"url":url,
+			"data": {"action":"saveRoute", "routeJSONStr": JSON.stringify(detailToServlet)},
+			"async":false,
+			"success":function(data){
+				$.ajax({
+					"type": 'POST',
+      		  		"url": url,
+      		  		"data": {"action":"increaseHitRate", "routeResult": JSON.stringify(viewsID)},
+      		  		"async":false,
+      		  	    "success":function(data){
+  		  			
+    				dialog1.dialog( "open" );
+      		  	    }
+				});
+				viewsID = [];
+			}
+	});
+	};
+	 var dialog1 = $( "#dialog-saveSuccess" ).dialog({
+         autoOpen: false,
+         height: 300,
+         width: 350,
+         modal: true,
+         buttons: {
+           "確定": function(){
+         		//產生json字串送到server
+         		dialog1.dialog( "close" );
+         		//'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+imgarea+ item.viewID + '_01'
+         		window.location.href = "http://" + serverName + ":" + serverPort + contextPath +"/P2_route" + "/viewnameServlet?action=GetRouteByMemID&memID=" + sionLoginId;
+           }
+         },
+         close: function() {
+         }
+       });
+
     })(jQuery);
     
       </script>

@@ -65,6 +65,9 @@ function chatsend(chat){
 
 
 
+
+
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
