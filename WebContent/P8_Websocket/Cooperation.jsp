@@ -161,6 +161,15 @@
 		var chat = sionName +" : " + userchat; //將使用者(sionName) 跟 userchat 串在一起
 		chatsend(chat);//呼叫story-page.js 的 chatsend並帶參數
 	});
+	//Enter送出文字事件(Keypress keycode = 13　→enter)
+	$("#chatinput").keypress(function(event){       
+        if (event.keyCode == 13) {
+        	var userchat = $('#chatinput').val();
+    		$('#chatinput').val("");
+    		var chat = sionName +" : " + userchat; 
+    		chatsend(chat);
+        }
+    });
 	//儲存路線事件
 	$('#saveRoutebt').click(function(){
 		
