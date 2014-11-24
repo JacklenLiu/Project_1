@@ -8,6 +8,7 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css" >
      <link href="css/images.css" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link -->
+    
   </head>
   <body>
     <header>
@@ -46,8 +47,16 @@
      </span>
      <input id="saveRoutebt" type="button" value="儲存路線">
     </div>
-    <div id="dialog-saveSuccess" title="儲存成功">
+    
+  <div id="dialog-save" title="儲存路線" >
+     <h2 class="validateTips">路線名稱</h2>
+     <input type="text" name="routeName" id="routeName" value="多人協作路線" class="text ui-widget-content ui-corner-all" >
+   </div >
+   
+    <div id="dialog-saveSuccess" title="儲存成功" >
+    <h2 class="validateTips">儲存成功</h2>
     </div>
+    
     <footer>
       <small></small>
       <ol>
@@ -151,32 +160,38 @@
 	});
 	//儲存路線事件
 	$('#saveRoutebt').click(function(){
+		
+		dialog.dialog( "open" );
+
+	});
+	//彈出dialog -> 讓使用者輸入景點名稱 並確定儲存或取消
+	var dialog = $( "#dialog-save" ).dialog({
+		autoOpen: false,
+        height: 300,
+        width: 350,
+        modal: true,
+        buttons: {
+          "儲存": function(){
+	//儲存 -> 將viewsID陣列打包成物件
 		var viewsObj = new Array();
 		viewsObj = $('#board li');
-		
-		console.log(viewsObj);
 		var viewsID = new Array();
+		
 		// 將抓到的li(viewsObj) 用each切割 出id屬性 並放入陣列viewsID[]
 		$.each(viewsObj,function(i, item){
 			viewsID[i] = $(item).attr("id");
 		});
 		console.log(viewsID);
-		
-		saveRouteDetail(viewsID);
-
-	});
-	//將viewsID陣列打包成物件
-	function saveRouteDetail(viewsID){
+		//將 userID 及輸入的 路線名稱 及陣列viewsID 打包
 		var detailToServlet = {
 				"memID": sionLoginId,
-				"routeName": "saveroutedetail",
+				"routeName": $('#dialog-save :text').val(),
 				"routeResult":viewsID,
 		};
 		console.log(JSON.stringify(detailToServlet));
 		
 		var url = "../P2_route/viewnameServlet";
-		console.log(url);
-
+        //將打包好的物件(detailToServlet)送viewnameServlet
 		$.ajax({
 			"type":"POST",
 			"url":url,
@@ -189,14 +204,21 @@
       		  		"data": {"action":"increaseHitRate", "routeResult": JSON.stringify(viewsID)},
       		  		"async":false,
       		  	    "success":function(data){
-  		  			
+      		  	    dialog.dialog( "close" );
     				dialog1.dialog( "open" );
       		  	    }
 				});
+			  }//end of success function
+		  });
 				viewsID = [];
-			}
-	});
-	};
+			},
+            "取消": function() {
+              dialog.dialog( "close" );
+            }
+          },
+          close: function() {
+          }
+        });
 	 var dialog1 = $( "#dialog-saveSuccess" ).dialog({
          autoOpen: false,
          height: 300,

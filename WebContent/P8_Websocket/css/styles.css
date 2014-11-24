@@ -115,3 +115,8 @@ footer ol {
     border-left: 1px solid #ad995b;
     display: none;
 }
+.validateTips { 
+	border: 1px solid transparent; 
+	padding: 0.3em; 
+	text-align:center;
+}
