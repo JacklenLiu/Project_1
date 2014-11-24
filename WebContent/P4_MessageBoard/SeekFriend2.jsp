@@ -142,6 +142,7 @@
 		<input type="submit" class="rejectbtn" name="whataction" value="拒絕"></div>
 		
 		<input type="hidden" name="vmember_loginID" value="<%=sionLoginId %>">
+		<input type="hidden" name="vfriend_loginID" value="${listFriend.member_loginID}">
 <!-- 		value是假的!!!要再改 -->
    <%-- <input type="hidden" name="vfriendNum" value="${listFriend.friendNum}"> --%>
 		<input type="hidden" name="vfriendNum" value="${listFriend.friendNum}">
