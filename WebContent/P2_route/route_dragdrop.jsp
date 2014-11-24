@@ -6,7 +6,15 @@
 	<%@ include file="../platform/include_title.jsp" %>
     <%@ include file="../platform/include_start.jsp" %>
     <script src="../js/jquery-1.11.0.js"></script>
-    <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
+    <%
+     	int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;
+       	String s[]={"星期日","星期一","星期二","星期三","星期四","星期五","星期六","星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
+       	String newS[] = new String[7];
+   		for(int i = 0 ; i<=6 ; i++){
+   			//System.out.println(today);
+    		newS[i] = s[today++];        		
+      	}                
+	%>
     <link rel="stylesheet" href="Jacklen_css/Jacklen.css"> <!--蕙齊css-->
 	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
 	
@@ -60,49 +68,64 @@
 <%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
 <%@ include file="../platform/include_picture/include_picture.jsp" %>
 <!-- ******************************************************************* -->
-<div class="component " style="display:inline;width:50px;margin-left:20px;">
-    <h4 class="glyphicon glyphicon-hand-right" style="display:inline;">&nbsp;欲選擇其他地區</h4>
-    
-	<select id="sel1" class="form-control" style="display:inline;width:10%;font-size:18px;font-weight:bold;">
-		<option value="北部" id="N" >北部</option>
-  		<option value="中部" id="C">中部</option>
-  		<option value="南部" id="S">南部</option>
-  		<option value="東部" id="E">東部</option>
-	</select>
-
-	<table class="tooltip1" style="margin-left:20px;">
-	    <tr >
-	        <td></td>                
-	        <%
-	        	String s[]={"星期日","星期一","星期二","星期三","星期四","星期五","星期六","星期日","星期一","星期二","星期三","星期四","星期五","星期六"};
-	        	String newS[] = new String[7];
-	       		for(int i = 0 ; i<=6 ; i++){
-	       			//System.out.println(today);
-	        		newS[i] = s[today++];        		
-	        	}                
-	        %>
-	        <td><%= newS[0]%></td>
-	        <td><%= newS[1]%></td>
-	        <td><%= newS[2]%></td>
-	        <td><%= newS[3]%></td>
-	        <td><%= newS[4]%></td>
-	        <td><%= newS[5]%></td>
-	        <td><%= newS[6]%></td>
-	    </tr>
-	    <tr class="weather">         
-	        <td class='td1'></td>  
-	    </tr>
-	</table>
+<div class="container" style="float:left;margin-left:20px;margin-top:10px;width:100%;">
+	<div>
+	    <h4 class="glyphicon glyphicon-hand-right" style="float:left;display:inline;">&nbsp;欲選擇其他地區</h4>
+	    
+		<select id="sel1" class="form-control" style="width:10%;font-size:18px;font-weight:bold;">
+			<option value="北部" id="N">北部</option>
+	  		<option value="中部" id="C">中部</option>
+	  		<option value="南部" id="S">南部</option>
+	  		<option value="東部" id="E">東部</option>
+		</select>
+	</div>
+	<br>
+	<div style="float:left;">
+		<table class="tooltip1">
+		    <tr>
+		        <td></td>                
+		        <td><%= newS[0]%></td>
+		        <td><%= newS[1]%></td>
+		        <td><%= newS[2]%></td>
+		        <td><%= newS[3]%></td>
+		        <td><%= newS[4]%></td>
+		        <td><%= newS[5]%></td>
+		        <td><%= newS[6]%></td>
+		    </tr>
+		    <tr class="weather">         
+		        <td class='td1'></td>  
+		    </tr>
+		</table>
+	</div>
+	<div style="float:left;display:inline;width:200px;margin-left:340px;margin-top:-30px;">
+		<span class="span-route" style="width:200px;">
+			<center>
+				<label style="font-size:20px;">出發地</label>
+				<select id="startid" class="form-control" style="width:100%;font-size:16px;"></select><br>
+				
+				<input type="button" id="computeRoute" class="btn btn-primary btn-lg" value="開始規劃"/>
+				<br>
+			</center>
+		</span>
+	</div>
+	<div style="float:left;display:inline;width:200px;margin-top:-30px;">	
+		<center>
+			<label style="font-size:20px;">目的地</label><select id="endid" class="form-control" style="width:100%;font-size:16px;"></select><br>
+			<input type="button" id="saveRoute" class="saveRoute btn btn-danger btn-lg" value="儲存路徑" disabled/>
+		<center>
+	</div>
 </div>	
+
 	
 	<!-- 放抓到的area值 -->
 	<input type="text" id="resp" value="${area}" hidden/>
 	<input type="text" id="respPath" value="${path}" hidden/>
 	
-	<div id="mainDiv" class="ui-widget ui-helper-clearfix">
+	
+<div id="mainDiv" class="ui-widget ui-helper-clearfix">
 	<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"></ul>
 	<div id="resultdiv" style="width:410px; display:inline">
-		<div id="inner"></div>
+<!-- 		<div id="inner"></div> -->
 		<div id="mapdiv" class="ui-widget-content ui-state-default">
 			<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">地圖</span> 地圖</h4>
 			<div id="map"></div>		
@@ -112,15 +135,6 @@
 	<div id="route" class="ui-widget-content ui-state-default">
 		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">路徑規劃</span> 路徑規劃</h4>
 	</div>
-	
-	<span class="span-route">
-	<label>出發地</label><select id="startid"></select><br>
-	<label>目的地</label><select id="endid"></select>
-	<br>
-	<input type="button" id="computeRoute" value="開始規劃"/>
-	<input type="button" id="saveRoute" class="saveRoute" value="儲存路徑" disabled/>
-	</span>
-	
 </div>
 <div id="dialog-save" title="儲存路線">
   <h2 class="validateTips">路線名稱</h2>
@@ -636,7 +650,7 @@
                 				resultStr += "<br>";
                 			}
                 		})
-                		$('#inner').html(resultStr);
+                		//$('#inner').html(resultStr);
                 	}
                 	
                 	function copyResulttoResultToServlet(){

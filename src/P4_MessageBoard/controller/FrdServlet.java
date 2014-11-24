@@ -149,9 +149,30 @@ public class FrdServlet extends HttpServlet {
 //			如果是接受  資料庫狀態更新為1
 //			如果是拒絕  資料庫狀態更新為9
 			
+			
+			
+			String friend_loginID = req.getParameter("vfriend_loginID");
+			String member_loginID = req.getParameter("vmember_loginID");
+			
+			
+			
 	
 			FrdService frdSvc = new FrdService();
 			frdSvc.updateFrd(friendNum);  // update到資料庫
+			frdSvc.addFrd(member_loginID, friend_loginID, "test沒作用啦", 1);  // insert到資料庫
+			
+			
+			
+//			測試新增一筆(當對方按下確認)
+//			String member_loginID = req.getParameter("vmember_loginID");
+//			String friend_loginID = req.getParameter("vfriend_loginID");
+//			FrdService frdSvc2 = new FrdService();
+//			frdSvc2.addFrd(friend_loginID, member_loginID, "test沒作用啦", 1);  // insert到資料庫
+			
+			
+			
+			
+			
 			String path = getServletContext().getContextPath();
 //			res.sendRedirect(path+"/P4_MessageBoard/show_accept2.jsp");	//使重新整理無作用!!!!
 			res.sendRedirect(path+"/P4_MessageBoard/SeekFriend2.jsp");	//使重新整理無作用!!!!

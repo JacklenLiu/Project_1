@@ -8,6 +8,7 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css" >
      <link href="css/images.css" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link -->
+    
   </head>
   <body>
     <header>
@@ -44,8 +45,18 @@
      <input id="chatinput" type="text"></input>
      <input id="chatbt" type="button" value="送出">
      </span>
-     <input id="myRoute" type="button" value="儲存路線">
+     <input id="saveRoutebt" type="button" value="儲存路線">
     </div>
+    
+  <div id="dialog-save" title="儲存路線" >
+     <h2 class="validateTips">路線名稱</h2>
+     <input type="text" name="routeName" id="routeName" value="多人協作路線" class="text ui-widget-content ui-corner-all" >
+   </div >
+   
+    <div id="dialog-saveSuccess" title="儲存成功" >
+    <h2 class="validateTips">儲存成功</h2>
+    </div>
+    
     <footer>
       <small></small>
       <ol>
@@ -143,22 +154,91 @@
 
 	}   
 	
-	  
+	//送出文字事件 
 	$('#chatbt').click(function(){  //送出 -> click事件
 		var userchat = $('#chatinput').val();//讀取chatinput所輸入的值-> 並放入userchat
 		$('#chatinput').val("");//將值拿掉
 		var chat = sionName +" : " + userchat; //將使用者(sionName) 跟 userchat 串在一起
 		chatsend(chat);//呼叫story-page.js 的 chatsend並帶參數
 	});
-	
-	$('#myRoute').click(function(){
-		$('#board li').each(function(){
-			 var array = new Array($(this).attr("id"));
-			 console.log(array);
-		});
+	//儲存路線事件
+	$('#saveRoutebt').click(function(){
 		
+		dialog.dialog( "open" );
+
 	});
-    	
+	//彈出dialog -> 讓使用者輸入景點名稱 並確定儲存或取消
+	var dialog = $( "#dialog-save" ).dialog({
+		autoOpen: false,
+        height: 300,
+        width: 350,
+        modal: true,
+        buttons: {
+          "儲存": function(){
+	//儲存 -> 將viewsID陣列打包成物件
+		var viewsObj = new Array();
+		viewsObj = $('#board li');
+		var viewsID = new Array();
+		
+		// 將抓到的li(viewsObj) 用each切割 出id屬性 並放入陣列viewsID[]
+		$.each(viewsObj,function(i, item){
+			viewsID[i] = $(item).attr("id");
+		});
+		console.log(viewsID);
+		//將 userID 及輸入的 路線名稱 及陣列viewsID 打包
+		var detailToServlet = {
+				"memID": sionLoginId,
+				"routeName": $('#dialog-save :text').val(),
+				"routeResult":viewsID,
+		};
+		console.log(JSON.stringify(detailToServlet));
+		
+		var url = "../P2_route/viewnameServlet";
+        //將打包好的物件(detailToServlet)送viewnameServlet
+		$.ajax({
+			"type":"POST",
+			"url":url,
+			"data": {"action":"saveRoute", "routeJSONStr": JSON.stringify(detailToServlet)},
+			"async":false,
+			"success":function(data){
+				$.ajax({
+					"type": 'POST',
+      		  		"url": url,
+      		  		"data": {"action":"increaseHitRate", "routeResult": JSON.stringify(viewsID)},
+      		  		"async":false,
+      		  	    "success":function(data){
+      		  	    dialog.dialog( "close" );
+    				dialog1.dialog( "open" );
+      		  	    }
+				});
+			  }//end of success function
+		  });
+				viewsID = [];
+			},
+            "取消": function() {
+              dialog.dialog( "close" );
+            }
+          },
+          close: function() {
+          }
+        });
+	 var dialog1 = $( "#dialog-saveSuccess" ).dialog({
+         autoOpen: false,
+         height: 300,
+         width: 350,
+         modal: true,
+         buttons: {
+           "確定": function(){
+         		//產生json字串送到server
+         		dialog1.dialog( "close" );
+         		//'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+imgarea+ item.viewID + '_01'
+         		window.location.href = "http://" + serverName + ":" + serverPort + contextPath +"/P2_route" + "/viewnameServlet?action=GetRouteByMemID&memID=" + sionLoginId;
+           }
+         },
+         close: function() {
+         }
+       });
+
     })(jQuery);
     
       </script>

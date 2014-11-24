@@ -18,19 +18,23 @@
 <html>
 <head>
 
-
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/start/jquery-ui.css" rel="stylesheet">
+<!-- <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/start/jquery-ui.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="styles/jquery-ui.css">
 <link rel="stylesheet" href="styles/showinvite.css">
 <!-- 調整navbar btn -->
 <link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>!window.jQuery && document.write("<script src='Scripts/jquery-2.1.1.min.js'><\/script>")</script>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="Scripts/jquery-ui.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script> -->
 <script type="text/javascript" src="Scripts/msg.js"></script>
 
 <!-- datatalbe css & js -->
-<link href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css" rel="stylesheet">
-<script src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+<!-- <link href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css" rel="stylesheet"> -->
+<!-- <script src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script> -->
+<link rel="stylesheet" href="styles/jquery.dataTables.min.css" >
+<script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
 
 
 <style>    
@@ -138,6 +142,7 @@
 		<input type="submit" class="rejectbtn" name="whataction" value="拒絕"></div>
 		
 		<input type="hidden" name="vmember_loginID" value="<%=sionLoginId %>">
+		<input type="hidden" name="vfriend_loginID" value="${listFriend.member_loginID}">
 <!-- 		value是假的!!!要再改 -->
    <%-- <input type="hidden" name="vfriendNum" value="${listFriend.friendNum}"> --%>
 		<input type="hidden" name="vfriendNum" value="${listFriend.friendNum}">
