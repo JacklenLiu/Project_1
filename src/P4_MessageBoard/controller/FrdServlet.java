@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import P4_MessageBoard.model.FrdDAO;
 import P4_MessageBoard.model.FrdService;
 import P4_MessageBoard.model.FrdVO;
@@ -38,9 +42,11 @@ public class FrdServlet extends HttpServlet {
 	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		
+		res.setContentType("text/html; charset=UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		PrintWriter out = res.getWriter();
+		
+		
 		String action = req.getParameter("action");
 		
 		if("invite_friend".equals(action)){
@@ -203,7 +209,20 @@ public class FrdServlet extends HttpServlet {
 			String memID = req.getParameter("memID").toString();
 			FrdService frdSvc = new FrdService();
 			String friendsList = frdSvc.getFrds(memID);
-			out.print(friendsList);
+			
+			JSONArray friendsJSONArrayAfter = new JSONArray();
+			try {
+				JSONArray friendsJSONArray = new JSONArray(friendsList);		
+				for(int i=0; i< friendsJSONArray.length(); i++){
+					JSONObject friendsObj = new JSONObject();
+					String FrdName = frdSvc.getFrdsName(friendsJSONArray.getString(i));
+					friendsObj.put(friendsJSONArray.getString(i), FrdName);
+					friendsJSONArrayAfter.put(friendsObj);
+				}								
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			out.print(friendsJSONArrayAfter.toString());
 		}
 		
 	}

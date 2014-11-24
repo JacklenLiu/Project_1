@@ -59,4 +59,8 @@ public class FrdService {
 	public String getFrds(String memID){
 		return dao.getFrds(memID);
 	}
+	
+	public String getFrdsName(String memID){
+		return dao.getFrdsName(memID);
+	}
 }

@@ -440,9 +440,9 @@
 		<span>
 			<h5 style="display:inline">請加入好友一起討論</h5> 
 			<select class="selectpicker show-menu-arrow" id="getFriends">
-				<option value="bbb123">bbb123</option>
-      			<option value="ccc123">ccc123</option>
-      			<option value="ddd123">ddd123</option>
+<!-- 				<option value="bbb123">bbb123</option> -->
+<!--       			<option value="ccc123">ccc123</option> -->
+<!--       			<option value="ddd123">ddd123</option> -->
 			</select>
 			<input type="button" id="addToFriend" value="+" />
 		</span>
@@ -670,7 +670,18 @@ $(function() {
 		
 		$('#cooperationLink').click(function(e){
 			e.preventDefault();
-			
+			var url = "P4_MessageBoard/FrdServlet";
+			//增加景點hitRate
+      		$.ajax({
+            		"type": 'POST',
+              		"url": url,
+              		"data": {"action":"GetFriends", "memID": "${userLoginId}"},
+              		"async":false,
+              		"success":function(data){
+              			console.log(data);
+             		}
+             	});
+      		
 			dialogfriend.dialog("open");
 			
 		});

@@ -93,7 +93,7 @@ public class MsgServlet extends HttpServlet {
 //			succuessView.forward(req, res);
 			String path = getServletContext().getContextPath();
 			res.sendRedirect(path+"/P4_MessageBoard/showALL.jsp");	//使重新整理無作用!!!!
-			
+			return;
 		}
 
 
@@ -134,6 +134,7 @@ public class MsgServlet extends HttpServlet {
 			
 			String path = getServletContext().getContextPath();
 			res.sendRedirect(path+"/P4_MessageBoard/showALL.jsp");	//使重新整理無作用!!!!
+			return;
 		}
 		
 		

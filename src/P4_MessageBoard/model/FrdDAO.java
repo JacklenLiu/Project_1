@@ -36,6 +36,7 @@ public class FrdDAO implements FrdDAO_interface {
 
 	private static final String SELECT_FRDSTATUS = "SELECT friendNum, member_loginID, friend_loginID, invite_msg, relationship_status from member_friend where friend_loginID = ?";
 	private static final String GET_FRDS_BY_MEMID = "SELECT friend_loginID from member_friend where member_loginID = ? and relationship_status = 1";
+	private static final String GET_FRDSNAME_BY_MEMID = "SELECT member_name from sysmember where member_loginID = ?";
 
 
 	@Override
@@ -387,17 +388,12 @@ public class FrdDAO implements FrdDAO_interface {
 			rs = pstmt.executeQuery();
 			
 			JSONArray jsonArray = new JSONArray();
-			JSONObject jsonObj = new JSONObject();
 			while(rs.next()){
 				jsonArray.put(rs.getString(1));
 			}
-			
-			jsonObj.put("friends", jsonArray);
-			friendsList = jsonObj.toString();
+			friendsList = jsonArray.toString();
 			
 		}catch(SQLException e){
-			e.printStackTrace();
-		}catch (JSONException e) {
 			e.printStackTrace();
 		}
 		finally {
@@ -419,4 +415,44 @@ public class FrdDAO implements FrdDAO_interface {
 		return friendsList;
 	}
 
+	@Override
+	public String getFrdsName(String memID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String friendName="";
+		
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_FRDSNAME_BY_MEMID);	
+			
+			pstmt.setString(1, memID);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				friendName = rs.getString(1);
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}		
+		return friendName;
+	}
 }
