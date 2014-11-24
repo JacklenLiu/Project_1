@@ -67,7 +67,10 @@
     var serverName = "<%= serverName %>"; //localhost
 	var serverPort = "<%= serverPort %>"; //8081
 	var contextPath = "<%= contextPath %>"; //Project_1
-	
+	var sionLoginId = "<%= sionLoginId %>"; //aa123
+	var memPlatform = "<%= request.getParameter("memID")%>";
+	console.log("here!!");
+	console.log(memPlatform);
 	
    (function ($){
 	   

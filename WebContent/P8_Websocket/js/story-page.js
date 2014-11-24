@@ -3,12 +3,14 @@
 var socket = null;
 
 function initialize() {
+	console.log(sionLoginId);
 	var rightDiv = document.getElementById("board");
     //rightDiv.appendChild(imageObj);
     //var img = document.getElementById("background_img");
    // ctx.drawImage(img, 0, 0);
     
-    socket = new WebSocket("ws://"+ serverName +':'+ serverPort + contextPath +"/story/notifications");
+	console.log("open connect");
+    socket = new WebSocket("ws://"+ serverName +':'+ serverPort + contextPath +"/story/notifications/"+memPlatform);
     
     socket.onmessage = onSocketMessage;
 }         //處理收到的訊息  = 方法onSocketMessage↓↓↓

@@ -150,7 +150,8 @@
                             	<a href="P2_route/route_plan.jsp">路經規劃</a> 
                            	</li>
                            	<li>
-                              	<a href="portfolio-3-col.html">3 Column Portfolio</a>
+<%--                               	<a href="P8_Websocket/Cooperation.jsp?memID=${userLoginId}">與好友同步規劃</a> --%>
+                              	<a href="#" id="cooperationLink">與好友同步規劃</a>
                            	</li>
                            	<li>
                               	<a href="portfolio-4-col.html">4 Column Portfolio</a>
@@ -436,6 +437,20 @@
    	您修改的個人資料已成功，請牢記您的密碼!!
   </h5>
 </div>
+<div id="dialog-addFriend" title="選擇好友一起討論吧"  hidden>
+		<span>
+			<h5 style="display:inline">請加入好友一起討論</h5> 
+			<select class="selectpicker show-menu-arrow" id="getFriends">
+				<option value="bbb123">bbb123</option>
+      			<option value="ccc123">ccc123</option>
+      			<option value="ddd123">ddd123</option>
+			</select>
+			<input type="button" id="addToFriend" value="+" />
+		</span>
+		<span id="friendSpan"></span>
+		<h5>說些什麼...</h5>
+  <textarea rows="4" cols="25">快點進來~大家都在等你囉!</textarea>
+</div>
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
 <script src="js/bootstrap.js"></script>
@@ -631,6 +646,36 @@ $(function() {
         });
 		//***********昱豪_滑鼠移入出現div*********** 
        	
+		
+		//JKL開啟好友路徑規劃協作平台
+		var dialogfriend= $("#dialog-addFriend").dialog({
+			  autoOpen: false,
+		      modal: true,
+		      buttons: {
+		      	 "開始討論GO": function() {
+		         	 		window.location.href="P8_Websocket/Cooperation.jsp?memID=${userLoginId}";
+		          			$( this ).dialog( "close" );
+		        		},
+		        	 "取消": function(){
+		        			$( this ).dialog( "close" );
+		        	   }
+		      }
+		  });
+		
+		//加入協作好友列表
+		$('#addToFriend').click(function(e){
+			var friendList = $('#friendSpan').text();
+			friendList += $('#getFriends :selected').val()+" ";
+			$('#friendSpan').text(friendList);
+		});
+		
+		$('#cooperationLink').click(function(e){
+			e.preventDefault();
+			
+			dialogfriend.dialog("open");
+			
+		});
+		
 	 })(jQuery);
 	//***********昱豪*********** 
     
