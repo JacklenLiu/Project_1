@@ -659,15 +659,15 @@ create table messageboard(
 	title			nvarchar(100)		 not null,
 	content			nvarchar(max)		 not null,
 	build_time		date				 not null,
-	message_stop	char(2)				 not null,
+	message_stop	int					 not null,
 	replyfrom		int					 not null,
 	CONSTRAINT messageboard_member_loginID_FK			FOREIGN KEY (member_loginID)	REFERENCES sysmember (member_loginID),
  	CONSTRAINT messageboard_messageNum_PK				PRIMARY KEY (messageNum)
 );
 
-insert into messageboard values('aaa123','台北一日遊','貓空好多貓','2014-10-10','n',0);
-insert into messageboard values('bbb123','一日遊','陽明山好多花','2014-10-10','n',0);
-insert into messageboard values('ccc123','台北遊','動物園','2014-10-10','n',0);
+insert into messageboard values('aaa123','台北一日遊','貓空好多貓','2014-10-10',0,0);
+insert into messageboard values('bbb123','一日遊','陽明山好多花','2014-10-10',0,0);
+insert into messageboard values('ccc123','台北遊','動物園','2014-10-10',0,0);
 
 /*好友管理*/
 create table member_friend (

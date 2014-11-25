@@ -303,7 +303,7 @@
 	$(function(){
 		
 		// 搜尋朋友  不轉頁
-// 		$("#table1").hide();
+		$("#table1").hide();
 		$("#but_seek").click(function(){					
 			$("#table1").show();			
 			$("#table1 td").remove();

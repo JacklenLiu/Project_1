@@ -33,6 +33,8 @@ public class MemDAO implements MemDAO_interface {
 	private static final String GET_ALL_MEM = "SELECT member_loginID, member_name, member_gender From "
 			+ "sysmember where member_loginID like ? OR member_name like ?";
 	
+	private static final String GET_ALL_MEM_JOIN_FRD = "select b.friend_loginID, b.relationship_status from "
+			+ "sysmember a left join member_friend b on a.member_loginID = b.member_loginID where a.member_loginID =? and b.friend_loginID='bbb123';";
 	
 	
 	@Override

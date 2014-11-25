@@ -49,7 +49,7 @@ public class InsertReplyServlet extends HttpServlet {
 		String reply_forwho = req.getParameter("reply_vforwho");	//針對哪則留言回應(留言的identity)
 		System.out.println("ready to insert");
 		MsgService MsgSvc = new MsgService();				
-		MsgSvc.addMsg(10, reply_user,reply_fortitle, content, a, "n",Integer.parseInt(reply_forwho));// 把replyfrom 轉成數字..
+		MsgSvc.addMsg(10, reply_user,reply_fortitle, content, a, 0,Integer.parseInt(reply_forwho));// 把replyfrom 轉成數字..
 		
 		
 	}

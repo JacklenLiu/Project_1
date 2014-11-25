@@ -42,7 +42,7 @@ public class MsgDAO implements MsgDAO_interface {
 			pstmt.setString(3, msgVO.getContent());
 			// notice DATE format!!
 			pstmt.setDate(4, msgVO.getBuild_time());
-			pstmt.setString(5, msgVO.getMessage_stop());
+			pstmt.setInt(5, msgVO.getMessage_stop());
 			pstmt.setInt(6, msgVO.getReplyfrom());
 
 			pstmt.executeUpdate();
@@ -90,7 +90,7 @@ public class MsgDAO implements MsgDAO_interface {
 				msgVO.setTitle(rs.getString("title"));
 				msgVO.setContent(rs.getString("content"));
 				msgVO.setBuild_time(rs.getDate("build_time"));
-				msgVO.setMessage_stop(rs.getString("message_stop"));
+				msgVO.setMessage_stop(rs.getInt("message_stop"));
 				msgVO.setReplyfrom(rs.getInt("replyfrom"));
 				
 				list.add(msgVO);
@@ -141,7 +141,7 @@ public class MsgDAO implements MsgDAO_interface {
 			pstmt.setString(3, msgVO.getContent());
 			// notice DATE format!!
 			pstmt.setDate(4, msgVO.getBuild_time());
-			pstmt.setString(5, msgVO.getMessage_stop());
+			pstmt.setInt(5, msgVO.getMessage_stop());
 			pstmt.setInt(6, msgVO.getReplyfrom());
 
 			pstmt.executeUpdate();
