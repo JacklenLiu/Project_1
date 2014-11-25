@@ -131,8 +131,13 @@
 			var imgtitle = $('<h5></h5>').text(item.viewname); //取得景點名稱　 
 			var imgs = $('<img></img>')
 			.attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+imgarea+ item.viewID + '_01')
-		 	.addClass("viewimge");
-			console.log(imgarea + item.viewID +'_01');
+			.attr("data-sticker", imgarea + item.viewID +'_01')
+		 	.attr("data-viewname", item.viewname)
+		 	.attr("data-viewID", item.viewID)
+		 	.addClass("viewimge").attr("draggable",'true')
+			.bind('dragstart', function(event){
+		        drag(event);
+		    });
 			console.log(item.viewID);
 			var viewimg = $('<li></li>')
 		 	.attr("data-sticker", imgarea + item.viewID +'_01')
