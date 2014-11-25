@@ -63,6 +63,15 @@ public class TravelDiaryService {
 		return dao.getPic2(memberinfo);
 	}
 	
+	//取全部好友ID
+	public String getFriends(String member_loginID){
+		return dao.getFriends(member_loginID);
+		
+	}
 	
+	//取某一位好友全部文章
+	public String getFriendsBlog(String myFriendID){
+		return dao.getFriendsBlog(myFriendID);
+	}
 	
 }

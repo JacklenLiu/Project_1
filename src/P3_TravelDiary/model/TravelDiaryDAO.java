@@ -5,6 +5,10 @@ import java.sql.*;
 
 import javax.naming.*;
 import javax.sql.*;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 public class TravelDiaryDAO implements TravelDiary_Interface {
 	
 	private static DataSource ds=null;
@@ -35,10 +39,10 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 	//delete指令
 	private static final String DELETE="delete TravelDiary where TravelDiary_ID = ?";
 	
-	
-	
-	
-	//取文章測試2
+	//取會員朋友ID
+	private static final String GET_FRIENS_ID="select friend_loginID from member_friend where member_loginID=?";
+		
+	//取文章
 	private static final String GET_PIC2="select TravelDiary_ID,TravelDiary_Name,TravelDiary_Content from TravelDiary where member_loginID=? order by publish_date  desc";
 	
 	@Override
@@ -349,6 +353,172 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 		}
 			
 		return list;
+	}
+	
+	//取會員朋友ID
+	@Override
+	public String getFriends(String member_loginID) {
+		
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String memberFirendsID="";
+		List<String> cols = new ArrayList<String>();
+		try{
+			con =ds.getConnection();
+			pstmt=con.prepareStatement(GET_FRIENS_ID);
+			pstmt.setString(1,member_loginID );
+			rs=pstmt.executeQuery();	
+			//欄位名稱只會找我在prepareStatement下的欄位名稱
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int count = rsmd.getColumnCount();
+			for(int i = 1; i <= count; i++) {
+				cols.add(rsmd.getColumnLabel(i));
+			}
+			
+			JSONArray jsonArray = new JSONArray();
+			JSONObject jsonObj;
+			while(rs.next()){
+				jsonObj = new JSONObject();
+				jsonObj.put(cols.get(0), rs.getString(1));//friend_loginID
+				jsonArray.put(jsonObj);
+			}
+			
+			memberFirendsID = jsonArray.toString();
+			
+		}catch(SQLException e){
+			throw new RuntimeException("A database error occured."+e.getMessage());
+		}catch (JSONException e) {
+			e.printStackTrace();
+		}finally{
+			if(rs!=null){
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(pstmt!=null){
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(con!=null){
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		return memberFirendsID;
+	}
+	
+	//取好友文章
+	@Override
+	public String getFriendsBlog(String myFriendID) {
+		
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String myFriendsBlog="";
+		List<String> cols = new ArrayList<String>();
+		try{
+			con =ds.getConnection();
+			pstmt=con.prepareStatement(GET_PIC2);
+			pstmt.setString(1,myFriendID);
+			rs=pstmt.executeQuery();	
+			
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int count = rsmd.getColumnCount();
+			for(int i = 1; i <= count; i++) {
+				cols.add(rsmd.getColumnLabel(i));
+//				System.out.println(rsmd.getColumnLabel(i));
+			}
+			
+			JSONArray jsonArray = new JSONArray();
+			JSONObject jsonObj;
+			while(rs.next()){
+				
+				//1.放在json裡面要先改一下文章內容格式 符合wookmark的格式
+				String Content="";
+				String imgend=" width='190' height='200' >";
+				Content=rs.getString("TravelDiary_Content");
+				//取img標籤
+				//找<img開頭位置
+				int idx=Content.indexOf("<img");
+				String cut2="";
+				if(idx==-1){
+					//若沒有img標籤
+					cut2="<img src='../Images/nopic.jpg'>";
+					
+				}else{
+					//有img標籤
+					//刪除<img 之前的所有字串
+					String cut1=Content.substring(idx);
+					//找img結尾>位置
+					int end=cut1.indexOf(">");
+					cut2=cut1.substring(0,end+1);
+					
+					//將原本圖片的屬性刪除
+					int imgcut=cut2.indexOf("style=");
+					cut2=cut2.substring(0,imgcut) +" >";
+				}
+				//換掉wookmar要用的屬性
+				cut2=cut2.replace(">", imgend);
+				
+				
+				
+				//2.放回json裡面
+				jsonObj = new JSONObject();
+				jsonObj.put(cols.get(0), rs.getString(1));//TravelDiary_ID
+				jsonObj.put(cols.get(1), rs.getString(2));//TravelDiary_Name
+				jsonObj.put(cols.get(2), cut2);//TravelDiary_Content
+				jsonArray.put(jsonObj);
+			}
+			
+			myFriendsBlog = jsonArray.toString();
+			
+		}catch(SQLException e){
+			throw new RuntimeException("A database error occured."+e.getMessage());
+		}catch (JSONException e) {
+			e.printStackTrace();
+		}finally{
+			if(rs!=null){
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(pstmt!=null){
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(con!=null){
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		
+		
+		return myFriendsBlog;
 	}
 
 }
