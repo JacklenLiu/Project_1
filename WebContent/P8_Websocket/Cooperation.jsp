@@ -145,9 +145,25 @@
 		    })
 		 	.addClass("fixli ui-widget-content ui-corner-tr")
 		 	.append(imgtitle).append(imgs);
-		    
 			
 		    $('#viewulID').append(viewimg);
+		    
+		    if($('#boardulID').find("li").attr("id") != null){
+		    var rightliID = $('#boardulID').find("li");
+		       $.each(rightliID,function(i, item){
+		    	  var liID = $(this).attr("id");
+		    	  
+		    	  var leftliID = $('#viewulID').find("li");
+		    	  $.each(leftliID,function(i, item){
+		    		var liID2 = $(this).attr("data-viewID");
+		    		console.log(liID2);
+		    		if(liID == liID2){
+		    			$(this).remove();
+		    		}
+		    	  });
+		     });
+		    
+		    }
 		});
 
 	}   
