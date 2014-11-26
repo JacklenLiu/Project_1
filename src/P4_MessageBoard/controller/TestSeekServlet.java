@@ -83,7 +83,7 @@ public class TestSeekServlet extends HttpServlet {
 		if("seek_friend2".equals(action)){
 			String keyword = req.getParameter("keyword");
 			String loginID = req.getParameter("loginID");
-			System.out.println("你的搜尋字串為" + keyword);
+//			System.out.println("你的搜尋字串為" + keyword);
 			
 			MemService memSvc = new MemService();
 			String meminfo = memSvc.getAllJSON2(loginID, keyword);

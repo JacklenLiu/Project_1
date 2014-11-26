@@ -83,9 +83,9 @@ public class MsgServlet extends HttpServlet {
 			// 傳到資料庫
 			MsgService MsgSvc = new MsgService();
 			
-			System.out.println("ID = " +member_loginID);
-			System.out.println("title = " +title);
-			System.out.println("content = " +content);
+//			System.out.println("ID = " +member_loginID);
+//			System.out.println("title = " +title);
+//			System.out.println("content = " +content);
 			
 			msgVO = MsgSvc.addMsg(10, member_loginID, title, content, a, 0,0);  //messageNum 是identity 是否可亂set值
 
