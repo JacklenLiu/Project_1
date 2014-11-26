@@ -152,7 +152,8 @@ function ShowReply(x){
 
 <c:forEach var="list" items="${list}">
 <c:if test="${list.replyfrom == '0'}">
-  <h3><cite><span style="weigh:10px"><img src="images/pic4.jpg" width="35" height="35"> ${list.member_loginID}</span><span style="position:absolute;left:250px;"><b>${list.title}</b></span></cite><span style="float:right;" >${list.build_time}</span></h3>
+	<c:if test="${list.message_stop == '0'}">
+  <h3><cite><span style="weigh:10px"><img src="images/pic4.jpg" width="35" height="35"> ${list.member_loginID}</span><span style="position:absolute;left:180px;"><b>${list.title}</b></span></cite><span style="float:right;" >${list.build_time}</span></h3>
   <div>
     <p><span style="position:relative;left:30px;"><b>${list.content}</b></span> </p>
     <hr>
@@ -164,9 +165,11 @@ function ShowReply(x){
 				<div id="div${list.messageNum}">
 					<c:forEach var="list2" items="${list2}">
 						<c:if test="${list2.replyfrom == list.messageNum}">
+						<c:if test="${list2.message_stop == '0'}">
 								
 							<div>${list2.member_loginID}:${list2.content}
 							<span style="float:right;" >${list2.build_time}</span></div>
+						</c:if>
 						</c:if>
 				    </c:forEach>
 				</div>
@@ -189,6 +192,7 @@ function ShowReply(x){
 <!--     </div> -->
     
   </div>
+</c:if>
 </c:if>
 </c:forEach>  
 

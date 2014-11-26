@@ -16,4 +16,11 @@ public class MemService {
 	public String getAllJSON(String query_string) {
 		return dao.getAllJSON(query_string);
 	}
+	
+	
+	//新增查詢會員 join 好友狀態....
+	public String getAllJSON2(String loginID, String query_string) {
+		return dao.getAllJSON2(loginID, query_string);
+	}
+	
 }

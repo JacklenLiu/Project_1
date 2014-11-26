@@ -131,8 +131,13 @@
 			var imgtitle = $('<h5></h5>').text(item.viewname); //取得景點名稱　 
 			var imgs = $('<img></img>')
 			.attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+imgarea+ item.viewID + '_01')
-		 	.addClass("viewimge");
-			console.log(imgarea + item.viewID +'_01');
+			.attr("data-sticker", imgarea + item.viewID +'_01')
+		 	.attr("data-viewname", item.viewname)
+		 	.attr("data-viewID", item.viewID)
+		 	.addClass("viewimge").attr("draggable",'true')
+			.bind('dragstart', function(event){
+		        drag(event);
+		    });
 			console.log(item.viewID);
 			var viewimg = $('<li></li>')
 		 	.attr("data-sticker", imgarea + item.viewID +'_01')
@@ -145,9 +150,25 @@
 		    })
 		 	.addClass("fixli ui-widget-content ui-corner-tr")
 		 	.append(imgtitle).append(imgs);
-		    
 			
 		    $('#viewulID').append(viewimg);
+		    
+		    if($('#boardulID').find("li").attr("id") != null){
+		    var rightliID = $('#boardulID').find("li");
+		       $.each(rightliID,function(i, item){
+		    	  var liID = $(this).attr("id");
+		    	  
+		    	  var leftliID = $('#viewulID').find("li");
+		    	  $.each(leftliID,function(i, item){
+		    		var liID2 = $(this).attr("data-viewID");
+		    		console.log(liID2);
+		    		if(liID == liID2){
+		    			$(this).remove();
+		    		}
+		    	  });
+		     });
+		    
+		    }
 		});
 
 	}   

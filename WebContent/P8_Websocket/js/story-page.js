@@ -39,6 +39,8 @@ function drop(ev) {
     var draggedText = ev.dataTransfer.getData("text");//取得拖移的元素id
     var draggedSticker = JSON.parse(draggedText);//將JSON字串轉換為物件
     console.log(draggedSticker+" = draggedSticker");
+    
+    
     //再打包送Server
     var stickerToSend = {
     	//取得JSON物件的屬性↓  -> 物件.屬性 名稱   = 屬性值
@@ -50,9 +52,22 @@ function drop(ev) {
         viewID: draggedSticker.viewID
         
     };
+    /* var leftviewID = draggedSticker.viewID;
+    var rightviewID = stickerToSend.viewID;
     
+    //將左邊的img 拖到右邊時  移除左邊的<li data-viewID><img>...</li>
+    if(leftviewID == rightviewID){
+    	
+    	var leftUL = document.getElementById("viewulID");
+    	var jsonviewID = JSON.stringify(rightviewID);
+    	var leftview  = document.querySelector('[data-viewID='+ jsonviewID +']');
+    	leftUL.removeChild(leftview);
+    	
+    };*/
     socket.send(JSON.stringify(stickerToSend));//轉成JSON字串並send
     log("Sending Object " + JSON.stringify(stickerToSend));//轉成JSON字串並將Sending座標log
+    
+    
 }
 
 function chatsend(chat){
@@ -100,9 +115,20 @@ function onSocketMessage(event) {
     	 
          var boardscol = document.getElementById("board");
          var rightUL = document.getElementById("boardulID"); 
+
+         //將已拖曳過的左圖拿掉(所有使用者);
+         var jsonviewID = JSON.stringify(eleli.id);
+         console.log(jsonviewID);
+         var leftUL = document.getElementById("viewulID");
+         var leftview  = document.querySelector('[data-viewID='+ jsonviewID +']');
+
+         //先appendChild 再removeChild
          rightUL.appendChild(eleli);//<div> <ul><li> <h5>viewname</h5> <img></img> </li></ul></div>
+         leftUL.removeChild(leftview);
          boardscol.scrollTop = boardscol.scrollHeight;
+  
       }
+      
       if(receivedSticker.action == "addchat"){
     	  
     	  var chatdiv = document.getElementById("chatDiv");

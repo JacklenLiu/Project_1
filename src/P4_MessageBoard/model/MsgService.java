@@ -12,7 +12,7 @@ public class MsgService {
 	}
 	
 	public MsgVO addMsg(int messageNum, String member_loginID,String title,String content,
-			Date build_time,String message_stop, int replyfrom){
+			Date build_time,int message_stop, int replyfrom){
 		
 		MsgVO msgVO = new MsgVO();
 		

@@ -83,11 +83,11 @@ public class MsgServlet extends HttpServlet {
 			// 傳到資料庫
 			MsgService MsgSvc = new MsgService();
 			
-			System.out.println("ID = " +member_loginID);
-			System.out.println("title = " +title);
-			System.out.println("content = " +content);
+//			System.out.println("ID = " +member_loginID);
+//			System.out.println("title = " +title);
+//			System.out.println("content = " +content);
 			
-			msgVO = MsgSvc.addMsg(10, member_loginID, title, content, a, "n",0);  //messageNum 是identity 是否可亂set值
+			msgVO = MsgSvc.addMsg(10, member_loginID, title, content, a, 0,0);  //messageNum 是identity 是否可亂set值
 
 //			RequestDispatcher succuessView = req.getRequestDispatcher("/P4_MessageBoard/showALL2.jsp");
 //			succuessView.forward(req, res);
@@ -127,7 +127,7 @@ public class MsgServlet extends HttpServlet {
 			req.setAttribute("ShowMsg", msgVO);
 			
 			MsgService MsgSvc = new MsgService();				
-			msgVO = MsgSvc.addMsg(10, reply_user,"Re:"+reply_fortitle, content, a, "n",Integer.parseInt(reply_forwho));// 把replyfrom 轉成數字..
+			msgVO = MsgSvc.addMsg(10, reply_user,"Re:"+reply_fortitle, content, a, 0,Integer.parseInt(reply_forwho));// 把replyfrom 轉成數字..
 			
 //			RequestDispatcher succuessView = req.getRequestDispatcher("/P4_MessageBoard/showALL2.jsp");
 //			succuessView.forward(req, res);

@@ -156,7 +156,7 @@
 (function($) {
 	//當載入這個畫面時抓取現在是第幾頁並讓option停留在那個頁數(使用document速度比較快不用等網頁全部load完)
 	$(document).ready(function() {
-		var thispage='#'+<%=whichPage%>;
+		var thispage='#chosenPage'+<%=whichPage%>;
 		$(thispage).attr("selected", "true");
 	});
 

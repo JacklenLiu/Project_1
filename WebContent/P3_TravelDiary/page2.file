@@ -14,15 +14,18 @@
 
    
 <%if ( pageNumber > 1) {%>
-
+<%String chosenPage=""; %>
 <table border="0">   
  <tr> 
        
    <FORM METHOD="post" ACTION="<%=request.getRequestURI()%>">   
         <td>
            <select class="form-control size="1" name="whichPage">
-        <%for (int i=1; i<=pageNumber; i++){%>
-           <option value="<%=i%>" id="<%=i%>">第<%=i%>頁
+        <%for (int i=1; i<=pageNumber; i++){
+        	chosenPage = "chosenPage"+i;
+        %>
+        	
+           <option value="<%=i%>" id="<%=chosenPage%>">第<%=i%>頁
         <%}%> 
            </select>
            <input type="submit" class="btn btn-info form-control" value="確定">  

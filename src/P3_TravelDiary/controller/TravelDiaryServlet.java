@@ -1,6 +1,7 @@
 package P3_TravelDiary.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 import javax.servlet.*;
@@ -27,6 +28,11 @@ public class TravelDiaryServlet extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		// 取name=actoin 的value判別是按到哪一個功能
 		String action = req.getParameter("action");
+		
+		//給前端接收資料用
+		res.setContentType("text/html; charset=UTF-8"); //?
+		PrintWriter out = res.getWriter();
+		
 				
 		
 		// 測試判別帳號id
@@ -73,30 +79,30 @@ public class TravelDiaryServlet extends HttpServlet {
 		
 		}
 		
-		// 搜尋每篇文章的第一張圖片
-				if ("blog.do".equals(action)) {
-					List<String> errorMsgs = new LinkedList<String>();
-					req.setAttribute("errorMsgs", errorMsgs);
-					try {				
-						HttpSession session = req.getSession();
-						String memberinfo=(String)session.getAttribute("userLoginId");	
-						TravelDiaryService travelDiarySvc=new TravelDiaryService();	
+		// blog_one.jsp頁面 ，搜尋每篇文章的第一張圖片
+		if ("blog.do".equals(action)) {
+			List<String> errorMsgs = new LinkedList<String>();
+			req.setAttribute("errorMsgs", errorMsgs);
+				try {				
+					HttpSession session = req.getSession();
+					String memberinfo=(String)session.getAttribute("userLoginId");	
+					TravelDiaryService travelDiarySvc=new TravelDiaryService();	
 						
-						List<TravelDiaryVO> travelDiaryVO=travelDiarySvc.getPic2(memberinfo);
+					List<TravelDiaryVO> travelDiaryVO=travelDiarySvc.getPic2(memberinfo);
 						
-						req.setAttribute("travelDiaryVO", travelDiaryVO);
-						String url = "/P3_TravelDiary/blog_one.jsp";
-						RequestDispatcher successView = req.getRequestDispatcher(url);
-						successView.forward(req, res);
-					} catch (Exception e) {
-						errorMsgs.add("upload" + e.getMessage());
-						RequestDispatcher failureView = req
-								.getRequestDispatcher("/P3_TravelDiary/blog_all.jsp");
-						failureView.forward(req, res);
-
-					}
+					req.setAttribute("travelDiaryVO", travelDiaryVO);
+					String url = "/P3_TravelDiary/blog_one.jsp";
+					RequestDispatcher successView = req.getRequestDispatcher(url);
+					successView.forward(req, res);
+				} catch (Exception e) {
+					errorMsgs.add("upload" + e.getMessage());
+					RequestDispatcher failureView = req
+							.getRequestDispatcher("/P3_TravelDiary/blog_all.jsp");
+					failureView.forward(req, res);
 
 				}
+
+		}
 		
 		
 		
@@ -124,6 +130,7 @@ public class TravelDiaryServlet extends HttpServlet {
 				String projectName=req.getContextPath();
 				String url = projectName+"/P3_TravelDiary/blog_manage.jsp"; 
 				res.sendRedirect(url);
+				return;
 			} catch (Exception e) {
 				errorMsgs.add("刪除失敗" + e.getMessage());
 				RequestDispatcher failureView = req
@@ -206,6 +213,7 @@ public class TravelDiaryServlet extends HttpServlet {
 				String projectName=req.getContextPath();
 				String url= projectName+"/P3_TravelDiary/blog_manage.jsp";
 				res.sendRedirect(url);
+				return;
 			} catch (Exception e) {
 				// 將catch的錯誤訊息寫到errorMsgs
 				errorMsgs.add("修改資料失敗" + e.getMessage());
@@ -328,6 +336,50 @@ public class TravelDiaryServlet extends HttpServlet {
 			}
 
 		}
+		
+		
+		
+		//撈好友名單
+		if ("findMyFriends".equals(action)) {
+			//先從前端讀取會員ID用來去資料庫搜尋好友用
+			// 建立一個用來存放errorMsg的List
+			String friendID="";
+				/********************* 1.接收請求 **********************************/
+				// 讀取現在是哪個會員ID
+				String member_loginID = req.getParameter("member_loginID");
+				//System.out.println(member_loginID);
+				/********************* 2.開始查詢資料 ******************************/
+				// 請工頭去叫工人做事
+				TravelDiaryService travelDirarySvc = new TravelDiaryService();
+				friendID=travelDirarySvc.getFriends(member_loginID);
+				//System.out.println(friendID);
+				/********************* 3.查詢完畢，轉到修改的頁面 **************************/
+				out.print(friendID);
+			
+			
+		}
+		
+		
+		//從選單中抓取好友的部落格文章
+		if("MyFriendBlog".equals(action)){
+			String friendBlog="";
+			/********************* 1.接收請求 **********************************/
+			// 讀取現在是哪個會員ID
+			String myFriendID= req.getParameter("myFriendID");
+			//System.out.println("myFriendID="+myFriendID);
+			/********************* 2.開始查詢資料 ******************************/
+			// 請工頭去叫工人做事
+			TravelDiaryService travelDirarySvc = new TravelDiaryService();
+			//將json轉成字串格式接收
+			friendBlog=travelDirarySvc.getFriendsBlog(myFriendID);
+			//System.out.println(friendBlog);
+			/********************* 3.查詢完畢，轉到修改的頁面 **************************/
+			out.print(friendBlog);
+			
+			
+		}
+		
+		
 
 	}
 }

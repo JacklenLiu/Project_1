@@ -8,7 +8,7 @@ public class MsgVO implements java.io.Serializable {
 	private String	title;
 	private String	content;
 	private Date	build_time;
-	private String	message_stop;
+	private int	message_stop;
 	private int		replyfrom;
 	public int getMessageNum() {
 		return messageNum;
@@ -40,10 +40,10 @@ public class MsgVO implements java.io.Serializable {
 	public void setBuild_time(Date build_time) {
 		this.build_time = build_time;
 	}
-	public String getMessage_stop() {
+	public int getMessage_stop() {
 		return message_stop;
 	}
-	public void setMessage_stop(String message_stop) {
+	public void setMessage_stop(int message_stop) {
 		this.message_stop = message_stop;
 	}
 	public int getReplyfrom() {

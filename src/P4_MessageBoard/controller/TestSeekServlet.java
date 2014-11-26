@@ -67,16 +67,31 @@ public class TestSeekServlet extends HttpServlet {
 		}
 		
 		//回傳json給client端
+//		if("seek_friend2".equals(action)){
+//			String keyword = req.getParameter("keyword");
+//			System.out.println("你的搜尋字串為" + keyword);
+//			
+//			MemService memSvc = new MemService();
+//			String meminfo = memSvc.getAllJSON(keyword);
+//			out.println(meminfo);
+//			
+//			
+//		}
+		
+		
+		//回傳json給client端  (測試新的查詢 join 會員交友狀態)
 		if("seek_friend2".equals(action)){
 			String keyword = req.getParameter("keyword");
-			System.out.println("你的搜尋字串為" + keyword);
+			String loginID = req.getParameter("loginID");
+//			System.out.println("你的搜尋字串為" + keyword);
 			
 			MemService memSvc = new MemService();
-			String meminfo = memSvc.getAllJSON(keyword);
+			String meminfo = memSvc.getAllJSON2(loginID, keyword);
 			out.println(meminfo);
 			
 			
 		}
+		
 		
 	}
 
