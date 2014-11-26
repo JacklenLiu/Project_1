@@ -307,11 +307,13 @@
 		$("#but_seek").click(function(){					
 			$("#table1").show();			
 			$("#table1 td").remove();
-			var keyword=document.getElementById("keyword").value;			
+			var keyword=document.getElementById("keyword").value;
+			var ID2 = "<%=sionLoginId %>";
 	 		$.ajax({ 
 	 			"url": "TestSeekServlet",
 	 			"type":"post",
-	 			"data":{'action':'seek_friend2','keyword':keyword},
+// 	 			"data":{'action':'seek_friend2','keyword':keyword},
+				"data":{'action':'seek_friend2','keyword':keyword,'loginID':ID2},
 	 			"dataType":"text",
 	 			"success":function(datas){
 	 				
@@ -320,13 +322,19 @@
 	 				
 	 					var ID = "<%=sionLoginId %>";
 	 					if(item.member_loginID == ID){
-	 						$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid" value="沒看過這種請求" disabled="disabled" title="加自己做什麼啦" name=" ' + item.member_loginID + '"/></td></tr>"');
+// 	 						$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid" value="沒看過這種請求" disabled="disabled" title="加自己做什麼啦" name=" ' + item.member_loginID + '"/></td></tr>"');
 // 							$("tr:last").css('background-color','red');
 	 					}
 	 					else{
-	 						$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid" value="邀請" name="' + item.member_loginID + '"/></td></tr>"');
+	 						if(item.relationship_status == 1){
+	 							$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid" value="已是朋友囉" disabled="disabled" title="是想加幾次啦@@" name="' + item.member_loginID + '"/></td></tr>"');
 
-	 					}
+	 						}else{
+	 							$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid" value="邀請" name="' + item.member_loginID + '"/></td></tr>"');
+
+	 						}
+// 	 						$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid" value="邀請" name="' + item.member_loginID + '"/></td></tr>"');
+	 						}
 	 					
 	 				});
 	 			}	 			

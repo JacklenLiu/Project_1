@@ -33,8 +33,11 @@ public class MemDAO implements MemDAO_interface {
 	private static final String GET_ALL_MEM = "SELECT member_loginID, member_name, member_gender From "
 			+ "sysmember where member_loginID like ? OR member_name like ?";
 	
-	private static final String GET_ALL_MEM_JOIN_FRD = "select b.friend_loginID, b.relationship_status from "
-			+ "sysmember a left join member_friend b on a.member_loginID = b.member_loginID where a.member_loginID =? and b.friend_loginID='bbb123';";
+	private static final String GET_ALL_MEM_JOIN_FRD = "select tt.member_loginID, tt.member_name, tt.member_gender, temp.member_loginID , "
+			+ "temp.friend_loginID,temp.relationship_status	from "
+			+ "(select a.member_loginID, a.member_name, a.member_gender from sysmember a where member_loginID like ?) tt  "
+			+ "Left outer join (select *from member_friend b where member_loginID= ?) temp "
+			+ "on  tt.member_loginID=temp.friend_loginID";
 	
 	
 	@Override
@@ -128,6 +131,71 @@ try{
 				jsonObj.put(cols.get(0), rs.getString(1));//member_loginID
 				jsonObj.put(cols.get(1), rs.getString(2));//member_name
 				jsonObj.put(cols.get(2), rs.getString(3));//member_gender
+
+				jsonArray.put(jsonObj);
+			}
+			
+			meminfo = jsonArray.toString();
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}catch (JSONException e) {
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		return meminfo;
+	}
+
+
+
+	@Override
+	public String getAllJSON2(String loginID, String query_string) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<String> cols = new ArrayList<String>();
+		String meminfo="";
+		
+try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ALL_MEM_JOIN_FRD);	
+			
+			pstmt.setString(1,"%"+query_string+"%");
+			pstmt.setString(2,loginID);
+			rs = pstmt.executeQuery();
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int count = rsmd.getColumnCount();
+			for(int i = 1; i <= count; i++) {
+				cols.add(rsmd.getColumnLabel(i));
+			}
+			
+			JSONArray jsonArray = new JSONArray();
+			JSONObject jsonObj;
+			while(rs.next()){
+				jsonObj = new JSONObject();
+				jsonObj.put(cols.get(0), rs.getString(1));//member_loginID
+				jsonObj.put(cols.get(1), rs.getString(2));//member_name
+				jsonObj.put(cols.get(2), rs.getString(3));//member_gender
+				jsonObj.put(cols.get(5), rs.getString(6));//交友狀態
 
 				jsonArray.put(jsonObj);
 			}
