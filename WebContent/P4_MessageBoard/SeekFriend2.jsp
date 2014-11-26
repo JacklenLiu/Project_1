@@ -33,22 +33,38 @@
 <!-- datatalbe css & js -->
 <!-- <link href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css" rel="stylesheet"> -->
 <!-- <script src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script> -->
+
 <link rel="stylesheet" href="styles/jquery.dataTables.min.css" >
 <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
 
+<link href="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css" rel="stylesheet">
+<script src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>
 
 <style>    
-        table
+         #table1 
+         { 
+             border:1px solid green; 
+             width:400px; 
+             border-collapse:collapse; 
+         } 
+         
+       #table1 td
         {
-            border:1px solid green;
-            width:300px;
-            border-collapse:collapse;
-        }
-        td,th
-        {
-            border:1px solid green;
+            border:1px solid gray;
             padding:4px;
+            text-align:center; 
         }
+        #table1 th
+        {
+            border:1px solid gray;
+            padding:4px; 
+        }
+         
+/*         #table1 td,th,tr */
+/*         { */
+/*             border:1px solid green; */
+/*             padding:4px; */
+/*         } */
         
         .del{
           text-decoration:none;
@@ -86,7 +102,7 @@
 /* 調整搜尋列的大小 */
 			#div_searchtext{
 				float:left;
-				width: 300px;
+				width: 400px;
 			}
 			
 			
@@ -237,10 +253,10 @@
 	<table id="table2">
          <thead>
          <tr>
-             <th>ID</th>
+             <th style="text-align:center;">ID</th>
 <!--              <th>暱稱</th> -->
 <!--              <th>性別</th> -->
-             <th>朋友狀態</th>
+             <th style="text-align:center;">朋友狀態</th>
          </tr>
              </thead>
              
@@ -248,12 +264,12 @@
          
         	 <c:forEach var="list" items="${list}">
          		<tr>
-         			<td>${list.member_loginID}</td>
+         			<td style="text-align:center;">${list.member_loginID}</td>
          			<c:if test="${list.relationship_status == '0'}">
-         				<td>您尚未確認</td>
+         				<td style="text-align:center;">您尚未確認</td>
          			</c:if>
          			<c:if test="${list.relationship_status == '1'}">
-         				<td>已是朋友</td>
+         				<td style="text-align:center;">已是朋友</td>
          			</c:if>
 <%--          			<td>${list.relationship_status}</td> --%>
         		</tr>
@@ -271,14 +287,14 @@
 		<input type="button" value="搜尋" id="but_seek">
 <!-- 		<input type="hidden" name="action" value="seek_friend"> -->
 <!-- 	</form> -->
-
+<br><br>
 	<table id="table1">
-         <thead>
+         <thead style="background: #2191C0;font-size: 16px;">
          <tr>
-             <th>ID</th>
-             <th>暱稱</th>
-             <th>性別</th>
-             <th>邀請狀態</th>
+             <th style="text-align:center;">ID</th>
+             <th style="text-align:center;">暱稱</th>
+             <th style="text-align:center;">性別</th>
+             <th style="text-align:center;">邀請狀態</th>
          </tr>
              </thead>
          <tbody>      
@@ -287,14 +303,19 @@
 
 </div>
 
-	
+<br><br><br><br>	
 <!-- 	對話方塊 -->
-	<div id="dialog" title="交友邀請">
+	<div id="dialog" title="交友邀請" style="font-size: 30px;">
   		<p>
   			
   		</p>
 	</div>
 </div>	
+
+<div id="separation">
+<br>
+<br>
+</div>
 <!-- footer用 -->    
 <%@ include file="../platform/include_footer.jsp" %>    
 <!-- /footer用 -->  
@@ -360,7 +381,12 @@
 	 			"data":{'action':'invite_friend', 'vmember_loginID':ID, 'vfriend_loginID':$(this).prop("name")},
 	 			"dataType":"text",
 	 			"success":function(data){
-						$("#dialog").text(data).dialog();
+						$("#dialog").text(data).dialog({
+							maxWidth:600,
+					        maxHeight: 500,
+					        width: 420,
+					        height: 250,
+						});
 
 	 			}
 	 		});
@@ -381,8 +407,30 @@ var contextPath = "<%= contextPath %>"; //Project_1
 
 // 	   使用datatalbe
 	   $('#table2').dataTable({
+		   "sPaginationType":"full_numbers",
+		   "bPaginate":true,
+		   "oLanguage": {
+		   "sLengthMenu": "顯示 _MENU_ 筆記錄",
+		   "sZeroRecords": "無符合資料",
+		   "sInfo": "目前記錄：_START_ 至 _END_, 總筆數：_TOTAL_",
+		   "sSearch": "查詢",
+		   "oPaginate":{"sFirst":"首頁",
+               "sPrevious":"上頁",
+               "sNext":"下頁",
+               "sLast":"尾頁"
+               }
+		   }});
+	   
+// 	   $("#table1").dataTable({
+// 		   "bPaginate": false, //翻頁功能
+// 		   "bLengthChange": false, //改變每頁顯示數據數量
+// 		   "bFilter": false, //過濾功能
+// 		   "bSort": false, //排序功能
+// 		   "bInfo": false,//頁腳信息   
+	   
+// 		   });
+	   
 
-	   });
 
 	   $( "#accordion" ).accordion({
 		   collapsible: true
