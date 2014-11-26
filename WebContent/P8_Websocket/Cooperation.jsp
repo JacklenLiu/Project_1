@@ -28,8 +28,8 @@
   		<option value="東部" id="E">東部</option>
 	  </select>
 	  
-      <div id="stickerContainer">
-      	<ul id="viewulID" class="viewul"></ul>
+      <div id="stickerContainer" ondrop="dropback(event)" ondragover="allowDrop(event);">
+      	<ul id="viewulID" class="viewul" ></ul>
       </div>
       
     </aside>
@@ -134,15 +134,17 @@
 			.attr("data-sticker", imgarea + item.viewID +'_01')
 		 	.attr("data-viewname", item.viewname)
 		 	.attr("data-viewID", item.viewID)
+		 	.attr("action", "add")
 		 	.addClass("viewimge").attr("draggable",'true')
 			.bind('dragstart', function(event){
 		        drag(event);
-		    });
+		    }).addClass("fixli ui-widget-content ui-corner-tr");
 			console.log(item.viewID);
 			var viewimg = $('<li></li>')
 		 	.attr("data-sticker", imgarea + item.viewID +'_01')
 		 	.attr("data-viewname", item.viewname)
 		 	.attr("data-viewID", item.viewID)
+		 	.attr("action", "add")
 		 	//.attr("draggable",'true').attr("ondragstart",'drag(event)')
 		 	.attr("draggable",'true')
 		 	.bind('dragstart', function(event){
@@ -152,7 +154,7 @@
 		 	.append(imgtitle).append(imgs);
 			
 		    $('#viewulID').append(viewimg);
-		    
+		    //選擇地區時 刪掉 已拖移至右區的圖
 		    if($('#boardulID').find("li").attr("id") != null){
 		    var rightliID = $('#boardulID').find("li");
 		       $.each(rightliID,function(i, item){

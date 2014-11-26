@@ -23,15 +23,29 @@ public class StickerDecoder implements Decoder.TextStream<Sticker> {
   Sticker sticker = new Sticker();  //此時sticker為空的要用 Sticker.java裡的setter來給屬性
                                     
   if("add".equals(jsonSticker.getString("action"))){
-  sticker.setAction(jsonSticker.getString("action"));	  
-  sticker.setX(jsonSticker.getInt("x"));
-  sticker.setY(jsonSticker.getInt("y"));
-  sticker.setImage(jsonSticker.getString("sticker"));
-  sticker.setViewname(jsonSticker.getString("viewname"));
-  sticker.setViewID(jsonSticker.getString("viewID"));
-  
+	  
+      sticker.setAction(jsonSticker.getString("action"));	  
+      sticker.setX(jsonSticker.getInt("x"));
+      sticker.setY(jsonSticker.getInt("y"));
+      sticker.setImage(jsonSticker.getString("sticker"));
+      sticker.setViewname(jsonSticker.getString("viewname"));
+      sticker.setViewID(jsonSticker.getString("viewID"));
+      sticker.setDraggable(jsonSticker.getString("draggable"));
   }
+  
+  if("back".equals(jsonSticker.getString("action"))){
+	  
+	  sticker.setAction(jsonSticker.getString("action"));	  
+	  sticker.setX(jsonSticker.getInt("x"));
+	  sticker.setY(jsonSticker.getInt("y"));
+	  sticker.setImage(jsonSticker.getString("sticker"));
+	  sticker.setViewname(jsonSticker.getString("viewname"));
+	  sticker.setViewID(jsonSticker.getString("viewID"));
+	  sticker.setDraggable(jsonSticker.getString("draggable"));
+  }
+  
   if("addchat".equals(jsonSticker.getString("action"))){
+	  
 	  sticker.setAction(jsonSticker.getString("action"));
 	  sticker.setChat(jsonSticker.getString("chat"));
   }

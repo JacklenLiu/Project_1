@@ -27,7 +27,20 @@ public class StickerEncoder implements Encoder.TextStream<Sticker> {
             .add("sticker", sticker.getImage())
             .add("viewname", sticker.getViewname())
             .add("viewID", sticker.getViewID())
-            .build();}
+            .add("draggable", sticker.getDraggable())
+            .build();
+    	}
+    	if("back".equals(sticker.getAction())){
+    		jsonSticker = provider.createObjectBuilder()
+    		.add("action", sticker.getAction())
+    	    .add("x", sticker.getX())
+    	    .add("y", sticker.getY())
+    	    .add("sticker", sticker.getImage())
+    	    .add("viewname", sticker.getViewname())
+    	    .add("viewID", sticker.getViewID())
+    	    .add("draggable", sticker.getDraggable())
+    	    .build();	
+    	}
   
     	if("addchat".equals(sticker.getAction())){
         	jsonSticker = provider.createObjectBuilder()

@@ -5,6 +5,7 @@ var socket = null;
 function initialize() {
 	console.log(sionLoginId);
 	var rightDiv = document.getElementById("board");
+	var leftDiv = document.getElementById("stickerContainer");
     //rightDiv.appendChild(imageObj);
     //var img = document.getElementById("background_img");
    // ctx.drawImage(img, 0, 0);
@@ -19,29 +20,55 @@ function initialize() {
 // Drag and drop functionality
 function drag(ev) {
 	//取得滑鼠相對於瀏覽器頁面的位置
-    var bounds = ev.target.getBoundingClientRect();
+    
+    
+    if(ev.target.getAttribute("action") == "add"){
+    var bounds = ev.target.getBoundingClientRect();	
     var draggedSticker = { 
         sticker: ev.target.getAttribute("data-sticker"),
         viewname: ev.target.getAttribute("data-viewname"),
         viewID: ev.target.getAttribute("data-viewID"),
+        draggable: ev.target.getAttribute("draggable"),
+        action: ev.target.getAttribute("action"),
         offsetX: ev.clientX - bounds.left,
         offsetY: ev.clientY - bounds.top
-    };
+        };
+    
     var draggedText = JSON.stringify(draggedSticker);//轉換成JSON字串
     console.log(draggedText);
     ev.dataTransfer.setData("text", draggedText);//將拖移的元素id記錄起來 key:Text
-    
+    }
+    if(ev.target.getAttribute("action") == "back"){
+    	var leftDiv = ev.target.getBoundingClientRect();
+    	console.log("333");
+        var draggedSticker = { 
+            sticker: ev.target.getAttribute("data-sticker"),
+            viewname: ev.target.getAttribute("data-viewname"),
+            viewID: ev.target.getAttribute("data-viewID"),
+            draggable: ev.target.getAttribute("draggable"),
+            action: ev.target.getAttribute("action"),
+            offsetX: ev.clientX - leftDiv.left,
+            offsetY: ev.clientY - leftDiv.top
+            };
+        
+        var draggedText = JSON.stringify(draggedSticker);//轉換成JSON字串
+        console.log(draggedText);
+        ev.dataTransfer.setData("text", draggedText);//將拖移的元素id記錄起來 key:Text
+        }
 }
 
 function drop(ev) {
     ev.preventDefault();//取消預設功能
-    var bounds = document.getElementById("board").getBoundingClientRect();//取得放圖div於瀏覽器頁面的位置
+    
+    
     var draggedText = ev.dataTransfer.getData("text");//取得拖移的元素id
     var draggedSticker = JSON.parse(draggedText);//將JSON字串轉換為物件
-    console.log(draggedSticker+" = draggedSticker");
+    console.log(draggedSticker.action);
     
     
     //再打包送Server
+    if(draggedSticker.action == "add"){
+    var bounds = document.getElementById("board").getBoundingClientRect();//取得放圖div於瀏覽器頁面的位置
     var stickerToSend = {
     	//取得JSON物件的屬性↓  -> 物件.屬性 名稱   = 屬性值
         action: "add",//StickerEncoder.java
@@ -49,9 +76,30 @@ function drop(ev) {
         y: ev.clientY - draggedSticker.offsetY - bounds.top,
         sticker: draggedSticker.sticker,
         viewname: draggedSticker.viewname,
-        viewID: draggedSticker.viewID
+        viewID: draggedSticker.viewID,
+        draggable: draggedSticker.draggable
         
-    };
+        };
+    socket.send(JSON.stringify(stickerToSend));
+    log("Sending Object " + JSON.stringify(stickerToSend));
+    }
+    
+   /* if(draggedSticker.action == "back"){
+    var leftDiv = document.getElementById("viewulID").getBoundingClientRect();	
+    	console.log("444");	
+    var backToSend = {
+    	
+    	action: "change",//StickerEncoder.java
+        x: ev.clientX - draggedSticker.offsetX - leftDiv.left,
+        y: ev.clientY - draggedSticker.offsetY - leftDiv.top,
+        sticker: draggedSticker.sticker,
+        viewname: draggedSticker.viewname,
+        viewID: draggedSticker.viewID,
+        draggable: draggedSticker.draggable	
+        };
+    socket.send(JSON.stringify(backToSend));
+    log("Sending Object " + JSON.stringify(backToSend));
+    }
     /* var leftviewID = draggedSticker.viewID;
     var rightviewID = stickerToSend.viewID;
     
@@ -64,10 +112,34 @@ function drop(ev) {
     	leftUL.removeChild(leftview);
     	
     };*/
-    socket.send(JSON.stringify(stickerToSend));//轉成JSON字串並send
-    log("Sending Object " + JSON.stringify(stickerToSend));//轉成JSON字串並將Sending座標log
     
     
+    
+}
+function dropback(ev) {
+ev.preventDefault();//取消預設功能
+    
+    
+    var draggedText = ev.dataTransfer.getData("text");//取得拖移的元素id
+    var draggedSticker = JSON.parse(draggedText);//將JSON字串轉換為物件
+	
+	if(draggedSticker.action == "back"){
+	    var leftDiv = document.getElementById("viewulID").getBoundingClientRect();	
+	    	console.log("444");	
+	    var backToSend = {
+	    	
+	    	action: "back",//StickerEncoder.java
+	        x: ev.clientX - draggedSticker.offsetX - leftDiv.left,
+	        y: ev.clientY - draggedSticker.offsetY - leftDiv.top,
+	        sticker: draggedSticker.sticker,
+	        viewname: draggedSticker.viewname,
+	        viewID: draggedSticker.viewID,
+	        draggable: draggedSticker.draggable	
+	        };
+	    socket.send(JSON.stringify(backToSend));
+	    log("Sending Object " + JSON.stringify(backToSend));
+	    }
+	
 }
 
 function chatsend(chat){
@@ -94,7 +166,7 @@ function onSocketMessage(event) {
    if (event.data) {
       var receivedSticker = JSON.parse(event.data);//建立接收sticker的物件 <- data轉成JSON物件 
       log("Received Object: " + JSON.stringify(receivedSticker));//轉成JSON字串並將Received座標log
-      console.log(receivedSticker.viewname);
+      console.log(receivedSticker.sticker);
       
       console.log(receivedSticker.chat);
       
@@ -106,9 +178,21 @@ function onSocketMessage(event) {
 
          imageObj.src = "http://"+ serverName +":"+ serverPort + contextPath +"/GetImageServlet?id=" + receivedSticker.sticker;//放上images sources
          imageObj.className = imageObj.className + "viewimge";
-         
+         imageObj.setAttribute("action", "back");
+         imageObj.setAttribute("draggable",'true');
+         imageObj.setAttribute("data-sticker",receivedSticker.sticker);
+         imageObj.setAttribute("data-viewname",receivedSticker.viewname);
+         imageObj.setAttribute("data-viewID",receivedSticker.viewID);
+         imageObj.setAttribute("ondragstart","drag(event)");
+         console.log(imageObj);
          var eleli = document.createElement("li");
          eleli.setAttribute("id", receivedSticker.viewID);//取得viewID 並給<li>新屬性  = id
+         eleli.setAttribute("action", "back");
+         eleli.setAttribute("draggable","true");
+         eleli.setAttribute("data-sticker",receivedSticker.sticker);
+         eleli.setAttribute("data-viewname",receivedSticker.viewname);
+         eleli.setAttribute("data-viewID",receivedSticker.viewID);
+         eleli.setAttribute("ondragstart","drag(event)");
          console.log(eleli);
          eleli.appendChild(eleH).appendChild(imageObj);// <li id=".."> <h5>viewname</h5> <img></img>> </li> 
          eleli.className = eleli.className + "ui-widget-content ui-corner-tr";
@@ -127,6 +211,48 @@ function onSocketMessage(event) {
          leftUL.removeChild(leftview);
          boardscol.scrollTop = boardscol.scrollHeight;
   
+      }
+      if(receivedSticker.action == "back"){
+    	  console.log("555back");
+    	  var eleH2 = document.createElement("h5");
+     	  var txtName2 = document.createTextNode(receivedSticker.viewname);
+     	  eleH2.appendChild(txtName2);
+          var imageObj2 = new Image();
+
+          imageObj2.src = "http://"+ serverName +":"+ serverPort + contextPath +"/GetImageServlet?id=" + receivedSticker.sticker;//放上images sources
+          imageObj2.className = imageObj2.className + "viewimge";
+          imageObj2.setAttribute("action", "add");
+          imageObj2.setAttribute("draggable",'true');
+          imageObj2.setAttribute("data-sticker",receivedSticker.sticker);
+          imageObj2.setAttribute("data-viewname",receivedSticker.viewname);
+          imageObj2.setAttribute("data-viewID",receivedSticker.viewID);
+          imageObj2.setAttribute("ondragstart","drag(event)");
+          console.log(imageObj2);
+          var eleli2 = document.createElement("li");
+          eleli2.setAttribute("id", receivedSticker.viewID);//取得viewID 並給<li>新屬性  = id
+          eleli2.setAttribute("action", "add");
+          eleli2.setAttribute("draggable","true");
+          eleli2.setAttribute("data-sticker",receivedSticker.sticker);
+          eleli2.setAttribute("data-viewname",receivedSticker.viewname);
+          eleli2.setAttribute("data-viewID",receivedSticker.viewID);
+          eleli2.setAttribute("ondragstart","drag(event)");
+          console.log(eleli2);
+          eleli2.appendChild(eleH2).appendChild(imageObj2);// <li id=".."> <h5>viewname</h5> <img></img>> </li> 
+          eleli2.className = eleli2.className + "fixli ui-widget-content ui-corner-tr";
+          
+          
+         var leftUL2 = document.getElementById("viewulID");
+
+          //將拖曳圖拿掉(所有使用者);
+          var jsonviewID2 = JSON.stringify(eleli2.id);
+          console.log(jsonviewID2);
+          var rightUL2 = document.getElementById("boardulID");
+          var rightview  = document.querySelector('[data-viewID='+ jsonviewID2 +']');
+
+          //先appendChild 再removeChild
+          leftUL2.appendChild(eleli2);//<div> <ul><li> <h5>viewname</h5> <img></img> </li></ul></div>
+          rightUL2.removeChild(rightview);
+          
       }
       
       if(receivedSticker.action == "addchat"){

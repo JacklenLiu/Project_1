@@ -9,9 +9,20 @@ public class Sticker {
     private String chat;
     private String action;
     private String viewID;
-    public String getViewID() {
-		return viewID;
+    private String draggable;
+   
+	public String getDraggable() {
+		return draggable;
 	}
+
+	public void setDraggable(String draggable) {
+		this.draggable = draggable;
+	}
+	
+	public String getViewID() {
+			return viewID;
+	}
+
 
 	public void setViewID(String viewID) {
 		this.viewID = viewID;
