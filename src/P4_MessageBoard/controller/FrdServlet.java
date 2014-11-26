@@ -66,7 +66,7 @@ public class FrdServlet extends HttpServlet {
 			System.out.println("invite_msg = "+invite_msg);
 			
 			FrdService frdSvc = new FrdService();
-			frdSvc.addFrd(member_loginID, friend_loginID, invite_msg, 0);  // insert到資料庫
+			frdSvc.addFrd(member_loginID, friend_loginID, invite_msg, 0, "null");  // insert到資料庫
 			
 //			回到搜尋好友頁~~ 可再加好友
 //			RequestDispatcher succuessView = req.getRequestDispatcher("/P4_MessageBoard/SeekFriend.jsp");
@@ -167,7 +167,7 @@ public class FrdServlet extends HttpServlet {
 	
 			FrdService frdSvc = new FrdService();
 			frdSvc.updateFrd(friendNum);  // update到資料庫
-			frdSvc.addFrd(member_loginID, friend_loginID, "test沒作用啦", 1);  // insert到資料庫
+			frdSvc.addFrd(member_loginID, friend_loginID, "test沒作用啦", 1, "null");  // insert到資料庫
 			
 			
 			
@@ -216,7 +216,8 @@ public class FrdServlet extends HttpServlet {
 				for(int i=0; i< friendsJSONArray.length(); i++){
 					JSONObject friendsObj = new JSONObject();
 					String FrdName = frdSvc.getFrdsName(friendsJSONArray.getString(i));
-					friendsObj.put(friendsJSONArray.getString(i), FrdName);
+					friendsObj.put("friendID", friendsJSONArray.getString(i));
+					friendsObj.put("friendName", FrdName);
 					friendsJSONArrayAfter.put(friendsObj);
 				}								
 			} catch (JSONException e) {
@@ -225,6 +226,43 @@ public class FrdServlet extends HttpServlet {
 			out.print(friendsJSONArrayAfter.toString());
 		}
 		
+		//更新協作平台通知
+		if ("UpdateCoNotify".equals(action)) {
+			//memID->開平台者, frdID->被邀請加入平台者
+			String status="";
+			String memID = req.getParameter("memID");
+			String frdIDs = req.getParameter("frdID");
+			String msg = req.getParameter("msg");
+			System.out.println("34343");
+			System.out.println(frdIDs);
+			try {
+				JSONArray friendsJSONArray = new JSONArray(frdIDs);
+				System.out.println("get array");
+				System.out.println(friendsJSONArray.get(0));
+				FrdService frdSvc = new FrdService();			
+				for(int i=0; i< friendsJSONArray.length(); i++){
+					System.out.println("friendid");
+					System.out.println(friendsJSONArray.getString(i));
+					status = frdSvc.updateCoNotify(memID, friendsJSONArray.getString(i), msg);
+				}
+				
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			out.print(status);
+		}
+		
+		//我不參加協作平台
+		if ("FrdclearCoNotify".equals(action)) {
+			//memID->開平台者, frdID->被邀請加入平台者
+			String status="";
+			String memID = req.getParameter("memID");
+			FrdService frdSvc = new FrdService();			
+			status = frdSvc.FrdclearCoNotify(memID);		
+			out.print(status);
+		}
+
 	}
 
 }

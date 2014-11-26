@@ -421,7 +421,6 @@
     </footer>     
 
     </div><!-- end container -->
-    
 
  
 <div id="dialog-message" title="註冊成功"  hidden>
@@ -436,19 +435,19 @@
    	您修改的個人資料已成功，請牢記您的密碼!!
   </h5>
 </div>
-<div id="dialog-addFriend" title="選擇好友一起討論吧"  hidden>
+<div id="dialog-addFriend" title="邀請好友" hidden>
 		<span>
-			<h5 style="display:inline">請加入好友一起討論</h5> 
-			<select class="selectpicker show-menu-arrow" id="getFriends">
-<!-- 				<option value="bbb123">bbb123</option> -->
-<!--       			<option value="ccc123">ccc123</option> -->
-<!--       			<option value="ddd123">ddd123</option> -->
-			</select>
+			<h4 style="display:inline">選擇好友</h4> 
+			<select class="selectpicker show-menu-arrow" id="getFriends"></select>
 			<input type="button" id="addToFriend" value="+" />
 		</span>
-		<span id="friendSpan"></span>
-		<h5>說些什麼...</h5>
-  <textarea rows="4" cols="25">快點進來~大家都在等你囉!</textarea>
+		<br>
+		<div id="friendDiv" style="width:90%;"></div>
+		<h4>說些什麼...</h4>
+  <textarea id="textareamsgID" rows="4" cols="25">快點進來~大家都在等你囉!</textarea>
+</div>
+<div id="dialog-checkCoFromFrd" title="你朋友找你" hidden>
+		<h4>好友邀你</h4> 
 </div>
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
@@ -646,16 +645,77 @@ $(function() {
 		//***********昱豪_滑鼠移入出現div*********** 
        	
 		
-		//JKL開啟好友路徑規劃協作平台
+		//*************JKL 好友路徑規劃協作平台  START*************
+		//檢查是否有帶規劃協作平台事件
+		var frdplatform = "";
+		var dialogCoFromFrd= $("#dialog-checkCoFromFrd").dialog({
+			  autoOpen: false,
+		      modal: true,
+		      buttons: {
+		      	 "加入GO": function() {
+		      		 		source.close();
+		      		 		var url = "P4_MessageBoard/FrdServlet";
+		        			$.post(url, {"action":"FrdclearCoNotify","memID":"${userLoginId}"},function(data){
+		        				$("#dialog-checkCoFromFrd").dialog("close");
+		        				window.location.href="P8_Websocket/Cooperation.jsp?memID="+ frdplatform;
+		        			});
+		      			},
+		        "我才不想去咧": function(){
+		        			source.close();
+		        			var url = "P4_MessageBoard/FrdServlet";
+		        			$.post(url, {"action":"FrdclearCoNotify","memID":"${userLoginId}"},function(data){
+		        				$("#dialog-checkCoFromFrd").dialog("close");
+		        			});
+		        	   }
+		      }
+		  });	
+		
+		var source = new EventSource('platform/getRes.jsp?memID=${userLoginId}');
+		source.addEventListener('message', function(e) {
+			  if((e.data).length!=0){
+				  console.log(e.data);
+				  var notifymsg = JSON.parse(e.data);
+				  frdplatform = notifymsg.cooperation_friend;
+				  $('#dialog-checkCoFromFrd').dialog('option', 'title', notifymsg.frdName+' 邀請你一起規劃路線');
+				  $('#dialog-checkCoFromFrd > h4').text(notifymsg.invite_msg);
+				  
+				  dialogCoFromFrd.dialog("open");	  
+			  }
+			}, false);
+		
+		
+		//開啟好友路徑規劃協作平台
 		var dialogfriend= $("#dialog-addFriend").dialog({
 			  autoOpen: false,
 		      modal: true,
 		      buttons: {
 		      	 "開始討論GO": function() {
-		         	 		window.location.href="P8_Websocket/Cooperation.jsp?memID=${userLoginId}";
-		          			$( this ).dialog( "close" );
-		        		},
+		      		var friendids = new Array();
+		      		var friends = $('#friendDiv label');
+		      		console.log(friends);
+		      		$.each(friends, function(i, friend){
+		      			friendids[i] = $(friend).attr("id");
+		      		});
+		      		var url = "P4_MessageBoard/FrdServlet";
+		      		$.ajax({
+	            		"type": 'POST',
+	              		"url": url,
+	              		"data": {"action":"UpdateCoNotify", "memID": "${userLoginId}","frdID":JSON.stringify(friendids),"msg":$('#textareamsgID').val()},
+	              		"dataType":"text",
+	              		"async":false,
+	              		"success":function(datas){
+	              			console.log(datas);
+	              			
+	             		}
+	             	});
+		      		$('#getFriends').empty();
+		      		$('#friendDiv').empty();
+		      		$( this ).dialog( "close" );
+          			window.location.href="P8_Websocket/Cooperation.jsp?memID=${userLoginId}";
+		      			},
 		        	 "取消": function(){
+		        		    $('#getFriends').empty();
+		        		 	$('#friendDiv').empty();
 		        			$( this ).dialog( "close" );
 		        	   }
 		      }
@@ -663,27 +723,38 @@ $(function() {
 		
 		//加入協作好友列表
 		$('#addToFriend').click(function(e){
-			var friendList = $('#friendSpan').text();
-			friendList += $('#getFriends :selected').val()+" ";
-			$('#friendSpan').text(friendList);
+			var labObj = $('<label></label>').attr("id", $('#getFriends :selected').val())
+											 .text($('#getFriends :selected').text())
+											 .css("margin","2px");
+			$('#getFriends :selected').remove();
+			$('#friendDiv').append(labObj);
 		});
 		
 		$('#cooperationLink').click(function(e){
 			e.preventDefault();
+			var friendslist = new Array();
 			var url = "P4_MessageBoard/FrdServlet";
 			//增加景點hitRate
       		$.ajax({
             		"type": 'POST',
               		"url": url,
               		"data": {"action":"GetFriends", "memID": "${userLoginId}"},
+              		"dataType":"json",
               		"async":false,
-              		"success":function(data){
-              			console.log(data);
-             		}
+              		"success":function(datas){
+              			friendslist = datas;
+              		}
              	});
-      		
-			dialogfriend.dialog("open");
-			
+			$.each(friendslist, function(i, friend){
+				console.log(friend.friendID);
+				console.log(friend.friendName);
+				var friendop = $('<option></option>').val(friend.friendID)
+									  				 .text(friend.friendName);
+				$('#getFriends').append(friendop);
+			});
+			$('#textareamsgID').val("快點進來~大家都在等你囉!");
+      		dialogfriend.dialog("open");
+      	//*************JKL 好友路徑規劃協作平台  END*************
 		});
 		
 	 })(jQuery);

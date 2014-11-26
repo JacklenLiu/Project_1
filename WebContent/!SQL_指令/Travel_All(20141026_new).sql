@@ -115,7 +115,7 @@ insert into viewname values ('Dajiamazu','大甲鎮瀾宮','中部','台中市�
 insert into viewname values ('Lishan_Scenic_Area','梨山風景區','中部','台中市和平區福壽路',1,'24.2501542','121.1793697');
 insert into viewname values ('National_Taiwan_Museum_of_Fine_Arts','國立台灣美術館','中部','台中市西區五權西路一段2號',1,'24.140532','120.663324');
 insert into viewname values ('Oiwake_Station','追分火車站','中部','台中市大肚區追分街',1,'24.1206823','120.5700868');
-insert into viewname values ('Big_Hole_Scenic',' 大坑風景區','中部','台中市北屯區東山路二段濁水巷9之1號',1,'24.18925','');
+/*insert into viewname values ('Big_Hole_Scenic',' 大坑風景區','中部','台中市北屯區東山路二段濁水巷9之1號',1,'24.18925','');*/
 insert into viewname values ('Taichung_Park','臺中公園','中部','台中市北區精武路291-3號',1,'24.1457128','120.6850378');
 insert into viewname values ('Shalu_District',' 沙鹿之翼','中部','台中市沙鹿區三民路2-2號',1,'24.2375687','120.5694413');
 insert into viewname values ('Rainbow_Village',' 彩虹眷村','中部','台中市南屯區忠勇路19巷49號',1,'24.1336366','120.6103059');
@@ -183,17 +183,17 @@ insert into viewname values ('Xiaoyeliu','小野柳','東部','台東縣台東�
 insert into viewname values ('Taroko','太魯閣','東部','花蓮縣秀林鄉291號',1,'24.2002232','121.4526845');
 insert into viewname values ('Liyu_Lake','鯉魚潭','東部','花蓮縣壽豐鄉環潭北路100號',1,'23.9349091','121.5023948');
 insert into viewname values ('Fugang_Fish_Port','富岡漁港','東部','台東縣富岡街123號',1,'22.7917796','121.1923837');
-insert into viewname values ('Sanxiantai','三仙台','東部','成功鎮台東縣961',1,'23.125246','121.4166184');
+/*insert into viewname values ('Sanxiantai','三仙台','東部','成功鎮台東縣961',1,'23.125246','121.4166184');*/
 insert into viewname values ('Henan_Temple','和南寺','東部','花蓮縣花東海岸公路19號',1,'23.8757823','121.5996468');
 insert into viewname values ('Shanyuan','杉原-富山復魚區','東部','台東縣卑南鄉富山村杉原24號',1,'22.8352135','121.1864165');
 insert into viewname values ('Donghe_Bridge','東河橋','東部','台東縣花東海岸公路',1,'22.9750797','121.3071565');
 insert into viewname values ('Amis_Folk_Center','阿美族民俗中心','東部','台東縣成功鎮新村路25號',1,'23.018579','121.326759');
 insert into viewname values ('Chenggong','成功','東部','台東縣成功鎮白蓮路141號',1,'23.129003','121.3999673');
-insert into viewname values ('Dabaisha','大白沙','東部','台東縣綠島鄉環島公路',1,'22.6400148','121.4922562');
-insert into viewname values ('Zhaori_Hot_Spring','朝日溫泉','東部','台東縣綠島鄉溫泉路167號',1,'22.6401','121.4179928');
+/*insert into viewname values ('Dabaisha','大白沙','東部','台東縣綠島鄉環島公路',1,'22.6400148','121.4922562');*/
+/*insert into viewname values ('Zhaori_Hot_Spring','朝日溫泉','東部','台東縣綠島鄉溫泉路167號',1,'22.6401','121.4179928');*/
 insert into viewname values ('Zhiben','知本國家森林公園','東部','台東縣卑南鄉龍泉路290號',1,'22.6873002','120.9912858');
 insert into viewname values ('Rueisuei_Township','瑞穗鄉','東部','花蓮縣瑞穗鄉成功南路17號',1,'23.4966412','121.3761888');
-insert into viewname values ('Across_Mountain_Ancient_Trail','過山古道','東部','台東縣綠島鄉環島公路',1,'22.6444413','121.4952786');
+/*insert into viewname values ('Across_Mountain_Ancient_Trail','過山古道','東部','台東縣綠島鄉環島公路',1,'22.6444413','121.4952786');*/
 insert into viewname values ('Jialulan','加路蘭','東部','台東縣台東市松江路二段',1,'22.8068184','121.196625');
 insert into viewname values ('Jiqi_Beach_Recreation_Area','磯崎海濱遊憩區','東部','花蓮縣豐濱鄉花東海岸公路',1,'23.6988054','121.5507968');
 insert into viewname values ('Farglory_Ocean_Park','遠雄海洋公園','東部','花蓮縣壽豐鄉',1,'23.9001676','121.6009733');
@@ -353,9 +353,11 @@ insert into images values ('C_National_Taiwan_Museum_of_Fine_Arts_03','National_
 insert into images values ('C_Oiwake_Station_01','Oiwake_Station','追分火車站位於台中市的大肚區，建於日治時期西元1922年，火車站站房的結構主要以檜木木材搭建而成，至今已將近90年的歷史。','','');
 insert into images values ('C_Oiwake_Station_02','Oiwake_Station','追分火車站是台鐵海線的終點站，是少數未經過改建的海線車站之一。追分原為日文的(おいわけ)oiwake，是分岐路的意思。由於台灣曾經受日本人統治長達50年之久，因此台灣多處地名大多由日語漢字命名而成。','','');
 insert into images values ('C_Oiwake_Station_03','Oiwake_Station','因為如此吉利又特別的地名，更受許多學生族群或遊客們所吸引，尤其每到考季來臨，「追分－成功」的紀念車票變成為最為熱門的銷售車票，許多學生們便藉由此種方式討吉利，並祈求考試順利、金榜題名。','','');
+/*
 insert into images values ('C_Big_Hole_Scenic_01','Big_Hole_Scenic','大坑風景區位於台中市北屯區，素有『台中陽明山』之稱。民國65年，大坑風景區經台中市政府開發成立，面積3300公頃，海拔112公尺至860公尺，堪為台中的後花園。','','');
 insert into images values ('C_Big_Hole_Scenic_02','Big_Hole_Scenic','921大地震後，車籠埔斷層穿越大坑，地層劇烈變動後，許多專家發現了這裡的溫泉資源，因而開了新的觀光型態。大坑風景區擁有自然生態、溫泉泡湯與便捷的交通，曾獲選台中前十大熱門旅遊景點，遊客千萬不要錯過！','','');
 insert into images values ('C_Big_Hole_Scenic_03','Big_Hole_Scenic','大坑風景區夏天盛產荔枝，秋天盛產柑橘，秋冬可以賞楓溫泉，不論什麼時候都可以在此找得到新鮮感。大坑風景區擁有8條登山步道，一號至五號步道，全長11870公尺，連接大坑連坑巷以東至縣市界區。','','');
+*/
 insert into images values ('C_Taichung_Park_01','Taichung_Park','台中公園位於台中市公園路及自由路二段之間，佔地大約32,889坪，是台灣少數日據時代就保留至今的公園，也是台中面積最大的城市綠地。','','');
 insert into images values ('C_Taichung_Park_02','Taichung_Park','公園裡日月湖中的湖心亭，是雙併式頂的涼亭，該亭建於清光緒34年，與中山橋同列為台中市定古蹟，而園內的砲台山古稱為”大墩”，則是台中市市中心的起源。','','');
 insert into images values ('C_Taichung_Park_03','Taichung_Park','創立於1903年10月28日，園內綠草如茵、古樹林立、景色宜人，其中的人工湖更提供小船出租，而湖中的橋樑亦是欣賞公園美景的最佳之處。在市中心有如此舒適的公園環境，黃昏時分經常有不少朋友、家人、情侶在此漫步，假日更是踏青的好去處。','','');
@@ -539,9 +541,11 @@ insert into images values ('E_Liyu_Lake_03','Liyu_Lake','鯉魚潭的南端有�
 insert into images values ('E_Fugang_Fish_Port_01','Fugang_Fish_Port','富岡舊名為「猴子」，是早期東海岸原住民由綠島登島的第一站，再由此處向海岸線遷居，地緣附近仍留下部份遺址。','','');
 insert into images values ('E_Fugang_Fish_Port_02','Fugang_Fish_Port','漁港位於縱谷平原區出海口及台東三角洲邊緣地帶，是屬於海岸地形；附近海域為親潮、黑潮交會處，因此擁有豐富的漁場、海釣場，以及珊瑚資源，使得此區活動種類多樣且頻繁。','','');
 insert into images values ('E_Fugang_Fish_Port_03','Fugang_Fish_Port','由於富岡漁港是強勢開挖海岸兩成，故其港區高程與西側台地相差約十二公尺，因此漁港與自然地形地貌產生強烈對比。 ','','');
+/* 
 insert into images values ('E_Sanxiantai_01','Sanxiantai','位於台東縣成功鎮東北方的三仙台，是由離岸小島和珊瑚礁海岸所構成，島上奇石分布，其中有三塊巨大的岩石，傳說呂洞賓、李鐵拐、何仙姑曾登臨此島，因而得名。','','');
 insert into images values ('E_Sanxiantai_02','Sanxiantai','三仙台島的地質屬於都巒山集塊岩，原來是一處岬角，因海水侵蝕逐漸斷了岬角頸部，而成了離岸島。過去想參訪三仙台的遊客只能利用退潮時，涉水而過，1987年完成了八拱跨海步橋，它的波浪造型，宛如一條巨龍伏臥海上，銜接三仙台和本島，已成為東海岸極為著名的地標。','','');
 insert into images values ('E_Sanxiantai_03','Sanxiantai','而它最特別的莫過於那八個拱橋連接而成的跨海拱橋，長約四百公尺，有如巨龍橫臥於陸地與岬角海灣之間，而來此觀賞日出更是一大享受，金黃色的曙光灑在跨海大橋以及太平洋，配上變化萬千的雲彩，堪稱世界級的美景！而美麗的三仙台燈塔也不容錯過，建造於日治時期，是東海岸的第一座燈塔；造訪燈塔一路可看見台灣最美的海蝕地形，石門、壺穴、海蝕平台讓你對於自然的鬼斧神工一覽無遺！ ','','');
+ */
 insert into images values ('E_Henan_Temple_01','Henan_Temple','和南寺位在鹽寮村海岸公路旁，是傳慶老和尚於民國56年翻山越嶺到此修行時所創建，不但是東部著名的佛門道場，更是佛教藝術的殿堂。','','');
 insert into images values ('E_Henan_Temple_02','Henan_Temple','佛寺背倚青山，前臨浩瀚的太平洋，樸實無華的建築風格，加上不時傳來悠揚的梵音，讓人頓時進入祥和清幽的境界；寺後蒼翠的山巒上聳立一尊鵝黃色的觀音塑像，是名雕塑家楊英風的作品，其雍容莊嚴的法相，早已成為和南寺的地墂。','','');
 insert into images values ('E_Henan_Temple_03','Henan_Temple','沒有華麗的建築或金碧輝煌，簡簡單單的主體建築物座落在海岸山脈邊上。和南寺一向致力推廣宗教藝術文化，寺內不定期會有藝文展覽與表演活動。寺院周圍景觀也十分優美，沿著後山的步道緩行，草木扶疏，花影搖曳。最頂端造福觀音像前的平台是一覽景致的最佳地點，太平洋的水色就在眼前無限的延展開來，在樹蔭下沏一壺茶，離塵而靜心。','','');
@@ -557,21 +561,25 @@ insert into images values ('E_Amis_Folk_Center_03','Amis_Folk_Center','阿美族
 insert into images values ('E_Chenggong_01','Chenggong','成功鎮以前為「麻荖漏社」，1921年日人改為「新港」，戰後改為「成功」。有關麻荖漏名稱的起源說法不一，但直到清領末期此地仍為阿美族人聚落與耕作的所在。距今3,500年前之麒麟文化，以成功鎮之出土文物為最，像是石壁、岩棺、石斧、茅等，可知此地起源甚早。','','');
 insert into images values ('E_Chenggong_02','Chenggong','成廣澳天后宮是最早進駐後山的媽祖廟，建於清同治時期，成廣澳為東部海岸最大的天然港澳，福建籍劉進來由鹿港派到東部後山，臨行請鹿港天後宮的「媽祖」隨行護身，沿八通關古到由埔里到玉里，出安通再越過海岸山脈。','','');
 insert into images values ('E_Chenggong_03','Chenggong','西元１９４９年，成廣澳發生大火，延燒到天后宮，將茅草屋燒掉，信徒發願重修天后宮，翌年修建成朱瓦燕尾的水泥廟宇，屋頂斗拱的樑柱也為水泥取代，樑上圖案因請不到西部師傅，因此雇用成功鎮基翬一帶８名平埔族原住民彩繪施工，創下原住民參與廟宇建築的創舉。 ','','');
+/*
 insert into images values ('E_Dabaisha_01','Dabaisha','大白沙沙灘位於綠島南端突出的西南角，是綠島最大也最美麗的沙岸，美麗的白沙是由珊瑚顆礫及貝殼碎屑所組成的，綿延海岸線數百公尺長，有熱帶南方小島的風情。','','');
 insert into images values ('E_Dabaisha_02','Dabaisha','大白沙同時也是個潛水區，適合中級或高級的水肺潛水；而此處地形變化多，潮間帶生物種類豐富，又為非熱門路線，遊客稀少，適合雅好寧靜的旅者。','','');
 insert into images values ('E_Dabaisha_03','Dabaisha','珊瑚與貝殼碎屑堆積成的白色沙灘，是以礁岩岸為主的綠島，最大的一片沙灘，白沙、紫花、黑岩、綠水、藍天，交織出動人的景緻；沙灘周遭圍繞著由珊瑚、貝殼碎片岩化而成之礫岩，名日「灘岩」，潮間帶生物種類豐富。','','');
 insert into images values ('E_Zhaori_Hot_Spring_01','Zhaori_Hot_Spring','朝日溫泉位於綠島東南海岸礁岩潮間帶，屬於依山面海的地形，日據時代稱為「旭溫泉」。泉質澄澈透明，溫度約在攝氏60-70度，屬略呈酸性的硫酸鹽氯化物泉，但無濃烈硫磺味，帶有海水的鹹味，對人類皮膚無刺激性洗後並不黏澀，為罕見的鹹水溫泉。','','');
 insert into images values ('E_Zhaori_Hot_Spring_02','Zhaori_Hot_Spring','溫泉區的潮間帶遍佈著許多垂直向海的海蝕溝，也有許多大礁石片佈在沙底上，海床緩慢下降；礁石上覆蓋的以石珊瑚為主，軟珊瑚較少，適合初、中級水肺潛水。 ','','');
 insert into images values ('E_Zhaori_Hot_Spring_03','Zhaori_Hot_Spring','海底溫泉的形成可能是由於海水在附近斷層下滲至地底深處受地熱加溫成熱水後壓力增加，而又從地層縫隙中湧出地表而成溫泉，溫泉出露在潮間帶的礁岩間形成潮池，漲潮時隱入海中，退潮時露出海面，隨時為溫泉替換水質，冷熱交替，極富趣味。 ','','');
+*/
 insert into images values ('E_Zhiben_01','Zhiben','遊樂區海拔高度110~650公尺，全年氣候溫暖濕潤。區內動植物種類繁多。','','');
 insert into images values ('E_Zhiben_02','Zhiben','主要景觀有常綠闊葉樹次生林、百年大白榕、臺灣蝴蝶蘭、百年酸藤、知本溪流、瀑布、藥用植物園區、吊橋等。','','');
 insert into images values ('E_Zhiben_03','Zhiben','遊樂區三面環山，以知本溪流域與熙攘的溫泉飯店區相隔，是提供登山、健行、賞鳥、賞蝶、學術研究、遊憩及森林浴的最佳場所，亦為台東市郊假日郊遊的好去處。','','');
 insert into images values ('E_Rueisuei_Township_01','Rueisuei_Township','瑞穗鄉的主力農特產品為天鶴茶和文旦，遠近馳名。紅葉溫泉、瑞穗溫泉皆位於萬榮鄉轄區，但距離瑞穗鄉界甚近，皆為備受民眾喜愛之溫泉勝地。瑞穗鄉同時擁有泛舟、溫泉、銘茶等優良條件，已成為花蓮縣農業與觀光結合的知名去處。','','');
 insert into images values ('E_Rueisuei_Township_02','Rueisuei_Township','瑞穗鄉舊稱「水尾」，意思是秀姑巒溪之尾，後日本人因水尾的日文發音Mizuo，改為音近之「瑞穗」（Mizuho）。全鄉面積約有135平方公里，人口約1萬4千餘人，以秀姑巒溪激流泛舟而聞名全台。','','');
 insert into images values ('E_Rueisuei_Township_03','Rueisuei_Township','瑞穗鄉位於台灣花蓮縣中部偏南，北鄰光復鄉，西鄰萬榮鄉、卓溪鄉，東鄰豐濱鄉，南接玉里鎮，有北回歸線經過鄉境。鄉內居民以閩南人、客家人及原住民為主，而原住民又以阿美族為最多。','','');
+/*
 insert into images values ('E_Across_Mountain_Ancient_Trail_01','Across_Mountain_Ancient_Trail','過山古道過去是連接綠島公館村與溫泉村二側的交通要道，今日的過山古道是一條生態景觀豐富的森林步道，是體驗綠島山林景致的最佳路線！過山古道總長1.85公里，來回步行約需要90-100分鐘，從綠島機場旁的「登山步道」往上走，中途可看見「過山古道」入口，可走到另一邊的出口-公館溫泉村，沿途為山路，沿著石階步行，需要較好的體力。','','');
 insert into images values ('E_Across_Mountain_Ancient_Trail_02','Across_Mountain_Ancient_Trail','古道沿線可觀察到樹杞、蘭嶼土沉香、野牡丹、桃金娘等各種綠島典型的植物，人面蜘蛛、攀木蜥蝪更是處處可見，傍晚時分，甚至可以看到螢火蟲在林間穿梭飛舞，運氣好的話還能遇上野生梅花鹿，是一條生態景觀豐富的森林步道，建議到訪遊客漫步悠遊、細心觀察。','','');
 insert into images values ('E_Across_Mountain_Ancient_Trail_03','Across_Mountain_Ancient_Trail','綠島有兩條過山步道，一條是過山步道、一條是過山古道。古道是早期還沒有環島公路時南寮到溫泉區的唯一交通道路，而步道則是為健行而開闢專用的道路。這兩條路一側出入口同樣位於通往中山科學研究院中途的路旁；另一側，古道東邊出入口位於溫泉村旁，而步道的東邊出入口則是在朝日旅遊服務中心旁。','','');
+*/
 insert into images values ('E_Jialulan_01','Jialulan','加路蘭有一大片寬廣的草坪、休憩涼亭、解說站以及觀景台，不但提供了東海岸旅行的最佳休息站，也是個很適合的拍照景點，遊客們可在海邊聽海浪、吹海風，一邊迎著和煦陽光渡過悠閒時光。','','');
 insert into images values ('E_Jialulan_02','Jialulan','除了欣賞自然美景之外，區內也有不少由漂流木所組成的裝置藝術作品，其中有兩條魚矗立在海邊，取名為「我的好朋友」的裝置藝術作品，上面寫道：「歡迎過路的旅者，有一個輕鬆愉快的旅程！」其他還有「類窗櫺」、「日昇之舞」「風車組」、「哭泣的露珠」等，連休憩涼亭中的裝飾也可見漂流木的蹤影喔！','','');
 insert into images values ('E_Jialulan_03','Jialulan','因加路蘭休憩區鄰近小野柳風景區，因此延續著綺麗的風化、海蝕景觀，奇形礁岩星羅分佈，海岸線條紋路特殊，加上遊憩區腹地相當廣大，無視覺障礙，草地柔軟，如今已成為東海岸必遊之地。','','');
@@ -676,17 +684,18 @@ create table member_friend (
 	friend_loginID 		nvarchar(20)		 not null,
 	invite_msg	   		nvarchar(100)		 not null,
 	relationship_status int			    	 not null,
+	cooperation_friend  nvarchar(20)         not null,
 	
 	CONSTRAINT friend_member_loginID_fK  FOREIGN KEY (member_loginID) REFERENCES sysmember (member_loginID),
 	CONSTRAINT friend_friendNum_PK		 PRIMARY KEY (friendNum)
 	
 );
 
-insert into member_friend values ('aaa123','bbb123','我是你高中同學',0);
-insert into member_friend values ('aaa123','ccc123','不，我是你高中老師',0);
-insert into member_friend values ('aaa123','ddd123','交個朋友',0);
-insert into member_friend values ('ddd123','bbb123','嗨你好',0);
-insert into member_friend values ('eee123','bbb123','好久不見',0);
+insert into member_friend values ('aaa123','bbb123','我是你高中同學',0, 'null');
+insert into member_friend values ('aaa123','ccc123','不，我是你高中老師',0, 'null');
+insert into member_friend values ('aaa123','ddd123','交個朋友',0, 'null');
+insert into member_friend values ('ddd123','bbb123','嗨你好',0, 'null');
+insert into member_friend values ('eee123','bbb123','好久不見',0, 'null');
 
 /*路徑規劃*/
 create table route

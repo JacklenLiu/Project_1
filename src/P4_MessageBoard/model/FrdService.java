@@ -12,7 +12,7 @@ public class FrdService {
 	
 	
 	// 新增一筆友誼狀態(尚未確認其友誼狀態)
-	public FrdVO addFrd(String member_loginID, String friend_loginID, String invite_msg, int relationship_status){
+	public FrdVO addFrd(String member_loginID, String friend_loginID, String invite_msg, int relationship_status, String cooperation_friend){
 		
 		FrdVO frdVO = new FrdVO();
 		
@@ -20,6 +20,7 @@ public class FrdService {
 		frdVO.setFriend_loginID(friend_loginID);
 		frdVO.setInvite_msg(invite_msg);
 		frdVO.setRelationship_status(relationship_status);
+		frdVO.setCooperation_friend(cooperation_friend);
 		
 		dao.insert(frdVO);
 		
@@ -62,5 +63,23 @@ public class FrdService {
 	
 	public String getFrdsName(String memID){
 		return dao.getFrdsName(memID);
+	}
+	
+	public String updateCoNotify(String memID, String frdID, String msg){
+		return dao.updateCoNotify(memID, frdID, msg);
+	}
+	
+	public String getCoNotify(String memID){
+		return dao.getCoNotify(memID);
+	}
+	
+	public String clearCoNotify(String memID){
+		//memID -> 開啟平台者
+ 		return dao.clearCoNotify(memID);
+	}
+	
+	public String FrdclearCoNotify(String memID){
+		//memID -> 受邀加入平台者
+		return dao.FrdclearCoNotify(memID);
 	}
 }

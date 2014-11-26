@@ -12,6 +12,7 @@ import javax.websocket.server.ServerEndpoint;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 
+import P4_MessageBoard.model.FrdService;
 import P8_Websocket.model.Sticker;
 import P8_Websocket.model.StickerDecoder;
 import P8_Websocket.model.StickerEncoder;
@@ -83,8 +84,13 @@ public class StoryWebSocket {
 		   System.out.println("in close"); 
 		   sessionSet.remove(session);
 		   if(sessionSet.isEmpty()){
+			   //Clear all message when sessions has no connections.
+			   stickerSet.clear();
 			   sessionMap.remove(userName);
 			   stickerMap.remove(userName);
+			   //Clear cooperation_friend state which was userName.
+			   FrdService frdSrv = new FrdService();
+			   frdSrv.clearCoNotify(userName);
 		   }
 	   } 
 

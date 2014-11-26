@@ -55,7 +55,7 @@ public class AjaxFrdServlet extends HttpServlet {
 			if(count==0){
 				FrdService frdSvc = new FrdService();
 				String invite_msg = "嗨，還記得我嗎? 我是"+member_loginID+"啦，好久不見! 有空加我好友吧^^";
-				frdSvc.addFrd(member_loginID, friend_loginID, invite_msg, 0);  // insert到資料庫
+				frdSvc.addFrd(member_loginID, friend_loginID, invite_msg, 0, "null");  // insert到資料庫
 				
 				out.println("已發送邀請給" +friend_loginID + "，請靜候佳音!");
 				
