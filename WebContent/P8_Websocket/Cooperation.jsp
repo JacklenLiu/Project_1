@@ -14,9 +14,7 @@
     <header>
       <h1>多人協作平台</h1>
     </header>
-    <nav>
-      
-    </nav>
+
     <aside>
     
 
@@ -27,7 +25,7 @@
   		<option value="南部" id="S">南部</option>
   		<option value="東部" id="E">東部</option>
 	  </select>
-	  
+
       <div id="stickerContainer" ondrop="dropback(event)" ondragover="allowDrop(event);">
       	<ul id="viewulID" class="viewul" ></ul>
       </div>
@@ -35,7 +33,7 @@
     </aside>
     
     <div id="content" style="width:70% ;height:95%;">
-     <div id="board" style="width:100% ;height:50%;" ondrop="drop(event);" 
+     <div id="board" style="width:97% ;height:50%;" ondrop="drop(event);" 
           ondragover="allowDrop(event);" >
           <ul id="boardulID" class="boardul"></ul>
       </div >
@@ -45,7 +43,7 @@
      <input id="chatinput" type="text"></input>
      <input id="chatbt" type="button" value="送出">
      </span>
-     <input id="saveRoutebt" type="button" value="儲存路線">
+     <input id="saveRoutebt" type="button" value="儲存路線" class="savebt">
     </div>
     
   <div id="dialog-save" title="儲存路線" >
