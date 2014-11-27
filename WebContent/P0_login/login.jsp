@@ -149,7 +149,9 @@
           <div class="modal-header col-xs-11">
               <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
               <h2 class="modal-title" id="myModalLabel">會員登入   &nbsp; &nbsp;&nbsp; &nbsp;</h2><h4><span style="color:red;">${errorMSG }</span></h4>
+          ${errorStop}
           </div>
+           
           <div class="modal-body">
               <div class="row">
               	  <div class="col-xs-1"></div>
@@ -173,6 +175,7 @@
                                   </label>
                                   <p class="help-block">(if this is a private computer)</p>
                               </div>
+                              
                               <button type="submit" class="btn btn-success btn-block" id="loginBtn">Login</button>
                               <input type="hidden" name="action" value="LoginIdCheck">
                               
