@@ -28,6 +28,8 @@
 
 <script type="text/javascript" src="Scripts/msg.js"></script>
 <script type="text/javascript" src="Scripts/showmsg.js"></script>
+<link rel="stylesheet" href="styles/buttons.css" >
+<script type="text/javascript" src="Scripts/buttons.js"></script>
 <script type="text/javascript">
 
 
@@ -177,7 +179,7 @@ function ShowReply(x){
     					<textarea name="${list.messageNum}" id="${list.messageNum}" cols="30" rows="4" required placeholder="我想回覆..."></textarea>		
 						<input type="hidden" id=resp${list.messageNum} value="<%=sionLoginId %>">
 						<input type="hidden" name="reply_vfortitle" value="${list.title}">
-						<input type="button"  onclick="ShowReply(${list.messageNum})" value="回覆" class="reply_btn" id = "btn${list.messageNum}">
+						<input type="button"  onclick="ShowReply(${list.messageNum})" value="回覆" class="reply_btn button button-3d-action button-pill" id = "btn${list.messageNum}">
     
 <!--     <div> -->
 <!-- 	 <form action="FrdServlet" method="post"> -->

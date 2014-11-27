@@ -43,6 +43,8 @@ public class FrdDAO implements FrdDAO_interface {
 	private static final String UPDATE_COOPERATION_NULL_BY_MEMID = "UPDATE member_friend set cooperation_friend= ? where cooperation_friend=?";
 	private static final String UPDATE_COOPERATION_NULL_BY_FRDID = "UPDATE member_friend set cooperation_friend= ? where member_loginID=?";
 	
+	private static final String CHECK_SAME = "SELECT * from member_friend where member_loginID=? and friend_loginID = ?"; 
+	
 
 	@Override
 	public void insert(FrdVO frdVO) {
@@ -654,5 +656,59 @@ public class FrdDAO implements FrdDAO_interface {
 			}
 		}	
 		return status;
+	}
+
+
+	@Override
+	public int checksameinvite(String member_loginID, String friend_loginID) {
+		
+		int qry_result=0;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(CHECK_SAME);
+			pstmt.setString(1,member_loginID);
+			pstmt.setString(2,friend_loginID);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				
+				qry_result = rs.getInt(1);
+//				System.out.println("The count is " + rs.getInt(1));
+
+			}
+
+		} catch (SQLException se) {
+			throw new RuntimeException("A DB (getALL) error occured. "
+					+ se.getMessage());
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace(System.err);
+				}
+			}
+
+		}
+		return qry_result;
 	}
 }
