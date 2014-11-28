@@ -40,6 +40,10 @@
 <link href="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css" rel="stylesheet">
 <script src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>
 
+<link rel="stylesheet" href="styles/buttons.css" >
+<script type="text/javascript" src="Scripts/buttons.js"></script>
+
+
 <style>    
          #table1 
          { 
@@ -253,10 +257,10 @@
 	<table id="table2">
          <thead>
          <tr>
-             <th style="text-align:center;">ID</th>
+             <th style="text-align:center; color:#2191C0; font-size: 20px">ID</th>
 <!--              <th>暱稱</th> -->
 <!--              <th>性別</th> -->
-             <th style="text-align:center;">朋友狀態</th>
+             <th style="text-align:center; color:#2191C0; font-size: 20px">朋友狀態</th>
          </tr>
              </thead>
              
@@ -282,9 +286,9 @@
 <div id = "div_searchtext">
 
 <!-- 	<form name="myData" method="post" action="TestSeekServlet"> -->
-		<input type="text" name="keyword" id="keyword" placeholder="搜尋人"> <span id="loader"></span>
+		<input type="text" name="keyword" id="keyword" placeholder="搜尋人" > <span id="loader"></span>
 <!-- 		<input type="submit" value="搜尋(換頁)"> -->
-		<input type="button" value="搜尋" id="but_seek">
+		<input type="button" class="button button-3d-primary button-rounded" value="搜尋" id="but_seek" >
 <!-- 		<input type="hidden" name="action" value="seek_friend"> -->
 <!-- 	</form> -->
 <br><br>
@@ -348,10 +352,10 @@
 	 					}
 	 					else{
 	 						if(item.relationship_status == 1){
-	 							$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid" value="已是朋友囉" disabled="disabled" title="是想加幾次啦@@" name="' + item.member_loginID + '"/></td></tr>"');
+	 							$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid button button-pill button-flat-primary" value="已是朋友囉" disabled="disabled" title="是想加幾次啦@@" name="' + item.member_loginID + '"/></td></tr>"');
 
 	 						}else{
-	 							$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid" value="邀請" name="' + item.member_loginID + '"/></td></tr>"');
+	 							$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid button button-pill button-primary" value="邀請" name="' + item.member_loginID + '"/></td></tr>"');
 
 	 						}
 // 	 						$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid" value="邀請" name="' + item.member_loginID + '"/></td></tr>"');

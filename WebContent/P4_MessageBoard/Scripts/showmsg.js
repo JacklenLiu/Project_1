@@ -39,7 +39,10 @@ $(document).ready(function(){
 		//var ta = document.getElementById("3").value;
 		//alert("ta = "+ ta);
 		var ta22 = $(this).prev().prev().prev().val();
-// 		alert("回應內容 =" + ta22);	
+// 		alert("回應內容 =" + ta22);
+ 		if(ta22==""){
+ 		}else{
+ 		
 		var ta23 = $(this).prev().prev().prev().attr("name");
 // 		alert("我是回應第   " + ta23 + "篇");
 		var ta24 = $(this).prev().val();
@@ -54,6 +57,7 @@ $(document).ready(function(){
 			 "data":{'reply_vuser':ta25,'reply_vfortitle':"RE:"+ta24,'reply_vcontent':ta22,'reply_vforwho':ta23},
 			 "dataType":"text",  //json,xml
 		 });
+ 		}
 	});
 	
 	

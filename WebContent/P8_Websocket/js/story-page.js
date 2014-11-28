@@ -21,9 +21,11 @@ function initialize() {
 function drag(ev) {
 	//取得滑鼠相對於瀏覽器頁面的位置
     
-    
+	
     if(ev.target.getAttribute("action") == "add"){
-    var bounds = ev.target.getBoundingClientRect();	
+   
+    
+    var bounds = ev.target.getBoundingClientRect();
     var draggedSticker = { 
         sticker: ev.target.getAttribute("data-sticker"),
         viewname: ev.target.getAttribute("data-viewname"),
@@ -36,7 +38,9 @@ function drag(ev) {
     
     var draggedText = JSON.stringify(draggedSticker);//轉換成JSON字串
     console.log(draggedText);
-    ev.dataTransfer.setData("text", draggedText);//將拖移的元素id記錄起來 key:Text
+    ev.dataTransfer.setData("text", draggedText);//將拖移的元素id記錄起來 key:Text*/
+    	
+    	
     }
     if(ev.target.getAttribute("action") == "back"){
     	var leftDiv = ev.target.getBoundingClientRect();
@@ -61,7 +65,8 @@ function drop(ev) {
     ev.preventDefault();//取消預設功能
     
     
-    var draggedText = ev.dataTransfer.getData("text");//取得拖移的元素id
+    var draggedText = ev.dataTransfer.getData("text");//取得拖移的元素
+    console.log(draggedText);
     var draggedSticker = JSON.parse(draggedText);//將JSON字串轉換為物件
     console.log(draggedSticker.action);
     
@@ -84,7 +89,7 @@ function drop(ev) {
     log("Sending Object " + JSON.stringify(stickerToSend));
     }
     
-   /* if(draggedSticker.action == "back"){
+    if(draggedSticker.action == "back"){
     var leftDiv = document.getElementById("viewulID").getBoundingClientRect();	
     	console.log("444");	
     var backToSend = {
@@ -124,7 +129,7 @@ ev.preventDefault();//取消預設功能
     var draggedSticker = JSON.parse(draggedText);//將JSON字串轉換為物件
 	
 	if(draggedSticker.action == "back"){
-	    var leftDiv = document.getElementById("viewulID").getBoundingClientRect();	
+	    var leftDiv = document.getElementById("stickerContainer").getBoundingClientRect();	
 	    	console.log("444");	
 	    var backToSend = {
 	    	
@@ -210,6 +215,7 @@ function onSocketMessage(event) {
          rightUL.appendChild(eleli);//<div> <ul><li> <h5>viewname</h5> <img></img> </li></ul></div>
          leftUL.removeChild(leftview);
          boardscol.scrollTop = boardscol.scrollHeight;
+         
   
       }
       if(receivedSticker.action == "back"){

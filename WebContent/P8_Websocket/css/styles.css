@@ -68,31 +68,64 @@ aside{
     background-color: #e9e9e9;
     left:31%;
     top:50px;
-    right: 0px;
+    right: 20%;
     padding: 2px;
+    float:left;
 }
 #board {
     position: absolute;
     background-color: #e9e9e9;
-    right: 0px;
+    right: 20px;
     padding: 2px;
     overflow:auto;
 }
 #chatDiv{
-	width:1000px ;
-	height:25%; 
+	width:75% ;
+	height:35%; 
 	overflow:auto; 
-	margin-top:45%;
-	border:2px solid blue;
+	margin-top:50%;
+	background-color:#F0FFF0;
+	border-radius:5px;
 }
 #chatinput{
-	
+	width:25% ;
+	height:5%; 
 }
-
-canvas{
-    background-color: white;
-    border:1px solid black;
+@-webkit-keyframes bluePulse {
+  from { background-color: #00BFFF; -webkit-box-shadow: 0 0 9px #6495ED; }
+  50% { background-color: #87CEFA; -webkit-box-shadow: 0 0 18px #00BFFF; }
+  to { background-color: #00BFFF; -webkit-box-shadow: 0 0 9px #6495ED; }
 }
+.savebt {
+  -webkit-animation-name: bluePulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  font-weight:900;
+  font-size:medium;
+  -webkit-text-fill-color: #FFFFFF;
+  width:80px;
+  height:38px;
+  border-radius:5px;
+}
+@-webkit-keyframes blue2Pulse {
+  from { background-color: #87CEFA; -webkit-box-shadow: 0 0 9px #87CEFA; }
+  50% { background-color: #87CEFA; -webkit-box-shadow: 0 0 18px #87CEFA; }
+  to { background-color: #87CEFA; -webkit-box-shadow: 0 0 9px #87CEFA; }
+}
+#chatbt{
+  -webkit-animation-name: blue2Pulse;
+  -webkit-animation-duration: 100s;
+  -webkit-animation-iteration-count: infinite;
+  font-weight:900;
+  font-size:medium;
+  -webkit-text-fill-color: #FFFFFF;
+  width:80px;
+  height:38px;
+  border-radius:5px;
+}
+#board{
+    background-color: #F0FFFF;
+}   
 footer {
     position: absolute;
     bottom: 0px;

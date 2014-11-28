@@ -167,7 +167,22 @@ public class FrdServlet extends HttpServlet {
 	
 			FrdService frdSvc = new FrdService();
 			frdSvc.updateFrd(friendNum);  // update到資料庫
-			frdSvc.addFrd(member_loginID, friend_loginID, "test沒作用啦", 1, "null");  // insert到資料庫
+			
+			
+			
+			
+			FrdDAO dao = new FrdDAO();
+			int friendNumSame = dao.checksameinvite(member_loginID, friend_loginID);
+			
+			
+			//如果對方沒邀請過你  就新增一筆   如果對方也邀請過你  那就更新那一筆就好了....
+			if(friendNumSame==0){
+				frdSvc.addFrd(member_loginID, friend_loginID, "test沒作用啦", 1, "null");  // insert到資料庫
+				System.out.println("friendNumSame =0" );
+			}else{
+				frdSvc.updateFrd(friendNumSame);//更新對方邀請的那一筆....
+				System.out.println("friendNumSame =" + friendNumSame );
+			}
 			
 			
 			

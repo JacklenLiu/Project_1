@@ -28,6 +28,13 @@
 
 <script type="text/javascript" src="Scripts/msg.js"></script>
 <script type="text/javascript" src="Scripts/showmsg.js"></script>
+<link rel="stylesheet" href="styles/buttons.css" >
+<script type="text/javascript" src="Scripts/buttons.js"></script>
+
+<!-- sweetalert -->
+<link rel="stylesheet" href="styles/sweet-alert.css" >
+<script type="text/javascript" src="Scripts/sweet-alert.min.js"></script>
+
 <script type="text/javascript">
 
 
@@ -41,11 +48,18 @@ function ShowReply(x){
 	var content = ta.value;
 	var rr = ta2.value;
 	
+	if(content==""){
+		swal("回覆不要空白喔!");
+	}else{
+		
+	
+	
 	//cite0
 	//img
 	var cite0=document.createElement("cite");
 	var eleImg = document.createElement("img");//想放進去的圖片
-	eleImg.setAttribute("src", "images/pic0.jpg");
+	var temp = "images/pic" +Math.floor((Math.random() * 5)) + ".jpg";
+	eleImg.setAttribute("src", temp);
 	eleImg.setAttribute("width", "30");
 	eleImg.setAttribute("height", "30");
 	cite0.appendChild(eleImg); //把圖片放在<cite>下   把<img>放在<cite>下
@@ -80,7 +94,7 @@ function ShowReply(x){
 	
 	
 	theDIV3.insertBefore(p0, theDIV3.childNodes[0]);
-
+	}
 }
 
 </script>
@@ -153,7 +167,9 @@ function ShowReply(x){
 <c:forEach var="list" items="${list}">
 <c:if test="${list.replyfrom == '0'}">
 	<c:if test="${list.message_stop == '0'}">
-  <h3><cite><span style="weigh:10px"><img src="images/pic4.jpg" width="35" height="35"> ${list.member_loginID}</span><span style="position:absolute;left:180px;"><b>${list.title}</b></span></cite><span style="float:right;" >${list.build_time}</span></h3>
+	<% int j = (int)( Math.random() * 5); %>
+	
+  <h3><cite><span style="weigh:10px"><img src="images/pic<%=j %>.jpg" width="35" height="35"> ${list.member_loginID}</span><span style="position:absolute;left:180px;"><b>${list.title}</b></span></cite><span style="float:right;" >${list.build_time}</span></h3>
   <div>
     <p><span style="position:relative;left:30px;"><b>${list.content}</b></span> </p>
     <hr>
@@ -166,18 +182,18 @@ function ShowReply(x){
 					<c:forEach var="list2" items="${list2}">
 						<c:if test="${list2.replyfrom == list.messageNum}">
 						<c:if test="${list2.message_stop == '0'}">
-								
-							<div>${list2.member_loginID}:${list2.content}
-							<span style="float:right;" >${list2.build_time}</span></div>
+							<% int jj = (int)( Math.random() * 5); %>	
+							<div style="color:blue;"><img src="images/pic<%=jj %>.jpg" width="35" height="35"><b>${list2.member_loginID}:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${list2.content}
+							<span style="float:right;" >${list2.build_time}</span><hr width="80%"></div>
 						</c:if>
 						</c:if>
 				    </c:forEach>
 				</div>
 				<br>
-    					<textarea name="${list.messageNum}" id="${list.messageNum}" cols="30" rows="4" required placeholder="我想回覆..."></textarea>		
+    					<textarea name="${list.messageNum}"  id="${list.messageNum}" cols="30" rows="4"  placeholder="我想回覆..."></textarea>		
 						<input type="hidden" id=resp${list.messageNum} value="<%=sionLoginId %>">
 						<input type="hidden" name="reply_vfortitle" value="${list.title}">
-						<input type="button"  onclick="ShowReply(${list.messageNum})" value="回覆" class="reply_btn" id = "btn${list.messageNum}">
+						<input type="button"  onclick="ShowReply(${list.messageNum})" value="回覆" class="reply_btn button button-3d-action button-pill" id = "btn${list.messageNum}">
     
 <!--     <div> -->
 <!-- 	 <form action="FrdServlet" method="post"> -->

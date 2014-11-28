@@ -96,6 +96,16 @@ public class LoginServlet extends HttpServlet {
 					rd.forward(request, response);
 				}
 				
+				
+				System.out.println(mb.getMember_stop());
+				
+				
+				if("Y".equalsIgnoreCase(mb.getMember_stop().trim().toString())){
+					HttpSession session = request.getSession();	
+					session.setAttribute("errorStop", "<h3 style='color:red'><b>此帳號已被停權!!&nbsp;&nbsp;&nbsp;詳情請聯絡客服!</b></h3>");
+					response.sendRedirect("login.jsp");
+					return;
+				}
 
 				if (mb != null && mb.getMember_loginID().equals(userId) && mb.getMember_password().equals(password)) {
 					//request.setAttribute("userId", mb.getMember_name());
