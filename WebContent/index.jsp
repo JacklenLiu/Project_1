@@ -36,10 +36,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/start/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
- 
+  
+  
 <style>
 	body {
     	background-image: url("Images/backgound.png");
@@ -463,7 +464,9 @@
 <!-- <script type="text/javascript" src="P0_login/js/jquery.validate.js"></script>  -->
 <!-- Script to Activate the Carousel -->
 <script type='text/javascript' src='js/1.3.1_jquery.marquee.min.js'></script>
-
+<!-- 路線協作平台 -->
+<%-- <script type='text/javascript' src='js/CoPlatform.js'  data-sionLoginId='<%= sionLoginId %>'></script> --%>
+<!-- 路線協作平台  -->
 <script>
 $(function() {
 	$('.marquee').marquee({duration: 12000});	
@@ -489,6 +492,7 @@ $(function() {
 		var serverName = "<%= request.getServerName()%>";
 		var serverPort = "<%= request.getServerPort()%>";
 		var contextPath = "<%= request.getContextPath()%>";
+		var sionLoginId = "<%= sionLoginId %>"; //aa123
 
 		var inviteCount = "${invite_count}";
     	if(inviteCount != 0 ){
@@ -646,6 +650,7 @@ $(function() {
        	
 		
 		//*************JKL 好友路徑規劃協作平台  START*************
+		
 		//檢查是否有帶規劃協作平台事件
 		var frdplatform = "";
 		var dialogCoFromFrd= $("#dialog-checkCoFromFrd").dialog({
@@ -756,6 +761,7 @@ $(function() {
       		dialogfriend.dialog("open");
       	//*************JKL 好友路徑規劃協作平台  END*************
 		});
+		
 		
 	 })(jQuery);
 	//***********昱豪*********** 

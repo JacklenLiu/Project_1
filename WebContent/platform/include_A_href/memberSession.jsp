@@ -21,7 +21,10 @@
 </li>
 
 <script>
-(function($){ 
+(function($){
+	var test = '<%= session.getAttribute("userName") %>';
+	console.log('test');
+	console.log(test);
 	var inviteCount = "${invite_count}";
 	if(inviteCount != 0 ){
 		$("#friendManage").html("<b>${invite_count}</b>").css("color","blue");

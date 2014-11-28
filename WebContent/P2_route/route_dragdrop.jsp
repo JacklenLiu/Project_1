@@ -16,7 +16,8 @@
       	}                
 	%>
     <link rel="stylesheet" href="Jacklen_css/Jacklen.css"> <!--蕙齊css-->
-	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
+<!-- 	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> 蕙齊link  -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 	
 	<!-- 調整navbar btn -->
 	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
@@ -39,7 +40,7 @@
                                 <a href="route_plan.jsp">路經規劃</a>
                             </li>
                             <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
+                                <a href="#" id="cooperationLink">與好友同步規劃</a>
                             </li>
                             <li>
                                 <a href="portfolio-3-col.html">3 Column Portfolio</a>
@@ -65,6 +66,20 @@
     </div>
     <!-- /.container -->
 </nav>
+<div id="dialog-addFriend" title="邀請好友" hidden>
+		<span>
+			<h4 style="display:inline">選擇好友</h4> 
+			<select class="selectpicker show-menu-arrow" id="getFriends" style="color:black"></select>
+			<input type="button" id="addToFriend" value="+" style="color:black"/>
+		</span>
+		<br>
+		<div id="friendDiv" style="width:90%;"></div>
+		<h4>說些什麼...</h4>
+  <textarea id="textareamsgID" rows="4" cols="25" style="color:black">快點進來~大家都在等你囉!</textarea>
+</div>
+<div id="dialog-checkCoFromFrd" title="你朋友找你" hidden>
+		<h4>好友邀你</h4> 
+</div>
 <%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
 <%@ include file="../platform/include_picture/include_picture.jsp" %>
 <!-- ******************************************************************* -->
@@ -123,18 +138,22 @@
 	
 	
 <div id="mainDiv" class="ui-widget ui-helper-clearfix">
-	<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"></ul>
-	<div id="resultdiv" style="width:410px; display:inline">
+	<div id="gallerydiv" class="ui-widget-content ui-state-default col-lg-4 col-sm-6">
+		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">拖曳景點</span> 拖曳景點</h4>
+		<ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix"></ul>
+<!-- 	<div id="resultdiv" style="width:410px; display:inline"> -->
 <!-- 		<div id="inner"></div> -->
-		<div id="mapdiv" class="ui-widget-content ui-state-default">
-			<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">地圖</span> 地圖</h4>
-			<div id="map"></div>		
-		</div>
 	</div>
 	
-	<div id="route" class="ui-widget-content ui-state-default">
-		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">路徑規劃</span> 路徑規劃</h4>
+	<div id="mapdiv" class="ui-widget-content ui-state-default col-lg-4 col-sm-6">
+		<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">地圖</span> 地圖</h4>
+		<div id="map"></div>		
 	</div>
+	
+		<div id="route" class="ui-widget-content ui-state-default col-lg-4 col-sm-6">
+			<h4 class="ui-widget-header"><span class="ui-icon ui-icon-image">路徑規劃</span> 路徑規劃</h4>
+		</div>
+	
 </div>
 <div id="dialog-save" title="儲存路線">
   <h2 class="validateTips">路線名稱</h2>
@@ -159,7 +178,6 @@
 <script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
 <!-- <script src="http://maps.google.com/maps/api/js?sensor=false"></script> -->
 <script src='../Script/jquery.tinyMap.js'></script>
- 
 <script>
 
 		var serverName = "<%= serverName %>"; //localhost
@@ -272,10 +290,10 @@
             									   		.append(imgs);						
             			
             					var viewimg = $(imgs).attr("src");
-            					var alinkdesc = $('<a></a>').attr("title", "景點描述")
-            												.attr("href",viewimg)			//check pic
-															.addClass("ui-icon ui-icon-zoomin")
-															.text("景點描述");
+//             					var alinkdesc = $('<a></a>').attr("title", "景點描述")
+//             												.attr("href",viewimg)			//check pic
+// 															.addClass("ui-icon ui-icon-zoomin")
+// 															.text("景點描述");
             			
             					var alinkaddroute = $('<a></a>').attr("title", "加入行程")
 																.addClass("ui-icon ui-icon-plus")
@@ -286,7 +304,7 @@
             														  //.attr("data-title","Img1")							  		  
             														  .append(namehead)
                       										  		  .append(alinkimg)
-                    										  		  .append(alinkdesc)
+                    										  		  //.append(alinkdesc)
                     										  		  .append(alinkaddroute);
             			
             					var alinkdetailclose = $('<a></a>').attr("href","#")
@@ -304,6 +322,7 @@
             					var nextimg1 = $('<img></img>').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+imgarea+ item.viewID + '_02')
             												   .attr("id", imgarea+ item.viewID + '_02')
             												   .css(nextimgcss)
+            												   
             												   .click(tinyimgclick);
             					var nextimg2 = $('<img></img>').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+imgarea+ item.viewID + '_03')
             												   .attr("id", imgarea+ item.viewID + '_03')
@@ -344,7 +363,7 @@
             							              			 if ( $target.is( "a.ui-icon-plus" ) ) {
             							                			 deleteImage( $item );
             							              			 } else if ( $target.is( "a.ui-icon-zoomin" ) ) {
-            							                			 viewLargerImage( $target );
+            							                			 //viewLargerImage( $target );
             							              			 } else if ( $target.is( "a.ui-icon-close" ) ) {
             							            	  			 recycleImage( $item );
             							              			 }
@@ -411,6 +430,14 @@
               }
             });
          
+            //display scrollbar when mouseover to gallery ul
+            $gallery.mouseover(function(){
+            						$gallery.css("overflow","auto");
+            					})
+            		.mouseout(function(){
+            						$gallery.css("overflow","hidden");
+            					});
+            
             // image deletion function
             var recycle_icon = "<a href='#' title='移除景點' class='ui-icon ui-icon-close'>移除景點</a>";
             function deleteImage( $item ) {
@@ -419,15 +446,15 @@
             	$item.find('.image-link').off("click");
                 var $list = $( "ul", $route ).length ?
                   $( "ul", $route ) :
-                  $( "<ul class='gallery'/>" ).appendTo( $route );
+                  $( "<ul class='routegallery'/>" ).appendTo( $route );
                 
                 $item.find( "a.ui-icon-plus" ).remove();
                 $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
                 	
                   $item
-                    .animate({ width: "45%" })
-                    .find( "img" )
-                      .animate({ height: "130px", width:"100%" });
+                    .animate({ width: "47%" });
+//                     .find( "figure > img" )
+//                       .animate({ height: "130px", width:"50px" });
                 });
               });
             	//增加景點名稱到出發地及目的地
@@ -457,13 +484,13 @@
                   
                   $item.children().append( trash_icon );//append trash_icon到figure底下
                   
-                  $item.find( "img" )
-                    .css( "height", "180px" )
-                    .css("width","400px")
-                  .end()
-                  .appendTo( $gallery )
-                  .fadeIn();
-                  
+                  $item.find("figure img")
+                       .css( "height", "180px" )
+                       .css("width","400px")
+                       .end()               
+                       .appendTo( $gallery )
+                       .fadeIn();
+					
               });
               //移除出發地及目的地的景點名稱
               var idStart = "startOp"+$item.attr("id");
@@ -1034,5 +1061,8 @@
 </script>
 <script src='../js/bootstrap.min.js'></script>
 <%@ include file="../platform/include_script.jsp" %>
+<!-- 路線協作平台 -->
+<script type='text/javascript' src='../js/CoPlatform.js'  data-sionLoginId='<%= session.getAttribute("userLoginId") %>' data-serverPort = "<%= serverPort %>" data-serverName = "<%= serverName %>" data-contextPath = "<%= contextPath %>"></script>
+<!-- 路線協作平台  --> 
 </body>
 </html>

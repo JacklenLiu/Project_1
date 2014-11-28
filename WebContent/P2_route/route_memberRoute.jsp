@@ -9,7 +9,8 @@
 	<script src="../js/jquery-1.11.0.js"></script>
     <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
     <link rel="stylesheet" href="Jacklen_css/Jacklen.css"> <!--蕙齊css-->
-	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link-->
+<!-- 	<link rel="stylesheet" href="../Styles/jquery-ui.min.css"> 蕙齊link -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/start/jquery-ui.css">
 	<!-- 調整navbar btn -->
 	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 </head>
@@ -29,7 +30,7 @@
                                 <a href="route_plan.jsp">路經規劃</a>
                             </li>
                             <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
+                                <a href="#" id="cooperationLink">與好友同步規劃</a>
                             </li>
                             <li>
                                 <a href="portfolio-3-col.html">3 Column Portfolio</a>
@@ -54,7 +55,20 @@
         <!--  end row  -->
 	</div>
     <!-- /.container -->
-</nav>
+	<div id="dialog-addFriend" title="邀請好友" hidden>
+		<span>
+			<h4 style="display: inline">選擇好友</h4> <select
+			class="selectpicker show-menu-arrow" id="getFriends"></select> <input
+			type="button" id="addToFriend" value="+" />
+		</span> <br>
+		<div id="friendDiv" style="width: 90%;"></div>
+		<h4>說些什麼...</h4>
+		<textarea id="textareamsgID" rows="4" cols="25">快點進來~大家都在等你囉!</textarea>
+	</div>
+	<div id="dialog-checkCoFromFrd" title="你朋友找你" hidden>
+		<h4>好友邀你</h4>
+	</div>
+	</nav>
 <%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
 <%@ include file="../platform/include_picture/include_picture.jsp" %>
 <!-- ******************************************************************* -->
@@ -80,7 +94,6 @@
 	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 <script src='../Script/jquery-ui.js'></script>
-        	
 <script>
 		var serverName = "<%= serverName %>"; //localhost
 		var serverPort = "<%= serverPort %>"; //8081
@@ -207,6 +220,9 @@
         
     </script>
 <script src='../js/bootstrap.min.js'></script>
-<%@ include file="../platform/include_script.jsp" %>    
+<%@ include file="../platform/include_script.jsp" %>
+<!-- 路線協作平台 -->
+<script type='text/javascript' src='../js/CoPlatform.js'  data-sionLoginId='<%= session.getAttribute("userLoginId") %>' data-serverPort = "<%= serverPort %>" data-serverName = "<%= serverName %>" data-contextPath = "<%= contextPath %>"></script>
+<!-- 路線協作平台  -->         	    
 </body>
 </html>

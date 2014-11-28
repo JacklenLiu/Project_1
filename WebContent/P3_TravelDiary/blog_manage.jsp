@@ -4,7 +4,11 @@
 <html>
 <head>
 <%@ include file="../platform/include_title.jsp" %>
-<script src="../js/jquery-1.11.0.js"></script>
+<!-- JKL使用jquery-ui -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<!-- JKL使用jquery-ui -->
 <!-- 採用EL取值 -->
 <% 
 	//建立service去呼叫getll方法

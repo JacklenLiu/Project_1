@@ -23,6 +23,11 @@
 <link rel="stylesheet" href="../footercss/style.css">
 <!-- 調整navbar btn -->
 <link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
+<!-- JKL使用jquery-ui -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<!-- JKL使用jquery-ui -->
 <style>
  	/*button*/
     .between{ 
@@ -86,7 +91,9 @@
 	<!-- 載入 Bootstrap 的 JavaScript 功能 -->
 	<script src="js/bootstrap.min.js"></script>
 	<!-- 載入文字編輯器 -->
-	<script src="js/summernote.min.js"></script>
+<!-- 	<script src="js/summernote.min.js"></script> -->
+<script src="js/summernote.js"></script>
+
 	<!-- sweetalert -->
 	<script src="../seetalertjs/sweet-alert.js"></script>
 

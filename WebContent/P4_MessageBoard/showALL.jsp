@@ -222,5 +222,8 @@ var contextPath = "<%= contextPath %>"; //Project_1
 
 <script src='../js/bootstrap.min.js'></script>
 <%@ include file="../platform/include_script.jsp" %>
+<!-- 好友協作平台 -->
+<script type='text/javascript' src='../js/CoPlatform.js'  data-sionLoginId='<%= session.getAttribute("userLoginId") %>' data-serverPort = "<%= request.getServerPort()%>" data-serverName = "<%= request.getServerName()%>" data-contextPath = "<%= request.getContextPath()%>"></script>
+<!-- 好友協作平台 -->
 </body>
 </html>

@@ -6,20 +6,44 @@
 	width:150px;
 	height:150px;
 }
-		
-#gallery { float: left; /*width: 65%*/ width:33%; min-height: 12em; /*for grid*/ margin-left: 30px; padding: 0;  list-style: none; overflow: auto; height:525px}
+
+/*#gallerydiv h4 { line-height: 16px; margin: 0 0 0.4em; }*/
+#gallerydiv h4 .ui-icon { float: left; }		
+#gallery { float: left; /*width: 65%*/ /*width:33%;*/ min-height: 12em; /*for grid*/ /*margin-left: 30px;*/ padding: 0;  list-style: none; /*overflow: auto;*/overflow:hidden; height:525px}
 .gallery.custom-state-active { background: #eee; }
-  .gallery li { float: left; width: 415px; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden; display: block;}
+  .gallery li { float: left; width: 415px; padding: 0.4em; margin: 0 6%; text-align: center; /*for grid*/overflow: hidden; display: block;}
   .gallery li h5 { margin: 0 0 0.4em; cursor: move;}
   .gallery li a { float: right; }
   .gallery li a.ui-icon-zoomin { float: left; }
   .gallery li img { /*width: 100%*/ width:400px; cursor: move; }
+  
+#gallery li > figure img {
+                    display: block;
+                    max-width: 100%;
+                    /*height: auto;*/
+                    height: 130px;
+                    weight: 45%;
+                }
  
-#route { float: right; /*width: 32%*/ width:30%; margin-right:30px; min-height: 18em; padding: 5px; overflow: auto; height:425px}
-#route h4 { line-height: 16px; margin: 0 0 0.4em; }
+#route { float: right; /*width: 32%*/ /*width:30%; margin-right:30px;*/ min-height: 18em; padding: 5px; overflow: auto; height:425px}
+/*#route h4 { line-height: 16px; margin: 0 0 0.4em; }*/
 #route h4 .ui-icon { float: left; }
-#route .gallery h5 { display: inline; }
-		
+#route .routegallery h5 { display: inline; }
+
+.routegallery.custom-state-active { background: #eee; }
+.routegallery li { float: left; width: 415px; padding: 0.6em; margin: 0 2px; text-align: center; /*for grid*/overflow: hidden; display: block;}
+.routegallery li h5 { margin: 0 0 0.4em; cursor: move;}
+.routegallery li a { float: right; }
+.routegallery li a.ui-icon-zoomin { float: left; }
+.routegallery li img { /*width: 100%*/ width:400px; cursor: move; }		
+#route li > figure img {
+                    display: block;
+                    max-width: 100%;
+                    /*height: auto;*/
+                    height: 130px;
+                    weight: 45%;
+                }
+
 
 /*for grid*/
 figure, figcaption, h3, p {
@@ -111,9 +135,9 @@ figure, figcaption, h3, p {
 }
 
 #mapdiv{
-		margin: 0px 10px 0px 10px;
+		/*margin: 0px 10px 0px 10px;*/
         height: 450px;
-        width: 30%;
+        /*width: 30%;*/
         float: left;
         display: inline;
 	}
@@ -128,7 +152,7 @@ figure, figcaption, h3, p {
       }
 
       
-#mapdiv h4 { line-height: 16px; margin: 0 0 0.4em; }
+/*#mapdiv h4 { line-height: 16px; margin: 0 0 0.4em; }*/
 #mapdiv h4 .ui-icon { float: left; }
 
 #inner{
@@ -166,19 +190,24 @@ figure, figcaption, h3, p {
 			height:200px;
 		}
 	.memRoute-validateTips { border: 1px solid transparent; padding: 0.3em; text-align:center;}
-	@media (max-width: 767px) {
-	.memRoute-gallery li { float: left; width: 47%; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden;}  	
-	}
+
 	
-@media (max-width: 767px) {
-		#mapdiv{display: none;}
-		#gallery{width:80%; margin:0 auto;}
-		#route{width:80%; margin:0 auto;}
-		#inner{
+/*	@media (max-width: 767px) {*/
+/*	.memRoute-gallery li { float: left; width: 47%; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden;} */ 	
+/*	}*/
+
+
+/*@media (max-width: 750px) {*/
+/*		#mapdiv{display: none;}*/
+		/*#gallery{width:80%; margin:0 auto;}*/
+		/*#route{width:80%; margin:0 auto;}*/
+		/*#inner{
 			width: 70%;
 			margin: 0 auto;
 		}
-	}
+		*/
+/*	}*/
+
 	
 /* for route_memRouteDetail.jsp*/
 #detailtable{
@@ -209,4 +238,8 @@ figure, figcaption, h3, p {
 .detailimg{
 	width:100%;
 	height:150px;	
+}
+
+#dialog-addFriend .ui-dialog-buttonset{
+	color:red;
 }

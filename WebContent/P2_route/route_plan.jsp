@@ -10,19 +10,12 @@
   <link rel="stylesheet" href="Jacklen_css/component.css"> <!--蕙齊css-->
   <!-- 調整navbar btn -->
   <link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
-  <script src="../js/jquery-1.11.0.js"></script> 
-    <style type="text/css">
-/*         table { */
-/*             border-right: 1.5px solid #F00; */
-/*             border-bottom:1.5px solid #F00; */
-            
-/*         } */
-        
-/*          td { */
-/*             border-left: 1.5px solid #F00; */
-/*             border-top:1.5px solid #F00; */
-/*         } */
-    </style>
+
+<!-- 路線協作平台 -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/start/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<!-- 好友協作平台 -->
     
 
 <body>
@@ -40,7 +33,7 @@
                                 <a href="route_plan.jsp">路經規劃</a>
                             </li>
                             <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
+                                <a href="#" id="cooperationLink">與好友同步規劃</a>
                             </li>
                             <li>
                                 <a href="portfolio-3-col.html">3 Column Portfolio</a>
@@ -65,8 +58,21 @@
         <!--  end row  -->
 	</div>
     <!-- /.container -->
-</nav>
-<%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
+	</nav>
+	<div id="dialog-addFriend" title="邀請好友" hidden>
+		<span>
+			<h4 style="display: inline">選擇好友</h4> <select
+			class="selectpicker show-menu-arrow" id="getFriends"></select> <input
+			type="button" id="addToFriend" value="+" />
+		</span> <br>
+		<div id="friendDiv" style="width: 90%;"></div>
+		<h4>說些什麼...</h4>
+		<textarea id="textareamsgID" rows="4" cols="25">快點進來~大家都在等你囉!</textarea>
+	</div>
+	<div id="dialog-checkCoFromFrd" title="你朋友找你" hidden>
+		<h4>好友邀你</h4>
+	</div>
+	<%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
 	<%@ include file="../platform/include_picture/include_picture.jsp" %>
 
 <div style="float:left;height:390px;">
@@ -144,12 +150,14 @@
 <!-- footer用 -->    
 <%@ include file="../platform/include_footer.jsp" %>    
 <!-- /footer用 -->  
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
-<script src="test.js"></script>
+
 
 <script type="text/javascript">   
 (function ($) {
+	var serverName = "<%= serverName %>"; //localhost
+	var serverPort = "<%= serverPort %>"; //8081
+	var contextPath = "<%= contextPath %>"; //Project_1
+	
 	$("#a11").click(function(){$("#sel").prop("value","north");});
 	$("#a22").click(function(){$("#sel").prop("value","central");});
 	$("#a33").click(function(){$("#sel").prop("value","south");});
@@ -408,5 +416,8 @@
 </script>
 <script src='../js/bootstrap.min.js'></script>
 <%@ include file="../platform/include_script.jsp" %>
+<!-- 路線協作平台 -->
+<script type='text/javascript' src='../js/CoPlatform.js'  data-sionLoginId='<%= session.getAttribute("userLoginId") %>' data-serverPort = "<%= serverPort %>" data-serverName = "<%= serverName %>" data-contextPath = "<%= contextPath %>"></script>
+<!-- 路線協作平台  --> 
 </body>
 </html>
