@@ -105,27 +105,29 @@
 		});
 		
 		$('#cooperationLink').click(function(e){
-			e.preventDefault();
-			var friendslist = new Array();
-			//增加景點hitRate
-      		$.ajax({
-            		"type": 'POST',
-              		"url": url,
-              		"data": {"action":"GetFriends", "memID": sionLoginId},
-              		"dataType":"json",
-              		"async":false,
-              		"success":function(datas){
-              			friendslist = datas;
-              		}
-             	});
-			$.each(friendslist, function(i, friend){
-				console.log(friend.friendID);
-				console.log(friend.friendName);
-				var friendop = $('<option></option>').val(friend.friendID)
-									  				 .text(friend.friendName);
-				$('#getFriends').append(friendop);
-			});
-			$('#textareamsgID').val("快點進來~大家都在等你囉!");
-      		dialogfriend.dialog("open");
+			if(sionLoginId!="null"){
+				e.preventDefault();
+				var friendslist = new Array();
+				//增加景點hitRate
+				$.ajax({
+            			"type": 'POST',
+            			"url": url,
+            			"data": {"action":"GetFriends", "memID": sionLoginId},
+            			"dataType":"json",
+            			"async":false,
+            			"success":function(datas){
+            				friendslist = datas;
+            			}
+             		});
+				$.each(friendslist, function(i, friend){
+					console.log(friend.friendID);
+					console.log(friend.friendName);
+					var friendop = $('<option></option>').val(friend.friendID)
+									  				 	.text(friend.friendName);
+					$('#getFriends').append(friendop);
+				});
+				$('#textareamsgID').val("快點進來~大家都在等你囉!");
+				dialogfriend.dialog("open");
+			}
       	//*************JKL 好友路徑規劃協作平台  END*************
 		});

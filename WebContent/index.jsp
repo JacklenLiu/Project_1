@@ -736,36 +736,39 @@ $(function() {
 		});
 		
 		$('#cooperationLink').click(function(e){
-			e.preventDefault();
-			var friendslist = new Array();
-			var url = "P4_MessageBoard/FrdServlet";
-			//增加景點hitRate
-      		$.ajax({
-            		"type": 'POST',
-              		"url": url,
-              		"data": {"action":"GetFriends", "memID": "${userLoginId}"},
-              		"dataType":"json",
-              		"async":false,
-              		"success":function(datas){
-              			friendslist = datas;
-              		}
-             	});
-			$.each(friendslist, function(i, friend){
-				console.log(friend.friendID);
-				console.log(friend.friendName);
-				var friendop = $('<option></option>').val(friend.friendID)
-									  				 .text(friend.friendName);
-				$('#getFriends').append(friendop);
-			});
-			$('#textareamsgID').val("快點進來~大家都在等你囉!");
-      		dialogfriend.dialog("open");
-      	//*************JKL 好友路徑規劃協作平台  END*************
+			if("${userLoginId}".length!=0){		
+				e.preventDefault();
+				var friendslist = new Array();
+				var url = "P4_MessageBoard/FrdServlet";
+				//增加景點hitRate
+				$.ajax({
+					"type" : 'POST',
+					"url" : url,
+					"data" : {
+						"action" : "GetFriends",
+						"memID" : "${userLoginId}"
+					},
+					"dataType" : "json",
+					"async" : false,
+					"success" : function(datas) {
+						friendslist = datas;
+					}
+				});
+				$.each(friendslist, function(i, friend) {
+					console.log(friend.friendID);
+					console.log(friend.friendName);
+					var friendop = $('<option></option>').val(
+							friend.friendID).text(friend.friendName);
+					$('#getFriends').append(friendop);
+				});
+				$('#textareamsgID').val("快點進來~大家都在等你囉!");
+				dialogfriend.dialog("open");
+			}
+			//*************JKL 好友路徑規劃協作平台  END*************
 		});
-		
-		
-	 })(jQuery);
-	//***********昱豪*********** 
-    
+
+	})(jQuery);
+	//***********昱豪***********
 </script>
 </body>
 </html>

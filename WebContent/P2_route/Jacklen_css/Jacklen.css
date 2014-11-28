@@ -31,7 +31,7 @@
 #route .routegallery h5 { display: inline; }
 
 .routegallery.custom-state-active { background: #eee; }
-.routegallery li { float: left; width: 415px; padding: 0.6em; margin: 0 2px; text-align: center; /*for grid*/overflow: hidden; display: block;}
+.routegallery li { float: left; width: 415px; padding: 0.6em; margin: 0 2px; text-align: center; /*for grid*/overflow: hidden; display: block; z-index:1000;}
 .routegallery li h5 { margin: 0 0 0.4em; cursor: move;}
 .routegallery li a { float: right; }
 .routegallery li a.ui-icon-zoomin { float: left; }
@@ -140,6 +140,7 @@ figure, figcaption, h3, p {
         /*width: 30%;*/
         float: left;
         display: inline;
+        z-index:-1;
 	}
 	
 #map {

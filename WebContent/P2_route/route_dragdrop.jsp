@@ -345,6 +345,7 @@
             											 .append(figureimg)
             											 .append(divdetails)
             											 .addClass("ui-widget-content ui-corner-tr")
+            											 .css("z-index",1000)
             											 .draggable({
             								             	 cancel: "a.ui-icon", // clicking an icon won't initiate dragging
             								             	 revert: "invalid", // when not dropped, the item will revert back to its initial position
@@ -452,6 +453,7 @@
                 $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
                 	
                   $item
+                  	.css("z-index",1000)
                     .animate({ width: "47%" });
 //                     .find( "figure > img" )
 //                       .animate({ height: "130px", width:"50px" });
@@ -811,7 +813,7 @@
                 	function getOtherMarkers(){
                 		var allMarkersInner = new Array();
                 		var viewsObj = new Array();
-                    	viewsObj = $('#route .gallery li');
+                    	viewsObj = $('#route .routegallery li');
                     	
                     	//抓取剩下的景點id -> viewsStrs
                     	var viewsStrs = new Array();

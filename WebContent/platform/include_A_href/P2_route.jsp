@@ -6,7 +6,7 @@
             <a href="../P2_route/route_plan.jsp" class="noLogin">路經規劃</a>
         </li>
         <li>
-            <a href="#" id="cooperationLink">與好友同步規劃</a>
+            <a href="#" id="cooperationLink" class="noLogin">與好友同步規劃</a>
         </li>
         <li>
             <a href="portfolio-3-col.html">3 Column Portfolio</a>
