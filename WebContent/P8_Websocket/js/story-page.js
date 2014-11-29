@@ -16,9 +16,8 @@ function initialize() {
     socket.onmessage = onSocketMessage;
 }         //處理收到的訊息  = 方法onSocketMessage↓↓↓
 
-function clickadd(ev){
+function clickedit(ev){
 	if(ev.target.getAttribute("action") == "add"){
-		console.log();
 		 var bounds = document.getElementById("board").getBoundingClientRect();
 		 var stickerToSend = { 
 			 sticker: ev.target.getAttribute("data-sticker"),
@@ -32,7 +31,25 @@ function clickadd(ev){
 		 socket.send(JSON.stringify(stickerToSend));
 		 log("Sending Object " + JSON.stringify(stickerToSend));
 	}
+	
+	if(ev.target.getAttribute("action") == "back"){
+		var leftDiv = document.getElementById("stickerContainer").getBoundingClientRect();
+		var backToSend = { 
+			 sticker: ev.target.getAttribute("data-sticker"),
+			 viewname: ev.target.getAttribute("data-viewname"),
+			 viewID: ev.target.getAttribute("data-viewID"),
+			 draggable: ev.target.getAttribute("draggable"),
+			 action: ev.target.getAttribute("action"),
+			 x: ev.clientX - leftDiv.left,
+			 y: ev.clientY - leftDiv.top
+			 };
+		 socket.send(JSON.stringify(backToSend));
+		 log("Sending Object " + JSON.stringify(backToSend));
+	}
 };
+
+
+
 // Drag and drop functionality
 function drag(ev) {
 	//取得滑鼠相對於瀏覽器頁面的位置
@@ -215,7 +232,22 @@ function onSocketMessage(event) {
          eleli.setAttribute("data-viewID",receivedSticker.viewID);
          eleli.setAttribute("ondragstart","drag(event)");
          console.log(eleli);
-         eleli.appendChild(eleH).appendChild(imageObj);// <li id=".."> <h5>viewname</h5> <img></img>> </li> 
+         
+         var elelink = document.createElement("a");
+         elelink.setAttribute("title","移除景點");
+         elelink.setAttribute("href","#");
+         elelink.setAttribute("class","ui-icon ui-icon-close");
+         elelink.setAttribute("id", receivedSticker.viewID);//取得viewID 並給<li>新屬性  = id
+         elelink.setAttribute("action", "back");
+         elelink.setAttribute("draggable","true");
+         elelink.setAttribute("data-sticker",receivedSticker.sticker);
+         elelink.setAttribute("data-viewname",receivedSticker.viewname);
+         elelink.setAttribute("data-viewID",receivedSticker.viewID);
+         elelink.setAttribute("onclick", "clickedit(event)");
+         
+         eleli.appendChild(eleH).appendChild(imageObj);
+         eleli.appendChild(elelink);
+         // <li id=".."> <h5>viewname</h5> <img></img>> </li> 
          eleli.className = eleli.className + "ui-widget-content ui-corner-tr";
     	 
          var boardscol = document.getElementById("board");
@@ -229,7 +261,7 @@ function onSocketMessage(event) {
 
          //先appendChild 再removeChild
          rightUL.appendChild(eleli);//<div> <ul><li> <h5>viewname</h5> <img></img> </li></ul></div>
-         leftUL.removeChild(leftview);
+         leftUL.removeChild(leftview);//增加 "X" 來移除景點
          boardscol.scrollTop = boardscol.scrollHeight;
          
   

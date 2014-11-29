@@ -134,7 +134,7 @@
 		 	.attr("draggable",'true')
 			.text("加入行程")
 			.bind('click', function(event){
-				clickadd(event);
+				clickedit(event);
 			});
 			
 			var imgtitle = $('<h5></h5>').text(item.viewname); //取得景點名稱　 
