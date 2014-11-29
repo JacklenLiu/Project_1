@@ -122,10 +122,10 @@
 <!-- footer用 -->    
 <%@ include file="../platform/include_footer.jsp" %>    
 <!-- /footer用 -->  
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
-    
+<!-- 與線上客服衝突-->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+<!-- <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script> -->
+<!-- 與線上客服衝突-->    
 <script src='../js/bootstrap.min.js'></script>
 <%@ include file="../platform/include_script.jsp" %>
 </body>

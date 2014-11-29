@@ -22,7 +22,7 @@ drop table contactus;
 
 create table helper(
 	helperNum           int IDENTITY (1,1)	not null,
-	member_loginID		nvarchar(20)				,/*hidden*/
+	member_loginID		nvarchar(50)				,/*hidden*/
 	e_mail				nvarchar(100)		not null,/*if has acconut = readonly*/
 	name				nvarchar(20)		        ,
 	title				varchar(50)			not null,
@@ -30,9 +30,9 @@ create table helper(
 	CONSTRAINT helper_helperNum_PK PRIMARY KEY (helperNum)
 );
 
-insert into helper values( 'aaa123','abcd@yahoo.com.tw','王小明','救我','無法註冊會員');
-insert into helper values( 'aaa123','abcd@yahoo.com.tw','','救我','無法註冊會員');
-insert into helper values( '','home@gmail.com','陳小花','救你','無法註冊會員');
+insert into helper values( 'null','abcd@yahoo.com.tw','王小明','救我','無法註冊會員');
+insert into helper values( 'null','abcd@yahoo.com.tw','','救我','無法註冊會員');
+insert into helper values( 'null','home@gmail.com','陳小花','救你','無法註冊會員');
 
 
 /*地區對照表*/

@@ -36,23 +36,24 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/start/jquery-ui.css">
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-  
-  
+ 
 <style>
-
-	/* 線上客服用 */
-	#abgne_float_ad {
-    	display: none;
-    	position: absolute;
-  	}
+/* <!--線上客服用 --> */
+			
+			#abgne_float_ad {
+    				display: none;
+    				position: absolute;
+  			}
   		
- 	#abgne_float_ad img {
-  		border: none;
-  	}
-	/* 線上客服用 */
+ 			#abgne_float_ad img {
+  				  border: none;
+  			}
+		
+/* <!--線上客服用 --> */
+	
 
 
 	body {
@@ -384,15 +385,20 @@
 <!--                        <a href="#"><p>※濕搓沖捧擦</p></a> -->
 <!--                        <a href="#"><p>※沖脫泡蓋送</p></a> -->
 <!--                        <a href="#"><p>※叫叫ABC</p></a> -->
-                       
+                       			
 <!--                        <a href="#" class="btn btn-default">Learn More</a> -->
+							
                     </div>
                 </div>
             </div>
         </div>
         <!-- /.row -->
 
-        
+        <hr>
+        	<div id="onlinesvc">
+<!--          		<a href="#" id=""><p>※線上克服</p></a>     -->
+        	</div>
+       
 
         <hr>
 
@@ -436,7 +442,7 @@
 
     </div><!-- end container -->
 
- 
+
 <div id="dialog-message" title="註冊成功"  hidden>
   <h5>
     <span class="ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
@@ -464,17 +470,18 @@
 		<h4>好友邀你</h4> 
 </div>
 
+
+
 <!-- 線上客服 -->
 	<div id="abgne_float_ad" >
 		<a href="" class="noChange" name="indexLoginBtn">
 			<img src="platform/include_sticker/sticker_pic/onlinepic.png" id="openService" >
 		</a>
 	</div>
-
-<%@ include file="platform/include_sticker/include_sticker_index.jsp" %> 	
 <!-- 線上客服用 -->
-
-
+<%@ include file="platform/include_sticker/include_sticker_index.jsp" %> 	
+	
+	
 <!-- Bootstrap Core JavaScript -->
 <!-- <script src="js/bootstrap.min.js"></script>  -->
 <script src="js/bootstrap.js"></script>
@@ -489,11 +496,96 @@
 <!-- <script type="text/javascript" src="P0_login/js/jquery.validate.js"></script>  -->
 <!-- Script to Activate the Carousel -->
 <script type='text/javascript' src='js/1.3.1_jquery.marquee.min.js'></script>
-<!-- 路線協作平台 -->
-<%-- <script type='text/javascript' src='js/CoPlatform.js'  data-sionLoginId='<%= sionLoginId %>'></script> --%>
-<!-- 路線協作平台  -->
 <script>
 $(function() {
+	
+	
+	/************************************\製作gerSvc讓他不停地去掃資料******************************************************/
+		
+	
+	//SSE服務瀏覽器端實作
+	var getSvcUrl="platform/getSvc.jsp";
+	var source = new EventSource(getSvcUrl);
+	//開啟連結的路徑
+	var url="";
+	//判別是否有傳回相同ID
+	var getID="";
+	source.addEventListener('message', function(e) {
+			  if((e.data).length!=0){
+				  console.log(e.data);
+				  console.log("1"+getID);
+				  //當第一次近來時候一定不一樣所以只會append 一次
+				  if(e.data!=getID){
+					  url="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/P9_OnlineService/OnlineService.jsp?svcmember="+e.data;
+					  
+					  $('#onlinesvc').append("<a href='#' class='removeSvc' id="+url+"><p>※線上克服2</p></a> ");
+					  getID=e.data;
+					  console.log("2"+getID);
+						
+				  }
+<%-- 				  url="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/P9_OnlineService/OnlineService.jsp?svcmember="+e.data; --%>
+// 				  $('#onlinesvc').append("<a href="+url+"><p>※線上克服2</p></a> ");
+// 					$('#tiles').append("<li id='"+item.TravelDiary_ID+"'>"+item.TravelDiary_Content+"<p>"+item.TravelDiary_Name+"</p></li>");
+						  
+// 				  var notifymsg = JSON.parse(e.data);
+// 				  frdplatform = notifymsg.cooperation_friend;
+// 				  $('#dialog-checkCoFromFrd').dialog('option', 'title', notifymsg.frdName+' 邀請你一起規劃路線');
+// 				  $('#dialog-checkCoFromFrd > h4').text(notifymsg.invite_msg);
+// 				  dialogCoFromFrd.dialog("open");	
+
+
+			  }else{
+				  console.log("3"+getID);
+				  console.log(e.data);
+				  //當是null時候清空
+				  getID="";
+			  }
+			}, false);
+	var propID='';
+	var servletURL='';
+	//當後臺管理者下超連結的時候將連結取消掉
+	//因為是動態生成的所以要用on來綁他老爸底下小孩有符合.removeSvc都可以使用click的事件
+	$('#onlinesvc').on('click','.removeSvc',(function(){
+		window.open(propID=$(this).prop('id'), "_blank", " top=5, left=50, width=660, height=600");
+		//當按下管理者按下click時候把超連結移除
+		//並去資料庫將這一筆的欄位改成null
+		//這樣在getSvc.jsp就不會傳資料過來
+		propID=$(this).prop('id');
+		$(this).remove();
+		
+//		應該是要在關閉服務的時候再update null字串(所以是在StoryWebSocket這裡)		
+// 		servletURL = "P9_OnlineService/OnlineServiceServlet";
+//   		$.ajax({
+//     		"type": 'post',
+//       		"url": servletURL,
+//       		"data": {"action":"changeToNULL", "svcID":propID},
+//       		"dataType":"text",
+//       		"async":false,
+//       		"success":function(datas){
+      			
+//      		}
+//      	});
+		
+  		
+		
+	}));
+	/************************************\製作gerSvc讓他不停地去掃資料******************************************************/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	$('.marquee').marquee({duration: 12000});	
     
   
@@ -517,7 +609,6 @@ $(function() {
 		var serverName = "<%= request.getServerName()%>";
 		var serverPort = "<%= request.getServerPort()%>";
 		var contextPath = "<%= request.getContextPath()%>";
-		var sionLoginId = "<%= sionLoginId %>"; //aa123
 
 		var inviteCount = "${invite_count}";
     	if(inviteCount != 0 ){
@@ -675,7 +766,6 @@ $(function() {
        	
 		
 		//*************JKL 好友路徑規劃協作平台  START*************
-		
 		//檢查是否有帶規劃協作平台事件
 		var frdplatform = "";
 		var dialogCoFromFrd= $("#dialog-checkCoFromFrd").dialog({
@@ -700,6 +790,7 @@ $(function() {
 		      }
 		  });	
 		
+		//從這裡取會員ID並帶參數 讓getRes讓他去讀
 		var source = new EventSource('platform/getRes.jsp?memID=${userLoginId}');
 		source.addEventListener('message', function(e) {
 			  if((e.data).length!=0){
@@ -761,39 +852,37 @@ $(function() {
 		});
 		
 		$('#cooperationLink').click(function(e){
-			if("${userLoginId}".length!=0){		
-				e.preventDefault();
-				var friendslist = new Array();
-				var url = "P4_MessageBoard/FrdServlet";
-				//增加景點hitRate
-				$.ajax({
-					"type" : 'POST',
-					"url" : url,
-					"data" : {
-						"action" : "GetFriends",
-						"memID" : "${userLoginId}"
-					},
-					"dataType" : "json",
-					"async" : false,
-					"success" : function(datas) {
-						friendslist = datas;
-					}
-				});
-				$.each(friendslist, function(i, friend) {
-					console.log(friend.friendID);
-					console.log(friend.friendName);
-					var friendop = $('<option></option>').val(
-							friend.friendID).text(friend.friendName);
-					$('#getFriends').append(friendop);
-				});
-				$('#textareamsgID').val("快點進來~大家都在等你囉!");
-				dialogfriend.dialog("open");
-			}
-			//*************JKL 好友路徑規劃協作平台  END*************
+			e.preventDefault();
+			var friendslist = new Array();
+			var url = "P4_MessageBoard/FrdServlet";
+			//增加景點hitRate
+      		$.ajax({
+            		"type": 'POST',
+              		"url": url,
+              		"data": {"action":"GetFriends", "memID": "${userLoginId}"},
+              		"dataType":"json",
+              		"async":false,
+              		"success":function(datas){
+              			friendslist = datas;
+              		}
+             	});
+			$.each(friendslist, function(i, friend){
+				console.log(friend.friendID);
+				console.log(friend.friendName);
+				var friendop = $('<option></option>').val(friend.friendID)
+									  				 .text(friend.friendName);
+				$('#getFriends').append(friendop);
+			});
+			$('#textareamsgID').val("快點進來~大家都在等你囉!");
+      		dialogfriend.dialog("open");
+      	//*************JKL 好友路徑規劃協作平台  END*************
 		});
-
-	})(jQuery);
-	//***********昱豪***********
+		
+		
+		
+	 })(jQuery);
+	//***********昱豪*********** 
+    
 </script>
 </body>
 </html>

@@ -254,7 +254,8 @@
 
     
 <!--<script src="external/jquery/jquery.js"></script>-->
-<script src="../js/jquery-1.11.0.js"></script>
+<!-- 與上面重複宣告 -->
+<!-- <script src="../js/jquery-1.11.0.js"></script> -->
 <script src="js/jquery-ui.js"></script>
 <script src="../seetalertjs/sweet-alert.js"></script>  
 <script type="text/javascript">

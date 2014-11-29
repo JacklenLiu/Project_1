@@ -22,6 +22,11 @@
         </div>
     </footer>  
     
+<!-- 線上客服用 -->    
+<%@ include file="../platform/include_sticker/include_girl.jsp" %>
+<%@ include file="../platform/include_sticker/include_sticker_footer.jsp" %>  
+<!-- 線上客服用 -->
+  
 <!-- footer可以往上rooler效果 -->
 <script src="../footerjs/wow.min.js"></script>
 <script src="../footerjs/custom.js"></script>
