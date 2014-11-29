@@ -223,6 +223,7 @@ function onSocketMessage(event) {
          imageObj.setAttribute("data-viewID",receivedSticker.viewID);
          imageObj.setAttribute("ondragstart","drag(event)");
          console.log(imageObj);
+         
          var eleli = document.createElement("li");
          eleli.setAttribute("id", receivedSticker.viewID);//取得viewID 並給<li>新屬性  = id
          eleli.setAttribute("action", "back");
@@ -291,11 +292,26 @@ function onSocketMessage(event) {
           eleli2.setAttribute("data-viewID",receivedSticker.viewID);
           eleli2.setAttribute("ondragstart","drag(event)");
           console.log(eleli2);
-          eleli2.appendChild(eleH2).appendChild(imageObj2);// <li id=".."> <h5>viewname</h5> <img></img>> </li> 
+          
+          
+          var elelink2 = document.createElement("a");
+          elelink2.setAttribute("title","加入行程");
+          elelink2.setAttribute("href","#");
+          elelink2.setAttribute("class","ui-icon ui-icon-plus");
+          elelink2.setAttribute("id", receivedSticker.viewID);//取得viewID 並給<li>新屬性  = id
+          elelink2.setAttribute("action", "add");
+          elelink2.setAttribute("draggable","true");
+          elelink2.setAttribute("data-sticker",receivedSticker.sticker);
+          elelink2.setAttribute("data-viewname",receivedSticker.viewname);
+          elelink2.setAttribute("data-viewID",receivedSticker.viewID);
+          elelink2.setAttribute("onclick", "clickedit(event)");
+          
+          eleli2.appendChild(eleH2).appendChild(imageObj2);
+          eleli2.appendChild(elelink2);
+          // <li id=".."> <h5>viewname</h5> <img></img>> </li> 
           eleli2.className = eleli2.className + "fixli ui-widget-content ui-corner-tr";
           
-          
-         var leftUL2 = document.getElementById("viewulID");
+          var leftUL2 = document.getElementById("viewulID");
 
           //將拖曳圖拿掉(所有使用者);
           var jsonviewID2 = JSON.stringify(eleli2.id);
