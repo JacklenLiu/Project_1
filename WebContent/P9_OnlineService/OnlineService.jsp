@@ -87,7 +87,7 @@
       <div class="col-xs-3">
         <div><h3>Users</h3></div>
         <div class="contentDiv" id="nicknamesBox">
-           <div class="username">cc123</div> 
+<!--            <div class="username">cc123</div> -->
         </div>
       </div>
     </div>
@@ -148,7 +148,12 @@
 		serviceChat(chat);//呼叫story-page.js 的 chatsend並帶參數
 	});
 	
-    	
+    
+	//將名字顯示在右邊對話框(可以抓使用者ID  但後臺管理員名子寫死所以帳號就要建立一個超級管理員的名子是超級管理員)
+	$('#nicknamesBox').append(" <div class='username'>超級管理員</div>");
+	$('#nicknamesBox').append(" <div class='username'>"+OlineSvc+"</div>");
+	
+	
     })(jQuery);
     
       </script>
