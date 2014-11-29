@@ -83,7 +83,7 @@ aside{
 	width:75% ;
 	height:35%; 
 	overflow:auto; 
-	margin-top:50%;
+	margin-top:39%;
 	background-color:#F0FFF0;
 	border-radius:5px;
 }
@@ -125,6 +125,9 @@ aside{
 }
 #board{
     background-color: #F0FFFF;
+}
+.chatbox{
+	
 }   
 footer {
     position: absolute;

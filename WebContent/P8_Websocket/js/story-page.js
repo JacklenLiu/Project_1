@@ -16,7 +16,23 @@ function initialize() {
     socket.onmessage = onSocketMessage;
 }         //處理收到的訊息  = 方法onSocketMessage↓↓↓
 
-
+function clickadd(ev){
+	if(ev.target.getAttribute("action") == "add"){
+		console.log();
+		 var bounds = document.getElementById("board").getBoundingClientRect();
+		 var stickerToSend = { 
+			 sticker: ev.target.getAttribute("data-sticker"),
+			 viewname: ev.target.getAttribute("data-viewname"),
+			 viewID: ev.target.getAttribute("data-viewID"),
+			 draggable: ev.target.getAttribute("draggable"),
+			 action: ev.target.getAttribute("action"),
+			 x: ev.clientX - bounds.left,
+			 y: ev.clientY - bounds.top
+			 };
+		 socket.send(JSON.stringify(stickerToSend));
+		 log("Sending Object " + JSON.stringify(stickerToSend));
+	}
+};
 // Drag and drop functionality
 function drag(ev) {
 	//取得滑鼠相對於瀏覽器頁面的位置
@@ -262,10 +278,11 @@ function onSocketMessage(event) {
       }
       
       if(receivedSticker.action == "addchat"){
+ 
+    	 var chatdiv = document.getElementById("chatDiv");
+    	 chatdiv.insertAdjacentHTML("BeforeEnd" ,receivedSticker.chat+"<br>");
+    	 chatdiv.scrollTop = chatdiv.scrollHeight;
     	  
-    	  var chatdiv = document.getElementById("chatDiv");
-    	  chatdiv.insertAdjacentHTML("BeforeEnd" ,receivedSticker.chat+"<br>");
-    	  chatdiv.scrollTop = chatdiv.scrollHeight;
       }
    }
 }

@@ -33,14 +33,14 @@
     </aside>
     
     <div id="content" style="width:70% ;height:95%;">
-     <div id="board" style="width:97% ;height:50%;" ondrop="drop(event);" 
+     <div id="board" style="width:97.5% ;height:50%;" ondrop="drop(event);" 
           ondragover="allowDrop(event);" >
           <ul id="boardulID" class="boardul"></ul>
       </div >
       
      <div id="chatDiv" ></div> 
      <span>
-     <input id="chatinput" type="text"></input>
+     <textarea id="chatinput" ></textarea>
      <input id="chatbt" type="button" value="送出">
      </span>
      <input id="saveRoutebt" type="button" value="儲存路線" class="savebt">
@@ -124,7 +124,18 @@
 					imgarea="E_";
 					break;
 			}
-			
+			var alinkaddroute = $('<a></a>').attr("title", "加入行程")
+			.addClass("ui-icon ui-icon-plus")
+			.attr("href",'#')
+			.attr("data-sticker", imgarea + item.viewID +'_01')
+		 	.attr("data-viewname", item.viewname)
+		 	.attr("data-viewID", item.viewID)
+		 	.attr("action", "add")
+		 	.attr("draggable",'true')
+			.text("加入行程")
+			.bind('click', function(event){
+				clickadd(event);
+			});
 			
 			var imgtitle = $('<h5></h5>').text(item.viewname); //取得景點名稱　 
 			var imgs = $('<img></img>')
@@ -143,13 +154,12 @@
 		 	.attr("data-viewname", item.viewname)
 		 	.attr("data-viewID", item.viewID)
 		 	.attr("action", "add")
-		 	//.attr("draggable",'true').attr("ondragstart",'drag(event)')
 		 	.attr("draggable",'true')
 		 	.bind('dragstart', function(event){
 		        drag(event);
 		    })
 		 	.addClass("fixli ui-widget-content ui-corner-tr")
-		 	.append(imgtitle).append(imgs);
+		 	.append(imgtitle).append(imgs).append(alinkaddroute);
 			
 		    $('#viewulID').append(viewimg);
 		    //選擇地區時 刪掉 已拖移至右區的圖
