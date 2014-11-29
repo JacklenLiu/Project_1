@@ -35,10 +35,10 @@
 <!-- <script src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script> -->
 
 <link rel="stylesheet" href="styles/jquery.dataTables.min.css" >
-<script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
+
 
 <link href="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css" rel="stylesheet">
-<script src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>
+
 
 <link rel="stylesheet" href="styles/buttons.css" >
 <script type="text/javascript" src="Scripts/buttons.js"></script>
@@ -397,7 +397,9 @@
 		});
 		
 	});
-</script>	
+</script>
+<script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
+<script src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>	
 <script type="text/javascript">
 
 var serverName = "<%= serverName %>"; //localhost
