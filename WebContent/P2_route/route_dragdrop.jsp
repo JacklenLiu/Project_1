@@ -33,6 +33,9 @@
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                	<li class="dropdown">
+                  		<a href="route_search.jsp" name="indexLoginBtn" class="noChange">景點介紹</a>
+                  	</li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
                         <ul class="dropdown-menu">

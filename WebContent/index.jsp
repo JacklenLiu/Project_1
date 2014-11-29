@@ -157,6 +157,9 @@
                   			<a href="P0_login/login.jsp" name="indexLoginBtn" class="noChange">登入</a>
                   	 	</li>
                   	</c:if>
+                  	<li class="dropdown">
+                  		<a href="P2_route/route_search.jsp" name="indexLoginBtn" class="noChange">景點介紹</a>
+                  	</li>
                    	<li class="dropdown">
                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
                        	<ul class="dropdown-menu">

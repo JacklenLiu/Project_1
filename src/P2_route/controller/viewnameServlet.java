@@ -11,10 +11,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,6 +38,19 @@ public class viewnameServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String action = request.getParameter("action");
+		
+		if("getAll".equals(action)){
+			viewnameService vnService = new viewnameService();
+			String viewnames = vnService.getAllImg();
+			out.println(viewnames);
+		}
+		
+		if("getSearch".equals(action)){
+			String imagesID = request.getParameter("search");
+			viewnameService vnService = new viewnameService();
+			String viewnames = vnService.getSearchImg(imagesID);
+			out.println(viewnames);
+		}
 		
 		if("GetRouteDetail".equals(action)){
 			Integer routeID = Integer.parseInt(request.getParameter("routeID"));

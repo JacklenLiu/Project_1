@@ -126,4 +126,12 @@ public class viewnameService {
 	public String getViewDetailByViewID(String viewID){
 		return dao.getViewDetailByViewID(viewID);
 	}
+	
+	public String getSearchImg(String imagesID){
+		return dao.getAllSearchImg(imagesID);
+	}
+	
+	public String getAllImg(){
+		return dao.getAllImg();
+	}
 }
