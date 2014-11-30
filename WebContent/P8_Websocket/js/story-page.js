@@ -328,7 +328,7 @@ function onSocketMessage(event) {
       if(receivedSticker.action == "addchat"){
  
     	 var chatdiv = document.getElementById("chatDiv");
-    	 chatdiv.insertAdjacentHTML("BeforeEnd" ,receivedSticker.chat+"<br>");
+    	 chatdiv.insertAdjacentHTML("BeforeEnd" ,"<div id="+"tt"+" contenteditable="+"true"+">"+receivedSticker.chat+"</div>");
     	 chatdiv.scrollTop = chatdiv.scrollHeight;
     	  
       }

@@ -176,3 +176,19 @@ footer ol {
 	padding: 0.3em; 
 	text-align:center;
 }
+#tt{
+	width:50%;
+	background-color: #CCFF99;
+	margin-top:5px; 
+	
+	font-size:0.4cm;
+	text-align:center;
+	letter-spacing:2px;
+	font-weight:900;
+	
+	border-top-left-radius:55pt 55pt;
+	border-top-right-radius:55pt 55pt;
+	border-bottom-left-radius:70pt 55pt;
+	border-bottom-right-radius:70pt 55pt;
+	
+}
