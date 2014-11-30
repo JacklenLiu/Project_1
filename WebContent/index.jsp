@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 	<%@ include file="platform/include_title.jsp" %>
-	<%@ page import="P1_iud.model.*"%>
+	<%@ page import="P1_iud.model.*,P2_route.model.*"%>
 	<%
 		if(sionName != null){
 			MemberService memSvc = new MemberService();
@@ -13,6 +13,9 @@
 			MemberVO list = memSvc.getOneMem(userId);
 			session.setAttribute("userName",list.getMember_name());
 		}
+	
+		viewnameService vnSvc = new viewnameService();
+		int imgTop = vnSvc.getImgTop6Count();
 	%>
 	<!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -69,10 +72,10 @@
 	}
 	#tooltip{
         position:absolute;
-        border:5px outset red;
-        background:#f7f5d1;
+        /*border:3px outset black;*/
+        background:#003377;
         padding:1px;
-        color:red;
+        color:white;
         display:none;
 		font-size:26px;
 		border-radius:15px;
@@ -589,6 +592,20 @@ $(function() {
        		});
        	});
       //***************昱豪_抓排行榜圖片***************
+      
+      //***************昱豪_Server Send Event***************
+    	var sourceTop6 = new EventSource('P2_route/getIndexTop6.jsp?count='+<%=imgTop%>);
+      	sourceTop6.addEventListener('message', function(e) {
+			  if((e.data)!=<%=imgTop%>){
+				  $.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
+			       		$.each(datas,function(i,item){
+			       			$('.col-md-2:nth-child('+(i+2)+') > a > img:nth-child(1)').empty();
+			  				$('.col-md-2:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
+			       		});
+			       	});
+			  }
+			}, false);
+      //***************昱豪_Server Send Event***************
       
       //***************昱豪_抓排行榜文字欄***************
       $.getJSON(leaderboardUrl,{'action':'GetTop6'}, function(datas){

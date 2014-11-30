@@ -83,6 +83,10 @@ public class viewnameService {
 		return dao.getImgTop6();
 	}
 	
+	public int getImgTop6Count(){
+		return dao.getImgTop6Count();
+	}
+	
 	public String getViewLatlng(String viewID){
 		return dao.getViewLatlng(viewID);
 	}

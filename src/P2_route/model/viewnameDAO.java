@@ -893,4 +893,43 @@ try{
 		return viewnames;
 	}
 	
+	@Override
+	public int getImgTop6Count() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int topCount=0;
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_STMT_ImgTop6);	
+			rs = pstmt.executeQuery();
+			
+		
+			while(rs.next()){
+				topCount += rs.getInt("view_hitrate");
+			}
+			
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		return topCount;
+	}
 }

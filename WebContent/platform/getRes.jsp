@@ -29,7 +29,7 @@
 					Notifymsg = info.toString();
 				}
 			}
-			System.out.println("Notifymsg = " + Notifymsg);
+			//System.out.println("Notifymsg = " + Notifymsg);
 			if (!("{}".equals(Notifymsg))) {
 				writer.write("data: " + Notifymsg + "\n\n");
 				writer.write("retry: 10000\n");
