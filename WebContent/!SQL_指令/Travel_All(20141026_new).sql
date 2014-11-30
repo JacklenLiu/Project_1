@@ -889,15 +889,26 @@ insert into questions values ('你覺得路上的街友行乞都是騙人的嗎�
 
 
 CREATE TABLE ContactUs(
-  contactUsId			int IDENTITY(1,1)  	not null,
-  contactUsName			nvarchar(60)        not null,
-  contactUsMail			nvarchar(40)  		not null,
-  contactUsDate			datetime			not null,
-  contactUsSubject		nvarchar(20)		not null,
-  contactUsContent		nvarchar(300)		not null,
-  contactUsReply		int					not null,	
+  contactUsId			 int IDENTITY(1,1)  	not null,
+  contactUsName			 nvarchar(60)			not null,
+  contactUsMail			 nvarchar(40)  			not null,
+  contactUsDate			 datetime				not null,
+  contactUsSubject		 nvarchar(60)			not null,
+  contactUsContent		 nvarchar(400)			not null,
+  contactUsReply		 int					not null,	
+  contactUsReplyDate	 datetime				not null DEFAULT '2000-11-1',
+  contactUsReplyContact  nvarchar(400)          not null DEFAULT 'hello',
 
 );
+
+insert into ContactUs values ('陳昱豪','finezoo02272000@gmail.com','2000-11-1','忘記睡覺','GM快點救我','0','2000-11-1','hello');
+insert into ContactUs values ('劉蕙齊','zkst29@gmail.com','2000-11-1','我要喝飲料','GM快點買給我','0','2000-11-1','hello');
+insert into ContactUs values ('陳信豪','iblf0216@gmail.com','2000-11-1','忘記抽硬碟','GM快點幫我還','0','2000-11-1','hello');
+insert into ContactUs values ('邱子暘','joearc116@gmail.com','2000-11-1','吃不飽','GM快點買水餃給我','0','2000-11-1','hello');
+insert into ContactUs values ('謝明儒','hotman0901@gmail.com','2000-11-1','!!!','!!!!!','0','2000-11-1','hello');
+
+
+
 
 
 
