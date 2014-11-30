@@ -83,7 +83,7 @@ public class AjaxFrdServlet extends HttpServlet {
 ////			succuessView.forward(req, res);
 //			res.setContentType("text/html;charset=UTF-8");
 			String path = getServletContext().getContextPath();
-			System.out.println(path);
+			//System.out.println(path);
 			res.sendRedirect(path+"/P4_MessageBoard/show_accept.jsp");	//使重新整理無作用!!!!
 			return;
 				

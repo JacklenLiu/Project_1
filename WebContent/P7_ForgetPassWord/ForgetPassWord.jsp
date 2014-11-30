@@ -173,7 +173,9 @@ input[type="text"] {
 <!-- /footer用 -->  
 <script>
 (function($) {
-	
+	var serverName = "<%= request.getServerName()%>";
+	var serverPort = "<%= request.getServerPort()%>";
+	var contextPath = "<%= request.getContextPath()%>";
 	$('#send').click(function(){
 		var mail_check= /.+@.+\..+/;
 		var id=$('#userid').val();
@@ -259,7 +261,7 @@ input[type="text"] {
 				//alert("請先登入會員!!");
 				sweetAlert("此功能需先行登入會員!!","","warning");
 				$("#ok_btn123456").click(function(){
-					window.location.href="http://localhost:8081/Project_1/P0_login/login.jsp";
+					window.location.href="http://"+ serverName +":"+serverPort + contextPath+"/P0_login/login.jsp";
 				});
 					
 			});

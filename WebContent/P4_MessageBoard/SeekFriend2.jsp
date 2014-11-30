@@ -464,7 +464,7 @@ var contextPath = "<%= contextPath %>"; //Project_1
 //   		若ajax的重導似乎有問題  先用window.location.href吧
 //   		window.location.href="http://"+serverName + ":" + serverPort + contextPath+ "/P4_MessageBoard/FrdServlet?action=" + "show_invite2" + "&vmember_loginID="+ID;
   		
-  		window.location.href="http://localhost:8081/Project_1/P4_MessageBoard/FrdServlet?action=show_invite2&vmember_loginID="+ID;
+  		window.location.href="http://"+serverName+":"+ serverPort +contextPath+"/P4_MessageBoard/FrdServlet?action=show_invite2&vmember_loginID="+ID;
   				
 			}, 10000000);
 

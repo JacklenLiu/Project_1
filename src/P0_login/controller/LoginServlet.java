@@ -97,7 +97,7 @@ public class LoginServlet extends HttpServlet {
 				}
 				
 				
-				System.out.println(mb.getMember_stop());
+				//System.out.println(mb.getMember_stop());
 				
 				
 				if("Y".equalsIgnoreCase(mb.getMember_stop().trim().toString())){

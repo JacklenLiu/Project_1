@@ -7,8 +7,8 @@
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		//SQL Server
-		
-		String url = "jdbc:sqlserver://localhost:1433;DatabaseName=Project_1";
+		String serverName =  request.getServerName();
+		String url = "jdbc:sqlserver://"+ serverName + ":1433;DatabaseName=Project_1";
 		String query = "select count(*) from sysmember where member_loginId=?";
 		String name = request.getParameter("name");
 		try{
