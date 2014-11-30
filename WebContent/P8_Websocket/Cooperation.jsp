@@ -32,18 +32,22 @@
       
     </aside>
     
-    <div id="content" style="width:70% ;height:95%;">
-     <div id="board" style="width:97.5% ;height:50%;" ondrop="drop(event);" 
+   
+     <div id="board"  ondrop="drop(event);" 
           ondragover="allowDrop(event);" >
           <ul id="boardulID" class="boardul"></ul>
       </div >
       
+    <div id="editchat">
      <div id="chatDiv" ></div> 
-     <span>
+     <div id="btdiv">
      <textarea id="chatinput" ></textarea>
+     <span>
      <input id="chatbt" type="button" value="送出">
-     </span>
+     
      <input id="saveRoutebt" type="button" value="儲存路線" class="savebt">
+     </span>
+    </div>
     </div>
     
   <div id="dialog-save" title="儲存路線" >
@@ -68,7 +72,7 @@
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 <script src='../Script/jquery-ui.js'></script>	
 <script src="js/story-page.js" type="text/javascript"></script>
-  
+
     <script>
     var sionName = "<%= sionName %>";//username
     var serverName = "<%= serverName %>"; //localhost
@@ -161,6 +165,13 @@
 		 	.addClass("fixli ui-widget-content ui-corner-tr")
 		 	.append(imgtitle).append(imgs).append(alinkaddroute);
 			
+		//	$(document).ready(function() {
+		//      $('img').hoverpulse({
+		//          size: 40,  // number of pixels to pulse element (in each direction)
+		//         speed: 400 // speed of the animation 
+		//        });
+		//    });
+			
 		    $('#viewulID').append(viewimg);
 		    //選擇地區時 刪掉 已拖移至右區的圖
 		    if($('#boardulID').find("li").attr("id") != null){
@@ -179,6 +190,7 @@
 		     });
 		    
 		    }
+		    
 		});
 
 	}   
@@ -276,9 +288,11 @@
          close: function() {
          }
        });
+	 
 
     })(jQuery);
     
       </script>
+
   </body>
 </html>
