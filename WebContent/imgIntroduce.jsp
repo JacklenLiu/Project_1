@@ -360,7 +360,8 @@
                 </div>
         </div>
     <hr>
-
+    
+</div><!-- end container -->
 <!-- 把用到的超連結id="intro" 放到picture_body內 就可以動了..    要去修改margin 不然底下會空白 -->
 	<footer>
         <div class="container" >
@@ -380,10 +381,7 @@
                 </div>
             </div>  
         </div>
-    </footer>     
-
-</div><!-- end container -->
-
+    </footer>  
  
 <div id="dialog-message" title="註冊成功"  hidden>
   <h5>
