@@ -14,6 +14,7 @@
     <header>
       <h1>多人協作平台</h1>
     </header>
+    
 
     <aside>
     
@@ -37,6 +38,10 @@
           ondragover="allowDrop(event);" >
           <ul id="boardulID" class="boardul"></ul>
       </div >
+      
+      <div id="mapdiv" >
+		
+	</div>
       
     <div id="editchat">
      <div id="chatDiv" ></div> 
@@ -70,9 +75,10 @@
     
     
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
+<script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
 <script src='../Script/jquery-ui.js'></script>	
 <script src="js/story-page.js" type="text/javascript"></script>
-
+<script src='../Script/jquery.tinyMap.js'></script>
     <script>
     var sionName = "<%= sionName %>";//username
     var serverName = "<%= serverName %>"; //localhost
@@ -288,6 +294,10 @@
          close: function() {
          }
        });
+	 
+	 
+		$('#mapdiv').tinyMap(); 
+		
 	 
 
     })(jQuery);
