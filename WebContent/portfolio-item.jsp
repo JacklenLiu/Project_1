@@ -313,90 +313,69 @@
 <!-- 		<h1 class="page-header marquee">歡迎光臨<b style='color:red;'>下一站，幸福</b>網</h1> -->
 <!--     </div> -->
    <div class="container">
-		<!-- Portfolio Section -->
-		<center>
+		 <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-               	 <h3 class="page-header"> ＊~景點熱搜排行榜~＊</h3>
-            </div>
-            <div class="col-md-2">
-                <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:170px;height:170px;float:none;">
-                	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:170px;height:170px;float:none;">
-                    <img src="Images/2.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
-                    <img src="Images/3.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
-                    <img src="Images/4.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
-                    <img src="Images/5.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
-                    <img src="Images/6.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-                </a>
-            </div>
-        </div>
-        </center>
-        
-        <!-- Marketing Icons Section -->
-        <div class="row">
-<!--             <div class="col-lg-12"> -->
-<!--                 <h1 class="page-header"></h1> -->
-<!--             </div> -->
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#67B0D1">
-                        <h4 class="topNewsEgy"><i class="fa fa-thumbs-up "></i> 熱門景點排行榜</h4>
-                    </div>
-                    <div class="panel-body leaderboard">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#67B0D1">
-                        <h4 class="topNewsEgy"><i class="fa fa-bullhorn"></i> 最新消息</h4>
-                    </div>
-                    <div class="panel-body news">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#67B0D1">
-                        <h4 class="topNewsEgy"><i class="fa fa-plus-square"></i> 急救知識補給站</h4>
-                    </div>
-                    <div class="panel-body knowledge">
-<!--                        <a href="#"><p>※濕搓沖捧擦</p></a> -->
-<!--                        <a href="#"><p>※沖脫泡蓋送</p></a> -->
-<!--                        <a href="#"><p>※叫叫ABC</p></a> -->
-                       
-<!--                        <a href="#" class="btn btn-default">Learn More</a> -->
-                    </div>
-                </div>
+                <h1 class="page-header">Portfolio Item
+                    <small>Subheading</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    <li class="active">Portfolio Item</li>
+                </ol>
             </div>
         </div>
         <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+			<div class="col-md-1"></div>
+            <div class="col-md-5">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img class="img-responsive" src="Images/N_Bali_01.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="Images/C_Oiwake_Station_01.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img class="img-responsive" src="Images/C_Dajiamazu_01.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+			<div class="col-md-1"></div>
+            <div class="col-md-4">
+                <h3>Project Description</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+                <h3>Project Details</h3>
+                <ul>
+                    <li>Lorem Ipsum</li>
+                    <li>Dolor Sit Amet</li>
+                    <li>Consectetur</li>
+                    <li>Adipiscing Elit</li>
+                </ul>
+            </div>
+
+        </div>
 
         
 
@@ -525,293 +504,6 @@ $(function() {
 		var contextPath = "<%= request.getContextPath()%>";
 		var sionLoginId = "<%= sionLoginId %>"; //aa123
 
-		var inviteCount = "${invite_count}";
-    	if(inviteCount != 0 ){
-    		$("#friendManage").html("<b>${invite_count}</b>").css("color","blue");
-    	}
-
-		//******昱豪 登入處裡*****************************
-			
-    	var sionLog = "<%=sionLoginId%>";
-    	if(sionLog == "null"){
-     		//$(".navbar-right a[class != 'noChange'] ").prop("href","P0_login/login.jsp");
-    		$(".navbar-right a[class != 'noChange'] ").prop("href","#");
-    		$("a[name != 'indexLoginBtn']").click(function(){
-    			//alert("請先登入會員!!");
-    			sweetAlert("此功能需先行登入會員!!","","warning");
-    			$("#ok_sweetAlert").click(function(){
-    				window.location.href='http://'+ serverName +':'+ serverPort + contextPath +'/P0_login/login.jsp';
-    			});
-    				
-    		});
-    	}
-    	
-    	//********昱豪   註冊處裡********
-    	var register = "<%=session.getAttribute("current")%>";
-    	
-    	if(register != "null" ){
-    		$("#dialog-message").dialog({
-  		      modal: true,
-  		      buttons: {
-  		        Ok: function() {
-  		          $( this ).dialog( "close" );
-  		        }
-  		      }
-  		    });
-    		$(".ui-dialog-titlebar-close").html("<img src='Images/dialog_close.png' />");
-// 			sweetAlert("此功能需先行登入會員!!","","warning");
-    		<%session.setAttribute("current",null);%>
-    	}
-    	//********昱豪   註冊處裡********
-    	
-    	//********昱豪  修改個人資料處裡********
-		var updateSession = "<%=session.getAttribute("updateCurrent")%>";
-    	
-    	if(updateSession != "null" ){
-    		$("#dialog-update").dialog({
-  		      modal: true,
-  		      buttons: {
-  		        Ok: function() {
-  		          $( this ).dialog( "close" );
-  		        }
-  		      }
-  		    });
-    		$(".ui-dialog-titlebar-close").html("<img src='Images/dialog_close.png' />");
-    		<%session.setAttribute("updateCurrent",null);%>
-    	}
-    	
-    	//********昱豪  修改個人資料處裡********
-    	
-    	//***************昱豪_抓排行榜圖片***************
-    	
-    	//$('#gallery').empty();//clear images in maindiv
-		var leaderboardUrl = "ImgTop6servlet";
-       	$.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
-       		$.each(datas,function(i,item){
-  				$('.col-md-2:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
-       		});
-       	});
-      //***************昱豪_抓排行榜圖片***************
-      
-      //***************昱豪_Server Send Event***************
-    	var sourceTop6 = new EventSource('P2_route/getIndexTop6.jsp?count='+<%=imgTop%>);
-      	sourceTop6.addEventListener('message', function(e) {
-			  if((e.data)!=<%=imgTop%>){
-				  $.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
-			       		$.each(datas,function(i,item){
-			       			$('.col-md-2:nth-child('+(i+2)+') > a > img:nth-child(1)').empty();
-			  				$('.col-md-2:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
-			       		});
-			       	});
-			  }
-			}, false);
-      //***************昱豪_Server Send Event***************
-      
-      //***************昱豪_抓排行榜文字欄***************
-      $.getJSON(leaderboardUrl,{'action':'GetTop6'}, function(datas){
-       		$.each(datas,function(i,item){
-  				//$('.col-sm-6:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID);
-  				$(".leaderboard").append("<a href='#'>");
-       			//P3_TravelDiary/TravelDiaryServlet?action=blog.do
-       			//<a href=""><p>※2014/10/10 陽明山海芋季，快來看看</p></a>
-       			//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
-//        			$(".leaderboard > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/GetLeaderServlet?leaderId='+ item.imagesID);
-				$(".leaderboard > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/P2_route/viewnameServlet?action=imgCarousel&changeImg=' + item.imagesID+'&top='+(i+1));
-       			$(".leaderboard > a:nth-child(" + (i+1) + ")").append("<p>※&nbsp;&nbsp;第"+(i+1)+"名&nbsp;&nbsp;" + item.viewname + "&nbsp;</p>");
-       			//$(".news").append("</a>");	
-       		});
-       	});
-      //***************昱豪_抓排行榜文字欄***************
-      
-      //***************昱豪_抓急救小知識***************
-      var knowledgeUrl = "getKnowledgeServlet";
-      $.getJSON(knowledgeUrl,{'action':'getKnowledge'}, function(datas){
-       		$.each(datas,function(i,item){
-  				$(".knowledge").append("<a href='#'>");
-       			$(".knowledge > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/knowledgeServlet?knowledge='+ item.knowledge_identity);
-       			$(".knowledge > a:nth-child(" + (i+1) + ")").append("<p>※&nbsp;&nbsp;" + item.knowledge_title + "&nbsp;</p>");
-       		});
-       	});
-      //***************昱豪_抓急救小知識***************
-      
-       	//***************昱豪_抓最新消息***************
-       	var newsUrl = "newsTop6Servlet";
-       	$.getJSON(newsUrl,{'action':'GetNewsTop6'}, function(datas){
-       		$.each(datas,function(i,item){
-       			$(".news").append("<a href='#'>");
-       			//P3_TravelDiary/TravelDiaryServlet?action=blog.do
-       			//<a href=""><p>※2014/10/10 陽明山海芋季，快來看看</p></a>
-       			//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
-       			$(".news > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/newsServlet?newsId=' + (i+1));
-       			$(".news > a:nth-child(" + (i+1) + ")").append("<p>※&nbsp;&nbsp;" + item.news_date + "&nbsp;&nbsp;" + item.news_title + "</p>");
-       			//$(".news").append("</a>");
-       		});
-       	});
-       	//****************昱豪_抓最新消息***************
-       	
-       	
-       	
-       	
-      	//***********昱豪_滑鼠移入出現div***********
-	    /*設定tooltip的div區塊和滑鼠指標之間的距離,x軸距及y軸距,避免tooltip的div和滑鼠指標太接近*/
-			var x = 10;
-	        var y = -45;
-        
-        /*指定TagName為a且其CalssName=tooltip的Tag,當滑鼠移到其上面時進行函式動作*/
-        $(".tooltips").mouseover(function(e){
-			
-        /*將此Tag的title的值給予到newTitle,接著將title的值空白,避免滑鼠移到Tag時,同時出現tooltip及title的效果*/
-            this.newTitle = this.title;
-        	if(this.newTitle != ""){
-        		this.title = "";
-        	}
-        /*建立tooltip用來儲存你要顯示的內容,而內容就是由div區塊所組成;這範例是用文字來作,你要的圖片效果,只要在div中加入<img src>*/
-            var tooltip = "<div id='tooltip'>"+ this.newTitle +"<\/div>";
-
-        /*利用.append()把這段div加到body,而條件就是: 當滑鼠指標移動你指定的Tag的範圍時,才會加入*/
-            $("body").append(tooltip);
-
-        /*利用.css()設定tooltip的css,其中e.pageY及e.pageX就是滑鼠指標的座標,避免tooltip和滑鼠指標太靠近,後面加上前面設定的x及y*/
-             $("#tooltip").css({
-                                "top": 	(e.pageY+y)  + "px" ,
-                                "left": (e.pageX+x)  + "px"
-                        /*利用.show()讓tooltip這段div區塊顯示*/
-                        	}).show("fast");
-
-        /*當滑鼠移開時,將newTitle的值還給title,並且利用.remove()將tooltip這段div區塊移除*/
-        }).mouseout(function(){
-        	if(this.newTitle != ""){
-             	this.title = this.newTitle;
-        	}
-            $("#tooltip").remove();
-
-        /*當滑鼠指標在指定的Tag範圍內移動時,tooltip的div區塊也會隨著滑鼠指標作移動*/
-        }).mousemove(function(e){
-             $("#tooltip").css({
-                                "top":  (e.pageY+y)  + "px" ,
-                                "left": (e.pageX+x)  + "px"
-                       		 });
-        });
-		//***********昱豪_滑鼠移入出現div*********** 
-       	
-		
-		//*************JKL 好友路徑規劃協作平台  START*************
-		
-		//檢查是否有帶規劃協作平台事件
-		var frdplatform = "";
-		var dialogCoFromFrd= $("#dialog-checkCoFromFrd").dialog({
-			  autoOpen: false,
-		      modal: true,
-		      buttons: {
-		      	 "加入GO": function() {
-		      		 		source.close();
-		      		 		var url = "P4_MessageBoard/FrdServlet";
-		        			$.post(url, {"action":"FrdclearCoNotify","memID":"${userLoginId}"},function(data){
-		        				$("#dialog-checkCoFromFrd").dialog("close");
-		        				window.location.href="P8_Websocket/Cooperation.jsp?memID="+ frdplatform;
-		        			});
-		      			},
-		        "我才不想去咧": function(){
-		        			source.close();
-		        			var url = "P4_MessageBoard/FrdServlet";
-		        			$.post(url, {"action":"FrdclearCoNotify","memID":"${userLoginId}"},function(data){
-		        				$("#dialog-checkCoFromFrd").dialog("close");
-		        			});
-		        	   }
-		      }
-		  });	
-		
-		var source = new EventSource('platform/getRes.jsp?memID=${userLoginId}');
-		source.addEventListener('message', function(e) {
-			  if((e.data).length!=0){
-				  console.log(e.data);
-				  var notifymsg = JSON.parse(e.data);
-				  frdplatform = notifymsg.cooperation_friend;
-				  $('#dialog-checkCoFromFrd').dialog('option', 'title', notifymsg.frdName+' 邀請你一起規劃路線');
-				  $('#dialog-checkCoFromFrd > h4').text(notifymsg.invite_msg);
-				  
-				  dialogCoFromFrd.dialog("open");	  
-			  }
-			}, false);
-		
-		
-		//開啟好友路徑規劃協作平台
-		var dialogfriend= $("#dialog-addFriend").dialog({
-			  autoOpen: false,
-		      modal: true,
-		      buttons: {
-		      	 "開始討論GO": function() {
-		      		var friendids = new Array();
-		      		var friends = $('#friendDiv label');
-		      		console.log(friends);
-		      		$.each(friends, function(i, friend){
-		      			friendids[i] = $(friend).attr("id");
-		      		});
-		      		var url = "P4_MessageBoard/FrdServlet";
-		      		$.ajax({
-	            		"type": 'POST',
-	              		"url": url,
-	              		"data": {"action":"UpdateCoNotify", "memID": "${userLoginId}","frdID":JSON.stringify(friendids),"msg":$('#textareamsgID').val()},
-	              		"dataType":"text",
-	              		"async":false,
-	              		"success":function(datas){
-	              			console.log(datas);
-	              			
-	             		}
-	             	});
-		      		$('#getFriends').empty();
-		      		$('#friendDiv').empty();
-		      		$( this ).dialog( "close" );
-          			window.location.href="P8_Websocket/Cooperation.jsp?memID=${userLoginId}";
-		      			},
-		        	 "取消": function(){
-		        		    $('#getFriends').empty();
-		        		 	$('#friendDiv').empty();
-		        			$( this ).dialog( "close" );
-		        	   }
-		      }
-		  });
-		
-		//加入協作好友列表
-		$('#addToFriend').click(function(e){
-			var labObj = $('<label></label>').attr("id", $('#getFriends :selected').val())
-											 .text($('#getFriends :selected').text())
-											 .css("margin","2px");
-			$('#getFriends :selected').remove();
-			$('#friendDiv').append(labObj);
-		});
-		
-		$('#cooperationLink').click(function(e){
-			if("${userLoginId}".length!=0){		
-				e.preventDefault();
-				var friendslist = new Array();
-				var url = "P4_MessageBoard/FrdServlet";
-				//增加景點hitRate
-				$.ajax({
-					"type" : 'POST',
-					"url" : url,
-					"data" : {
-						"action" : "GetFriends",
-						"memID" : "${userLoginId}"
-					},
-					"dataType" : "json",
-					"async" : false,
-					"success" : function(datas) {
-						friendslist = datas;
-					}
-				});
-				$.each(friendslist, function(i, friend) {
-					console.log(friend.friendID);
-					console.log(friend.friendName);
-					var friendop = $('<option></option>').val(
-							friend.friendID).text(friend.friendName);
-					$('#getFriends').append(friendop);
-				});
-				$('#textareamsgID').val("快點進來~大家都在等你囉!");
-				dialogfriend.dialog("open");
-			}
-			//*************JKL 好友路徑規劃協作平台  END*************
-		});
 
 	})(jQuery);
 	//***********昱豪***********

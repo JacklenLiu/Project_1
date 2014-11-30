@@ -52,6 +52,7 @@ public class viewnameDAO implements viewnameDAO_interface {
 	
 	private static final String GET_Search_IMAGES="select i.imagesid, i.imagesname ,  v.viewname , i.imgdescript , i.imgsrc , i.images_format from images i join viewname v on imagesname = viewid where v.viewname like ? and i.imagesID like '%_01' ;";
 	private static final String GET_ALL_IMAGES="select i.imagesid, i.imagesname ,  v.viewname , i.imgdescript , i.imgsrc , i.images_format from images i join viewname v on imagesname = viewid where i.imagesID like '%_01';";
+	private static final String viewName_imgDescript ="select viewname,imgDescript from viewName join images on viewId = imagesname where images.imagesId like ? order by images.imagesID;";
 	
 	@Override
 	public void insert(viewnameVO vnVO) {
@@ -929,7 +930,50 @@ try{
 				}
 			}
 		}
-		
 		return topCount;
+	}
+	
+	@Override
+	public List<viewnameVO> viewName_imgDescript(String imagesID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<viewnameVO> viewnames = new ArrayList<viewnameVO>();
+		viewnameVO vnVO =null;
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(viewName_imgDescript);		
+			pstmt.setString(1,imagesID+"%");
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				vnVO = new viewnameVO();
+				vnVO.setViewname(rs.getString(1));//viewname
+				vnVO.setImg_Descript(rs.getString(2));//img_Descript
+				viewnames.add(vnVO);
+			}
+			
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		return viewnames;
 	}
 }

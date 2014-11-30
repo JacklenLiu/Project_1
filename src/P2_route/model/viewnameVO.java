@@ -8,7 +8,14 @@ public class viewnameVO {
 	private String viewlng;
 	private Integer viewTop;
 	private String viewArea;
+	private String img_Descript;
 	
+	public String getImg_Descript() {
+		return img_Descript;
+	}
+	public void setImg_Descript(String img_Descript) {
+		this.img_Descript = img_Descript;
+	}
 	public String getViewID() {
 		return viewID;
 	}

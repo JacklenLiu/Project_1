@@ -13,9 +13,12 @@
 			MemberVO list = memSvc.getOneMem(userId);
 			session.setAttribute("userName",list.getMember_name());
 		}
-	
+		String imagesIdPK = session.getAttribute("changeImg").toString();
+		String imagesID =imagesIdPK.substring(0, imagesIdPK.lastIndexOf("_"));
+		String topName = session.getAttribute("top").toString();
 		viewnameService vnSvc = new viewnameService();
-		int imgTop = vnSvc.getImgTop6Count();
+		List<viewnameVO> vnVO = vnSvc.getImgDescript(imagesID);
+		pageContext.setAttribute("vnVO",vnVO);
 	%>
 	<!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -87,6 +90,11 @@
 /*  		 background: #DDDDDD; */
   		color: #FF5511;
   		background-image: url("Images/backgound.png");
+	}
+	.hide-bullets {
+		list-style:none;
+		margin-left: -40px;
+		margin-top:20px;
 	}
 </style>
 <style>	
@@ -266,44 +274,6 @@
 	<!-- /.container -->
 </nav>
 
-    <!-- Header Carousel -->
-<!--     <header id="myCarousel" class="carousel slide"> -->
-<!--         Indicators -->
-<!--         <ol class="carousel-indicators"> -->
-<!--             <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
-<!--             <li data-target="#myCarousel" data-slide-to="1"></li> -->
-<!--             <li data-target="#myCarousel" data-slide-to="2"></li> -->
-<!--         </ol> -->
-
-<!--         <div class="carousel-inner"> -->
-<!--             <div class="item active"> -->
-<!--                 <div class="fill" style="background-image:url('Images/E_Changhong Bridge_01.bmp');"></div> -->
-<!--                 <div class="carousel-caption"> -->
-<!--                     <h2>Caption 1</h2> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--             <div class="item"> -->
-<!--                 <div class="fill" style="background-image:url('Images/E_Changhong Bridge_02.bmp');"></div> -->
-<!--                 <div class="carousel-caption"> -->
-<!--                     <h2>Caption 2</h2> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--             <div class="item"> -->
-<!--                 <div class="fill" style="background-image:url('Images/E_Changhong Bridge_03.bmp');"></div> -->
-<!--                 <div class="carousel-caption"> -->
-<!--                     <h2>Caption 3</h2> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </div> -->
-
-<!--         <a class="left carousel-control" href="#myCarousel" data-slide="prev"> -->
-<!--             <span class="icon-prev"></span> -->
-<!--         </a> -->
-<!--         <a class="right carousel-control" href="#myCarousel" data-slide="next"> -->
-<!--             <span class="icon-next"></span> -->
-<!--         </a> -->
-<!--     </header> -->
-
 <!-- 照片輪播 -->
 <%@ include file="platform/index_Use/include_picture.jsp" %> 
 <!-- 照片輪播 -->
@@ -313,111 +283,83 @@
 <!-- 		<h1 class="page-header marquee">歡迎光臨<b style='color:red;'>下一站，幸福</b>網</h1> -->
 <!--     </div> -->
    <div class="container">
-		<!-- Portfolio Section -->
-		<center>
+		 <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-               	 <h3 class="page-header"> ＊~景點熱搜排行榜~＊</h3>
-            </div>
-            <div class="col-md-2">
-                <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:170px;height:170px;float:none;">
-                	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:170px;height:170px;float:none;">
-                    <img src="Images/2.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
-                    <img src="Images/3.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
-                    <img src="Images/4.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
-                    <img src="Images/5.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-                </a>
-            </div>
-            <div class="col-md-2">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
-                    <img src="Images/6.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-                </a>
-            </div>
-        </div>
-        </center>
-        
-        <!-- Marketing Icons Section -->
-        <div class="row">
-<!--             <div class="col-lg-12"> -->
-<!--                 <h1 class="page-header"></h1> -->
-<!--             </div> -->
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#67B0D1">
-                        <h4 class="topNewsEgy"><i class="fa fa-thumbs-up "></i> 熱門景點排行榜</h4>
-                    </div>
-                    <div class="panel-body leaderboard">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#67B0D1">
-                        <h4 class="topNewsEgy"><i class="fa fa-bullhorn"></i> 最新消息</h4>
-                    </div>
-                    <div class="panel-body news">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="background-color:#67B0D1">
-                        <h4 class="topNewsEgy"><i class="fa fa-plus-square"></i> 急救知識補給站</h4>
-                    </div>
-                    <div class="panel-body knowledge">
-<!--                        <a href="#"><p>※濕搓沖捧擦</p></a> -->
-<!--                        <a href="#"><p>※沖脫泡蓋送</p></a> -->
-<!--                        <a href="#"><p>※叫叫ABC</p></a> -->
-                       
-<!--                        <a href="#" class="btn btn-default">Learn More</a> -->
-                    </div>
-                </div>
+                <h1 class="page-header" style="color:red;">景點熱搜排行榜，第&nbsp;<b><%=topName %></b>&nbsp;名
+                </h1>
+<!--                 <ol class="breadcrumb"> -->
+<!--                     <li><a href="index.html">Home</a> -->
+<!--                     </li> -->
+<!--                     <li class="active">Portfolio Item</li> -->
+<!--                 </ol> -->
             </div>
         </div>
         <!-- /.row -->
 
-        
+ 		<div id="main_area">
+                <!-- Slider -->
+                <div class="row">
+                    <div class="col-xs-12" id="slider">
+                        <!-- Top part of the slider -->
+                        <div class="row">
+                            <div class="col-sm-8" id="carousel-bounding-box">
+                                <div class="carousel slide" id="myCarousel">
+                                    <!-- Carousel items -->
+                                    <div class="carousel-inner">
+                                        <div class="active item" data-slide-number="0">
+                                        <img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_01' style="width:750px;height:400px;"></div>
 
-        <hr>
+                                        <div class="item" data-slide-number="1">
+                                        <img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_02' style="width:750px;height:400px;"></div>
 
-        <!-- Call to Action Section -->
-        <div class="well">
-            <div class="row">
-                <div class="col-md-8">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+                                        <div class="item" data-slide-number="2">
+                                        <img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_03' style="width:750px;height:400px;"></div>
+
+                                    </div><!-- Carousel nav -->
+                                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>                                       
+                                    </a>
+                                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>                                       
+                                    </a>                                
+                                    </div>
+                            </div>
+
+                            <div class="col-sm-4" id="carousel-text"></div>
+							
+	                            <div id="slide-content" style="display: none;">
+	                            	<%int descript = 0; %>
+	                             	<c:forEach var="vnVO" items="${vnVO}"> --%>
+		                                <div id="slide-content-<%=descript%>">
+		                                    <h1 style="color:red;"><b>${vnVO.viewname}</b></h1>
+		                                    <p style="font-size:18px;"><b>${vnVO.img_Descript}</b></p>
+		                                </div>
+										<%descript++; %>
+	                            	</c:forEach> 
+	                            </div>
+                        </div>
+                    </div>
+                </div><!--/Slider-->
+
+                <div class="row hidden-xs" id="slider-thumbs">
+                        <!-- Bottom switcher of slider -->
+                        <ul class="hide-bullets">
+                            <li class="col-sm-4">
+                                <a class="thumbnail" id="carousel-selector-0"><img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_01' style="width:350px;height:150px;"></a>
+                            </li>
+
+                            <li class="col-sm-4">
+                                <a class="thumbnail" id="carousel-selector-1"><img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_02' style="width:350px;height:150px;"></a>
+                            </li>
+
+                            <li class="col-sm-4">
+                                <a class="thumbnail" id="carousel-selector-2"><img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_03' style="width:350px;height:150px;"></a>
+                            </li>
+                        </ul>                 
                 </div>
-                <div class="col-md-4">
-                    <a class="btn btn-lg btn-default btn-block" href="#">Call to Action</a>
-                </div>
-            </div>
         </div>
-
-        <hr>
-
-    </div>
-
+    <hr>
 
 <!-- 把用到的超連結id="intro" 放到picture_body內 就可以動了..    要去修改margin 不然底下會空白 -->
 	<footer>
@@ -440,7 +382,7 @@
         </div>
     </footer>     
 
-    </div><!-- end container -->
+</div><!-- end container -->
 
  
 <div id="dialog-message" title="註冊成功"  hidden>
@@ -525,177 +467,7 @@ $(function() {
 		var contextPath = "<%= request.getContextPath()%>";
 		var sionLoginId = "<%= sionLoginId %>"; //aa123
 
-		var inviteCount = "${invite_count}";
-    	if(inviteCount != 0 ){
-    		$("#friendManage").html("<b>${invite_count}</b>").css("color","blue");
-    	}
-
-		//******昱豪 登入處裡*****************************
-			
-    	var sionLog = "<%=sionLoginId%>";
-    	if(sionLog == "null"){
-     		//$(".navbar-right a[class != 'noChange'] ").prop("href","P0_login/login.jsp");
-    		$(".navbar-right a[class != 'noChange'] ").prop("href","#");
-    		$("a[name != 'indexLoginBtn']").click(function(){
-    			//alert("請先登入會員!!");
-    			sweetAlert("此功能需先行登入會員!!","","warning");
-    			$("#ok_sweetAlert").click(function(){
-    				window.location.href='http://'+ serverName +':'+ serverPort + contextPath +'/P0_login/login.jsp';
-    			});
-    				
-    		});
-    	}
-    	
-    	//********昱豪   註冊處裡********
-    	var register = "<%=session.getAttribute("current")%>";
-    	
-    	if(register != "null" ){
-    		$("#dialog-message").dialog({
-  		      modal: true,
-  		      buttons: {
-  		        Ok: function() {
-  		          $( this ).dialog( "close" );
-  		        }
-  		      }
-  		    });
-    		$(".ui-dialog-titlebar-close").html("<img src='Images/dialog_close.png' />");
-// 			sweetAlert("此功能需先行登入會員!!","","warning");
-    		<%session.setAttribute("current",null);%>
-    	}
-    	//********昱豪   註冊處裡********
-    	
-    	//********昱豪  修改個人資料處裡********
-		var updateSession = "<%=session.getAttribute("updateCurrent")%>";
-    	
-    	if(updateSession != "null" ){
-    		$("#dialog-update").dialog({
-  		      modal: true,
-  		      buttons: {
-  		        Ok: function() {
-  		          $( this ).dialog( "close" );
-  		        }
-  		      }
-  		    });
-    		$(".ui-dialog-titlebar-close").html("<img src='Images/dialog_close.png' />");
-    		<%session.setAttribute("updateCurrent",null);%>
-    	}
-    	
-    	//********昱豪  修改個人資料處裡********
-    	
-    	//***************昱豪_抓排行榜圖片***************
-    	
-    	//$('#gallery').empty();//clear images in maindiv
-		var leaderboardUrl = "ImgTop6servlet";
-       	$.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
-       		$.each(datas,function(i,item){
-  				$('.col-md-2:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
-       		});
-       	});
-      //***************昱豪_抓排行榜圖片***************
-      
-      //***************昱豪_Server Send Event***************
-    	var sourceTop6 = new EventSource('P2_route/getIndexTop6.jsp?count='+<%=imgTop%>);
-      	sourceTop6.addEventListener('message', function(e) {
-			  if((e.data)!=<%=imgTop%>){
-				  $.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
-			       		$.each(datas,function(i,item){
-			       			$('.col-md-2:nth-child('+(i+2)+') > a > img:nth-child(1)').empty();
-			  				$('.col-md-2:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
-			       		});
-			       	});
-			  }
-			}, false);
-      //***************昱豪_Server Send Event***************
-      
-      //***************昱豪_抓排行榜文字欄***************
-      $.getJSON(leaderboardUrl,{'action':'GetTop6'}, function(datas){
-       		$.each(datas,function(i,item){
-  				//$('.col-sm-6:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID);
-  				$(".leaderboard").append("<a href='#'>");
-       			//P3_TravelDiary/TravelDiaryServlet?action=blog.do
-       			//<a href=""><p>※2014/10/10 陽明山海芋季，快來看看</p></a>
-       			//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
-//        			$(".leaderboard > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/GetLeaderServlet?leaderId='+ item.imagesID);
-				$(".leaderboard > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/P2_route/viewnameServlet?action=imgCarousel&changeImg=' + item.imagesID+'&top='+(i+1));
-       			$(".leaderboard > a:nth-child(" + (i+1) + ")").append("<p>※&nbsp;&nbsp;第"+(i+1)+"名&nbsp;&nbsp;" + item.viewname + "&nbsp;</p>");
-       			//$(".news").append("</a>");	
-       		});
-       	});
-      //***************昱豪_抓排行榜文字欄***************
-      
-      //***************昱豪_抓急救小知識***************
-      var knowledgeUrl = "getKnowledgeServlet";
-      $.getJSON(knowledgeUrl,{'action':'getKnowledge'}, function(datas){
-       		$.each(datas,function(i,item){
-  				$(".knowledge").append("<a href='#'>");
-       			$(".knowledge > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/knowledgeServlet?knowledge='+ item.knowledge_identity);
-       			$(".knowledge > a:nth-child(" + (i+1) + ")").append("<p>※&nbsp;&nbsp;" + item.knowledge_title + "&nbsp;</p>");
-       		});
-       	});
-      //***************昱豪_抓急救小知識***************
-      
-       	//***************昱豪_抓最新消息***************
-       	var newsUrl = "newsTop6Servlet";
-       	$.getJSON(newsUrl,{'action':'GetNewsTop6'}, function(datas){
-       		$.each(datas,function(i,item){
-       			$(".news").append("<a href='#'>");
-       			//P3_TravelDiary/TravelDiaryServlet?action=blog.do
-       			//<a href=""><p>※2014/10/10 陽明山海芋季，快來看看</p></a>
-       			//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
-       			$(".news > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/newsServlet?newsId=' + (i+1));
-       			$(".news > a:nth-child(" + (i+1) + ")").append("<p>※&nbsp;&nbsp;" + item.news_date + "&nbsp;&nbsp;" + item.news_title + "</p>");
-       			//$(".news").append("</a>");
-       		});
-       	});
-       	//****************昱豪_抓最新消息***************
-       	
-       	
-       	
-       	
-      	//***********昱豪_滑鼠移入出現div***********
-	    /*設定tooltip的div區塊和滑鼠指標之間的距離,x軸距及y軸距,避免tooltip的div和滑鼠指標太接近*/
-			var x = 10;
-	        var y = -45;
-        
-        /*指定TagName為a且其CalssName=tooltip的Tag,當滑鼠移到其上面時進行函式動作*/
-        $(".tooltips").mouseover(function(e){
-			
-        /*將此Tag的title的值給予到newTitle,接著將title的值空白,避免滑鼠移到Tag時,同時出現tooltip及title的效果*/
-            this.newTitle = this.title;
-        	if(this.newTitle != ""){
-        		this.title = "";
-        	}
-        /*建立tooltip用來儲存你要顯示的內容,而內容就是由div區塊所組成;這範例是用文字來作,你要的圖片效果,只要在div中加入<img src>*/
-            var tooltip = "<div id='tooltip'>"+ this.newTitle +"<\/div>";
-
-        /*利用.append()把這段div加到body,而條件就是: 當滑鼠指標移動你指定的Tag的範圍時,才會加入*/
-            $("body").append(tooltip);
-
-        /*利用.css()設定tooltip的css,其中e.pageY及e.pageX就是滑鼠指標的座標,避免tooltip和滑鼠指標太靠近,後面加上前面設定的x及y*/
-             $("#tooltip").css({
-                                "top": 	(e.pageY+y)  + "px" ,
-                                "left": (e.pageX+x)  + "px"
-                        /*利用.show()讓tooltip這段div區塊顯示*/
-                        	}).show("fast");
-
-        /*當滑鼠移開時,將newTitle的值還給title,並且利用.remove()將tooltip這段div區塊移除*/
-        }).mouseout(function(){
-        	if(this.newTitle != ""){
-             	this.title = this.newTitle;
-        	}
-            $("#tooltip").remove();
-
-        /*當滑鼠指標在指定的Tag範圍內移動時,tooltip的div區塊也會隨著滑鼠指標作移動*/
-        }).mousemove(function(e){
-             $("#tooltip").css({
-                                "top":  (e.pageY+y)  + "px" ,
-                                "left": (e.pageX+x)  + "px"
-                       		 });
-        });
-		//***********昱豪_滑鼠移入出現div*********** 
-       	
-		
-		//*************JKL 好友路徑規劃協作平台  START*************
+//*************JKL 好友路徑規劃協作平台  START*************
 		
 		//檢查是否有帶規劃協作平台事件
 		var frdplatform = "";
@@ -812,9 +584,34 @@ $(function() {
 			}
 			//*************JKL 好友路徑規劃協作平台  END*************
 		});
-
 	})(jQuery);
+   
 	//***********昱豪***********
+	
+	
+	 jQuery(document).ready(function($) {
+ 
+        $('#myCarousel').carousel({
+                interval: 5000
+        });
+ 
+        $('#carousel-text').html($('#slide-content-0').html());
+ 
+        //Handles the carousel thumbnails
+        $('[id^=carousel-selector-]').click( function(){
+                var id_selector = $(this).attr("id");
+                var id = selectorId.substr(selectorId.lastIndexOf("-") + 1);
+                var id = parseInt(id);
+                $('#myCarousel').carousel(id);
+        });
+ 
+ 
+        // When the carousel slides, auto update the text
+        $('#myCarousel').on('slid.bs.carousel', function (e) {
+                 var id = $('.item.active').data('slide-number');
+                $('#carousel-text').html($('#slide-content-'+id).html());
+        });
+	});
 </script>
 </body>
 </html>

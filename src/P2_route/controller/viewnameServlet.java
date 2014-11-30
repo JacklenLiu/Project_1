@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,7 +37,10 @@ public class viewnameServlet extends HttpServlet {
 		response.setHeader("Access-Control-Allow-Origin", "*");
 		PrintWriter out = response.getWriter();
 		request.setCharacterEncoding("UTF-8");
-		
+		String serverName = request.getServerName();
+		int serverPort = request.getServerPort();
+		String contextPath = request.getContextPath();
+				
 		String action = request.getParameter("action");
 		
 		if("getAll".equals(action)){
@@ -226,7 +230,15 @@ public class viewnameServlet extends HttpServlet {
 			successView.forward(request, response);
 		}
 		
-		
+		if("imgCarousel".equals(action)){
+			String changeImg = request.getParameter("changeImg");
+			String top = request.getParameter("top");
+			HttpSession sion = request.getSession();
+			sion.setAttribute("changeImg",changeImg);
+			sion.setAttribute("top",top);
+			response.sendRedirect(contextPath+"/imgIntroduce.jsp");
+			return;
+		}
 	}
 
 	/**
