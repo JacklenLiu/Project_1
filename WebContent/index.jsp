@@ -29,6 +29,11 @@
 	<!-- jQuery Version 1.11.0 -->
 	<script src="js/jquery-1.11.0.js"></script> 
 	
+	<!--   lightbox js -->
+  		<script src="js/lightbox.min.js"></script>
+  	<!--   lightbox css -->	
+  		<link href="css/lightbox.css" rel="stylesheet" />
+	
 	<link rel="stylesheet" href="seeetalertcss/sweet-alert.css">
 	
 	<!-- footercss -->
@@ -320,40 +325,126 @@
                	 <h3 class="page-header"> ＊~景點熱搜排行榜~＊</h3>
             </div>
             <div class="col-md-2">
-                <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:170px;height:170px;float:none;">
+            
+            	<a class="example-image-link noChange" href="" data-lightbox="example-set" data-title="" name="indexLoginBtn">
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none;"/>
                 	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
                 </a>
+                <a class="example-image-link noChange" href="" data-lightbox="example-set" data-title="" name="indexLoginBtn" hidden>
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+                	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+                </a>
+                <a class="example-image-link noChange" href="" data-lightbox="example-set" data-title="" name="indexLoginBtn" hidden>
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+                	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+                </a>
+            
+            
+            
+<!--                 <a href="portfolio-item.html" > -->
+<!--                     <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:170px;height:170px;float:none;"> -->
+<!--                 	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;"> -->
+<!--                 </a> -->
             </div>
             <div class="col-md-2">
-                <a href="portfolio-item.html" >
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:170px;height:170px;float:none;">
-                    <img src="Images/2.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
+            
+            	<a class="example-image-link noChange" href="" data-lightbox="example-set2" data-title="" name="indexLoginBtn">
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none;"/>
+                	<img src="Images/2.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
                 </a>
+                <a class="example-image-link noChange" href="" data-lightbox="example-set2" data-title="" name="indexLoginBtn" hidden>
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+                	<img src="Images/2.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+                </a>
+                <a class="example-image-link noChange" href="" data-lightbox="example-set2" data-title="" name="indexLoginBtn" hidden>
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+                	<img src="Images/2.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+                </a>
+            
+<!--                 <a href="portfolio-item.html" > -->
+<!--                     <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt=""  style="width:170px;height:170px;float:none;"> -->
+<!--                     <img src="Images/2.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;"> -->
+<!--                 </a> -->
             </div>
             <div class="col-md-2">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
-                    <img src="Images/3.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
+            
+            	<a class="example-image-link noChange" href="" data-lightbox="example-set3" data-title="" name="indexLoginBtn">
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none;"/>
+                	<img src="Images/3.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
                 </a>
+                <a class="example-image-link noChange" href="" data-lightbox="example-set3" data-title="" name="indexLoginBtn" hidden>
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+                	<img src="Images/3.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+                </a>
+                <a class="example-image-link noChange" href="" data-lightbox="example-set3" data-title="" name="indexLoginBtn" hidden>
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+                	<img src="Images/3.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+                </a>
+            
+<!--                 <a href="portfolio-item.html"> -->
+<!--                     <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;"> -->
+<!--                     <img src="Images/3.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;"> -->
+<!--                 </a> -->
             </div>
             <div class="col-md-2">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
-                    <img src="Images/4.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
+            
+            	<a class="example-image-link noChange" href="" data-lightbox="example-set4" data-title="" name="indexLoginBtn">
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none;"/>
+                	<img src="Images/4.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
                 </a>
+                <a class="example-image-link noChange" href="" data-lightbox="example-set4" data-title="" name="indexLoginBtn" hidden>
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+                	<img src="Images/4.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+                </a>
+                <a class="example-image-link noChange" href="" data-lightbox="example-set4" data-title="" name="indexLoginBtn" hidden>
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+                	<img src="Images/4.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+                </a>
+            
+<!--                 <a href="portfolio-item.html"> -->
+<!--                     <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;"> -->
+<!--                     <img src="Images/4.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;"> -->
+<!--                 </a> -->
             </div>
             <div class="col-md-2">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
-                    <img src="Images/5.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
+            
+            	<a class="example-image-link noChange" href="" data-lightbox="example-set5" data-title="" name="indexLoginBtn">
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none;"/>
+                	<img src="Images/5.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
                 </a>
+                <a class="example-image-link noChange" href="" data-lightbox="example-set5" data-title="" name="indexLoginBtn" hidden>
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+                	<img src="Images/5.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+                </a>
+                <a class="example-image-link noChange" href="" data-lightbox="example-set5" data-title="" name="indexLoginBtn" hidden>
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+                	<img src="Images/5.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+                </a>
+            
+<!--                 <a href="portfolio-item.html"> -->
+<!--                     <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;"> -->
+<!--                     <img src="Images/5.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;"> -->
+<!--                 </a> -->
             </div>
             <div class="col-md-2">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;">
-                    <img src="Images/6.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
+            
+            	<a class="example-image-link noChange" href="" data-lightbox="example-set6" data-title="" name="indexLoginBtn">
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none;"/>
+                	<img src="Images/6.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
                 </a>
+                <a class="example-image-link noChange" href="" data-lightbox="example-set6" data-title="" name="indexLoginBtn" hidden>
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+                	<img src="Images/6.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+                </a>
+                <a class="example-image-link noChange" href="" data-lightbox="example-set6" data-title="" name="indexLoginBtn" hidden>
+                	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+                	<img src="Images/6.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+                </a>
+            
+<!--                 <a href="portfolio-item.html"> -->
+<!--                     <img class="img-responsive img-portfolio img-hover img-circle tooltips " src="" alt="" style="width:170px;height:170px;"> -->
+<!--                     <img src="Images/6.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;"> -->
+<!--                 </a> -->
             </div>
         </div>
         </center>
@@ -584,13 +675,59 @@ $(function() {
     	
     	//***************昱豪_抓排行榜圖片***************
     	
-    	//$('#gallery').empty();//clear images in maindiv
+//     	//$('#gallery').empty();//clear images in maindiv
+// 		var leaderboardUrl = "ImgTop6servlet";
+//        	$.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
+//        		$.each(datas,function(i,item){
+//   				$('.col-md-2:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
+//        		});
+//        	});
+
+		    	//$('#gallery').empty();//clear images in maindiv
 		var leaderboardUrl = "ImgTop6servlet";
        	$.getJSON(leaderboardUrl,{'action':'GetImgTop6'}, function(datas){
        		$.each(datas,function(i,item){
+       			
+       			var string			= item.imagesID; //字串
+       			var target 			= "1"; //準備替代的文字, 可用 | 代表or
+       			var myRegExp 		= new RegExp(target, 'g'); //轉換成正規表示
+       			var replaceText 	= "2"; //準備替換成的文字
+       			var new_string 		= string.replace(myRegExp, replaceText); //開始替換
+//        			alert(new_string);
+       			
+//        			var string			= item.imagesID; //字串
+       			var target 			= "2"; //準備替代的文字, 可用 | 代表or
+       			var myRegExp2 		= new RegExp(target, 'g'); //轉換成正規表示
+       			var replaceText 	= "3"; //準備替換成的文字
+       			var new_string2 		= new_string.replace(myRegExp2, replaceText); //開始替換
+//        			alert(new_string2);
+       			
+       			
+       			$('.col-md-2:nth-child('+(i+2)+') > a:nth-child(1)').attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
+       			$('.col-md-2:nth-child('+(i+2)+') > a:nth-child(2)').attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ new_string).attr("title",item.viewname);
+       			$('.col-md-2:nth-child('+(i+2)+') > a:nth-child(3)').attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ new_string2).attr("title",item.viewname);
+  				
   				$('.col-md-2:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID).attr("title",item.viewname);
        		});
        	});
+    
+    
+//     <a class="example-image-link noChange" href="" data-lightbox="example-set" data-title="" name="indexLoginBtn">
+//     	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none;"/>
+//     	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
+//     </a>
+//     <a class="example-image-link noChange" href="" data-lightbox="example-set" data-title="" name="indexLoginBtn" hidden>
+//     	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+//     	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+//     </a>
+//     <a class="example-image-link noChange" href="" data-lightbox="example-set" data-title="" name="indexLoginBtn" hidden>
+//     	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
+//     	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
+//     </a>
+       	
+       	
+       	
+
       //***************昱豪_抓排行榜圖片***************
       
       //***************昱豪_Server Send Event***************
