@@ -3,6 +3,11 @@ package P4_MessageBoard.model;
 import java.sql.Date;
 import java.util.List;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+@Path("/msg")
 public class MsgService {
 	
 	private MsgDAO_interface dao;
@@ -28,6 +33,8 @@ public class MsgService {
 		return msgVO;		
 	}
 	
+	@GET
+	@Produces("application/json; charset=UTF-8")
 	public List<MsgVO> getAll(){
 		return dao.getAll();
 		

@@ -44,6 +44,7 @@ public class FrdDAO implements FrdDAO_interface {
 	private static final String UPDATE_COOPERATION_NULL_BY_FRDID = "UPDATE member_friend set cooperation_friend= ? where member_loginID=?";
 	
 	private static final String CHECK_SAME = "SELECT * from member_friend where member_loginID=? and friend_loginID = ?"; 
+	private static final String GET_FRDSEMAIL_BY_MEMID = "SELECT member_email from sysmember where member_loginID = ?";
 	
 
 	@Override
@@ -465,7 +466,47 @@ public class FrdDAO implements FrdDAO_interface {
 		return friendName;
 	}
 
-
+	@Override
+	public String getFrdsEmail(String memID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String friendemail="";
+		
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_FRDSEMAIL_BY_MEMID);	
+			
+			pstmt.setString(1, memID);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				friendemail = rs.getString(1);
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}		
+		return friendemail;
+	}
+	
 	@Override
 	public String updateCoNotify(String memID, String frdID, String msg) {
 		Connection con = null;

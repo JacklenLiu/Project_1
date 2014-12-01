@@ -16,6 +16,7 @@ public interface FrdDAO_interface {
     public String getCoNotify(String memID);
     public String clearCoNotify(String memID);
     public String FrdclearCoNotify(String memID);
+    public String getFrdsEmail(String memID);
     
     public int checksameinvite(String member_loginID, String friend_loginID);//檢查是否兩人相互邀請
 }

@@ -2,7 +2,15 @@ package P2_route.model;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 
+@Path("/view")
 public class viewnameService {
 
 	private viewnameDAO_interface dao;
@@ -79,6 +87,9 @@ public class viewnameService {
 		return dao.getAllJSON(viewArea);
 	}
 	
+	@GET
+	@Path("/viewTop6")
+	@Produces("application/json; charset=UTF-8")
 	public String getImgTop6() {
 		return dao.getImgTop6();
 	}
@@ -87,7 +98,10 @@ public class viewnameService {
 		return dao.getImgTop6Count();
 	}
 	
-	public String getViewLatlng(String viewID){
+	@GET
+	@Path("/latlng")
+	@Produces("application/json; charset=UTF-8")
+	public String getViewLatlng(@QueryParam("viewID") String viewID){
 		return dao.getViewLatlng(viewID);
 	}
 	
@@ -99,11 +113,17 @@ public class viewnameService {
 		return dao.insertRouteViewByRouteID(routeID, routeResultView, routeResultViewOrder);
 	}
 	
-	public String getRouteByMemID(String memID){
+	@GET
+	@Path("/myRoute")
+	@Produces("application/json; charset=UTF-8")
+	public String getRouteByMemID(@QueryParam("memID") String memID){
 		return dao.getRouteByMemID(memID);
 	}
 	
-	public String getRouteOrderByRouteID(Integer routeID){
+	@GET
+	@Path("/routeOrder")
+	@Produces("application/json; charset=UTF-8")
+	public String getRouteOrderByRouteID(@QueryParam("routeID") Integer routeID){
 		return dao.getRouteOrderByRouteID(routeID);
 	}
 	
@@ -111,11 +131,16 @@ public class viewnameService {
 		return dao.getRouteFisrtByRouteID(routeID);
 	}
 	
-	public String deleteRouteByID(Integer routeID){
+	@DELETE
+	@Produces("application/json; charset=UTF-8")
+	public String deleteRouteByID(@QueryParam("routeID") Integer routeID){
 		return dao.deleteRouteByID(routeID);
 	}
 	
-	public String getRouteNameByRouteID(Integer routeID){
+	@GET
+	@Path("/routeName")
+	@Produces("application/json; charset=UTF-8")
+	public String getRouteNameByRouteID(@QueryParam("routeID") Integer routeID){
 		return dao.getRouteNameByRouteID(routeID);
 	}
 	
@@ -127,7 +152,10 @@ public class viewnameService {
 		return dao.getHitRate(routeResultView);
 	}
 	
-	public String getViewDetailByViewID(String viewID){
+	@GET
+	@Path("/viewDetail")
+	@Produces("application/json; charset=UTF-8")
+	public String getViewDetailByViewID(@QueryParam("viewID") String viewID){
 		return dao.getViewDetailByViewID(viewID);
 	}
 	
@@ -141,5 +169,12 @@ public class viewnameService {
 	
 	public List<viewnameVO> getImgDescript(String imagesID){
 		return dao.viewName_imgDescript(imagesID);
+	}
+	
+	@GET
+	@Path("/getIMG")
+	@Produces("application/json; charset=UTF-8")
+	public String getImgByID(@QueryParam("imgID") String imgID){
+		return dao.getImgByID(imgID);
 	}
 }

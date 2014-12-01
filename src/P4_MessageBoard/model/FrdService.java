@@ -2,6 +2,12 @@ package P4_MessageBoard.model;
 
 import java.util.List;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+
+@Path("friend")
 public class FrdService {
 	
 	private FrdDAO_interface dao;
@@ -57,12 +63,24 @@ public class FrdService {
 		}
 	
 	//Get member's friends.
-	public String getFrds(String memID){
+	@GET
+	@Produces("application/json; charset=UTF-8")
+	public String getFrds(@QueryParam("memID") String memID){
 		return dao.getFrds(memID);
 	}
 	
-	public String getFrdsName(String memID){
+	@GET
+	@Path("/frdName")
+	@Produces("application/json; charset=UTF-8")
+	public String getFrdsName(@QueryParam("memID") String memID){
 		return dao.getFrdsName(memID);
+	}
+	
+	@GET
+	@Path("/frdEmail")
+	@Produces("application/json; charset=UTF-8")
+	public String getFrdsEmail(@QueryParam("memID") String memID){
+		return dao.getFrdsEmail(memID);
 	}
 	
 	public String updateCoNotify(String memID, String frdID, String msg){
