@@ -87,7 +87,6 @@ public class TravelDiaryServlet extends HttpServlet {
 					HttpSession session = req.getSession();
 					String memberinfo=(String)session.getAttribute("userLoginId");	
 					TravelDiaryService travelDiarySvc=new TravelDiaryService();	
-						
 					List<TravelDiaryVO> travelDiaryVO=travelDiarySvc.getPic2(memberinfo);
 						
 					req.setAttribute("travelDiaryVO", travelDiaryVO);
@@ -97,7 +96,7 @@ public class TravelDiaryServlet extends HttpServlet {
 				} catch (Exception e) {
 					errorMsgs.add("upload" + e.getMessage());
 					RequestDispatcher failureView = req
-							.getRequestDispatcher("/P3_TravelDiary/blog_all.jsp");
+							.getRequestDispatcher("/P3_TravelDiary/blog_one.jsp");
 					failureView.forward(req, res);
 
 				}

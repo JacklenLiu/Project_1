@@ -8,7 +8,15 @@ public class TravelDiaryVO implements Serializable {
 	private String TravelDiary_Content;//文章內容
 	private String member_loginID;	 //會員ID
 	private Integer TravelDiary_ID;//編號
+	private String diary_class;
 	
+	
+	public String getDiary_class() {
+		return diary_class;
+	}
+	public void setDiary_class(String diary_class) {
+		this.diary_class = diary_class;
+	}
 	//文章標題
 	public String getTravelDiary_Name() {
 		return TravelDiary_Name;

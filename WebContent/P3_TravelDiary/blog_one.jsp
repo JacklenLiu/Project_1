@@ -143,9 +143,9 @@
  	<div id="container" >
  		<div id="nobloglist">
  			<!-- ****************尚未有文章********************* -->
-            	<c:if test="${empty travelDiaryVO}">
-            		<h1 style="text-align:center">抱歉您還沒有文章唷!!</h1>
-            	</c:if>
+           		<c:if test="${empty travelDiaryVO}">
+           			<h1 style="text-align:center" id="blogLock">抱歉您還沒有文章唷!!</h1>
+           		</c:if>
             		<!-- ****************/尚未有文章********************* -->
  		</div><br><br>
  	</div>
@@ -157,14 +157,25 @@
             	
             		<!-- ****************/已有文章********************* -->
             	 <c:forEach var="travelDiaryVO" items="${travelDiaryVO}" >
-               	 	<li id="${travelDiaryVO.travelDiary_ID}">${travelDiaryVO.travelDiary_Content}
-                    	<p>${travelDiaryVO.travelDiary_Name}</p>
-                	</li>
+            	 	<c:if test="${travelDiaryVO.diary_class == 0}">
+	               	 	<li id="${travelDiaryVO.travelDiary_ID}">${travelDiaryVO.travelDiary_Content}
+	                    	<p>${travelDiaryVO.travelDiary_Name}</p>
+	                	</li>
+                	</c:if>
+                	<c:if test="${travelDiaryVO.diary_class == 1}">
+                		<h1 style="text-align:center;display:dispaly;">
+                			<li id="${travelDiaryVO.travelDiary_ID}">${travelDiaryVO.travelDiary_Content}
+                				<p>${travelDiaryVO.travelDiary_Name}</p>
+                			</li>
+                		</h1>
+                	</c:if>
          		 </c:forEach>
          		<!-- ****************/已有文章********************* -->
+         		
             </div>
         </div>
     </div>
+    <br><br>
  	</div>
  
  <!-- footer用 -->    

@@ -43,7 +43,7 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 	private static final String GET_FRIENS_ID="select friend_loginID from member_friend where member_loginID=?";
 		
 	//取文章
-	private static final String GET_PIC2="select TravelDiary_ID,TravelDiary_Name,TravelDiary_Content from TravelDiary where member_loginID=? order by publish_date  desc";
+	private static final String GET_PIC2="select TravelDiary_ID,TravelDiary_Name,TravelDiary_Content , diary_class from TravelDiary where member_loginID=? order by publish_date  desc";
 	
 	@Override
 	public void insert(TravelDiaryVO travelDiaryVO) {
@@ -314,12 +314,12 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 					int imgcut=cut2.indexOf("style=");
 					cut2=cut2.substring(0,imgcut) +" >";
 				}
-				
 				//換掉wookmar要用的屬性
 				cut2=cut2.replace(">", imgend);
 				travelDiaryVO.setTravelDiary_Name(rs.getString("TravelDiary_Name"));
 				travelDiaryVO.setTravelDiary_Content(cut2);
 				travelDiaryVO.setTravelDiary_ID(rs.getInt("TravelDiary_ID"));
+				travelDiaryVO.setDiary_class(rs.getString("diary_class"));
 				list.add(travelDiaryVO);
 			}
 			

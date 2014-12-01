@@ -70,19 +70,22 @@ create table viewname(
 --insert into viewname values ('Maokong','貓空','北部','台北市',1,'','');
 /* ================================================================================================================== */
 /*北部*/
+/*
 insert into viewname values ('Bali','八里左岸自行車道','北部','台北市北投區知行路462號',1,'25.1177511','121.4637232');
 insert into viewname values ('Riverbank_Park','河濱公園自行車道','北部','台北市中正區水源快速道路',1,'25.0143241','121.5235801');
 insert into viewname values ('Beitou','新北投溫泉公園','北部','台北市北投區溫泉路101-109號',1,'25.1363815','121.5119927');
+*/
 insert into viewname values ('Yangmingshan','陽明山溫泉區','北部','台北市北投區陽明路一段23之5號',1,'25.1472889','121.549065');
 insert into viewname values ('Xiangshan','象山','北部','台北市信義區信義路五段150巷411弄16號',1,'25.0239146','121.5706659');
-insert into viewname values ('Tianmu','天母古道親山步道','北部','台北市士林區中山北路七段232號',1,'25.126878','121.534101');
+/*insert into viewname values ('Tianmu','天母古道親山步道','北部','台北市士林區中山北路七段232號',1,'25.126878','121.534101');*/
 insert into viewname values ('Hushan','虎山親山步道','北部','台北市信義區福德街221巷190號',1,'25.0329549','121.5877237');
 insert into viewname values ('Jiantan','劍潭山親山步道','北部','台北市中山區北安路410號',1,'25.0791947','121.5425427');
-insert into viewname values ('Guandu','關渡親山步道','北部','台北市北投區中央北路四段30巷156號',1,'25.1424091','121.4732789');
+/*insert into viewname values ('Guandu','關渡親山步道','北部','台北市北投區中央北路四段30巷156號',1,'25.1424091','121.4732789');*/
 insert into viewname values ('Whitehead_Lake','白石湖吊橋','北部','台北市內湖區碧山路24號',1,'25.099171','121.587111');
 insert into viewname values ('Bihu','碧湖步道','北部','台北市內湖區內湖路三段60巷',1,'25.087898','121.592187');
 insert into viewname values ('Chingtienkang','擎天崗草原','北部','台北市士林區菁山路101巷246號',1,'25.167208','121.574226');
 insert into viewname values ('Maokong','貓空纜車','北部','台北市文山區新光路二段10巷2號',1,'24.9960519','121.5766782');
+/*
 insert into viewname values ('Daan','大安森林公園','北部','台北市大安區新生南路二段1號',1,'25.029655','121.5352191');
 insert into viewname values ('Beitou_Park','北投公園','北部','臺北市北投區中山路2號',1,'25.1358578','121.4979173');
 insert into viewname values ('Fisherman_Wharf','漁人碼頭','北部','新北市淡水區觀海路135號',1,'25.1830363','121.4108099');
@@ -90,40 +93,53 @@ insert into viewname values ('Pinghsi','平溪天燈','北部','新北市平溪�
 insert into viewname values ('Yehliu','野柳女王頭','北部','新北市207萬里區',1,'25.2087687','121.6197777');
 insert into viewname values ('Fort_San_Domingo','淡水紅毛城','北部','新北市淡水區中正路28巷1號',1,'25.1753647','121.3590607');
 insert into viewname values ('Bisha','碧砂漁港','北部','基隆市中正區北寧路211號',1,'25.145636','121.786017');
+*/
 insert into viewname values ('Small_Wulai','小烏來','北部','桃園縣復興鄉興溪道路',1,'24.7937179','121.3018707');
 insert into viewname values ('Toucheng','宜蘭頭城老街','北部','宜蘭縣頭城鎮和平街96號',1,'24.8569885','121.8241332');
-insert into viewname values ('Yingge','鶯歌陶瓷博物館','北部','新北市鶯歌區文化路200號',1,'24.949537','121.352446');
+/*insert into viewname values ('Yingge','鶯歌陶瓷博物館','北部','新北市鶯歌區文化路200號',1,'24.949537','121.352446');*/
+/*
 insert into viewname values ('Leofoo','六福村','北部','新竹縣關西鎮仁安里拱子溝60號',1,'24.821673','121.181964');
 insert into viewname values ('Keelung_Temple','基隆廟口','北部','基隆市仁愛區仁三路25-39號',1,'25.1286281','121.7428005');
+*/
 /*insert into viewname values ('Chiaohsi','宜蘭礁溪溫泉公園','北部','宜蘭縣礁溪鄉公園路16-1號',1,'24.8310012','121.7757918');*/
+/*
 insert into viewname values ('Tataocheng','大稻埕碼頭','北部','台北市大同區堤外道路',1,'25.0565319','121.5076715');
 insert into viewname values ('Palace_Museum','故宮博物院','北部','台北市士林區至善路二段221號',1,'25.102355','121.548493');
 insert into viewname values ('Grandee','士林官邸','北部','台北市士林區福林路60號',1,'25.094898','121.530152');
 insert into viewname values ('Zoo','貓空','木柵動物園','台北市新光路二段30號',1,'24.9988348','121.5072487');
+*/
 /* ================================================================================================================== */
 
 /*中部*/
+/*
 insert into viewname values ('Yizhong_St','一中街','中部','台中市北區一中街105號',1,'24.1505177','120.6855512');
 insert into viewname values ('Fengjia_Night-Market','逢甲夜市','中部','台中市西屯區文華路101號',1,'24.1787886','120.6464729');
+*/
+/*
 insert into viewname values ('Park_Lane_By_CMP','勤美誠品綠園道','中部','台中市西區公益路68號',1,'24.1508656','120.6638385');
 insert into viewname values ('Jingming_1st_St','精明一街','中部','精明一街商圈大墩十九街',1,'24.156186','120.655806');
+*/
 insert into viewname values ('Maple_Garden','秋紅谷廣場','中部','台中市西屯區台中港路二段127-16號',1,'24.1673911','120.6392907');
 /*insert into viewname values ('Calligraphy_Greenway','草悟道','中部','台中市西區五權西三街1號',1,'24.1400131','120.6631115');*/
+/*
 insert into viewname values ('Miyahara','宮原眼科','中部','台中市中區中山路20號',1,'24.137806','120.683394');
 insert into viewname values ('Gaomei_Wetland','高美濕地','中部','436台中市清水區高美濕地 ',1,'24.3104863','120.5436976');
 insert into viewname values ('Dajiamazu','大甲鎮瀾宮','中部','台中市大甲區順天路158號',1,'24.345252','120.623445');
 insert into viewname values ('Lishan_Scenic_Area','梨山風景區','中部','台中市和平區福壽路',1,'24.2501542','121.1793697');
 insert into viewname values ('National_Taiwan_Museum_of_Fine_Arts','國立台灣美術館','中部','台中市西區五權西路一段2號',1,'24.140532','120.663324');
+*/
 insert into viewname values ('Oiwake_Station','追分火車站','中部','台中市大肚區追分街',1,'24.1206823','120.5700868');
 /*insert into viewname values ('Big_Hole_Scenic',' 大坑風景區','中部','台中市北屯區東山路二段濁水巷9之1號',1,'24.18925','');*/
+/*
 insert into viewname values ('Taichung_Park','臺中公園','中部','台中市北區精武路291-3號',1,'24.1457128','120.6850378');
 insert into viewname values ('Shalu_District',' 沙鹿之翼','中部','台中市沙鹿區三民路2-2號',1,'24.2375687','120.5694413');
 insert into viewname values ('Rainbow_Village',' 彩虹眷村','中部','台中市南屯區忠勇路19巷49號',1,'24.1336366','120.6103059');
+*/
 /*insert into viewname values ('Dongfung_Bike_Corridor','東豐自行車綠廊','中部','台中市豐原區朴子街301巷62號',1,'24.2728105','120.7422603');*/
 insert into viewname values ('Wuling-Farm','武陵農場','中部','台中市和平區武陵路3之1號',1,'24.3458055','121.3067828');
 insert into viewname values ('Flowersea',' 新社花海','中部','台中市新社區協興街30號',1,'24.2039137','120.807299');
 /*insert into viewname values ('National_Museum_of_Natural_Science','自然科學博物館','中部','台中市北區館前路1號',1,'24.156714','120.666364');*/
-insert into viewname values ('Hightway_Rest_Area','清水服務區休息站','中部','台中市清水區服務區休息站',1,'24.2812754','120.6023753');
+/*insert into viewname values ('Hightway_Rest_Area','清水服務區休息站','中部','台中市清水區服務區休息站',1,'24.2812754','120.6023753');*/
 /*insert into viewname values ('Taichung_City_Seaport_Art_Center','臺中港區藝術中心','中部','台中市清水區忠貞路21號',1,'24.269565','120.557688');*/
 insert into viewname values ('Lavender-Forest','薰衣草森林','中部','台中市新社區中興街20號',1,'24.128475','120.841317');
 /*insert into viewname values ('Taiwan_Forest_Recreation','八仙山森林遊樂區','中部','台中市和平區東關路一段200之8號',1,'24.192249','121.01462');*/
@@ -131,7 +147,7 @@ insert into viewname values ('Tali_Street',' 大里老街','中部','台中市�
 insert into viewname values ('Yuemei_Tourism_Sugar_Factory',' 月眉觀光糖廠','中部','台中市后里區甲后路864號',1,'24.313718','120.694783');
 insert into viewname values ('Guguan_Hot_Springs','谷關溫泉','中部','台中市和平區東關路一段溫泉巷',1,'24.2047348','121.0092839');
 insert into viewname values ('7fy','七分窯','中部','台中市新社區崑山里崑南街七分小巷1號',1,'24.241511','120.78851');
-insert into viewname values ('Mushrooms',' 菇類農村文物館','中部','台中市霧峰區四德路10號6樓',1,'24.06488','120.698061');
+/*insert into viewname values ('Mushrooms',' 菇類農村文物館','中部','台中市霧峰區四德路10號6樓',1,'24.06488','120.698061');*/
 insert into viewname values ('flowerjs',' 中社觀光花市','中部','台中市后里區三豐路469之13號',1,'24.334392','120.730237');
 /* ================================================================================================================== */
 
@@ -144,10 +160,12 @@ insert into viewname values ('North_Gate_Station','北門驛','南部','嘉義�
 insert into viewname values ('Central_Fountain','中央噴水池','南部','嘉義市中山路289號',1,'23.4802914','120.450543');
 /*insert into viewname values ('Alishan','阿里山','南部','嘉義縣阿里山鄉阿里山公路',1,'23.509025','120.8020987');*/
 insert into viewname values ('Fencihu','奮起湖','南部','嘉義縣竹崎鄉阿里山公路中和支線',1,'23.5060607','120.7002978');
+/*
 insert into viewname values ('Tropic_of_Cancer','北回歸線','南部','嘉義縣水上鄉鴿溪寮21之25號',1,'23.453394','120.415949');
 insert into viewname values ('Steller_Pi','虎頭埤','南部','台南市南168鄉道135號',1,'23.0267216','120.3401917');
 insert into viewname values ('Chiku_Salt','七股鹽場','南部','台南市七股區鹽埕里66號',1,'23.154163','120.100298');
 insert into viewname values ('Guanziling','關子嶺','南部','台南市白河區',1,'23.3349014','120.5002671');
+*/
 insert into viewname values ('Koxinga_Shrine','延平郡王祠','南部','台南市中西區建業街16號',1,'22.9880516','120.2072403');
 insert into viewname values ('Chikan_Towers','赤崁樓','南部','台南市中西區民族路二段212號',1,'22.997218','120.202424');
 /*insert into viewname values ('Gold_Coast','黃金海岸','南部','台南市南區安平港聯外道路',1,'22.9518102','120.1726998');*/
@@ -155,6 +173,7 @@ insert into viewname values ('Tainan_Confucius_Temple','台南孔廟','南部','
 insert into viewname values ('Garden_Night_Market','花園夜市','南部','台南市北區和緯路与海安路交叉口',1,'23.010681','120.199623');
 /*insert into viewname values ('Anping_Street','安平老街','南部','台南市安平區延平街50號',1,'23.000433','120.163607');*/
 /*insert into viewname values ('Four_Grass_Bridge','四草大橋','南部','台南市安平區四草大橋',1,'22.9951592','120.1423611');*/
+/*
 insert into viewname values ('Urban_Spotlight','城市光廊','南部','高雄市前金區中華三路6號',1,'22.622984','120.298941');
 insert into viewname values ('Love_River','愛河','南部','高雄市河西路150號',1,'22.6257333','120.2882429');
 insert into viewname values ('85_Building','85大樓','南部','高雄市苓雅區新光路126號',1,'22.6108947','120.3001618');
@@ -162,24 +181,29 @@ insert into viewname values ('Cijin','旗津','南部','高雄市旗津一路517
 insert into viewname values ('Stayed_Bridge','斜張橋','南部','高縣大樹鄉統領路72-50號',1,'22.767604','120.447094');
 insert into viewname values ('Fo_Guang_Shan','佛光山','南部','高雄市大樹區統嶺路1號',1,'22.754973','120.447612');
 insert into viewname values ('West_Bay','西子灣','南部','高雄市鼓山區中山大學',1,'22.629167','120.262778');
+*/
 /*insert into viewname values ('Jialeshuei','佳樂水','南部','屏東縣滿州鄉茶山路244號',1,'21.9934955','120.860781');*/
+/*
 insert into viewname values ('Kenting_Street','墾丁大街','南部','屏東縣恆春鎮墾丁路207號',1,'21.9453313','120.7979635');
 insert into viewname values ('Kenting_National_Park','墾丁國家公園','南部','屏東縣恆春鎮屏鵝公路',1,'21.9484123','120.77931');
 insert into viewname values ('South_Bay','南灣','南部','屏東縣恆春鎮南灣路223號',1,'21.959931','120.763096');
 insert into viewname values ('Maobitou','貓鼻頭','南部','屏東縣恆春鎮下泉路100號',1,'21.9222247','120.7374355');
 insert into viewname values ('Tung_Lung_Palace','東隆宮','南部','屏東縣東港鎮東隆街21之1號',1,'22.463076','120.448766');
+*/
 /* ================================================================================================================== */
 
 /*東部*/
 /* ================================================================================================================== */
 insert into viewname values ('Fanshuliao','蕃薯寮','東部','花蓮縣壽豐鄉花東海岸公路',1,'23.7459825','121.5548941');
-insert into viewname values ('Shuilian_and_Niushan','水璉、牛山海岸','東部','花蓮縣壽豐鄉牛山',1,'23.7643896','121.5694013');
+/*insert into viewname values ('Shuilian_and_Niushan','水璉、牛山海岸','東部','花蓮縣壽豐鄉牛山',1,'23.7643896','121.5694013');
 insert into viewname values ('Changhong_Bridge','長虹橋','東部','花蓮縣豐濱鄉瑞港產業道路',1,'23.4690987','121.4873261');
 insert into viewname values ('Xiuguluan_River','秀姑巒溪','東部','花蓮縣玉里鎮花東縱谷公路',1,'23.3221239','121.3269997');
 insert into viewname values ('Shitiping','石梯坪','東部','花蓮縣花東海岸公路28號',1,'23.4829365','121.5086739');
 insert into viewname values ('Baxian_Cave','八仙洞','東部','台東縣花東海岸公路6號',1,'23.3959179','121.4769922');
+*/
 insert into viewname values ('Water_Running_Upward','水往上流','東部','台東縣東河鄉五線產業道路',1,'22.8684267','121.2181013');
 insert into viewname values ('Xiaoyeliu','小野柳','東部','台東縣台東市松江路一段500號',1,'22.8683042','121.1444647');
+
 /*insert into viewname values ('Taroko','太魯閣','東部','花蓮縣秀林鄉291號',1,'24.2002232','121.4526845');*/
 /*insert into viewname values ('Liyu_Lake','鯉魚潭','東部','花蓮縣壽豐鄉環潭北路100號',1,'23.9349091','121.5023948');*/
 insert into viewname values ('Fugang_Fish_Port','富岡漁港','東部','台東縣富岡街123號',1,'22.7917796','121.1923837');
@@ -187,19 +211,19 @@ insert into viewname values ('Fugang_Fish_Port','富岡漁港','東部','台東�
 insert into viewname values ('Henan_Temple','和南寺','東部','花蓮縣花東海岸公路19號',1,'23.8757823','121.5996468');
 /*insert into viewname values ('Shanyuan','杉原-富山復魚區','東部','台東縣卑南鄉富山村杉原24號',1,'22.8352135','121.1864165');*/
 insert into viewname values ('Donghe_Bridge','東河橋','東部','台東縣花東海岸公路',1,'22.9750797','121.3071565');
-insert into viewname values ('Amis_Folk_Center','阿美族民俗中心','東部','台東縣成功鎮新村路25號',1,'23.018579','121.326759');
-insert into viewname values ('Chenggong','成功','東部','台東縣成功鎮白蓮路141號',1,'23.129003','121.3999673');
+/*insert into viewname values ('Amis_Folk_Center','阿美族民俗中心','東部','台東縣成功鎮新村路25號',1,'23.018579','121.326759');*/
+/*insert into viewname values ('Chenggong','成功','東部','台東縣成功鎮白蓮路141號',1,'23.129003','121.3999673');*/
 /*insert into viewname values ('Dabaisha','大白沙','東部','台東縣綠島鄉環島公路',1,'22.6400148','121.4922562');*/
 /*insert into viewname values ('Zhaori_Hot_Spring','朝日溫泉','東部','台東縣綠島鄉溫泉路167號',1,'22.6401','121.4179928');*/
 /*insert into viewname values ('Zhiben','知本國家森林公園','東部','台東縣卑南鄉龍泉路290號',1,'22.6873002','120.9912858');*/
 insert into viewname values ('Rueisuei_Township','瑞穗鄉','東部','花蓮縣瑞穗鄉成功南路17號',1,'23.4966412','121.3761888');
 /*insert into viewname values ('Across_Mountain_Ancient_Trail','過山古道','東部','台東縣綠島鄉環島公路',1,'22.6444413','121.4952786');*/
 insert into viewname values ('Jialulan','加路蘭','東部','台東縣台東市松江路二段',1,'22.8068184','121.196625');
-insert into viewname values ('Jiqi_Beach_Recreation_Area','磯崎海濱遊憩區','東部','花蓮縣豐濱鄉花東海岸公路',1,'23.6988054','121.5507968');
-insert into viewname values ('Farglory_Ocean_Park','遠雄海洋公園','東部','花蓮縣壽豐鄉',1,'23.9001676','121.6009733');
-insert into viewname values ('Chike_Mountain','赤柯山','東部','花蓮縣玉里鎮赤科山產業道路',1,'23.3907455','121.3728496');
-insert into viewname values ('Fuyuan_Butterfly_Valley','富源蝴蝶谷','東部','花蓮縣萬榮鄉廣東路161號',1,'23.588759','121.354797');
-insert into viewname values ('Nanan_Waterfall','南安瀑布','東部','花蓮縣卓溪鄉八通關古道',1,'23.3116128','121.2483078');
+/*insert into viewname values ('Jiqi_Beach_Recreation_Area','磯崎海濱遊憩區','東部','花蓮縣豐濱鄉花東海岸公路',1,'23.6988054','121.5507968');*/
+/*insert into viewname values ('Farglory_Ocean_Park','遠雄海洋公園','東部','花蓮縣壽豐鄉',1,'23.9001676','121.6009733');*/
+/*insert into viewname values ('Chike_Mountain','赤柯山','東部','花蓮縣玉里鎮赤科山產業道路',1,'23.3907455','121.3728496');*/
+/*insert into viewname values ('Fuyuan_Butterfly_Valley','富源蝴蝶谷','東部','花蓮縣萬榮鄉廣東路161號',1,'23.588759','121.354797');*/
+/*insert into viewname values ('Nanan_Waterfall','南安瀑布','東部','花蓮縣卓溪鄉八通關古道',1,'23.3116128','121.2483078');*/
 insert into viewname values ('Antong_Hot_Springs','安通溫泉','東部','花蓮縣玉長公路41號',1,'23.2804707','121.3422763');
 insert into viewname values ('Ruisui_Pasture','瑞穗牧場','東部','花蓮縣瑞穗鄉舞鶴157號',1,'23.479955','121.345279');
 /* ================================================================================================================== */
@@ -224,6 +248,8 @@ CREATE TABLE images (
 
 /* ================================================================================================================== */
 /*北部*/
+
+/*昱豪
 insert into images values ('N_Bali_01','Bali','基隆河匯入淡水河之前，繞著社子島轉出一個美麗的弧彎，在其北岸與磺港溪以西地帶，保留了都會臺北極其珍貴的稻香田園。','','');
 insert into images values ('N_Bali_02','Bali','穿越關渡平原的自行車道，是全線非封閉性的路徑，西側端點為關渡宮，往東沿著關渡防潮堤至八仙福德祠，轉90度往北穿越關渡平原，直到北投中央北路捷運軌道南側，穿出去便是政戰學校西邊的稻香路。','','');
 insert into images values ('N_Bali_03','Bali','關渡宮沿河堤段原有的攤販已完全撤離，改成好走的人行步道，跨越中港河小橋旁停泊的漁船也外移至淡水河邊，雖然少了扁舟停泊的漁港懷舊味，水域卻也另有清爽的風貌。 ','','');
@@ -233,24 +259,31 @@ insert into images values ('N_Riverbank_Park_03','Riverbank_Park','若從大稻�
 insert into images values ('N_Beitou_01','Beitou','北投溫泉從日據時代便有盛名，瀧乃湯、星乃湯、鐵乃湯就是日本人依照溫泉的特性與療效給予的名稱，據說對皮膚病、神經過敏、氣喘、風濕等具有很好的療效，也因此成為了北部最著名的泡湯景點之一。','','');
 insert into images values ('N_Beitou_02','Beitou','新北投溫泉的泉源為大磺嘴溫泉，泉質屬硫酸鹽泉，PH值約為3~4之間，水質呈黃白色半透明，泉水溫度約為50-90℃，帶有些許的硫磺味 。','','');
 insert into images values ('N_Beitou_03','Beitou','目前北投的溫泉旅館、飯店、會館大部分集中於中山路、光明路沿線以及北投公園地熱谷附近，總計約有44家。','','');
+*/
+
 insert into images values ('N_Yangmingshan_01','Yangmingshan','陽明山舊稱草山，因紀念明朝學者王陽明而改名為陽明山，它是臺北的都市後花園，位居近郊，是大家很方便就可以遠離塵囂，休閒的好去處。','','');
 insert into images values ('N_Yangmingshan_02','Yangmingshan','陽明山溫泉大致可分為4個區域：陽明山國家公園周邊、冷水坑、馬槽及火庚子坪。','','');
 insert into images values ('N_Yangmingshan_03','Yangmingshan','溫泉在陽明山風景區內，分前山溫泉和後山溫泉兩塊，有很多溫泉旅館，加上山上眾多風景區和美食，很適合兩天一夜的登山遊園泡湯之旅。','','');
 insert into images values ('N_Xiangshan_01','Xiangshan','象山因外形似象頭而得名，位於臺北盆地東南方的信義區，與虎山地質相同主要由砂岩組成','','');
 insert into images values ('N_Xiangshan_02','Xiangshan','區內各種稜線、岩壁、山坡等不同環境，孕育出多種蕨類植物處處可見，其中又以金狗毛蕨與筆筒樹古老蕨類族群最大，數量居臺北市之冠。','','');
 insert into images values ('N_Xiangshan_03','Xiangshan','登上象山之後，如果你的體力充沛，或是想伸展筋骨，步道兩旁還有許多強體力及肺活量的體能設施，只見大夥在山頂的逸賢亭打個尖、做個操，還有精力無窮的小朋友穿梭其間，運動休閒一兼二顧，很適合全家來活動。','','');
+/*昱豪
 insert into images values ('N_Tianmu_01','Tianmu','天母古道親山步道穿越士林華岡地區的西北山坡，涵蓋華岡至天母間的數條步道。','','');
 insert into images values ('N_Tianmu_02','Tianmu','說是有一千多個階梯，就當作是進入山林前的「暖身」。首先映入眼簾是龍眼樹林，石階兩旁高大的龍眼樹，有的樹腰粗到要兩人合抱。','','');
 insert into images values ('N_Tianmu_03','Tianmu','沿途林木蔽日，夏日走在如履平地的山路上倍覺舒適涼爽；冬季只聽見北風在溪谷中呼嘯，但不覺有刺骨寒風。','','');
+*/
 insert into images values ('N_Hushan_01','Hushan','虎山為四獸山市民森林區內之淺山之一，連接區後南港山系構成臺北市東南側的屏障，海拔140公尺。','','');
 insert into images values ('N_Hushan_02','Hushan','這條路線景觀多元饒富趣味，植物種類繁多，步道沿途設有解說牌，拾級而上之際就可輕鬆展開自導式生態之旅。','','');
 insert into images values ('N_Hushan_03','Hushan','虎山溪本是原始的自然野溪，再加上水土保持不良，使得溪底沖蝕淤積現象日益嚴重，現已改善。','','');
 insert into images values ('N_Jiantan_01','Jiantan','劍潭山海拔153公尺，位於臺北市士林區圓山風景區，是圓山飯店後山的北稜。','','');
 insert into images values ('N_Jiantan_02','Jiantan','劍潭山親山步道夜景的人氣指數向來高居不下，於制高點欣賞繁華的市景燈火夜色，不時還有飛機低空略過星空。','','');
 insert into images values ('N_Jiantan_03','Jiantan','這一帶以前是軍事管制區和保安林地，所以自然林相得以保持，密林遍佈整個步道。','','');
+
+/*昱豪
 insert into images values ('N_Guandu_01','Guandu','成群候鳥飛越關渡綠色平原的姿態真是好看，從山坡上俯視這景象，不失為另一種幸福。','','');
 insert into images values ('N_Guandu_02','Guandu','飽覽山色美景之後，由登山口進入天際線，原本開闊的視野突然轉為林蔭山徑，彷彿踏入另一個與世隔絕的世界。','','');
 insert into images values ('N_Guandu_03','Guandu','向右走呢，沿著涼亭旁的步徑到行天宮的「後花園」逛逛，走在林蔭扶疏的小徑最是涼爽。','','');
+*/
 insert into images values ('N_Whitehead_Lake_01','Whitehead_Lake','白石湖吊橋位於內湖白石湖休閒農業區內，吊橋入口位於碧山巖開漳聖王廟的停車場旁，全長116公尺','','');
 insert into images values ('N_Whitehead_Lake_02','Whitehead_Lake','有別於一般吊橋的高聳橋台設計，特別採直路式設計，打造成一座無懸吊纜繩的隱形吊橋，融入當地的田園美景。','','');
 insert into images values ('N_Whitehead_Lake_03','Whitehead_Lake','通果吊橋後為白石湖社區，百公尺長的春秋步道，可見精心開闢的花卉專業種植區，及當地豐富的農村特色、景觀生態等資源。','','');
@@ -263,6 +296,8 @@ insert into images values ('N_Chingtienkang_03','Chingtienkang','擎天崗地勢
 insert into images values ('N_Maokong_01','Maokong','貓空為火成岩地質，在木柵茶區東側的小溪谷裡，因為當地地質較軟硬不同，許多河床上石頭上形成了壺穴般的鑽蝕坑洞，而因為形狀相似貓爪留下的孔洞，所以稱為貓空。','','');
 insert into images values ('N_Maokong_02','Maokong','每年農曆春節後，2,000餘株紅、白、粉紅色的杏花陸續爭相吐豔，一直持續至3月中旬以後。','','');
 insert into images values ('N_Maokong_03','Maokong','貓空老泉里、萬興、博嘉的山區及鄰近景美溪河岸一帶，盛產綠竹筍，年產量達667萬公斤，不僅鮮嫩且帶有獨特的香氣。','','');
+
+/*昱豪
 insert into images values ('N_Daan_01','Daan','大安森林公園佔地約26公頃，於民國八十三年三月二十九日啟園。雖位於台北市區中心，但卻是一個草木濃密的生態公園。','','');
 insert into images values ('N_Daan_02','Daan','公園內除有綠樹成蔭之外，更有花壇處處，每逢花開時節色彩繽紛，令人賞心悅目。','','');
 insert into images values ('N_Daan_03','Daan','各種休憩設施如行人座椅、涼亭、音樂舞台、慢跑道……等各種設施相當完善，公園下方並設置有地下停車場以方便開車前來的民眾，已成為台北市民休閒最佳場所之一。','','');
@@ -284,26 +319,32 @@ insert into images values ('N_Fort_San_Domingo_03','Fort_San_Domingo','開放供
 insert into images values ('N_Bisha_01','Bisha','碧砂漁港為一著名的觀光漁市，兩棟主要長形建築物，分別是「漁市場」和「飲食街」。','','');
 insert into images values ('N_Bisha_02','Bisha','遠洋、近海、沿岸、養殖應有盡有。旁邊的飲食街除可在店內點菜外，也可將選購之海產交給店家代為料理。','','');
 insert into images values ('N_Bisha_03','Bisha','碧砂漁港為基隆新興的漁港，發展方向以休閒觀光為主，是目前政府極力發展海上觀光業的一處主力港口。','','');
+*/
 insert into images values ('N_Small_Wulai_01','Small_Wulai','小烏來風景區地處桃園縣復興鄉，以清新秀麗的瀑布和峽谷風光見長。','','');
 insert into images values ('N_Small_Wulai_02','Small_Wulai','區內以小烏來瀑布，龍鳳谷瀑布及風動石出名。','','');
 insert into images values ('N_Small_Wulai_03','Small_Wulai','每年五，六月，及十一月至隔年二月是賞鳥季節，因此在這裏不但可以享受森林浴，也可觀看瀑布及賞鳥，是遊憩的好地點。','','');
 insert into images values ('N_Toucheng_01','Toucheng','頭城是開蘭第一城，而和平街則是頭城最古老的街道， 在清代一度成為蘭陽平原最重要的經濟中心， 於今卻是宜蘭地區碩果僅存的老街。','','');
 insert into images values ('N_Toucheng_02','Toucheng','和平街北段頂端的北門福德祠， 是老街的守護神；往南的長排平房， 便是清代船頭行的遺址十三行； 再往南則有混合各種建築風格的「139號」盧宅。','','');
 insert into images values ('N_Toucheng_03','Toucheng','北通烏石港， 南出打馬煙，帆檣林立，盛極一時， 當地居民在老街南北兩端， 各蓋了一間面向街心的福德祠， 以堵住財氣。','','');
+/*昱豪
 insert into images values ('N_Yingge_01','Yingge','鶯歌陶瓷博物館為全國首座陶瓷專業博物館，歷經3位縣長，耗時12年籌建，最後終於在2000年11月26日開館。','','');
 insert into images values ('N_Yingge_02','Yingge','同時更以教育服務為導向，結合資訊科技，塑造各種情境；讓陶博館成為知性、感性、可親、可遊的博物館。','','');
 insert into images values ('N_Yingge_03','Yingge','傳統技藝廳說明陶瓷製作過程，並呈現早期製陶之輔助工具；2樓說明台灣各地陶瓷發展的歷程及其特色，以及介紹台灣陶瓷產品，具體呈現展出品的特色、類型及用途等，充分說明產品和生活之間的關係。','','');
+*/
+/*
 insert into images values ('N_Leofoo_01','Leofoo','充滿牛仔風格狂野標悍的「美國大西部」、熱帶島嶼風情的「南太平洋」、魔幻神奇的「阿拉伯皇宮」以及六福村最引以為傲，讓您可近距離觀察原始動物生態的「非洲部落」。','','');
 insert into images values ('N_Leofoo_02','Leofoo','園區內魔術噴泉廣場，更有精采的音樂水舞表演。','','');
 insert into images values ('N_Leofoo_03','Leofoo','想體驗真實與夢幻交織的歡樂與驚奇嗎？六福村主題遊樂園，不怕你不玩，怕你玩不完！！','','');
 insert into images values ('N_Keelung_Temple_01','Keelung_Temple','聞名全台的基隆市廟口小吃已有3、40年的歷史了。','','');
 insert into images values ('N_Keelung_Temple_02','Keelung_Temple','小吃種類眾多，短短3、400公尺，卻聚集了有近200個攤位，走在其間，嘴巴沒有一刻停閒。','','');
 insert into images values ('N_Keelung_Temple_03','Keelung_Temple','夜市中每位經營的老闆都巧心創作口味和料理，用料實在而且價錢公道、色香味俱全；也難怪每天這兒都相當的熱鬧。','','');
+*/
 /*
 insert into images values ('N_Chiaohsi_01','Chiaohsi','礁溪鄉以溫泉聞名，位於宜蘭縣東北角，四百多年前這兒住著噶瑪蘭人和泰雅族人，到了清嘉慶元年（1796年），福建人吳沙帶領移民進入，並慢慢開墾此地，終於使礁溪逐漸成為宜蘭北部重鎮。','','');
 insert into images values ('N_Chiaohsi_02','Chiaohsi','又稱圓山公園，在火車站北方約 500公尺處，園內林蔭夾道，為民眾休閒之處，並設有宜蘭縣旅遊資訊中心，提供旅客觀光資訊、食、宿、交通等諮詢服務。','','');
 insert into images values ('N_Chiaohsi_03','Chiaohsi','此泉色清無臭，湧到地表時約為58度 C，洗後光滑柔細不黏膩，由於富含礦物質，因此不論是浸泡、沐浴，都對身體健康極有幫助。','','');
 */
+/*
 insert into images values ('N_Tataocheng_01','Tataocheng','大稻埕原是平埔族的居住地，因萬華（艋舺）同安人發生激烈的械鬥，造成族人移至大稻埕定居，開始大稻埕淡水河旁商店和房屋的興建。','','');
 insert into images values ('N_Tataocheng_02','Tataocheng','大稻埕在劉銘傳的治理下成為臺北城最繁華的物資集散中心，當中以茶葉、布料為主要貿易交易。','','');
 insert into images values ('N_Tataocheng_03','Tataocheng','當時的延平北路及貴德街一帶便是商業活動的重心，也讓大稻埕早年的歷史多采多姿、令人回味。','','');
@@ -316,9 +357,11 @@ insert into images values ('N_Grandee_03','Grandee','後來增設的露天音樂
 insert into images values ('N_Zoo_01','Zoo','臺北市立動物園是世界前十大都市型的動物園之一，搭捷運木柵線到最後一站就可以抵達。','','');
 insert into images values ('N_Zoo_02','Zoo','除了室內展示館，還有8個戶外展示區，戶外展示區依地理環境做劃分，兼具物種展示及生態環境教育的功能，其中「兒童動物園」、「臺灣鄉土動物區」和「非洲動物區」是動物園線上票選最受歡迎的展示區。','','');
 insert into images values ('N_Zoo_03','Zoo','「臺灣鄉土動物區」展出梅花鹿、臺灣黑熊、台灣獼猴和藍腹鷳等台灣特有種，這些可都是台灣限定，千萬不可以錯過喔！','','');
+*/
 /* ================================================================================================================== */
 
 /*中部*/
+/*昱豪
 insert into images values ('C_Yizhong_St_01','Yizhong_St','位於中友百貨附近，與三民商圈連成一氣，附近有臺中科技大學、臺中一中、台灣體育運動大學等學校，學生人口眾多，小吃攤、飲食店林立，各種新潮流行資訊在這隨處可見、隨手可得。','','');
 insert into images values ('C_Yizhong_St_02','Yizhong_St','臺中一中街商圈雖沒有逢甲夜市歷史悠久，但也有著許多家二十年以上的歷史老店，例如到一中街裡很多人都知道的一中豐仁冰、上和園滷味(東海蓮心冰的直營店)、日日利海盜飯糰、喜事連連煎餃等，賣得都是過去一中人才吃得到的好味道。','','');
 insert into images values ('C_Yizhong_St_03','Yizhong_St','每到假日，人潮眾多，十分熱鬧！育才街上多是小吃攤，而服飾店多在小巷子中。各式新潮前衛的玩意都會在此先出現，若你是流行的追求者，一中夜市絕對不能錯過。','','');
@@ -331,6 +374,7 @@ insert into images values ('C_Park_Lane_By_CMP_03','Park_Lane_By_CMP','植生牆
 insert into images values ('C_Jingming_1st_St_01','Jingming_1st_St','精明一街位於台中市西區五期重劃區內，集大墩19街與大隆路間的一條內街，屬於辦公區與商店街的混合區，這條街正確的名稱應該稱為「台中商務中心行人徒步區」。街前有一個小小的「精明一街」牌樓，是這條洋味十足街道中唯一有古味的建築。','','');
 insert into images values ('C_Jingming_1st_St_02','Jingming_1st_St','精明一街為夾雜在都市叢林中的藝術街道，享受一下坐在露天咖啡座中，品嚐著一杯香濃的咖啡，看著熙來攘往的人群，別有一種生活情趣，一朵朵不同色彩的洋傘，搭配上各式的桌子，彷彿有種置身於巴黎香榭大道的感覺。','','');
 insert into images values ('C_Jingming_1st_St_03','Jingming_1st_St','精明一街為台中商務中心行人徒步區，街道兩旁林立各式精品店、異國風味餐廳及咖啡館，個性商店等。各類過季名牌服飾、皮件、飾品物超所值，是喜愛精品商品的最佳去處。精明一街是一條兼具購物、休閒與藝術的街道。','','');
+*/
 insert into images values ('C_Maple_Garden_01','Maple_Garden','位於市政北七路與河南路口的秋紅谷，兼具綠色生態水池、景觀、滯洪、排水與調節空氣品質功能，可容納20萬立方公尺的滯洪量，將成為大台中特殊下凹式景觀公園新景點，更能營造一處讓市民更感輕鬆、從容的休閒好去處。','','');
 insert into images values ('C_Maple_Garden_02','Maple_Garden','建築師還去歐洲，考察規劃人工湖泊，未來會呈現藍水、綠地與紅樹，大池塘具有景觀、生態與滯洪功能，沿著斜坡到池塘都有步道，營造山谷的感覺，周邊遍植林木，可增加2.8萬平方公尺綠地。','','');
 insert into images values ('C_Maple_Garden_03','Maple_Garden','水坑深達20公尺，沿著邊坡回填土石，維持地勢穩定，湖泊面積約1公頃，環湖與湖面上都有步道，總長度約400公尺，湖面上還有透明步道，感受行在水面上的感覺。','','');
@@ -339,6 +383,7 @@ insert into images values ('C_Calligraphy_Greenway_01','Calligraphy_Greenway','�
 insert into images values ('C_Calligraphy_Greenway_02','Calligraphy_Greenway','草悟道計畫為省轄時期的臺中市政府都市發展處、建設處、交通處承辦的綠園道帶狀的都市空間架構之景觀設計案，因設計上有「行草悟道」的概念，故另有「草悟道」別稱。','','');
 insert into images values ('C_Calligraphy_Greenway_03','Calligraphy_Greenway','如行草般的行雲流水，發現生活感動；從藝文空間、國立臺灣美術館，到特色美食，如悟道般的樂活心靈，體會都市脈動；在草悟道，悠遊於綠藝之間，看見一座城市的兩種態度。','','');
 */
+/*昱豪
 insert into images values ('C_Miyahara_01','Miyahara','靠近臺中火車站的綠川旁，一棟由紅磚瓦構成的建築，是臺中以土鳳梨酥一戰成名的「日出」蛋糕團隊買下了宮原眼科的舊址。宮原眼科外部的紅磚牆、舊牌樓被完整保留下來，打造成富有懷舊風情的紅磚木頂式騎樓。','','');
 insert into images values ('C_Miyahara_02','Miyahara','古挑高圖書館的裝飾，創造出新舊時代的魔幻空間，店中央一座無法被使用的古井，則被重新打造成現代風的圓型玻璃募款箱，可見設計之巧思。','','');
 insert into images values ('C_Miyahara_03','Miyahara','復古包裝的糕點是最受大家歡迎的伴手禮，有著精緻包裝又美味可口的點心，送禮自用兩相宜唷！來到宮原眼科，千萬不可錯過這裡招牌的冰淇淋，多種口味都是獨家特製配方。','','');
@@ -351,9 +396,13 @@ insert into images values ('C_Dajiamazu_03','Dajiamazu','大甲旅遊吸引人�
 insert into images values ('C_Lishan_Scenic_Area_01','Lishan_Scenic_Area','梨山是中部橫貫公路開發最早、最熱鬧的風景區，位於海拔１６７０公尺的和平區，為泰雅族原住民重要聚落區，民國四十九年中部橫貫公通車後，不僅成為國內外馳名的觀光區，也是中橫旅遊路線的轉運中心。','','');
 insert into images values ('C_Lishan_Scenic_Area_02','Lishan_Scenic_Area','梨山風景區附近主要有梨山文物陳列館以及觀光果園，梨山文物陳列館陳列了山地文物梨山開拓史，以及中橫開發的工程資料，而附近的觀光果園則因時節的不同而有所不同，當均的有名特產是蘋果、水蜜桃及水梨。','','');
 insert into images values ('C_Lishan_Scenic_Area_03','Lishan_Scenic_Area','梨山不僅具有豐富的自景觀資源，同時也是台中山區重要的溫帶水果產地，盛產水蜜桃以及蘋果，主要觀光設施有梨山賓館，山地文物陳列館、觀光果園以及水果市場。另外每年的一月到四月為本地的主要賞花季節，更是前往梨山觀光的最佳時間。','','');
+
+
 insert into images values ('C_National_Taiwan_Museum_of_Fine_Arts_01','National_Taiwan_Museum_of_Fine_Arts','民國77年(1988年)開館的國立台灣美術館位於台中市西區，毗鄰台中市立文化局與國立自然科學博物館，展館面積包含地下一層、地上三層與戶外雕塑公園，是目前亞洲最大的美術館。','','');
 insert into images values ('C_National_Taiwan_Museum_of_Fine_Arts_02','National_Taiwan_Museum_of_Fine_Arts','國美館的外觀，以整片天然石片鋪上，館外草坪放置巨型雕塑，大片的綠地往往吸引許多民眾此席地而坐，愉悅地聊天、曬太陽，構成一幅悠閒自在的畫面。','','');
 insert into images values ('C_National_Taiwan_Museum_of_Fine_Arts_03','National_Taiwan_Museum_of_Fine_Arts','設兒童繪本區、兒童遊戲室、影音藝術廳、影音平台、教師資源室、文物供應部、咖啡座及各項學習空間。館內收藏與研究台灣現代美術品與發展特色，並長期與國外美術館交流，無疑為台中旅遊知名台中景點。','','');
+*/
+
 insert into images values ('C_Oiwake_Station_01','Oiwake_Station','追分火車站位於台中市的大肚區，建於日治時期西元1922年，火車站站房的結構主要以檜木木材搭建而成，至今已將近90年的歷史。','','');
 insert into images values ('C_Oiwake_Station_02','Oiwake_Station','追分火車站是台鐵海線的終點站，是少數未經過改建的海線車站之一。追分原為日文的(おいわけ)oiwake，是分岐路的意思。由於台灣曾經受日本人統治長達50年之久，因此台灣多處地名大多由日語漢字命名而成。','','');
 insert into images values ('C_Oiwake_Station_03','Oiwake_Station','因為如此吉利又特別的地名，更受許多學生族群或遊客們所吸引，尤其每到考季來臨，「追分－成功」的紀念車票變成為最為熱門的銷售車票，許多學生們便藉由此種方式討吉利，並祈求考試順利、金榜題名。','','');
@@ -362,6 +411,7 @@ insert into images values ('C_Big_Hole_Scenic_01','Big_Hole_Scenic','大坑風�
 insert into images values ('C_Big_Hole_Scenic_02','Big_Hole_Scenic','921大地震後，車籠埔斷層穿越大坑，地層劇烈變動後，許多專家發現了這裡的溫泉資源，因而開了新的觀光型態。大坑風景區擁有自然生態、溫泉泡湯與便捷的交通，曾獲選台中前十大熱門旅遊景點，遊客千萬不要錯過！','','');
 insert into images values ('C_Big_Hole_Scenic_03','Big_Hole_Scenic','大坑風景區夏天盛產荔枝，秋天盛產柑橘，秋冬可以賞楓溫泉，不論什麼時候都可以在此找得到新鮮感。大坑風景區擁有8條登山步道，一號至五號步道，全長11870公尺，連接大坑連坑巷以東至縣市界區。','','');
 */
+/*昱豪
 insert into images values ('C_Taichung_Park_01','Taichung_Park','台中公園位於台中市公園路及自由路二段之間，佔地大約32,889坪，是台灣少數日據時代就保留至今的公園，也是台中面積最大的城市綠地。','','');
 insert into images values ('C_Taichung_Park_02','Taichung_Park','公園裡日月湖中的湖心亭，是雙併式頂的涼亭，該亭建於清光緒34年，與中山橋同列為台中市定古蹟，而園內的砲台山古稱為”大墩”，則是台中市市中心的起源。','','');
 insert into images values ('C_Taichung_Park_03','Taichung_Park','創立於1903年10月28日，園內綠草如茵、古樹林立、景色宜人，其中的人工湖更提供小船出租，而湖中的橋樑亦是欣賞公園美景的最佳之處。在市中心有如此舒適的公園環境，黃昏時分經常有不少朋友、家人、情侶在此漫步，假日更是踏青的好去處。','','');
@@ -371,6 +421,7 @@ insert into images values ('C_Shalu_District_03','Shalu_District','新的陸橋�
 insert into images values ('C_Rainbow_Village_01','Rainbow_Village','台中旅遊傳奇景點「彩虹眷村」，起源於住在台中市南屯區嶺東科技大學附近有一處舊眷村的八十七歲老榮民黃永阜，因為「無聊」而拿起畫筆彩將眷村內的巷弄街道當成了天然的畫布。','','');
 insert into images values ('C_Rainbow_Village_02','Rainbow_Village','彩繪了各式美麗的彩虹線條與可愛動物，不僅染亮了小村，在網路上引起熱烈討論，更形成一股參訪風潮。因他的用色大膽，構圖可愛並充滿童趣，讓到訪者有如置身彩虹世界，故網友稱此處為「彩虹眷村」。','','');
 insert into images values ('C_Rainbow_Village_03','Rainbow_Village','「彩虹眷村」因曾被規劃為住宅與道路用地，故一度面臨拆除的命運，但一群支持者透過網路發起搶救行動，希望能將這保留這塊美麗之地。終於，在民國99年9月12日由市長胡志強表示，將透過重劃方式把此處納入公園範圍，保存這處別具特色的文化資產。','','');
+*/
 /*
 insert into images values ('C_Dongfung_Bike_Corridor_01','Dongfung_Bike_Corridor','東豐自行車綠廊原為臺鐵縱貫東勢支線，從豐原到東勢鐵路支線，經東勢區、石岡區、豐原區，為民國80年9月鐵路停駛後再經多方努力下轉型為自行車專用道，並且改名為「東豐自行車綠廊」。','','');
 insert into images values ('C_Dongfung_Bike_Corridor_02','Dongfung_Bike_Corridor','東豐自行車綠廊雖是屬於單線進出的廊道，而沿著地形的平緩，人文的改變，這樣自然景觀的多樣變化，不僅擁有豐富的客家族群文化及山水，那兒的農田更是阡陌相連，翠綠無垠。','','');
@@ -387,9 +438,11 @@ insert into images values ('C_National_Museum_of_Natural_Science_01','National_M
 insert into images values ('C_National_Museum_of_Natural_Science_02','National_Museum_of_Natural_Science','本館以科際整合、生活化、藝術化及以人為中心之主題展示，分四期建設完成。各期設施及展示主題分別為第一期：太空劇場、科學中心，第二期：生命科學廳，第三期：人類文化廳（原中國科學廳），第四期：地球環境廳。','','');
 insert into images values ('C_National_Museum_of_Natural_Science_03','National_Museum_of_Natural_Science','全館佔地87,276平方公尺開放後，每年參觀人數近三百萬人。臺中市政府為促進地方繁榮，提升城市景觀，並借重本館之專業能力及教育理念，進而將五十四號公園預定地面積44,856平方公尺，委交本館規劃建設為植物園，於民國88年7月23日開放啟用。','','');
 */
+/*昱豪
 insert into images values ('C_Hightway_Rest_Area_01','Hightway_Rest_Area','國道三號上的清水服務區，被許多遊客喻為高速公路上最美的休憩站點，地處於中心的位置，提供給往來南北的旅客不只是休憩，還富有休閒的感受。','','');
 insert into images values ('C_Hightway_Rest_Area_02','Hightway_Rest_Area','白天到黑夜，南來北往的旅客往返國道之間，清水服務區以遊輪意象為設計，如同揚起了風帆，加上頂層大型船桅裝置，像是徜徉在無限天際裡，航向遠方台中港的方向。','','');
 insert into images values ('C_Hightway_Rest_Area_03','Hightway_Rest_Area','服務區內的意象設計「清水夜明珠」，燈塔意象的精神地標，延伸出「清水光點、台灣飛帆」的主題概念，引領方向。服務區二樓則是絕佳的觀景平台，從日落到日出想像乘坐遊輪之中，遠瞭台中日夜風情。','','');
+*/
 /*
 insert into images values ('C_Taichung_City_Seaport_Art_Center_01','Taichung_City_Seaport_Art_Center','臺中市地形東西狹長，地方文化資源分配不易，為使藝文推廣能達全面之效，自民國82年起興建臺中市港區藝術中心，並於89年3月正式營運。','','');
 insert into images values ('C_Taichung_City_Seaport_Art_Center_02','Taichung_City_Seaport_Art_Center','中心座落於文風鼎盛的清水區，東靠鰲峰山、西臨台中港、北傍大甲溪，建於高低起伏的人工矮丘與平地之間，以「院落空間」作為整體空間之詮釋，建築仿閩南合院風格設計，並帶有傳統書院格調，古樸典雅，具鄉土傳統素質。','','');
@@ -415,13 +468,16 @@ insert into images values ('C_Guguan_Hot_Springs_03','Guguan_Hot_Springs',' 谷
 insert into images values ('C_7fy_01','7fy','七分窯位在新社的小山上，成立於民國82年，無疑是新社老字號的景點之一。山不在高，有仙則名。正是七分窯的最好寫照。','','');
 insert into images values ('C_7fy_02','7fy','七分窯是個大型窯廠，經營項目有胚體製作、釉料、燒窯、教學活動等，而陶刻是它的主力創作。','','');
 insert into images values ('C_7fy_03','7fy','來到七分窯，你可以賞陶，也可以玩陶，兩百多坪的陶藝創作展覽區和四百多坪的玩陶教室活動區，以及上千坪的休閒活動區，寬廣的場地讓人遠離煩擾，心情自然舒朗。','','');
+/*昱豪
 insert into images values ('C_Mushrooms_01','Mushrooms','霧峰區是台灣菇類的最大生產地，這裡四季盛產各種食用菇類，尤其金菇不僅品質達國際水準之上。而且有世界最大規模的生產場，所以霧峰區是台灣菇類的最大生產地，這裡四季盛產各種食用菇類。','','');
 insert into images values ('C_Mushrooms_02','Mushrooms','走進菇類文化館大門，映入眼簾的是比人還高的菇類模型，令人有如走入菇類的奇幻世界。還有野生菇和毒菇的認識、菇類的烹煮如何兼顧美味與養生等。','','');
 insert into images values ('C_Mushrooms_03','Mushrooms','全世界大規模且品質卓越的生產農場就在霧峰鄉，佔全國總產量一半以上。 有鑑於霧峰鄉與台灣菇業密不可分的關係，基於回饋感恩心情，及積極紮根菇蕈文化饗宴的理念，特別精心規劃『台灣菇類文化館』。','','');
+*/
 insert into images values ('C_flowerjs_01','flowerjs','中社觀光花市，位於台中縣后里鄉境內，北面臨火炎山，南接泰安舊火車站、泰安鐵道文化館、后里馬場及昆盧寺，讓您的行程豐富多元，文化、自然景觀盡收眼底。','','');
 insert into images values ('C_flowerjs_02','flowerjs','在中社觀光花市裡，更有佔地極廣的花卉可供欣賞，讓您遊玩一整天，快樂一整天。園區內每種花卉植物，皆有解說標示，賞花、認識花卉一舉兩得。','','');
 insert into images values ('C_flowerjs_03','flowerjs','園區歐式庭院風格一年四季譜出豐富的色彩，更是許多婚紗業者的熱愛的場景選擇，迎著四月的到來，正是百合花盛開的時間，園區的『百合花』與『七彩花田』綻放光芒。','','');
 /* ================================================================================================================== */
+
 
 /*南部*/
 insert into images values ('S_Chung_Cheng_University_01','Chung_Cheng_University','位於嘉義縣民雄鄉三興村，佔地廣達132公頃，校園建築古樸典雅，園內花木扶疏，是一處極清靜優美的校園區。從大學路進入校區，沿著寬敞筆直的中正大道緩步慢行，所見盡是禮化氣息濃厚的區式校舍建築。','','');
@@ -447,6 +503,7 @@ insert into images values ('S_Alishan_03','Alishan','阿里山地區橫跨臺灣
 insert into images values ('S_Fencihu_01','Fencihu','位於海拔一千四百公尺的奮起湖老街，是台灣的十大老街代表之一，俗稱「老鼠巷」的奮起湖老街，曾是阿里山森林鐵路極盛時期鐵路中繼站的最大聚落。','','');
 insert into images values ('S_Fencihu_02','Fencihu','在阿里山鐵路尚未開通時期，奮起湖的旅客絡繹不絕，但隨著鐵路沒落，奮起湖的繁華光景也不復以往，火車便當更是沉寂了好長一段時間。直到後續逐漸發展出觀光與休閒旅遊，奮起湖才又重新崛起。','','');
 insert into images values ('S_Fencihu_03','Fencihu','除了鐵路便當之外，這裡還有充滿復古風情的街屋、雜貨店和傳統餅店，好喝又健康的野生愛玉和美味可口的春捲更是當地有名的好滋味！長長的奮起湖老街巷弄中，更是藏了許多復古的店鋪與好客的店家。','','');
+/*昱豪
 insert into images values ('S_Tropic_of_Cancer_01','Tropic_of_Cancer','「北回歸線太陽館」位於嘉義縣水上鄉，樓高十層的"太陽館"有著『飛碟』『幽浮』般的外型，是嘉義縣相當重要的北迴歸線地標。','','');
 insert into images values ('S_Tropic_of_Cancer_02','Tropic_of_Cancer','目前的「北回歸線太陽館」是第六代的地標，整個建築是圓型、中間簍空，讓你站在建築物底下，就能感覺出太陽方位的變化。在奇特的太空船飛碟造型下就是天文主題館，整個主題館免費提供給遊客參觀。','','');
 insert into images values ('S_Tropic_of_Cancer_03','Tropic_of_Cancer','「北回歸線太陽館」除了太陽館主建築引人注意外，園區內還有『九大行星戲水區』，這裡的行星不是教科書上的平面，在這裡還能感受出行星的排列狀況與大小，頗有現實感。','','');
@@ -459,6 +516,7 @@ insert into images values ('S_Chiku_Salt_03','Chiku_Salt','來到七股鹽場內
 insert into images values ('S_Guanziling_01','Guanziling','關子嶺風景區以溫泉、水火同源、紅葉公園、大仙寺、碧雲寺、仙公廟等為最著名，溫泉區皆位於半山腰，山下到泉區沿路皆是溫泉旅館、餐廳及純泡湯的場所。','','');
 insert into images values ('S_Guanziling_02','Guanziling','關仔嶺溫泉位於台南市白河區，是台灣八景之一，和北投、陽明山、四重溪並稱為台灣四大溫泉。本區溫泉由地層的石縫中流出，泉質屬鹼性泉，味帶澀苦，呈灰黑色而有微小泥粒，水質滑膩帶有濃厚硫磺味，為全臺少見的泥質溫泉，因而有「黑色溫泉」之稱。','','');
 insert into images values ('S_Guanziling_03','Guanziling','溫泉泉源發自枕頭山、虎頭山、鷲鳳山環抱的滾水溪左側，據說是被當時駐紮於台的日本軍隊所發現，由於泥漿溫泉特殊並珍貴，溫泉之名不逕而走，成為了全台最特別的溫泉。','','');
+*/
 insert into images values ('S_Koxinga_Shrine_01','Koxinga_Shrine','「延平郡王祠」佔地相當廣闊，裡頭主要奉祀台灣開山始祖"鄭成功"及其部將，整個廟宇的建築風格相當莊嚴典雅，是台灣少見的『福州式』廟宇建築。','','');
 insert into images values ('S_Koxinga_Shrine_02','Koxinga_Shrine','鄭成功西元1661年，帶兵在鹿耳門登陸，不但趕走了荷蘭人，並同時積極建設台灣。經略台灣的過程除了設立官署，還下令屯田，允許官兵圈地成家，並招募大陸沿海居民來台開墾。後人為了感懷他的豐功偉績，立廟奉祀，尊稱他為"開台聖王"和"開山王"。','','');
 insert into images values ('S_Koxinga_Shrine_03','Koxinga_Shrine','「延平郡王祠」中裡頭珍貴的文物相當豐富，尤其為數眾多的清代楹聯，裡頭包含沈葆楨手書，筆力雄渾、意義雋永，仍極具歷史價值。其中在一樓的建築中主要陳列史前文物，說明台灣與大陸的地緣關係，及先民生活的演進過程；二樓則展示的多為台南歷史文物。','','');
@@ -484,6 +542,7 @@ insert into images values ('S_Four_Grass_Bridge_01','Four_Grass_Bridge','「四�
 insert into images values ('S_Four_Grass_Bridge_02','Four_Grass_Bridge','「四草大橋」不但有著重要的地理位置，站在橋上遙望著台灣海峽，一望無際、浪濤滾滾，就像是一幅美景映入眼簾，此般美景，令人留戀，尤其是在夕陽西下落日餘暉的時候，有如金黃色的染料揮灑在大海上所染成黃橙橙的畫布。','','');
 insert into images values ('S_Four_Grass_Bridge_03','Four_Grass_Bridge','在這裡除了夕陽西下的時候會吸引眾多年輕男女在此約會，自早到晚也都會有魚友在此垂釣，同時還會有許多行動咖啡車，讓您在一邊看海的同時，可以一邊享受香醇的咖啡，到重要節日的時候，這裡也是絕佳的煙火欣賞位置。','','');
 */
+/*昱豪
 insert into images values ('S_Urban_Spotlight_01','Urban_Spotlight','在中山路和中華路之間的五福路，從前到了夜晚就顯得漆黑黝暗的路段，現在則是充滿藝術氣息的氛圍;白天明亮閒適，夜晚嫵媚繽紛。','','');
 insert into images values ('S_Urban_Spotlight_02','Urban_Spotlight','九位藝術家的原創作品再加上「SMILE—2001希望之牆」，讓大家行走光廊中，充分感受藝術與生活的完美融合。','','');
 insert into images values ('S_Urban_Spotlight_03','Urban_Spotlight','走入城市光廊，伴隨著悅耳的爵士樂，漫步在迷炫的燈光下，隔絕了一切的繁雜喧囂，感受著徐徐微風;城市光廊，正在期待著您來親身體驗 。','','');
@@ -505,11 +564,13 @@ insert into images values ('S_Fo_Guang_Shan_03','Fo_Guang_Shan','農曆春節到
 insert into images values ('S_West_Bay_01','West_Bay','西子灣位於高雄市西側，北臨萬壽山，南瀕旗津半島，是一處以天然礁石及夕陽美景聞名的港灣，西子灣的美景是高雄八景之一，尤其黃昏時分，海天一色，美不勝收。','','');
 insert into images values ('S_West_Bay_02','West_Bay','當夜幕低垂時，黃澄的夕陽總是將大海點綴的繽紛絢爛，閃爍著點點漁火，如此美景總讓西子灣在夕陽西下時，吸引著一批又一批慕名而來的遊客，更常見一對對愛戀的情人在此互訴情衷，攜手看著落日美景。','','');
 insert into images values ('S_West_Bay_03','West_Bay','西子灣風景區中有一常與美景相伴的中山大學，後倚壽山，前眺西子灣，校園內草木翠綠、花團錦簇，校舍更是美輪美奐，堪稱全台最美的大學。而西子灣海水浴場的入口處即位於中山大學左方的旅客服務中心，每到夏日總是充滿著成群結隊的遊客到此戲水消暑，讓西子灣充滿歡笑與活力。','','');
+*/
 /*
 insert into images values ('S_Jialeshuei_01','Jialeshuei','佳樂水位在恆春半島東側的滿洲鄉，背山面海，濱臨太平洋，素有『海神樂園』之稱。原名佳落水，為瀑布之意。民國64年（1975年）蔣故總統經國先生蒞臨巡視，取安和樂利之意而賜名「佳樂水」，並將無名瀑布取名「山海瀑布」。','','');
 insert into images values ('S_Jialeshuei_02','Jialeshuei','綿延二公里半，濱臨太平洋，砂岩和珊瑚礁久經強風和海浪的侵蝕，雕琢出各種形狀的奇岩怪石，例如兔石、球石、海蛙石、方格石、蜂窩岩等，因此沿岸佈滿各種奇特巨石，有些因節理形似方格狀，形成棋盤石景觀；蜂窩岩滿佈坑洞的外形，主要是結合面的生物碎屑，經海蝕或風蝕擴大而成。','','');
 insert into images values ('S_Jialeshuei_03','Jialeshuei','本區動物景觀資源豐富，海洋生物數量亦極可觀。由於沿岸為黑潮流經，水急浪高，大型洄游性魚類多，為海釣的最佳去處。','','');
 */
+/*昱豪
 insert into images values ('S_Kenting_Street_01','Kenting_Street','傳說中的「墾丁大街」，是由"墾丁國家公園牌樓"到"墾丁凱撒大飯店"之間的「墾丁路」。這段短短不到兩公里的「墾丁路」每到夜晚就會搖身一轉變成為熱鬧繁華的「墾丁大街」，同時也把墾丁的夜晚點綴成一片繽紛，目前已是來墾丁遊玩的遊客傍晚必逛的景點。','','');
 insert into images values ('S_Kenting_Street_02','Kenting_Street','「墾丁大街」沿途也有許多充滿海洋風味的個性商店，從花色繁多的海灘鞋、款式玲瑯滿目的海灘短褲、各式各樣的海風T恤、洋裝、飾品等等..應有盡有。','','');
 insert into images values ('S_Kenting_Street_03','Kenting_Street','平時就充滿熱帶風情的「墾丁大街」，到了夜晚就成了全墾丁人潮最多的地方，各式各樣吸引人潮的要素，讓整條大街充滿著南洋熱情的愉快氣氛。來到墾丁遊玩，千萬別錯過這個獨一無二的墾丁夜生活!!','','');
@@ -525,15 +586,20 @@ insert into images values ('S_Maobitou_03','Maobitou','海水蔚藍清澈，海�
 insert into images values ('S_Tung_Lung_Palace_01','Tung_Lung_Palace','東港東隆宮是南台灣著名的王爺廟，主祀溫府千歲。溫王是唐朝進士當時在奉旨巡行天下時，遇難而亡，成神之後，常巡行閩、浙沿海，護佑往來船隻，所以漳、泉二州人民對溫王崇禮有加。','','');
 insert into images values ('S_Tung_Lung_Palace_02','Tung_Lung_Palace','三年一科的東港東隆宮迎王祭典為南台灣的宗教界盛事，其盛況規模為全省之最，故在學術界有「北西港，南東港」之稱，整個祭典從「請王」儀式揭開序幕，隨即展開連續4天的分區遶境活動。','','');
 insert into images values ('S_Tung_Lung_Palace_03','Tung_Lung_Palace','各地陣頭逢廟參拜，使出混身解數將平常所訓練的招式一一呈現出來，相當熱鬧，遶境隊伍和隨香民眾綿延好幾公里長，沿途家家戶戶施放煙火和準備香案迎接，炮聲連天，全鎮熱鬧滾滾。活動一直持續到最後的送王儀式，也就是活動最高潮的燒王船。','','');
+*/
 /* ================================================================================================================== */
+
+
 
 /*東部*/
 insert into images values ('E_Fanshuliao_01','Fanshuliao','蕃薯寮位於海岸公路18號橋旁，是東海岸最為獨特的峽谷景觀，在此可以觀賞到公路兩側，因不同地質在溪流的堆積及切割作用下，形成對比明顯的地形景觀。','','');
 insert into images values ('E_Fanshuliao_02','Fanshuliao','海岸闊葉林，主要有血桐、野桐群；18號橋東側岩壁上生長著珍貴的台灣海棗、台灣蘆竹、金花石蒜和台灣原生種百合，春天岩壁上看到的白色的花，就是野白合。每年10月，金花石蒜開金黃色的花；台11線山壁，以台灣野芙蓉、野牡丹為大宗，11～12月，野牡丹盛開，一片奼紫嫣紅的景象，甚是美麗。動物方面，則以台灣彌猴最常出沒。 ','','');
 insert into images values ('E_Fanshuliao_03','Fanshuliao','蕃薯寮18號橋西側是溪谷盆地，東側是陡峭峽谷，造成此現象的主要原因是東西兩側不同的岩性。橋西側分布的是蕃薯寮層與八里灣層，由泥岩與砂頁岩互層所組成，岩質軟弱；而橋的東側分佈的是都巒山層火山集塊岩，堅硬緻密。','','');
+/*昱豪
 insert into images values ('E_Shuilian_and_Niushan_01','Shuilian_and_Niushan','水璉位在花蓮縣壽豐鄉海濱，蒼翠的山丘環抱著寬廣的河谷盆地，水璉溪蜿蜒而過，是多種族群融合的社區，區內擁有豐富的自然資源及特殊的地質景觀，以及動植物生態和原住民文化等珍貴的觀光資產。','','');
 insert into images values ('E_Shuilian_and_Niushan_02','Shuilian_and_Niushan','早在3500年前，即有紋繩陶文化之先民居住於此；現今部落的阿美族人則約於80～90年前(光緒初年左右)逐次移民來，以漁撈、狩獵以及旱田耕作為生。','','');
 insert into images values ('E_Shuilian_and_Niushan_03','Shuilian_and_Niushan','健行、漫步、賞鳥、觀蝶都是很棒的選擇，徜徉在廣闊的海岸草坪上感受藍天，白雲和陽光，時間彷彿定格。','','');
+
 insert into images values ('E_Changhong_Bridge_01','Changhong_Bridge','長虹橋橫跨秀姑巒溪，連接靜浦與港口兩聚落，為秀姑巒溪泛舟的終點站。命名為『新長虹橋』，有新舊傳承之意，且已成為東海岸新地標及花蓮縣的的觀光景點。','','');
 insert into images values ('E_Changhong_Bridge_02','Changhong_Bridge','港口部落位在秀姑巒溪北岸，90％以上是阿美族。一百多年前，部落族人因反抗滿清政府統治而與清軍作戰，戰敗後大多數的男子慘遭屠殺，婦孺們逃亡至外地，多年後才又搬回部落定居。','','');
 insert into images values ('E_Changhong_Bridge_03','Changhong_Bridge','長虹橋南岸下到秀姑巒溪，河岸兩側岩壁都是由巨大的火山角礫岩塊構成的火山集塊岩。秀姑巒溪中堆積許多巨大的石灰岩岩塊，是來自長虹橋兩側山麓上出露的港口石灰岩。','','');
@@ -546,12 +612,14 @@ insert into images values ('E_Shitiping_03','Shitiping','擁有經風力和海�
 insert into images values ('E_Baxian_Cave_01','Baxian_Cave','兼具地質景觀與史前遺址的八仙洞，位在台東縣長濱鄉三間村一座面海的峭壁上，有自然形成的十數個海蝕洞穴。這些洞穴原在海面，現在卻散布於150公尺高的山壁上，這是因為在東海岸地殼陸升的過程中，海浪沖蝕岩壁較鬆軟的部份而成。','','');
 insert into images values ('E_Baxian_Cave_02','Baxian_Cave','台灣東海岸旅遊的一個必去的景點之一！這裡有數十個天然的海蝕洞奇景可供遊客參觀，每個海蝕洞形狀隨著地質軟硬不均而有不同，每個海蝕洞高度都大於十公尺，近看更顯壯觀；其中有部分的海蝕洞早期開闢成神壇，具有濃厚的宗教氣息。','','');
 insert into images values ('E_Baxian_Cave_03','Baxian_Cave','八仙洞的各洞穴都是都巒山層的火山集塊岩，岩性堅硬；這些集塊岩為大約數百萬年前海底火山爆發時所形成。','','');
+*/
 insert into images values ('E_Water_Running_Upward_01','Water_Running_Upward','一到此地即可聽到驚呼聲四起的地理奇觀－水往上流。我們常說：「人往高處爬，水往低處流」，但距離都蘭僅1.8公里的一條農田灌溉溝渠，竟然違反地心引力，流水順著溝渠緩緩往高處流，溝渠旁邊並有塊刻著「奇觀」的石碑。','','');
 insert into images values ('E_Water_Running_Upward_02','Water_Running_Upward','來此參觀的遊客，無不對「水往上流」奇觀感到好奇，水真的往上流嗎？眼見為憑，親身體驗感受絕對不同凡響。','','');
 insert into images values ('E_Water_Running_Upward_03','Water_Running_Upward','其實原理很簡單：水溝旁的道路是條下坡路，但是水溝卻並非是下坡，反而是坡度很小的上坡，所以當遊客們站在低處，並連著道路一塊看時，就像是水往上流一般，是個相當神奇的地理景觀！ ','','');
 insert into images values ('E_Xiaoyeliu_01','Xiaoyeliu','小野柳位於富岡漁港北方的海域，是東部海岸最南端的風景據點，因為地形和岩石在種類上，與北關的野柳外貌相似，因此被稱為「小野柳」。 ','','');
 insert into images values ('E_Xiaoyeliu_02','Xiaoyeliu','此地巨大的珊瑚礁群曲折迷離，岩上並有蔓榕生長，景觀十分特殊。天氣晴朗時，從小野柳向東望去，可以清楚地看見約33公里外的綠島，以及由富岡漁港出航前往綠島、蘭嶼的交通船！','','');
 insert into images values ('E_Xiaoyeliu_03','Xiaoyeliu','遊憩區內設有遊客中心、賣店、露營區與海邊步道等，遊客來此除可欣賞不同類型的奇岩怪石外，亦可選擇以露營方式體驗在夜色下聽著海聲入眠的新奇感受，近年來東管處於5-10月推出「夜訪小野柳」導覽活動，透過解說志工精采的導覽，帶遊客去認識小野柳的夜間生態環境，帶遊客去發掘入夜後小野柳另一面風貌。 ','','');
+
 /*
 insert into images values ('E_Taroko_01','Taroko','根據文獻記載，太魯閣的山林交織著猶如蛛網般的古今道路系統，有原住民的獵徑、清領時期的北路、日治時代的合歡越嶺古道及臨海道、戰後的蘇花公路、中橫公路、台電施工道，以及國家公園的健行步道等，其中，有的路早已隨著時空的流轉而隱沒於今日的地圖上。','','');
 insert into images values ('E_Taroko_02','Taroko','「太魯閣」是漢人對居住在三棧溪至大濁水溪南岸的一群原住民的稱謂。從文獻出現的大魯閣、大鹵閣、太魯閣到德魯固，百年間，對這群原住民稱謂的變化，透露出太魯閣地區，在不同時期，有不同的外來族群入侵。','','');
@@ -579,13 +647,16 @@ insert into images values ('E_Shanyuan_03','Shanyuan','珊瑚群礁帶潮池、�
 insert into images values ('E_Donghe_Bridge_01','Donghe_Bridge','東河橋位處連接成功鎮與東河鄉的馬武窟溪出海口，東河新、舊兩條橋樑橫跨其上，造型各具特色，展現建築藝術之美，在藍天和碧綠的泰源幽谷映襯下，有如絕美的山水畫。','','');
 insert into images values ('E_Donghe_Bridge_02','Donghe_Bridge','在東河橋下的馬武窟溪可體驗傳統竹筏的生態之旅，這種竹筏是此地阿美族原住民的傳統工藝，以竹、木、藤製造傳統竹筏，捨棄橡膠製品，相當具有環保及生態概念。','','');
 insert into images values ('E_Donghe_Bridge_03','Donghe_Bridge','操縱划槳行至白色的帝王石旁，河域的寧靜，讓人感覺置身於圖畫中，這樣的體驗，大概也只有東河部落才有。','','');
+
+/*昱豪
 insert into images values ('E_Amis_Folk_Center_01','Amis_Folk_Center','阿美族民俗中心位於東管處都歷處本部旁，佔地約2公頃，包括戶外表演廣場和可供2千人觀賞的戶外看台，是體驗阿美族傳統文化的好去處。','','');
 insert into images values ('E_Amis_Folk_Center_02','Amis_Folk_Center','中心於1995年11月興建完成，主要建築之祭屋及家屋，是依據日本民族學家千千岩助太郎在1943年於花蓮縣光復鄉調查的手繪圖，仿花蓮縣太巴塱社的祭司住家搭建，走訪這裡，可看出阿美族特有的居住文化。 ','','');
 insert into images values ('E_Amis_Folk_Center_03','Amis_Folk_Center','阿美族分布於立霧溪以南的花東縱谷和東海岸地區，人口約有14萬人，是台灣原住民族群中人口最多的一族。阿美族仍保留豐富的傳統文化，其中豐年祭是最具代表性的傳統祭典，在每年夏季舉行，歡慶小米豐收、祭祀祖先和神靈，儀式充滿祈福感恩氛圍，並強調慎終追遠、團結和諧的倫理觀念。 ','','');
+
+
 insert into images values ('E_Chenggong_01','Chenggong','成功鎮以前為「麻荖漏社」，1921年日人改為「新港」，戰後改為「成功」。有關麻荖漏名稱的起源說法不一，但直到清領末期此地仍為阿美族人聚落與耕作的所在。距今3,500年前之麒麟文化，以成功鎮之出土文物為最，像是石壁、岩棺、石斧、茅等，可知此地起源甚早。','','');
 insert into images values ('E_Chenggong_02','Chenggong','成廣澳天后宮是最早進駐後山的媽祖廟，建於清同治時期，成廣澳為東部海岸最大的天然港澳，福建籍劉進來由鹿港派到東部後山，臨行請鹿港天後宮的「媽祖」隨行護身，沿八通關古到由埔里到玉里，出安通再越過海岸山脈。','','');
 insert into images values ('E_Chenggong_03','Chenggong','西元１９４９年，成廣澳發生大火，延燒到天后宮，將茅草屋燒掉，信徒發願重修天后宮，翌年修建成朱瓦燕尾的水泥廟宇，屋頂斗拱的樑柱也為水泥取代，樑上圖案因請不到西部師傅，因此雇用成功鎮基翬一帶８名平埔族原住民彩繪施工，創下原住民參與廟宇建築的創舉。 ','','');
-/*
 insert into images values ('E_Dabaisha_01','Dabaisha','大白沙沙灘位於綠島南端突出的西南角，是綠島最大也最美麗的沙岸，美麗的白沙是由珊瑚顆礫及貝殼碎屑所組成的，綿延海岸線數百公尺長，有熱帶南方小島的風情。','','');
 insert into images values ('E_Dabaisha_02','Dabaisha','大白沙同時也是個潛水區，適合中級或高級的水肺潛水；而此處地形變化多，潮間帶生物種類豐富，又為非熱門路線，遊客稀少，適合雅好寧靜的旅者。','','');
 insert into images values ('E_Dabaisha_03','Dabaisha','珊瑚與貝殼碎屑堆積成的白色沙灘，是以礁岩岸為主的綠島，最大的一片沙灘，白沙、紫花、黑岩、綠水、藍天，交織出動人的景緻；沙灘周遭圍繞著由珊瑚、貝殼碎片岩化而成之礫岩，名日「灘岩」，潮間帶生物種類豐富。','','');
@@ -607,12 +678,16 @@ insert into images values ('E_Across_Mountain_Ancient_Trail_03','Across_Mountain
 insert into images values ('E_Jialulan_01','Jialulan','加路蘭有一大片寬廣的草坪、休憩涼亭、解說站以及觀景台，不但提供了東海岸旅行的最佳休息站，也是個很適合的拍照景點，遊客們可在海邊聽海浪、吹海風，一邊迎著和煦陽光渡過悠閒時光。','','');
 insert into images values ('E_Jialulan_02','Jialulan','除了欣賞自然美景之外，區內也有不少由漂流木所組成的裝置藝術作品，其中有兩條魚矗立在海邊，取名為「我的好朋友」的裝置藝術作品，上面寫道：「歡迎過路的旅者，有一個輕鬆愉快的旅程！」其他還有「類窗櫺」、「日昇之舞」「風車組」、「哭泣的露珠」等，連休憩涼亭中的裝飾也可見漂流木的蹤影喔！','','');
 insert into images values ('E_Jialulan_03','Jialulan','因加路蘭休憩區鄰近小野柳風景區，因此延續著綺麗的風化、海蝕景觀，奇形礁岩星羅分佈，海岸線條紋路特殊，加上遊憩區腹地相當廣大，無視覺障礙，草地柔軟，如今已成為東海岸必遊之地。','','');
+/*昱豪
 insert into images values ('E_Jiqi_Beach_Recreation_Area_01','Jiqi_Beach_Recreation_Area','磯崎海灘擁有長達3公里長的細柔沙灘，冬季漲潮時海底沙石湧上呈黑色，待夏季潮退即呈現出一片金色沙灘，是一處適合水上遊憩活動的地方，目前已開發為海濱遊憩區。','','');
 insert into images values ('E_Jiqi_Beach_Recreation_Area_02','Jiqi_Beach_Recreation_Area','位於豐濱鄉的磯崎灣，距花蓮市約40公里，海灣群山環繞，南端並點綴了一座小山頭，景緻極為優美。','','');
 insert into images values ('E_Jiqi_Beach_Recreation_Area_03','Jiqi_Beach_Recreation_Area','磯崎海岸是東海岸少見的沙岸地形，也是十分可親的一片海灘，和其他地方海水浴場不同的是，磯崎坐落在大山大海的交界處，像險峻的東部海岸線上一朵柔軟的雲。各式各樣刺激的活動像香蕉船、衝浪以及沙灘排球讓磯崎海灘總是充滿笑聲與活力。','','');
+*/
+/*昱豪
 insert into images values ('E_Farglory_Ocean_Park_01','Farglory_Ocean_Park','遠雄海洋公園緊臨東管處花蓮遊客服務中心，依著山勢設有「主題樂園區」、「自然景觀公園區」，以及擁有391間客房的「休閒飯店區(即遠雄悅來大飯店)」。主題園區以19世紀英國碼頭及海岸嘉年華風格為主。','','');
 insert into images values ('E_Farglory_Ocean_Park_02','Farglory_Ocean_Park','海洋公園所在的鹽寮村，是花東海岸線最北端的一個村落，以前花蓮的食鹽就是在這裡烹煮製成，因此日本人稱此地為「鹽寮港」。日治時期，山坡種植了整片的香茅草，村民煉製香茅油外銷東南亞，二次世界大戰，香茅油價格大漲，甚至還曾銷售到歐洲。早期，每年春天，海岸山脈的野百合盛開，因此現在的海洋公園一帶，曾有「百合谷」的美稱。','','');
 insert into images values ('E_Farglory_Ocean_Park_03','Farglory_Ocean_Park','海洋公園裡有許多有趣的海洋主題遊樂設施以及難得一見的鯨豚表演，園區內的纜車和摩天輪更是觀賞海景的絕佳地點，對於海洋生態有興趣的人，也可以在展示館中窺探海洋的秘密。','','');
+
 insert into images values ('E_Chike_Mountain_01','Chike_Mountain','早在日據時期，赤柯山就以盛產赤柯樹聞名，日本人將堅硬的赤柯木材砍下運往日本，做為製作槍托的材料。光復後，陸續有來自西部的漢人移入開墾，先是種玉米、花生、地瓜等雜糧，後來才改種金針。經過4、50年的辛勤開墾，赤柯山已從一片荒蕪的山頭轉變成以金針花海聞名的觀光勝地。 ','','');
 insert into images values ('E_Chike_Mountain_02','Chike_Mountain','金針的品種很多，但以高山地區種植的品質較優。海拔約900公尺的赤柯山由於溫度低，金針生長速度較慢，加上雲霧帶來充沛的水氣，以及適合金針生長的紅壤土，因此出產的金針口感與風味較佳。','','');
 insert into images values ('E_Chike_Mountain_03','Chike_Mountain','數年前，赤柯山萬花齊開的壯觀景致逐漸為外人所知，聞名而來的觀光人潮絡繹不絕。其實，除了黃澄澄的金針花海，來到赤柯山還可走訪著名的「赤柯三景」，也就是座落在金針田中的3顆黑色火成岩、造型奇特的千噸石龜這兩處天然地景，以及已有40多年歷史的汪家古厝。','','');
@@ -622,6 +697,7 @@ insert into images values ('E_Fuyuan_Butterfly_Valley_03','Fuyuan_Butterfly_Vall
 insert into images values ('E_Nanan_Waterfall_01','Nanan_Waterfall','從玉里鎮接上台30號(原18號)公路往西走，大約10公里左右就來到了玉山國家公園南安遊客中心，再前行2公里，就可以看到約50公尺高的南安瀑布，垂掛在路旁的山壁上。 ','','');
 insert into images values ('E_Nanan_Waterfall_02','Nanan_Waterfall','南安瀑布的上游發源於花蓮縣卓溪鄉的大裡仙山，由於這片山區林相保存良好，孕涵著豐沛的水源，加上山勢陡峭，才造就了從懸崖上直泄而下、氣勢驚人的南安瀑布。 ','','');
 insert into images values ('E_Nanan_Waterfall_03','Nanan_Waterfall','南安瀑布下有好幾處深淺不一的水潭，在炎炎夏日裡，往往被遊客當成消暑戲水的天然游泳池。當陽光照映著飛瀑布濺起的水氣時，常在瀑布周邊形成豔麗迷人的虹彩，搭配著長滿青苔蕨類的濕滑岩壁，形成一幅令人目眩神迷的畫面。 ','','');
+*/
 insert into images values ('E_Antong_Hot_Springs_01','Antong_Hot_Springs','安通溫泉位於玉里鎮與富里鄉交界處的安通溪北岸，幽谷山林，景色十分優美，早年即以「安通濯暖」名列花蓮八景之一。','','');
 insert into images values ('E_Antong_Hot_Springs_02','Antong_Hot_Springs','1904年時，一位上山採樟腦的日本人在安通溪畔發現溫泉露頭，到了1930年，日本人在這兒興建警察招待所，並設置公共浴場，逐漸發展成為溫泉勝地。光復後，民間業者於民國63年買下經營，改為安通溫泉大旅社。','','');
 insert into images values ('E_Antong_Hot_Springs_03','Antong_Hot_Springs','安通溫泉附近還有一條開闢於清代的安通越嶺古道（日據時期一度改稱紅莝越嶺道），從台東縣長濱鄉竹湖村石門溪起，經烏帽子山南側鞍部越過海岸山脈，沿安通溪通往玉里鎮樂合里，全程約13公里。','','');
@@ -674,6 +750,12 @@ insert into sysmember values ('bbb123','ccc123','bb123@gmail.com',2,'陳水貶',
 insert into sysmember values ('ccc123','ddd123','cc123@yahoo.com.tw',3,'王今平','N','男','2012-08-11','台北市大安區','2013-10-02','','C');
 insert into sysmember values ('ddd123','eee123','dd123@gmail.com',4,'馬因九','N','男','2011-07-01','台北市大安區','2012-08-07','','A');
 insert into sysmember values ('eee123','aaa123','ee123@yahoo.com.tw',5,'連剩文','N','男','2010-11-21','台北市大安區','2011-06-18','','C');
+insert into sysmember values ('fff123','ggg123','aa123@gmail.com',1,'柯蚊哲','N','男','2014-01-01','台北市大安區','2014-02-02','2011-06-18','A');
+insert into sysmember values ('ggg123','hhh123','bb123@gmail.com',2,'菜英文','N','男','2013-10-05','台北市大安區','2014-01-06','2011-06-18','B');
+insert into sysmember values ('hhh123','iii123','cc123@yahoo.com.tw',3,'江一化','N','男','2012-08-11','台北市大安區','2013-10-02','','C');
+insert into sysmember values ('iii123','jjj123','dd123@gmail.com',4,'連站','N','男','2011-07-01','台北市大安區','2012-08-07','','A');
+insert into sysmember values ('jjj123','hhh123','ee123@yahoo.com.tw',5,'游良浮','N','男','2010-11-21','台北市大安區','2011-06-18','','C');
+insert into sysmember values ('kkk123','lll123','ee123@yahoo.com.tw',5,'陳花媽','N','男','2010-11-21','台北市大安區','2011-06-18','','C');
 
 
 /*
@@ -900,6 +982,8 @@ CREATE TABLE ContactUs(
   contactUsReplyContact  nvarchar(400)          not null DEFAULT 'hello',
 
 );
+
+CREATE CLUSTERED INDEX ContactUs_Index ON ContactUs (contactUsId);
 
 insert into ContactUs values ('陳昱豪','finezoo02272000@gmail.com','2000-11-1','忘記睡覺','GM快點救我','0','2000-11-1','hello');
 insert into ContactUs values ('劉蕙齊','zkst29@gmail.com','2000-11-1','我要喝飲料','GM快點買給我','0','2000-11-1','hello');
