@@ -101,18 +101,19 @@
                         <div class="col-sm-5">
                            <select class="form-control" name="expiry-year" id="select_id">
               				  <option value="def" id="def">------請選擇------</option>
-              				  <option value="<%=sionLoginId%>" id="def"><%=sionName%></option>
+<%--               				  <option value="<%=sionLoginId%>" id="def"><%=sionName%></option> --%>
               			   </select>
                         </div>
                          <button type="button" class="btn btn-success" id="getfriendblog">Search</button>
+                        <a href="TravelDiaryServlet?action=blog.do"> <button type="button" class="btn btn-primary" id="getfriendblog">我的文章</button>
+                   		</a>
                     </div>
                 </div>
-        </div> <!-- / panel preview -->
-    				
+        	</div> <!-- / panel preview -->
    		</div>
     </div>
 	<!-- /觀看好友網誌 -->
-	<br><br><br><br>
+	<br><br>
     <!-- ************************載入 jQuery bootstrap  summernote js套件************************ -->
     <!--  <script src="http://code.jquery.com/jquery.js"></script> -->
 
@@ -163,7 +164,7 @@
 	                	</li>
                 	</c:if>
                 	<c:if test="${travelDiaryVO.diary_class == 1}">
-                		<h1 style="text-align:center;display:dispaly;">
+                		<h1 style="text-align:center;display:dispaly;" id="notblog">
                 			<li id="${travelDiaryVO.travelDiary_ID}">${travelDiaryVO.travelDiary_Content}
                 				<p>${travelDiaryVO.travelDiary_Name}</p>
                 			</li>
@@ -245,19 +246,21 @@
     	 				var myObject = JSON.parse(datas); 
     	 				if(datas=="[]"){
     	 					$('#nobloglist>h1').remove();
-    	 					$('#nobloglist').append("<h1 style='text-align:center'>抱歉您還沒有文章唷!!</h1>");
+    	 					$('#nobloglist').append("<h1 style='text-align:center'>尚未有文章!!</h1>");
     	 					$('#primary-content').prop("hidden",true);
     	 				}else{
     	  	 				$('#nobloglist>h1').remove();
+    	  	 				$('#notblog').remove();
+    	  	 				
     	  	 				$('#primary-content').prop("hidden",false);
         	 				$.each(myObject,function(i,item){
 //         	 					console.log("here");
 //        	  					console.log(item.TravelDiary_ID);
 //        	  					console.log(item.TravelDiary_Name);
 //        	  					console.log(item.TravelDiary_Content);
-       	  					
-     							$('#tiles').append("<li id='"+item.TravelDiary_ID+"'>"+item.TravelDiary_Content+"<p>"+item.TravelDiary_Name+"</p></li>");
-     									   
+       	  						if(item.TravelDiary_Content!="<img src='../Images/stopblog.jpg'>"){
+       	  						$('#tiles').append("<li id='"+item.TravelDiary_ID+"'>"+item.TravelDiary_Content+"<p>"+item.TravelDiary_Name+"</p></li>");
+     							$('li>img').css({'height':'200px','width':'190px'});		   
      							//再重新宣告新的按下click事件
      							$("#tiles>li").click(function(){
      							var picknum=$(this).attr("id");
@@ -265,6 +268,10 @@
      							window.location.href="<%=request.getScheme()%>://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/P3_TravelDiary/TravelDiaryServlet?action=pickblog&picknum="+picknum;	
      						    
      							});
+       	  						}else{
+       	  							
+       	  						}
+     							
         	 				});
         	 				
         	 				  $('#tiles').imagesLoaded(function() {
