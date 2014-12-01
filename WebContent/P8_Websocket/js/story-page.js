@@ -25,6 +25,8 @@ function clickedit(ev){
 			 viewID: ev.target.getAttribute("data-viewID"),
 			 draggable: ev.target.getAttribute("draggable"),
 			 action: ev.target.getAttribute("action"),
+			 lng: ev.target.getAttribute("lng"),
+			 lag: ev.target.getAttribute("lag"),
 			 x: ev.clientX - bounds.left,
 			 y: ev.clientY - bounds.top
 			 };
@@ -40,6 +42,8 @@ function clickedit(ev){
 			 viewID: ev.target.getAttribute("data-viewID"),
 			 draggable: ev.target.getAttribute("draggable"),
 			 action: ev.target.getAttribute("action"),
+			 lng: ev.target.getAttribute("lng"),
+			 lag: ev.target.getAttribute("lag"),
 			 x: ev.clientX - leftDiv.left,
 			 y: ev.clientY - leftDiv.top
 			 };
@@ -65,6 +69,8 @@ function drag(ev) {
         viewID: ev.target.getAttribute("data-viewID"),
         draggable: ev.target.getAttribute("draggable"),
         action: ev.target.getAttribute("action"),
+        lng: ev.target.getAttribute("lng"),
+		lag: ev.target.getAttribute("lag"),
         offsetX: ev.clientX - bounds.left,
         offsetY: ev.clientY - bounds.top
         };
@@ -84,6 +90,8 @@ function drag(ev) {
             viewID: ev.target.getAttribute("data-viewID"),
             draggable: ev.target.getAttribute("draggable"),
             action: ev.target.getAttribute("action"),
+            lng: ev.target.getAttribute("lng"),
+			lag: ev.target.getAttribute("lag"),
             offsetX: ev.clientX - leftDiv.left,
             offsetY: ev.clientY - leftDiv.top
             };
@@ -115,6 +123,8 @@ function drop(ev) {
         sticker: draggedSticker.sticker,
         viewname: draggedSticker.viewname,
         viewID: draggedSticker.viewID,
+        lng: draggedSticker.lng,
+		lag: draggedSticker.lag,
         draggable: draggedSticker.draggable
         
         };
@@ -133,6 +143,8 @@ function drop(ev) {
         sticker: draggedSticker.sticker,
         viewname: draggedSticker.viewname,
         viewID: draggedSticker.viewID,
+        lng: draggedSticker.lng,
+		lag: draggedSticker.lag,
         draggable: draggedSticker.draggable	
         };
     socket.send(JSON.stringify(backToSend));
@@ -172,6 +184,8 @@ ev.preventDefault();//取消預設功能
 	        sticker: draggedSticker.sticker,
 	        viewname: draggedSticker.viewname,
 	        viewID: draggedSticker.viewID,
+	        lng: draggedSticker.lng,
+			lag: draggedSticker.lag,
 	        draggable: draggedSticker.draggable	
 	        };
 	    socket.send(JSON.stringify(backToSend));
@@ -200,7 +214,7 @@ function allowDrop(ev) {
 }
 
 //接收Server發出的訊息
-function onSocketMessage(event) { 
+function onSocketMessage(event) {
    if (event.data) {
       var receivedSticker = JSON.parse(event.data);//建立接收sticker的物件 <- data轉成JSON物件 
       log("Received Object: " + JSON.stringify(receivedSticker));//轉成JSON字串並將Received座標log
@@ -209,6 +223,7 @@ function onSocketMessage(event) {
       console.log(receivedSticker.chat);
       
       if (receivedSticker.action == "add") {
+    	 
     	 var eleH = document.createElement("h5");
     	 var txtName = document.createTextNode(receivedSticker.viewname);
     	 eleH.appendChild(txtName);
@@ -221,6 +236,8 @@ function onSocketMessage(event) {
          imageObj.setAttribute("data-sticker",receivedSticker.sticker);
          imageObj.setAttribute("data-viewname",receivedSticker.viewname);
          imageObj.setAttribute("data-viewID",receivedSticker.viewID);
+         imageObj.setAttribute("lng",receivedSticker.lng);
+         imageObj.setAttribute("lag",receivedSticker.lag);
          imageObj.setAttribute("ondragstart","drag(event)");
          console.log(imageObj);
          
@@ -231,6 +248,8 @@ function onSocketMessage(event) {
          eleli.setAttribute("data-sticker",receivedSticker.sticker);
          eleli.setAttribute("data-viewname",receivedSticker.viewname);
          eleli.setAttribute("data-viewID",receivedSticker.viewID);
+         eleli.setAttribute("lng",receivedSticker.lng);
+         eleli.setAttribute("lag",receivedSticker.lag);
          eleli.setAttribute("ondragstart","drag(event)");
          console.log(eleli);
          
@@ -243,6 +262,8 @@ function onSocketMessage(event) {
          elelink.setAttribute("draggable","true");
          elelink.setAttribute("data-sticker",receivedSticker.sticker);
          elelink.setAttribute("data-viewname",receivedSticker.viewname);
+         elelink.setAttribute("lng",receivedSticker.lng);
+         elelink.setAttribute("lag",receivedSticker.lag);
          elelink.setAttribute("data-viewID",receivedSticker.viewID);
          elelink.setAttribute("onclick", "clickedit(event)");
          
@@ -281,6 +302,8 @@ function onSocketMessage(event) {
           imageObj2.setAttribute("data-sticker",receivedSticker.sticker);
           imageObj2.setAttribute("data-viewname",receivedSticker.viewname);
           imageObj2.setAttribute("data-viewID",receivedSticker.viewID);
+          imageObj2.setAttribute("lng",receivedSticker.lng);
+          imageObj2.setAttribute("lag",receivedSticker.lag);
           imageObj2.setAttribute("ondragstart","drag(event)");
           console.log(imageObj2);
           var eleli2 = document.createElement("li");
@@ -290,6 +313,8 @@ function onSocketMessage(event) {
           eleli2.setAttribute("data-sticker",receivedSticker.sticker);
           eleli2.setAttribute("data-viewname",receivedSticker.viewname);
           eleli2.setAttribute("data-viewID",receivedSticker.viewID);
+          eleli2.setAttribute("lng",receivedSticker.lng);
+          eleli2.setAttribute("lag",receivedSticker.lag);
           eleli2.setAttribute("ondragstart","drag(event)");
           console.log(eleli2);
           
@@ -304,6 +329,8 @@ function onSocketMessage(event) {
           elelink2.setAttribute("data-sticker",receivedSticker.sticker);
           elelink2.setAttribute("data-viewname",receivedSticker.viewname);
           elelink2.setAttribute("data-viewID",receivedSticker.viewID);
+          elelink2.setAttribute("lng",receivedSticker.lng);
+          elelink2.setAttribute("lag",receivedSticker.lag);
           elelink2.setAttribute("onclick", "clickedit(event)");
           
           eleli2.appendChild(eleH2).appendChild(imageObj2);

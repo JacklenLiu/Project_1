@@ -10,7 +10,25 @@ public class Sticker {
     private String action;
     private String viewID;
     private String draggable;
+    private String lng;
+    private String lag;
    
+	public String getLng() {
+		return lng;
+	}
+
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
+
+	public String getLag() {
+		return lag;
+	}
+
+	public void setLag(String lag) {
+		this.lag = lag;
+	}
+
 	public String getDraggable() {
 		return draggable;
 	}

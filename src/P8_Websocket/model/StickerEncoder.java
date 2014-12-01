@@ -28,6 +28,8 @@ public class StickerEncoder implements Encoder.TextStream<Sticker> {
             .add("viewname", sticker.getViewname())
             .add("viewID", sticker.getViewID())
             .add("draggable", sticker.getDraggable())
+            .add("lng", sticker.getLng())
+            .add("lag", sticker.getLag())
             .build();
     	}
     	if("back".equals(sticker.getAction())){
@@ -39,6 +41,8 @@ public class StickerEncoder implements Encoder.TextStream<Sticker> {
     	    .add("viewname", sticker.getViewname())
     	    .add("viewID", sticker.getViewID())
     	    .add("draggable", sticker.getDraggable())
+    	    .add("lng", sticker.getLng())
+            .add("lag", sticker.getLag())
     	    .build();	
     	}
   

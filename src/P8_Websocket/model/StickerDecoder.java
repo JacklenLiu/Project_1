@@ -31,6 +31,8 @@ public class StickerDecoder implements Decoder.TextStream<Sticker> {
       sticker.setViewname(jsonSticker.getString("viewname"));
       sticker.setViewID(jsonSticker.getString("viewID"));
       sticker.setDraggable(jsonSticker.getString("draggable"));
+      sticker.setLng(jsonSticker.getString("lng"));
+      sticker.setLag(jsonSticker.getString("lag"));
   }
   
   if("back".equals(jsonSticker.getString("action"))){
@@ -42,6 +44,8 @@ public class StickerDecoder implements Decoder.TextStream<Sticker> {
 	  sticker.setViewname(jsonSticker.getString("viewname"));
 	  sticker.setViewID(jsonSticker.getString("viewID"));
 	  sticker.setDraggable(jsonSticker.getString("draggable"));
+	  sticker.setLng(jsonSticker.getString("lng"));
+      sticker.setLag(jsonSticker.getString("lag"));
   }
   
   if("addchat".equals(jsonSticker.getString("action"))){

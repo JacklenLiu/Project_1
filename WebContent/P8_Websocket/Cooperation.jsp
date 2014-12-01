@@ -4,15 +4,142 @@
 <html>
   <head>
   <%@ include file="../platform/include_title.jsp" %>
+  <%@ include file="../platform/include_start.jsp" %>
     <title>Sticker Story</title>
     <link href="css/styles.css" rel="stylesheet" type="text/css" >
      <link href="css/images.css" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link -->
-    
+    <link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
   </head>
   <body>
     <header>
-      <h1>多人協作平台</h1>
+      <!-- Navigation -->
+<nav class="navbar  navbar-fixed-top" role="navigation">
+	<div class="rowHeader">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" id="indexBtn">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.jsp" name="indexLoginBtn">下一站，幸福</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            	<ul class="nav navbar-nav navbar-right">
+                	<c:if test="<%=sionName == null%>">
+                  		<li class="dropdown">
+                  			<a href="../P0_login/login.jsp" name="indexLoginBtn" class="noChange">登入</a>
+                  	 	</li>
+                  	</c:if>
+                  	<li class="dropdown">
+                  		<a href="../P2_route/route_search.jsp" name="indexLoginBtn" class="noChange">景點介紹</a>
+                  	</li>
+                   	<li class="dropdown">
+                       	<a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
+                       	<ul class="dropdown-menu">
+                        	<li>
+                            	<a href="../P2_route/route_plan.jsp">路經規劃</a> 
+                           	</li>
+                           	<li>
+<%--                               	<a href="P8_Websocket/Cooperation.jsp?memID=${userLoginId}">與好友同步規劃</a> --%>
+                              	<a href="#" id="cooperationLink">與好友同步規劃</a>
+                           	</li>
+                           	<li>
+                              	<a href="../portfolio-4-col.html">4 Column Portfolio</a>
+                           	</li>
+                           	<li>
+                              	<a href="../portfolio-item.html">Single Portfolio Item</a>
+                           	</li>
+                       	</ul>
+                   	</li>
+                    <li class="dropdown">
+                    	<a href="../P4_MessageBoard/showALL.jsp">留言板</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href=".portfolio-1-col.html">1 Column Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="ortfolio-item.html">Single Portfolio Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        	<li>
+			                	<a href="P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
+			                </li>                         
+                            <li>
+                                <a href="../P3_TravelDiary/blog_editor.jsp">發表新文章</a>
+                            </li>
+                            <li>
+                                <a href="../P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="P6_ContactUs/ContactUs.jsp" class="dropdown-toggle noChange" data-toggle="dropdown" name="indexLoginBtn">聯絡我們<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="P6_ContactUs/ContactUs.jsp" class="noChange" name="indexLoginBtn">聯絡我們</a>
+                            </li>
+                            <li>
+                                <a href="faq.html">FAQ</a>
+                            </li>
+                            <li>
+                                <a href="404.html">404</a>
+                            </li>
+                            <li>
+                                <a href="pricing.html">Pricing Table</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <c:if test="<%=sionName != null%>">
+                 		<li class="dropdown">
+                    		<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
+                    		<i class="fa fa-user"></i><%=sionName%>你好<b class="caret"></b></a>
+                 			<ul class="dropdown-menu">
+		                       	<li>
+		                           <a href="../P1_iud/userProfile.jsp">會員基本資料</a>
+		                       	</li>
+		                      	<li>
+		                           	<a href="../P4_MessageBoard/SeekFriend2.jsp">會員好友管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                           		<span id="friendManage"></span>
+		                           	</a>
+		                       	</li>
+		                        <li>
+           							 <a href="http://<%=serverName%>:<%=serverPort%><%=contextPath%>/P2_route/viewnameServlet?action=GetRouteByMemID&memID=${userLoginId}">我的路線</a>
+        					 	</li>
+		                       	<li>
+		                           <a href="LoginServlet?action=logOut">登出系統</a>
+		                       	</li>
+                  			</ul>
+                     	</li>		
+                  	</c:if>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+		</div>
+        <!--  end row  -->
+    </div>
+	<!-- /.container -->
+</nav>
     </header>
     
 
@@ -104,7 +231,7 @@
    		var url = "http://"+ serverName +':'+ serverPort + contextPath +"/P2_route/viewnameServlet";
            $.getJSON(url, {'area':area,'action':'GetAllByArea'}, function(datas){
         	 view(area ,datas);//呼叫view並帶區域參數
-             console.log(datas);
+            
            });
 	   }
 
@@ -115,8 +242,15 @@
 	   
 	function view(area ,datas){   //用each切割出datas裡每個object
 		$('#viewulID').empty();
+		$('#mapdiv').tinyMap();
+		var addrs = [];
+		
 		$.each(datas,function(i,item){// i   -> index
 			console.log(item);        //item -> item
+			
+			var a = [item.viewlng,item.viewlat];
+    		addrs[i] = a;
+    		console.log(item.viewlng);
 			
 			var imgarea="E_";
 
@@ -134,6 +268,8 @@
 					imgarea="E_";
 					break;
 			}
+			
+			
 			var alinkaddroute = $('<a></a>').attr("title", "加入行程")
 			.addClass("ui-icon ui-icon-plus")
 			.attr("href",'#')
@@ -141,6 +277,8 @@
 		 	.attr("data-viewname", item.viewname)
 		 	.attr("data-viewID", item.viewID)
 		 	.attr("action", "add")
+		 	.attr("lng",item.viewlng)
+		 	.attr("lag",item.viewlat)
 		 	.attr("draggable",'true')
 			.text("加入行程")
 			.bind('click', function(event){
@@ -154,6 +292,8 @@
 		 	.attr("data-viewname", item.viewname)
 		 	.attr("data-viewID", item.viewID)
 		 	.attr("action", "add")
+		 	.attr("lng",item.viewlng)
+		 	.attr("lag",item.viewlat)
 		 	.addClass("viewimge").attr("draggable",'true')
 			.bind('dragstart', function(event){
 		        drag(event);
@@ -164,6 +304,8 @@
 		 	.attr("data-viewname", item.viewname)
 		 	.attr("data-viewID", item.viewID)
 		 	.attr("action", "add")
+		 	.attr("lng",item.viewlng)
+		 	.attr("lag",item.viewlat)
 		 	.attr("draggable",'true')
 		 	.bind('dragstart', function(event){
 		        drag(event);
@@ -295,11 +437,25 @@
          }
        });
 	 
-	 
-		$('#mapdiv').tinyMap(); 
-		
+	 $('#boardulID').bind('DOMNodeInserted DOMNodeRemoved', function(event){
+  		console.log(event);
+  		var arryli = [];
+ 		if(event.type == 'DOMNodeInserted'){
+ 			console.log(this.innerHTML);
+ 			
+ 		$.each(event,function(i,item){
+ 			arryli[i] = this.innerHTML;
+ 			console.log(arryli[i]);
+ 			console.log(item);
+ 		});
+ 		}
+ 		if(event.type == 'DOMNodeRemoved'){
+ 			console.log("Removed");
+ 		}
+ 	   });
 	 
 
+		
     })(jQuery);
     
       </script>
