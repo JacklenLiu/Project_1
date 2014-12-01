@@ -612,6 +612,7 @@ $(function() {
        		$.each(datas,function(i,item){
   				//$('.col-sm-6:nth-child('+(i+2)+') > a > img:nth-child(1)').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+ item.imagesID);
   				$(".leaderboard").append("<a href='#'>");
+  				$(".leaderboard > a:nth-child(" + (i+1) + ")").attr("name","indexLoginBtn");
        			//P3_TravelDiary/TravelDiaryServlet?action=blog.do
        			//<a href=""><p>※2014/10/10 陽明山海芋季，快來看看</p></a>
        			//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
