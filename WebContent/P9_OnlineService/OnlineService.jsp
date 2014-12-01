@@ -112,6 +112,7 @@
 	
 	//從include_sticker.jsp 內的url後面的參數svcmember 可以用getParameter取
 	var OlineSvc="<%= request.getParameter("svcmember")%>";
+	var admin="<%= request.getParameter("admin")%>";
 	//遇到是訪客用IP來當ID
 /*	var OlineSvc="";
  	var userIP="";
@@ -131,15 +132,19 @@
 	 */
 	
 	 
-	 
-	//按下送出將文字送到對話框然後再去呼叫story-page.js將文字傳送過去
+	//****************************對話框發送訊息用**********************************
+	//可以使用按鈕發送訊息     按下送出將文字送到對話框然後再去呼叫story-page.js將文字傳送過去
    (function ($){
 	$('#chatbt').click(function(){  //送出 -> click事件
 		var userchat = $('#chatinput').val();//讀取chatinput所輸入的值-> 並放入userchat
 		$('#chatinput').val("");//將值拿掉
 		var chat="";
+		//從後台登入的時候會多丟一個參數為admin=admin123 用來判別是從後台或是user
+		if(admin!="null"){
+			chat = "admin  : " + userchat; //將使用者(guest+IP) 跟 userchat 串在一起
+		}
 		//判別是否可以抓到ID 若無法抓到ID在聊天內容就給他變換成guest+IP
-		if(sionName=="null"){
+		else if(sionName=="null"){
 			chat = OlineSvc +" : " + userchat; //將使用者(guest+IP) 跟 userchat 串在一起
 		}else{
 			chat = sionName +" : " + userchat; //將使用者(sionName) 跟 userchat 串在一起
@@ -148,11 +153,37 @@
 		serviceChat(chat);//呼叫story-page.js 的 chatsend並帶參數
 	});
 	
+	//可以使用enter發送訊息
+	$('#chatinput').keyup(function(e){
+	    if(e.keyCode == 13)
+	    {
+	    	var userchat = $('#chatinput').val();//讀取chatinput所輸入的值-> 並放入userchat
+			$('#chatinput').val("");//將值拿掉
+			var chat="";
+			//從後台登入的時候會多丟一個參數為admin=admin123 用來判別是從後台或是user
+			if(admin!="null"){
+				chat = "admin  : " + userchat; //將使用者(guest+IP) 跟 userchat 串在一起
+			}
+			//判別是否可以抓到ID 若無法抓到ID在聊天內容就給他變換成guest+IP
+			else if(sionName=="null"){
+				chat = OlineSvc +" : " + userchat; //將使用者(guest+IP) 跟 userchat 串在一起
+			}else{
+				chat = sionName +" : " + userchat; //將使用者(sionName) 跟 userchat 串在一起
+			}
+			
+			serviceChat(chat);//呼叫story-page.js 的 chatsend並帶參數
+	    }
+	});
+	
+	
+	
+	
     
 	//將名字顯示在右邊對話框(可以抓使用者ID  但後臺管理員名子寫死所以帳號就要建立一個超級管理員的名子是超級管理員)
-	$('#nicknamesBox').append(" <div class='username'>超級管理員</div>");
+	$('#nicknamesBox').append(" <div class='username'>admin</div>");
 	$('#nicknamesBox').append(" <div class='username'>"+OlineSvc+"</div>");
 	
+	//****************************對話框發送訊息用**********************************
 	
     })(jQuery);
     
