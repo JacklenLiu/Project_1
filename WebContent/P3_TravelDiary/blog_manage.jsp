@@ -158,6 +158,18 @@
 <%@ include file="../platform/include_script.jsp" %>
 <script>
 (function($) {
+	
+	//ScrollBar 畫面停留位置方法
+	$({myScrollTop:window.pageYOffset}).animate({myScrollTop:200}, {
+		  duration: 600,
+		  easing: 'swing',
+		  step: function(val) {
+		    window.scrollTo(0, val);
+		  }
+		});
+	//ScrollBar 畫面停留位置方法
+	
+	
 	//當載入這個畫面時抓取現在是第幾頁並讓option停留在那個頁數(使用document速度比較快不用等網頁全部load完)
 	$(document).ready(function() {
 		var thispage='#chosenPage'+<%=whichPage%>;

@@ -184,6 +184,17 @@
 	<!-- *********************************************jQuery程式寫入 ************************************************-->
 	<script>
 		(function($) {
+			
+			//ScrollBar 畫面停留位置方法
+	    	$({myScrollTop:window.pageYOffset}).animate({myScrollTop:200}, {
+	    		  duration: 600,
+	    		  easing: 'swing',
+	    		  step: function(val) {
+	    		    window.scrollTo(0, val);
+	    		  }
+	    		});
+	    	//ScrollBar 畫面停留位置方法
+			
 			$('#summernote').code();
 			//設定summernote的工具有哪些
 			$('#summernote').summernote(
