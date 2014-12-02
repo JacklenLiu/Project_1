@@ -233,7 +233,7 @@
                 	})
                  	
                 	//set center order by viewlng(緯度)
-                	var center = addrs[14];                	   
+                	var center = addrs[addrs.length/2];                	   
                 	
                 	//將每個景點組成marker物件放入markers陣列
                 	for (var i = 0, max = addrs.length; i < max; i++) {

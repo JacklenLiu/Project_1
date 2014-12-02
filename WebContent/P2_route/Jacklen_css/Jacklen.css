@@ -140,7 +140,6 @@ figure, figcaption, h3, p {
         /*width: 30%;*/
         float: left;
         display: inline;
-        z-index:-1;
 	}
 	
 #map {
