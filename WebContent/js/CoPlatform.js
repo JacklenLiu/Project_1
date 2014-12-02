@@ -49,8 +49,8 @@
 				  console.log(e.data);
 				  var notifymsg = JSON.parse(e.data);
 				  frdplatform = notifymsg.cooperation_friend;
-				  $('#dialog-checkCoFromFrd').dialog('option', 'title', notifymsg.frdName+' 邀請你一起規劃路線');
-				  $('#dialog-checkCoFromFrd > h4').text(notifymsg.invite_msg);
+				  dialogCoFromFrd.dialog('option', 'title', notifymsg.frdName+' 邀請你一起規劃路線');
+				  dialogCoFromFrd.find("h4").text(notifymsg.invite_msg);
 				  
 				  dialogCoFromFrd.dialog("open");	  
 			  }
