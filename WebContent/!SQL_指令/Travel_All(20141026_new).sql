@@ -901,14 +901,17 @@ CREATE TABLE knowledge (
  knowledge_type             nvarchar(10)	    not null,
  knowledge_title			nvarchar(50)		not null,
  knowledge_content			nvarchar(50)		not null,
+ knowledge_imgName			nvarchar(50)				,
  knowledge_img				image						,
- 
+ knowledge_imgformat		nvarchar(50)				,
+ knowledge_build			date				not null,	 
+
   CONSTRAINT pk_knowledge	PRIMARY KEY (knowledge_identity)
  );
 
-insert into knowledge values ('食','食安問題','食安問題，日益嚴重','');
-insert into knowledge values ('衣','塑化劑','塑化劑，日益嚴重','');
-insert into knowledge values ('住','海砂屋','海砂屋，日益嚴重','');
+insert into knowledge values ('食','食安問題','食安問題，日益嚴重','','','','2011-05-05');
+insert into knowledge values ('衣','塑化劑','塑化劑，日益嚴重','','','','2013-05-30');
+insert into knowledge values ('住','海砂屋','海砂屋，日益嚴重','','','','2014-10-15');
 
 
 

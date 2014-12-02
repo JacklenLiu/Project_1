@@ -711,23 +711,6 @@ $(function() {
        		});
        	});
     
-    
-//     <a class="example-image-link noChange" href="" data-lightbox="example-set" data-title="" name="indexLoginBtn">
-//     	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none;"/>
-//     	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute;">
-//     </a>
-//     <a class="example-image-link noChange" href="" data-lightbox="example-set" data-title="" name="indexLoginBtn" hidden>
-//     	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
-//     	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
-//     </a>
-//     <a class="example-image-link noChange" href="" data-lightbox="example-set" data-title="" name="indexLoginBtn" hidden>
-//     	<img class="img-responsive img-portfolio img-hover img-circle tooltips example-image" src="" alt="" style="width:170px;height:170px;float:none; hidden"/>
-//     	<img src="Images/1.png" style="margin-top:-215px;margin-left:-85px;width:60px;hieght:60px;position:absolute; hidden">
-//     </a>
-       	
-       	
-       	
-
       //***************昱豪_抓排行榜圖片***************
       
       //***************昱豪_Server Send Event***************
