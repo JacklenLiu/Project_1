@@ -56,6 +56,8 @@ public class viewnameDAO implements viewnameDAO_interface {
 	private static final String GET_ALL_IMAGES="select i.imagesid, i.imagesname ,  v.viewname , i.imgdescript , i.imgsrc , i.images_format from images i join viewname v on imagesname = viewid where i.imagesID like '%_01';";
 	private static final String viewName_imgDescript ="select viewname,imgDescript from viewName join images on viewId = imagesname where images.imagesId like ? order by images.imagesID;";
 	
+	private static final String GET_N_S_W=" select i.imagesid, i.imagesname ,  v.viewname , i.imgdescript , i.imgsrc , i.images_format from images i join viewname v on imagesname = viewid where i.imagesID like '%_01' and i.imagesID not like 'E%'";
+
 	@Override
 	public void insert(viewnameVO vnVO) {
 		// TODO Auto-generated method stub
@@ -1034,4 +1036,83 @@ try{
 		}		
 		return imgStr;
 	}
+	
+	@Override
+	public String getAllImg2() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<String> cols = new ArrayList<String>();
+		String viewnames="";
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_N_S_W);	
+			rs = pstmt.executeQuery();
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int count = rsmd.getColumnCount();
+			for(int i = 1; i <= count; i++) {
+				cols.add(rsmd.getColumnLabel(i));
+			}
+			
+			JSONArray jsonArray = new JSONArray();
+			JSONArray jsonArray2 = new JSONArray();
+			JSONObject jsonObj;
+			while(rs.next()){
+				jsonObj = new JSONObject();
+				jsonObj.put(cols.get(0), rs.getString(1));//imagesID
+				jsonObj.put(cols.get(1), rs.getString(2));//imagesName
+				jsonObj.put(cols.get(2), rs.getString(3));//viewname
+				jsonObj.put(cols.get(3), rs.getString(4));//imgDescript
+				jsonObj.put(cols.get(4), rs.getString(5));//imgSrc
+				jsonObj.put(cols.get(5), rs.getString(6));//img_format
+				jsonArray.put(jsonObj);
+			}
+			//先算取幾筆2~5去算
+			int randomTime;
+			randomTime=(int)(Math.random()*5+2);
+			if(randomTime>5){
+				randomTime=5;
+			}
+			System.out.println(randomTime);
+			//再去算從總共比數挑哪幾筆
+			int randomView;
+			for(int i=0;i<randomTime;i++){
+				randomView=(int)(Math.random()*jsonArray.length());
+				jsonArray2.put(jsonArray.get(randomView));
+//				jsonArray.get(randomView);
+			}
+//			System.out.println((int)(Math.random()*jsonArray.length()+1));
+//			System.out.println(jsonArray.get(0));
+//			viewnames = jsonArray.toString();
+			viewnames = jsonArray2.toString();
+			
+			
+			System.out.println();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}catch (JSONException e) {
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		return viewnames;
+	}
+	
 }

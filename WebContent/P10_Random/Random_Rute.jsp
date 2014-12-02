@@ -34,16 +34,13 @@
                   	 	</li>
                   	</c:if>
                 	<li class="dropdown">
-                  		<a href="route_search.jsp" name="indexLoginBtn" class="noChange">景點介紹</a>
+                  		<a href="../P2_route/route_search." name="indexLoginBtn" class="noChange">景點介紹</a>
                   	</li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                        	<li>
-                            	<a href="../P10_Random/Random.jsp" class="noChange"  name="indexLoginBtn">隨機旅程</a> 
-                           	</li>
                             <li>
-                                <a href="route_plan.jsp">路徑規劃</a>
+                                <a href="route_plan.jsp">路經規劃</a>
                             </li>
                             <li>
                                 <a href="#" id="cooperationLink">與好友同步規劃</a>
@@ -118,13 +115,9 @@
 				<center>
 					<h1 >景點介紹 </h1>
 				</center>
-				<div class="col-sm-5">
-					<h3 style="float:left;">搜尋:</h3>
-					<input type="text" id="search" class="form-control" name="search"><span id="loading" hidden><img src="../Images/ajax-loader.gif" /></span>
-				</div>
 			</header>
 			<div class="col-sm-12">
-				<h2 id="">Basic usage</h2>
+				<h2 id="">隨機景點</h2>
 				<table id="example" class="display" cellspacing="0">
 					<thead>
 						<tr>
@@ -165,6 +158,10 @@
 
 
 (function ($){
+	
+	
+	
+	
 	//******昱豪 登入處裡*****************************
 	
 	var sionLog = "<%=sionLoginId%>";
@@ -184,14 +181,18 @@
 	var serverName = "<%= request.getServerName()%>";
 	var serverPort = "<%= request.getServerPort()%>";
 	var contextPath = "<%= request.getContextPath()%>";
-
-	var imgUrl = "viewnameServlet";
-   	$.getJSON(imgUrl,{'action':'getAll'}, function(datas){
+	
+	
+	
+	
+	//**********************random圖片用******************************
+	var imgUrl = "../P2_route/viewnameServlet";
+   	$.getJSON(imgUrl,{'action':'getAll2'}, function(datas){
    		$.each(datas,function(i,item){
    			$("#tbodyid").append("<tr class='addView'>");
    			$("#tbodyid").append("<td>"+(i+1)+"</td>");
    			$("#tbodyid").append("<td>"+item.viewname+"</td>");
-			$('#tbodyid').append('<td><img src='+'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageAllServlet?id='+item.imagesid+' style="height:100px;width:200px;" /></td>');
+   			$('#tbodyid').append('<td><img src='+'http://'+ serverName +':'+ serverPort + contextPath+'/GetImageAllServlet?id='+item.imagesid+' style="height:100px;width:200px;" /></td>');
 			$('#tbodyid').append("<td>"+item.imgdescript+"</td");
 			$("#tbodyid").append("</tr>");
    			
@@ -233,6 +234,8 @@
 		   	});
 		}
 	});
+	
+	//**********************random圖片用******************************
 })(jQuery);
 
 </script>

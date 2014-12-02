@@ -26,4 +26,5 @@ public interface viewnameDAO_interface {
     public int getImgTop6Count();
     public List<viewnameVO> viewName_imgDescript(String imagesID);
     public String getImgByID(String imgID);
+    public String getAllImg2();
 }
