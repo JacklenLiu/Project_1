@@ -31,6 +31,7 @@ public class newsDAO implements newsDAO_interface {
 	
 	private static final String GET_ALL_News_JSON ="select news_identity , news_date , news_title from news;";
 	
+	private static final String GET_ONE ="select * from news where news_identity = ?;";
 	
 	
 	@Override
@@ -93,4 +94,51 @@ public class newsDAO implements newsDAO_interface {
 		return news;
 	}
 
+	@Override
+	public newsVO getOne(String newsID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		newsVO nsVO =null;
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ONE);	
+			pstmt.setString(1, newsID);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				 nsVO = new newsVO();
+				 nsVO.setNews_identity(rs.getString("news_identity"));//news_identity
+				 nsVO.setNews_date(rs.getDate("news_date"));//news_date
+				 nsVO.setNews_title(rs.getString("news_title"));//news_title
+				 nsVO.setNews_image(rs.getString("news_image"));//news_image(name)
+				 nsVO.setNews_Content(rs.getString("news_Content"));//news_Content
+				 /*
+				 nsVO.setNews_ImgSrc(rs.getBlob("imgSrc"));//news_ImgSrc
+				 nsVO.setNews_ImgFormat(rs.getString("images_format"));//news_ImgFormat
+				 */
+			}
+			
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		return nsVO;
+	}
 }

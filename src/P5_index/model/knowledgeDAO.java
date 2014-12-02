@@ -1,6 +1,8 @@
 package P5_index.model;
 
+import java.sql.Blob;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -31,6 +33,7 @@ public class knowledgeDAO implements knowledgeDAO_interface {
 	
 	private static final String GET_ALL_Knowledge_JSON ="select * from knowledge;";
 	
+	private static final String GET_ONE ="select * from knowledge where knowledge_identity = ?;";
 	
 	
 	@Override
@@ -94,4 +97,49 @@ public class knowledgeDAO implements knowledgeDAO_interface {
 		return knowledges;
 	}
 
+	@Override
+	public knowledgeVO getOne(String knowledgeIdentity) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		knowledgeVO klVO =null;
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ONE);	
+			pstmt.setString(1, knowledgeIdentity);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				klVO = new knowledgeVO();
+				klVO.setKnowledge_identity(rs.getString("knowledge_identity"));//knowledge_identity
+				klVO.setKnowledge_type(rs.getString("knowledge_type"));//knowledge_type
+				klVO.setKnowledge_title(rs.getString("knowledge_title"));//knowledge_title
+				klVO.setKnowledge_content(rs.getString("knowledge_content"));//knowledge_content
+				klVO.setKnowledge_imgName(rs.getString("knowledge_imgName"));//knowledge_imgName
+				klVO.setKnowledge_img(rs.getBlob("knowledge_img"));//knowledge_img
+				klVO.setKnowledge_imgformat(rs.getString("knowledge_imgformat"));//knowledge_imgformat
+				klVO.setKnowledge_build(rs.getDate("knowledge_build"));//knowledge_build
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		return klVO;
+	}
 }

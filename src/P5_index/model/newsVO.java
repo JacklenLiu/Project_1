@@ -1,15 +1,37 @@
 package P5_index.model;
 
+import java.sql.Blob;
 import java.sql.Date;
 
 public class newsVO {
 	 
-	 private Date   news_date 		;		
-	 private String news_title		;		
-	 private String news_image		;		 
-	 private String news_Content    ;
+	private String   		news_identity   ;	
+	private Date  			news_date 		;		
+	private String 			news_title		;		
+	private String 			news_image		;		 
+	private String 			news_Content    ;
+	private Blob 			news_ImgSrc    	;
+	private String			news_ImgFormat 	;
 	 
 	 
+	public String getNews_identity() {
+		return news_identity;
+	}
+	public void setNews_identity(String news_identity) {
+		this.news_identity = news_identity;
+	}
+	public Blob getNews_ImgSrc() {
+		return news_ImgSrc;
+	}
+	public void setNews_ImgSrc(Blob news_ImgSrc) {
+		this.news_ImgSrc = news_ImgSrc;
+	}
+	public String getNews_ImgFormat() {
+		return news_ImgFormat;
+	}
+	public void setNews_ImgFormat(String news_ImgFormat) {
+		this.news_ImgFormat = news_ImgFormat;
+	}
 	public Date getNews_date() {
 		return news_date;
 	}

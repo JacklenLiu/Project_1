@@ -19,7 +19,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
+
+import com.sun.research.ws.wadl.Response;
 
 
 /**
@@ -45,14 +48,14 @@ public class newsServlet extends HttpServlet {
 		res.setContentType("text/html; charset=UTF-8");
 		res.setHeader("Access-Control-Allow-Origin", "*");
 		req.setCharacterEncoding("UTF-8");
-		
+		HttpSession sion = req.getSession();
 		Connection conn= null;
 		OutputStream os = null;
-		
+		//String contextPath =  req.getContextPath();
 		String newsId = req.getParameter("newsId");
 		String GET_ALL_NEWS = "select news_identity , news_date , news_title ,news_content from news where news_identity=?;";
 		
-		int		news_identity	;
+		int		news_identity = 0 ;
 		String	news_date 		;
 		String 	news_title 		;
 		String 	news_content 	;
@@ -79,13 +82,16 @@ public class newsServlet extends HttpServlet {
 				
 				//res.setContentType("text/html");
 				//os = res.getOutputStream();
-
-				out.println("第"+news_identity+"筆<br>");
-				out.println("news_date= " + news_date +"<br>");
-				out.println("news_title= " + news_title +"<br>");
-				out.println("news_content= " + news_content +"<br>");
+//
+//				out.println("第"+news_identity+"筆<br>");
+//				out.println("news_date= " + news_date +"<br>");
+//				out.println("news_title= " + news_title +"<br>");
+//				out.println("news_content= " + news_content +"<br>");
+				
 			}
-			
+			sion.setAttribute("newsIdentity", news_identity);
+			res.sendRedirect("P5_index/newsIntroduce.jsp");
+			return;
 			
 			
 		} catch (NamingException e) {

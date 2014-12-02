@@ -19,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 
@@ -45,14 +46,14 @@ public class knowledgeServlet extends HttpServlet {
 		res.setContentType("text/html; charset=UTF-8");
 		res.setHeader("Access-Control-Allow-Origin", "*");
 		req.setCharacterEncoding("UTF-8");
-		
+		HttpSession sion = req.getSession();
 		Connection conn= null;
 		OutputStream os = null;
 		
 		String knowledge = req.getParameter("knowledge");
 		String GET_ALL_KNOWLEDGE = "select * from knowledge where knowledge_identity=?;";
 		
-		int		knowledge_identity	;
+		int		knowledge_identity	= 0;
 		String	knowledge_type 		;
 		String 	knowledge_title 	;
 		String 	knowledge_content 	;
@@ -80,14 +81,15 @@ public class knowledgeServlet extends HttpServlet {
 				
 				//res.setContentType("text/html");
 				//os = res.getOutputStream();
-
-				out.println("第"+knowledge_identity+"筆<br>");
-				out.println("news_date= " + knowledge_type +"<br>");
-				out.println("news_title= " + knowledge_title +"<br>");
-				out.println("news_content= " + knowledge_content +"<br>");
+//
+//				out.println("第"+knowledge_identity+"筆<br>");
+//				out.println("news_date= " + knowledge_type +"<br>");
+//				out.println("news_title= " + knowledge_title +"<br>");
+//				out.println("news_content= " + knowledge_content +"<br>");
 			}
-			
-			
+			sion.setAttribute("knowledgeIdentity", knowledge);
+			res.sendRedirect("P5_index/knowledge_Introduce.jsp");
+			return;
 			
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block

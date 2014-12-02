@@ -13,6 +13,8 @@ public class knowledgeService {
 		return dao.getAllKnowledgeJSON();
 	}
 	
-
+	public knowledgeVO getOne(String knowledgeIdentity) {
+		return dao.getOne(knowledgeIdentity);
+	}
 	
 }

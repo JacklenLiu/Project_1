@@ -13,6 +13,8 @@ public class newsService {
 		return dao.getAllNewsJSON();
 	}
 	
-
+	public newsVO getOne(String newsID) {
+		return dao.getOne(newsID);
+	}
 	
 }

@@ -7,6 +7,15 @@
   <%int today = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)-1;%>
   <%@ include file="../platform/include_title.jsp" %>
   <%@ include file="../platform/include_start.jsp" %>
+  <%@ page import="P5_index.model.*"%>
+  <%
+  
+    String knowledgeIdentity = session.getAttribute("knowledgeIdentity").toString();
+  	knowledgeService klSvc = new knowledgeService();
+  	knowledgeVO klVO = klSvc.getOne(knowledgeIdentity); 
+  %>
+  <%!public String turn(String str){while(str.indexOf("\n")!=-1){str = str.substring(0,str.indexOf("\n"))+"<br>"+str.substring(str.indexOf("\n")+1);}return str;}%>
+　
   <!-- 調整navbar btn -->
   <link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 
@@ -80,13 +89,14 @@
 <div class="container">
 	<div class="row">
             <div class="col-lg-12">
-               	 <h3 class="page-header"> ＊~最新消息發布~＊</h3>
+               	 <h3 class="page-header"> ＊~急救小知識~＊</h3>
             </div>
             <div class="col-md-12" style="float:left;display:inline;">
-            	<h1 >「悅讀陽明山」（續）2014年12月6日將發表14式環境教育課程</h1>
-            	<img style="float:right; MARGIN: 15Px" src="../Images/N_Bali_01.jpg" align="right" />
+            	<h1><%=klVO.getKnowledge_title() %></h1>
+            	<img style="float:right;margin:15px;width:450px;height:300px;" src="GetKnowledgeImgServlet?knowledge_Identity=<%=knowledgeIdentity%>" align="right" />
             	<h3 style="  letter-spacing:4px;  line-height:30px; ">
-            		「悅讀陽明山」（續）2014年12月6日將發表14式環境教育課程
+            		<%=turn(klVO.getKnowledge_content()) %>
+            		<!-- 「悅讀陽明山」（續）2014年12月6日將發表14式環境教育課程
 
 					為擴大民眾參與，提供更系統化的環境教育服務，陽明山國家公園推動整體規劃，
 					延續去年規劃內容實施了「環境教育課程方案設計編撰」，12月6日（星期六）將舉辦成果發表會，
@@ -103,8 +113,7 @@
 					期待能引發學員對自然的熱愛、對生態保育的關心，並從中啟發自然的智慧。
 					未來，這些課程方案都將公開於陽明山國家公園網頁，也將出版課程手冊與電子書，
 					成為最佳的環境教育課程實務參考書，歡迎學校教師與環境教育人員多加利用陽明山國家公園來進行環境教育。
-				</h3>
-            
+				 --></h3>
             </div>
      </div><!-- end row -->
 </div><!-- end container -->
