@@ -1,5 +1,8 @@
 package P2_route.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="view")
 public class viewnameVO {
 	private String viewID;
 	private String viewname;

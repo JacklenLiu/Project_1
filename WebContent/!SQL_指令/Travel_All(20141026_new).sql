@@ -849,7 +849,7 @@ CREATE TABLE TravelDiary(
   publish_date			datetime			not null,
   TravelDiary_Content	nvarchar(max)				,
   member_loginID		nvarchar(20)		not null,
-  diary_class			int							,/*0 or 1 → 開放or隱私*/
+  diary_class			int					not null default 0		,/*0 or 1 → 開放or隱私*/
 
   CONSTRAINT TravelDiary_member_loginID_fK  FOREIGN KEY (member_loginID) REFERENCES sysmember (member_loginID),
   CONSTRAINT TravelDiary_TravelDiary_ID_PK PRIMARY KEY (TravelDiary_ID)

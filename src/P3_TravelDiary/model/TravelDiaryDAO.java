@@ -45,6 +45,9 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 	//取文章
 	private static final String GET_PIC2="select TravelDiary_ID,TravelDiary_Name,TravelDiary_Content , diary_class from TravelDiary where member_loginID=? order by publish_date  desc";
 	
+	//取朋友文章判選擇沒有被封鎖的
+	private static final String GET_FREINDS_BLOG="select TravelDiary_ID,TravelDiary_Name,TravelDiary_Content , diary_class from TravelDiary where member_loginID=? and diary_class='0' order by publish_date  desc";
+
 	@Override
 	public void insert(TravelDiaryVO travelDiaryVO) {
 		Connection con=null;
@@ -290,29 +293,36 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 			
 			while(rs.next()){
 				travelDiaryVO=new TravelDiaryVO();
+				//判別是否停權用
+				String diaryClass="";
+				diaryClass=rs.getString("diary_class");
+				String cut2="";
 				String Content="";
 				String imgend=" width='190' height='200' >";
-				
-				Content=rs.getString("TravelDiary_Content");
-				//取img標籤
-				//找<img開頭位置
-				int idx=Content.indexOf("<img");
-				String cut2="";
-				if(idx==-1){
-					//若沒有img標籤
-					cut2="<img src='../Images/nopic.jpg'>";
+				if("0".equals(diaryClass)){
+					Content=rs.getString("TravelDiary_Content");
+					//取img標籤
+					//找<img開頭位置
+					int idx=Content.indexOf("<img");
 					
+					if(idx==-1){
+						//若沒有img標籤
+						cut2="<img src='../Images/nopic.jpg'>";
+						
+					}else{
+						//有img標籤
+						//刪除<img 之前的所有字串
+						String cut1=Content.substring(idx);
+						//找img結尾>位置
+						int end=cut1.indexOf(">");
+						cut2=cut1.substring(0,end+1);
+						
+						//將原本圖片的屬性刪除
+						int imgcut=cut2.indexOf("style=");
+						cut2=cut2.substring(0,imgcut) +" >";
+					}
 				}else{
-					//有img標籤
-					//刪除<img 之前的所有字串
-					String cut1=Content.substring(idx);
-					//找img結尾>位置
-					int end=cut1.indexOf(">");
-					cut2=cut1.substring(0,end+1);
-					
-					//將原本圖片的屬性刪除
-					int imgcut=cut2.indexOf("style=");
-					cut2=cut2.substring(0,imgcut) +" >";
+					cut2="<img src='../Images/stopblog.jpg'>";
 				}
 				//換掉wookmar要用的屬性
 				cut2=cut2.replace(">", imgend);
@@ -430,7 +440,7 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 		List<String> cols = new ArrayList<String>();
 		try{
 			con =ds.getConnection();
-			pstmt=con.prepareStatement(GET_PIC2);
+			pstmt=con.prepareStatement(GET_FREINDS_BLOG);
 			pstmt.setString(1,myFriendID);
 			rs=pstmt.executeQuery();	
 			
@@ -445,33 +455,37 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 			JSONArray jsonArray = new JSONArray();
 			JSONObject jsonObj;
 			while(rs.next()){
-				
-				//1.放在json裡面要先改一下文章內容格式 符合wookmark的格式
+				//判別是否停權用
+				String diaryClass="";
+				diaryClass=rs.getString("diary_class");
+				String cut2="";
 				String Content="";
 				String imgend=" width='190' height='200' >";
-				Content=rs.getString("TravelDiary_Content");
-				//取img標籤
-				//找<img開頭位置
-				int idx=Content.indexOf("<img");
-				String cut2="";
-				if(idx==-1){
-					//若沒有img標籤
-					cut2="<img src='../Images/nopic.jpg'>";
+				if("0".equals(diaryClass)){
+					Content=rs.getString("TravelDiary_Content");
+					//取img標籤
+					//找<img開頭位置
+					int idx=Content.indexOf("<img");
 					
+					if(idx==-1){
+						//若沒有img標籤
+						cut2="<img src='../Images/nopic.jpg'>";
+						
+					}else{
+						//有img標籤
+						//刪除<img 之前的所有字串
+						String cut1=Content.substring(idx);
+						//找img結尾>位置
+						int end=cut1.indexOf(">");
+						cut2=cut1.substring(0,end+1);
+						
+						//將原本圖片的屬性刪除
+						int imgcut=cut2.indexOf("style=");
+						cut2=cut2.substring(0,imgcut) +" >";
+					}
 				}else{
-					//有img標籤
-					//刪除<img 之前的所有字串
-					String cut1=Content.substring(idx);
-					//找img結尾>位置
-					int end=cut1.indexOf(">");
-					cut2=cut1.substring(0,end+1);
-					
-					//將原本圖片的屬性刪除
-					int imgcut=cut2.indexOf("style=");
-					cut2=cut2.substring(0,imgcut) +" >";
+					cut2="<img src='../Images/stopblog.jpg'>";
 				}
-				//換掉wookmar要用的屬性
-				cut2=cut2.replace(">", imgend);
 				
 				
 				

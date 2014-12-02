@@ -2,6 +2,12 @@ package P3_TravelDiary.model;
 
 import java.util.*;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+
+@Path("/blog")
 public class TravelDiaryService {
 	//new工人
 	private TravelDiary_Interface dao;
@@ -29,13 +35,19 @@ public class TravelDiaryService {
 		return travelDiaryVO;
 	}
 	
+	@GET
+	@Produces("application/json; charset=UTF-8")
 	//從jsp呼叫service getall方法 
-	public List<TravelDiaryVO> getAll(String memberid){
+	public List<TravelDiaryVO> getAll(@QueryParam("memID") String memberid){
 		//叫工人去做getall 先去DAO 從資料庫抓全部資料出來
 		return dao.getAll(memberid);
 	}
+	
+	@GET
+	@Path("/getOne")
+	@Produces("application/json; charset=UTF-8")
 	//找出修改的那一筆
-	public TravelDiaryVO getOneTravelDiary(Integer TravelDiary_ID){
+	public TravelDiaryVO getOneTravelDiary(@QueryParam("blogID") Integer TravelDiary_ID){
 
 		return dao.findByPrimaryKey(TravelDiary_ID);
 	}

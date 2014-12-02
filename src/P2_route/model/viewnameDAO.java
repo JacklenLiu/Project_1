@@ -1,5 +1,7 @@
 package P2_route.model;
 
+import java.io.OutputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -975,5 +977,61 @@ try{
 		}
 		
 		return viewnames;
+	}
+
+	@Override
+	public String getImgByID(String imgID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		List<String> cols = new ArrayList<String>();
+		ResultSet rs = null;
+		String imgStr="";
+		
+		final String GET_IMG_STMT_IMGIDLIKE ="SELECT top(1) images_format, imgSrc  FROM images where imagesID like ?";
+		
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_IMG_STMT_IMGIDLIKE);
+			pstmt.setString(1, "%"+imgID+"%");
+			rs = pstmt.executeQuery();
+			
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int count = rsmd.getColumnCount();
+			for(int i = 1; i <= count; i++) {
+				cols.add(rsmd.getColumnLabel(i));
+			}
+			
+			JSONObject jsonObj = new JSONObject();			
+			if(rs.next()){
+				jsonObj = new JSONObject();
+				jsonObj.put(cols.get(0), rs.getString(1));
+				Blob bb = rs.getBlob(2);
+				byte[] b = bb.getBytes(1, (int)bb.length());
+				jsonObj.put(cols.get(1), b);
+			}
+			imgStr = jsonObj.toString();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch(JSONException e){
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}		
+		return imgStr;
 	}
 }

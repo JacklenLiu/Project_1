@@ -191,10 +191,7 @@
     <h2 class="validateTips">儲存成功</h2>
     </div>
     
-    <footer>
-     
-     
-    </footer>
+   
     <div id="logContainer">
       <h2>log</h2>
       <div id="log"></div>
@@ -246,7 +243,7 @@
 		var addrs = [];
 		
 		$.each(datas,function(i,item){// i   -> index
-			console.log(item);        //item -> item
+			console.log(datas);        //item -> item
 			
 			var a = [item.viewlng,item.viewlat];
     		addrs[i] = a;
@@ -439,18 +436,55 @@
 	 
 	 $('#boardulID').bind('DOMNodeInserted DOMNodeRemoved', function(event){
   		console.log(event);
-  		var arryli = [];
+  		
  		if(event.type == 'DOMNodeInserted'){
- 			console.log(this.innerHTML);
+ 			var rightli = $('#boardulID').find("li");
+ 			$.each(rightli, function(i,item){
+ 				var viewname = $(this).attr("data-viewname");
+ 				var lng = $(this).attr("lng");
+ 				var lag = $(this).attr("lag");
+ 				console.log(viewname);
+ 				var addrs = [], vname = [], markers = [];
+ 				var a = [lng,lag];
+ 	    		addrs[i] = a;
+ 	    		vname[i] = viewname;
+ 	    		
+ 	    		markers[i] = { addr: addrs[i], text: vname[i]};
+ 	    		 console.log(markers[i]);
+ 	    		 $('#mapdiv').tinyMap('modify',{
+ 	                 marker: markers
+ 	                 
+ 	             });
+ 				
+ 			});
  			
- 		$.each(event,function(i,item){
- 			arryli[i] = this.innerHTML;
- 			console.log(arryli[i]);
- 			console.log(item);
- 		});
+
+    		
  		}
  		if(event.type == 'DOMNodeRemoved'){
- 			console.log("Removed");
+ 			
+ 			var leftli = $('#viewulID').find("li");
+ 			
+ 			$.each(leftli, function(i,item){
+ 				
+ 				
+ 				var viewname = $(this).attr("data-viewname");
+ 				var lng = $(this).attr("lng");
+ 				var lag = $(this).attr("lag");
+ 				
+ 				var addrs = [], vname = [], markers = [];
+ 				var a = [lng,lag];
+ 	    		addrs[i] = a;
+ 	    		vname[i] = viewname;
+ 	    		
+ 	    		markers[i] = { addr: addrs[i], text: vname[i]};
+ 	    		 console.log(markers[i]);
+ 	    		 $('#mapdiv').tinyMap('clear','marker'
+ 	                 ,{marker :markers[i]}
+ 	             );
+ 				
+ 			});
+ 			
  		}
  	   });
 	 
