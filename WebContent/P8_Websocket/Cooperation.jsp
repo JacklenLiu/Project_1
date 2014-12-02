@@ -435,57 +435,87 @@
        });
 	 
 	 $('#boardulID').bind('DOMNodeInserted DOMNodeRemoved', function(event){
-  		console.log(event);
+  		
   		
  		if(event.type == 'DOMNodeInserted'){
+ 			$('#mapdiv').tinyMap('clear','marker');
+ 			
  			var rightli = $('#boardulID').find("li");
+ 			var addrs = [], vname = [], markers = [];
  			$.each(rightli, function(i,item){
  				var viewname = $(this).attr("data-viewname");
  				var lng = $(this).attr("lng");
  				var lag = $(this).attr("lag");
  				console.log(viewname);
- 				var addrs = [], vname = [], markers = [];
+ 				
  				var a = [lng,lag];
  	    		addrs[i] = a;
  	    		vname[i] = viewname;
- 	    		
- 	    		markers[i] = { addr: addrs[i], text: vname[i]};
+ 			});
+ 			for (var i = 0, max = addrs.length; i < max; i++) {
+                markers[i] = { addr: addrs[i], text: vname[i]};
+                
+            }
  	    		 console.log(markers[i]);
  	    		 $('#mapdiv').tinyMap('modify',{
  	                 marker: markers
- 	                 
- 	             });
- 				
+
  			});
  			
 
     		
  		}
  		if(event.type == 'DOMNodeRemoved'){
+
+ 			var tar = $(event.target);
  			
- 			var leftli = $('#viewulID').find("li");
+ 			var tarlng = tar.attr('lng');
+ 			var tarlag = tar.attr('lag');
+ 			var tarvname = tar.attr('data-viewname');
+ 			var taraddr = [tarlng,tarlag];
+ 			console.log(tarlng);
+ 			var tarobj = {"addr":taraddr,"text":tarvname}
  			
- 			$.each(leftli, function(i,item){
- 				
- 				
+ 		    
+ 		    console.log(tarobj);
+            $('#mapdiv').tinyMap('clear','marker');
+ 			
+ 			var rightli = $('#boardulID').find("li");
+ 			
+ 			
+ 			var addrs = [], vname = [], markers = [];
+ 			$.each(rightli, function(i,item){
  				var viewname = $(this).attr("data-viewname");
  				var lng = $(this).attr("lng");
  				var lag = $(this).attr("lag");
+ 				console.log(viewname);
  				
- 				var addrs = [], vname = [], markers = [];
  				var a = [lng,lag];
  	    		addrs[i] = a;
  	    		vname[i] = viewname;
- 	    		
- 	    		markers[i] = { addr: addrs[i], text: vname[i]};
- 	    		 console.log(markers[i]);
- 	    		 $('#mapdiv').tinyMap('clear','marker'
- 	                 ,{marker :markers[i]}
- 	             );
- 				
  			});
  			
+ 			for (var i = 0, max = addrs.length; i < max; i++) {
+                markers[i] = { addr: addrs[i], text: vname[i]};
+                
+            }
+ 			function arrayObjectIndexOf(markers, tarvname) {
+                for(var i = 0, len = markers.length; i < len; i++) {
+                    if (markers[i].text === tarvname) return i;
+                }
+                return -1;
+            }
+ 			var targetindex  = arrayObjectIndexOf(markers, tarvname);
+ 			console.log(targetindex);
+ 	    		 console.log(markers[i]);
+ 	    		markers.splice(targetindex,1);
+ 	    		console.log(markers);
+ 	    		 $('#mapdiv').tinyMap('modify',{
+ 	                 marker: markers
+
+ 			});
  		}
+ 		
  	   });
 	 
 
