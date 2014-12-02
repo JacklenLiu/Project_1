@@ -5,6 +5,9 @@
 <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
     <ul class="dropdown-menu">
+    	 <li>
+            <a href="../P10_Random/Random.jsp">隨機景點</a>
+         </li>
         <li>
             <a href="../P2_route/route_plan.jsp" class="noLogin">路經規劃</a>
         </li>

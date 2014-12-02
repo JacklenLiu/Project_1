@@ -177,4 +177,9 @@ public class viewnameService {
 	public String getImgByID(@QueryParam("imgID") String imgID){
 		return dao.getImgByID(imgID);
 	}
+	
+	
+	public String getAllImg2(){
+		return dao.getAllImg2();
+	}
 }
