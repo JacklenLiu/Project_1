@@ -110,6 +110,10 @@
 			}
 			
 			
+			.uninvited:hover{
+				background-color: #DFE7F2;
+				color: red;
+}
 
 </style>
 </head>
@@ -270,10 +274,10 @@
          		<tr>
          			<td style="text-align:center;">${list.member_loginID}</td>
          			<c:if test="${list.relationship_status == '0'}">
-         				<td style="text-align:center;">您尚未確認</td>
+         				<td class="uninvited" style="text-align:center;">您尚未確認</td>
          			</c:if>
          			<c:if test="${list.relationship_status == '1'}">
-         				<td style="text-align:center;">已是朋友</td>
+         				<td style="text-align:center;color:blue;font-weight: bolder;">已是朋友</td>
          			</c:if>
 <%--          			<td>${list.relationship_status}</td> --%>
         		</tr>
@@ -353,11 +357,14 @@
 	 					else{
 	 						if(item.relationship_status == 1){
 	 							$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid button button-pill button-flat-primary" value="已是朋友囉" disabled="disabled" title="是想加幾次啦@@" name="' + item.member_loginID + '"/></td></tr>"');
-
+	 						}else{
+	 							if(item.relationship_status == 0){
+	 								$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid button button-pill button-caution" value="發過邀請啦"  title="是想加幾次啦@@" name="' + item.member_loginID + '"/></td></tr>"');
 	 						}else{
 	 							$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid button button-pill button-primary" value="邀請" name="' + item.member_loginID + '"/></td></tr>"');
 
 	 						}
+	 								 						}
 // 	 						$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid" value="邀請" name="' + item.member_loginID + '"/></td></tr>"');
 	 						}
 	 					

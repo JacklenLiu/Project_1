@@ -64,7 +64,8 @@ public class AjaxFrdServlet extends HttpServlet {
 //				res.sendRedirect(path+"/P4_MessageBoard/SeekFriend2.jsp");  // 這行是否要寫.....
 //				return;
 			}else{
-				out.println("系統發現你已經發送過 " +count + "次邀請給" +friend_loginID +"了!  你可能要看開一點QQ...");
+//				out.println("系統發現你已經發送過 " +count + "次邀請給" +friend_loginID +"了!  你可能要看開一點QQ...");
+				out.println("你已經發送過邀請了!");
 			}
 			
 
