@@ -39,7 +39,7 @@
                 <ul class="nav navbar-nav navbar-right">
                 <c:if test="<%=sionName == null%>">
                   		<li class="dropdown">
-                  			<a href="P0_login/login.jsp" name="indexLoginBtn" class="noChange">登入</a>
+                  			<a href="../P0_login/login.jsp" name="indexLoginBtn" class="noChange">登入</a>
                   	 	</li>
                   	</c:if>
                 	<li class="dropdown">

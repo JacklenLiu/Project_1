@@ -275,7 +275,7 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 				
 		return travelDiaryVO;
 	}
-	//抓取某一篇
+	//顯示全部文章瀑布流頁面
 	@Override
 	public List<TravelDiaryVO> getPic2(String memberinfo) {
 		TravelDiaryVO travelDiaryVO =null;
@@ -320,6 +320,10 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 						//將原本圖片的屬性刪除
 						int imgcut=cut2.indexOf("style=");
 						cut2=cut2.substring(0,imgcut) +" >";
+						//刪除不是寫在style裡面的高與寬
+						cut2=cut2.replace("width","");
+						cut2=cut2.replace("height","");
+						
 					}
 				}else{
 					cut2="<img src='../Images/stopblog.jpg'>";

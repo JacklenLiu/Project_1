@@ -24,6 +24,15 @@
 	border: 1px #dedfe0 solid;
 	position: relative;
 }
+
+
+
+#imgdiv img { 
+max-width:700px; 
+myimg:expression(onload=function(){ 
+this.style.width=(this.offsetWidth > 700)?"700px":"auto"});
+
+} 
 </style>
 </head>
 
@@ -124,6 +133,7 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				<div style="border: 1px solid gray; border-radius: 15px;background-color:white">
+				<div style="width:728px;margin:0px auto;" id="imgdiv">
 					<h2><%=travelDiaryVO.getTravelDiary_Name()%></h2>
 					<%=travelDiaryVO.getTravelDiary_Content()%>
 
@@ -168,11 +178,6 @@
 
 			});
 
-			//             $( document ).ready(function() {
-			//             	   $('img').attr({
-			//                        class: 'img-responsive',
-			//                    });
-			//             });
 
 		})(jQuery);
 	</script>

@@ -34,13 +34,17 @@
                   	 	</li>
                   	</c:if>
                 	<li class="dropdown">
-                  		<a href="../P2_route/route_search." name="indexLoginBtn" class="noChange">景點介紹</a>
+                  		<a href="../P2_route/route_search.jsp" name="indexLoginBtn" class="noChange">景點介紹</a>
                   	</li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                        	<li>
+                                <a href="Random.jsp">隨機旅程</a>
+                            </li>
+                        
                             <li>
-                                <a href="route_plan.jsp">路經規劃</a>
+                                <a href="../P2_route/route_plan.jsp">路經規劃</a>
                             </li>
                             <li>
                                 <a href="#" id="cooperationLink">與好友同步規劃</a>
@@ -159,6 +163,15 @@
 
 (function ($){
 	
+	//ScrollBar 畫面停留位置方法
+	$({myScrollTop:window.pageYOffset}).animate({myScrollTop:310}, {
+		  duration: 600,
+		  easing: 'swing',
+		  step: function(val) {
+		    window.scrollTo(0, val);
+		  }
+		});
+	//ScrollBar 畫面停留位置方法
 	
 	
 	
