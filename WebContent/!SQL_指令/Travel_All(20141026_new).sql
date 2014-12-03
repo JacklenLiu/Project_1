@@ -755,7 +755,7 @@ insert into sysmember values ('ggg123','hhh123','bb123@gmail.com',2,'菜英文',
 insert into sysmember values ('hhh123','iii123','cc123@yahoo.com.tw',3,'江一化','N','男','2012-08-11','台北市大安區','2013-10-02','','C');
 insert into sysmember values ('iii123','jjj123','dd123@gmail.com',4,'連站','N','男','2011-07-01','台北市大安區','2012-08-07','','A');
 insert into sysmember values ('jjj123','hhh123','ee123@yahoo.com.tw',5,'游良浮','N','男','2010-11-21','台北市大安區','2011-06-18','','C');
-insert into sysmember values ('kkk123','lll123','ee123@yahoo.com.tw',5,'陳花媽','N','男','2010-11-21','台北市大安區','2011-06-18','','C');
+insert into sysmember values ('admin305','admin305','ee123@yahoo.com.tw',9,'陳花媽','N','男','2010-11-21','台北市大安區','2011-06-18','','C');
 
 
 /*
