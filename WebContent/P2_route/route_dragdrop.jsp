@@ -456,8 +456,8 @@
                 $item.append( recycle_icon ).appendTo( $list ).fadeIn(function() {
                 	
                   $item
-                  	.css("z-index",1000)
-                    .animate({ width: "47%" });
+//                  	.css("z-index",1000)
+                    .animate({ width: "47%"});
 //                     .find( "figure > img" )
 //                       .animate({ height: "130px", width:"50px" });
                 });
@@ -490,8 +490,8 @@
                   $item.children().append( trash_icon );//append trash_icon到figure底下
                   
                   $item.find("figure img")
-                       .css( "height", "180px" )
-                       .css("width","400px")
+                       //.css( "height", "180px" )
+                       //.css("width","400px")
                        .end()               
                        .appendTo( $gallery )
                        .fadeIn();
@@ -925,7 +925,7 @@
                   		//產生json字串送到server
                   		dialog1.dialog( "close" );
                   		//'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+imgarea+ item.viewID + '_01'
-                  		window.location.href = "http://" + serverName + ":" + serverPort + contextPath +"/P2_route" + "/viewnameServlet?action=GetRouteByMemID&memID=" + sionLoginId;
+                  		window.location.href = "http://" + serverName + ":" + serverPort + contextPath +"/P2_route" + "/viewnameServlet?action=GetRouteByMemID&reflash=true&memID=" + sionLoginId;
                     }
                   },
                   close: function() {

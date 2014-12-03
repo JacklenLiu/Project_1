@@ -175,15 +175,20 @@ public class viewnameServlet extends HttpServlet {
 		}
 		
 		if("GetRouteByMemID".equals(action)){
+			String reflash = request.getParameter("reflash");
 			String memID = request.getParameter("memID");
 			viewnameService vnService = new viewnameService();
 			String memRoute = vnService.getRouteByMemID(memID);
-			//out.println(memRoute);
-			request.setAttribute("memRoute", memRoute);
-			//轉頁到 會員路線
-			String url = "route_memberRoute.jsp";
-			RequestDispatcher rd = request.getRequestDispatcher(url);
-			rd.forward(request, response);			
+			
+			if("true".equals(reflash)){
+				//轉頁到 會員路線
+				request.setAttribute("memRoute", memRoute);
+				String url = "route_memberRoute.jsp";
+				RequestDispatcher rd = request.getRequestDispatcher(url);
+				rd.forward(request, response);		
+			}else{
+				out.println(memRoute);
+			}
 		}
 		
 		if("GetRouteOrderByRouteID".equals(action)){
