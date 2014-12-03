@@ -179,7 +179,7 @@ figure, figcaption, h3, p {
 /*for route_memberRoute.jsp*/
 #memRouteDiv{margin: 0px auto; width:75%}
     
-    #memRouteGallery { margin: 0px auto; min-height: 12em; /*for grid*/ padding: 0;  list-style: none; /*overflow: auto;*/ height:525px}
+    #memRouteGallery { margin: 0px auto; min-height: 12em; /*for grid*/ padding: 0;  list-style: none; overflow: auto; height:525px}
    	.memRoute-gallery.custom-state-active { background: #eee; }
   	.memRoute-gallery li { float: left; width: 30%; padding: 0.6em; margin: 0 0.4em 0.4em 0; text-align: center; /*for grid*/overflow: hidden;}
   	.memRoute-gallery li h3 { margin: 0 0 0.4em;}

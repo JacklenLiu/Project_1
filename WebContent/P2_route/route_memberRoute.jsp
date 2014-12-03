@@ -30,7 +30,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="route_plan.jsp">路經規劃</a>
+                                <a href="route_plan.jsp">路徑規劃</a>
                             </li>
                             <li>
                                 <a href="#" id="cooperationLink">與好友同步規劃</a>
@@ -93,8 +93,7 @@
         </div> 
      </div>
 </div>      
-<!-- 	</span> -->
-	<div id="titlediv"><center><h2>我的路線</h2></center></div>
+	<div id="titlediv"><center><h2 id="routeH2">我的路線</h2></center></div>
 	<div class="panel-body form-horizontal payment-form">
 		<div id="memRouteDiv" class="form-group ui-widget ui-helper-clearfix">
 			<ul id="memRouteGallery"
@@ -148,7 +147,8 @@
      		});
 			
 			$("#routeSearchbtn").click(function(){
-				console.log($("#routeselID").val());
+				//$('#routeH2').text();
+				console.log($("#routeselID").text());
 				var url = "viewnameServlet";
 				$.getJSON(url, {'action':'GetRouteByMemID','reflash':'false','memID':$("#routeselID").val()}, function(datas){
 					console.log(datas);

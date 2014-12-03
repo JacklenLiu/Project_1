@@ -40,7 +40,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="route_plan.jsp">路經規劃</a>
+                                <a href="route_plan.jsp">路徑規劃</a>
                             </li>
                             <li>
                                 <a href="#" id="cooperationLink">與好友同步規劃</a>
@@ -475,7 +475,7 @@
             }
          
             // image recycle function
-            var trash_icon = "<a href='#' title='Delete this image' class='ui-icon ui-icon-plus'>Delete image</a>";
+            var trash_icon = "<a href='#' title='加入行程' class='ui-icon ui-icon-plus'>加入行程</a>";
             function recycleImage( $item ) {
               $item.find('.image-link').on("click", function(e){
             	  	imageclick(e, preview, this);//重新綁定事件
@@ -487,7 +487,8 @@
                   .end()
                   .css( "width", "415px");
                   
-                  $item.children().append( trash_icon );//append trash_icon到figure底下
+                  //$item.children().append( trash_icon );//append trash_icon到figure底下
+                  $item.find("figure").append( trash_icon );
                   
                   $item.find("figure img")
                        //.css( "height", "180px" )

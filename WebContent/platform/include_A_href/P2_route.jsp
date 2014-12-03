@@ -9,7 +9,7 @@
             <a href="../P10_Random/Random.jsp" name="indexLoginBtn" class="noChange">隨機景點</a>
          </li>
         <li>
-            <a href="../P2_route/route_plan.jsp" class="noLogin">路經規劃</a>
+            <a href="../P2_route/route_plan.jsp" class="noLogin">路徑規劃</a>
         </li>
         <li>
             <a href="#" id="cooperationLink" class="noLogin">與好友同步規劃</a>
