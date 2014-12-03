@@ -440,27 +440,30 @@
  		if(event.type == 'DOMNodeInserted'){
  			$('#mapdiv').tinyMap('clear','marker');
  			
+       
  			var rightli = $('#boardulID').find("li");
  			var addrs = [], vname = [], markers = [];
+ 		    var center ;
  			$.each(rightli, function(i,item){
  				var viewname = $(this).attr("data-viewname");
  				var lng = $(this).attr("lng");
  				var lag = $(this).attr("lag");
- 				console.log(viewname);
+ 				
+ 				
  				
  				var a = [lng,lag];
  	    		addrs[i] = a;
  	    		vname[i] = viewname;
+ 	    		center = addrs[i];
  			});
+ 			
  			for (var i = 0, max = addrs.length; i < max; i++) {
                 markers[i] = { addr: addrs[i], text: vname[i]};
                 
-            }
- 	    		 console.log(markers[i]);
- 	    		 $('#mapdiv').tinyMap('modify',{
- 	                 marker: markers
-
- 			});
+            };
+ 	    		 $('#mapdiv').tinyMap('modify',
+ 	    			 {marker: markers})
+ 	                 .tinyMap('panto', center);
  			
 
     		
@@ -472,12 +475,11 @@
  			var tarlng = tar.attr('lng');
  			var tarlag = tar.attr('lag');
  			var tarvname = tar.attr('data-viewname');
- 			var taraddr = [tarlng,tarlag];
- 			console.log(tarlng);
- 			var tarobj = {"addr":taraddr,"text":tarvname}
+ 			//var taraddr = [tarlng,tarlag];
  			
- 		    
- 		    console.log(tarobj);
+ 			//var tarobj = {"addr":taraddr,"text":tarvname}
+ 			
+ 			
             $('#mapdiv').tinyMap('clear','marker');
  			
  			var rightli = $('#boardulID').find("li");
@@ -505,11 +507,13 @@
                 }
                 return -1;
             }
+ 			
+ 			
  			var targetindex  = arrayObjectIndexOf(markers, tarvname);
- 			console.log(targetindex);
- 	    		 console.log(markers[i]);
- 	    		markers.splice(targetindex,1);
- 	    		console.log(markers);
+ 			
+ 	    		
+ 	    		markers.splice(targetindex,1);//移除陣列中被選中的index ,刪除 = 1;
+ 	    		
  	    		 $('#mapdiv').tinyMap('modify',{
  	                 marker: markers
 
