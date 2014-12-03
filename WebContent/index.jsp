@@ -766,7 +766,7 @@ $(function() {
        			//P3_TravelDiary/TravelDiaryServlet?action=blog.do
        			//<a href=""><p>※2014/10/10 陽明山海芋季，快來看看</p></a>
        			//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
-       			$(".news > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/newsServlet?newsId=' + (i+1));
+       			$(".news > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/newsServlet?newsId=' + item.news_identity);
        			$(".news > a:nth-child(" + (i+1) + ")").append("<p>※&nbsp;&nbsp;" + item.news_date + "&nbsp;&nbsp;" + item.news_title + "</p>");
        			//$(".news").append("</a>");
        		});

@@ -900,7 +900,7 @@ CREATE TABLE knowledge (
  knowledge_identity         int identity(1,1)	not null,
  knowledge_type             nvarchar(10)	    not null,
  knowledge_title			nvarchar(50)		not null,
- knowledge_content			nvarchar(50)		not null,
+ knowledge_content			nvarchar(max)		not null,
  knowledge_imgName			nvarchar(50)				,
  knowledge_img				image						,
  knowledge_imgformat		nvarchar(50)				,
@@ -908,11 +908,11 @@ CREATE TABLE knowledge (
 
   CONSTRAINT pk_knowledge	PRIMARY KEY (knowledge_identity)
  );
-
+/*
 insert into knowledge values ('食','食安問題','食安問題，日益嚴重','','','','2011-05-05');
 insert into knowledge values ('衣','塑化劑','塑化劑，日益嚴重','','','','2013-05-30');
 insert into knowledge values ('住','海砂屋','海砂屋，日益嚴重','','','','2014-10-15');
-
+*/
 
 
 
@@ -925,16 +925,16 @@ insert into knowledge values ('住','海砂屋','海砂屋，日益嚴重','',''
  news_date				 date					not null,
  news_title				 nvarchar(50)			not null,
  news_image				 nvarchar(50)			not null, 
- news_Content            nvarchar(200)			not null,
+ news_Content            nvarchar(max)			not null,
  
 CONSTRAINT news_news_image_fK		FOREIGN KEY (news_image)	REFERENCES viewname (viewid),
 CONSTRAINT news_news_identity_pK		PRIMARY KEY (news_identity)
  );
-
+/*
 insert into news values ('2014-09-25','擎天崗','Chingtienkang','擎天崗~海芋季');
 insert into news values ('2014-09-25','擎天崗','Chingtienkang','擎天崗~海芋季');
 insert into news values ('2014-09-25','貓空','Maokong','貓空~喝茶');
-
+*/
 
 
 /* 1. 管理我的足跡 */
