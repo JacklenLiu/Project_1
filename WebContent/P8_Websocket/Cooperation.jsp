@@ -124,7 +124,7 @@
 		                           	</a>
 		                       	</li>
 		                        <li>
-           							 <a href="http://<%=serverName%>:<%=serverPort%><%=contextPath%>/P2_route/viewnameServlet?action=GetRouteByMemID&memID=${userLoginId}">我的路線</a>
+           							 <a href="http://<%=serverName%>:<%=serverPort%><%=contextPath%>/P2_route/viewnameServlet?action=GetRouteByMemID&reflash=true&memID=${userLoginId}">我的路線</a>
         					 	</li>
 		                       	<li>
 		                           <a href="LoginServlet?action=logOut">登出系統</a>
@@ -427,7 +427,7 @@
          		//產生json字串送到server
          		dialog1.dialog( "close" );
          		//'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id='+imgarea+ item.viewID + '_01'
-         		window.location.href = "http://" + serverName + ":" + serverPort + contextPath +"/P2_route" + "/viewnameServlet?action=GetRouteByMemID&memID=" + sionLoginId;
+         		window.location.href = "http://" + serverName + ":" + serverPort + contextPath +"/P2_route" + "/viewnameServlet?action=GetRouteByMemID&reflash=true&memID=" + sionLoginId;
            }
          },
          close: function() {

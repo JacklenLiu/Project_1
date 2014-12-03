@@ -75,13 +75,33 @@
 <%-- 	<%@ include file="../platform/include_picture.jsp"%> --%>
 <%@ include file="../platform/include_picture/include_picture.jsp" %>
 <!-- ******************************************************************* -->
-	
-	<div id="titlediv"><h2>我的路線</h2></div>
-    <div id="memRouteDiv" class="ui-widget ui-helper-clearfix">
-		<ul id="memRouteGallery" class="memRoute-gallery ui-helper-reset ui-helper-clearfix"></ul>
+<div class="container">	
+	<div class="row" style="padding-top:20px; padding-left:50px">	
+        <div class="col-sm-5">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label for="concept" class="control-label pull-left" style="font-size:15px">My Friend's Route:</label>
+                        <div class="col-sm-5">
+                           <select class="form-control" name="expiry-year" id="routeselID">
+              				  <option id="<%= sionLoginId %>" value="<%= sionLoginId %>" ><%= session.getAttribute("userName") %></option>
+<!--               			   			<option value="def" id="def">------請選擇------</option> -->
+              			   </select>
+                        </div>
+                         <button type="button" class="btn btn-success" id="routeSearchbtn">Search</button>
+                    </div>
+                </div>
+        </div> 
+     </div>
+</div>      
+<!-- 	</span> -->
+	<div id="titlediv"><center><h2>我的路線</h2></center></div>
+	<div class="panel-body form-horizontal payment-form">
+		<div id="memRouteDiv" class="form-group ui-widget ui-helper-clearfix">
+			<ul id="memRouteGallery"
+				class="form-control memRoute-gallery ui-helper-reset ui-helper-clearfix"  style="border-radius: 2em"></ul>
+		</div>
 	</div>
-	
-	<div id="dialog-delete" title="刪除路線">
+	<div id="dialog-delete" title="刪除路線" hidden>
 		<h2 class="memRoute-validateTips">真的要刪除?</h2>
 	</div>
 
@@ -105,53 +125,90 @@
 		var memRoutes = ${memRoute};//取得 會員路線
 		//console.log(memRoute);
 		(function ($) {
-			$.each(memRoutes, function(i, route){
-        		console.log(i);
-        		console.log(route);
+			//list self Route when window onload
+			listAllRoute(memRoutes, true);
+			bindAlinkToDetail();
+			
+			var url = "http://" + serverName +":" + serverPort + "/" + contextPath + "/P4_MessageBoard/FrdServlet";
+			$.ajax({
+    			"type": 'POST',
+    			"url": url,
+    			"data": {"action":"GetFriends", "memID": sionLoginId},
+    			"dataType":"json",
+    			"async":false,
+    			"success":function(datas){
+    				console.log(datas);
+    				$.each(datas, function(i, friend){
+    					var opobj = $("<option></option>").attr("id",friend.friendID)
+    													  .val(friend.friendID)
+    													  .text(friend.friendName);
+    					$("#routeselID").append(opobj);
+    				});
+    			}
+     		});
+			
+			$("#routeSearchbtn").click(function(){
+				console.log($("#routeselID").val());
+				var url = "viewnameServlet";
+				$.getJSON(url, {'action':'GetRouteByMemID','reflash':'false','memID':$("#routeselID").val()}, function(datas){
+					console.log(datas);
+					$("#memRouteGallery").empty();
+					listAllRoute(datas, false);
+					bindAlinkToDetail();
+				});
+			});
+			
+			function listAllRoute(memRoutes, nodeleteIcon){
+				$.each(memRoutes, function(i, route){
+        			console.log(i);
+        			console.log(route);
         		
 				
-				//<h3 class="ui-widget-header">墾丁一日遊</h3> 
-				var routeName = $('<h3></h3>').text(route.routeName)
-											  .addClass("ui-widget-content ui-corner-tr");
+					//<h3 class="ui-widget-header">墾丁一日遊</h3> 
+					var routeName = $('<h3></h3>').text(route.routeName)
+											  	  .addClass("ui-widget-content ui-corner-tr");
 				
-				var firstView = findFirstView(route.routeID);
-				//console.log(firstView);
+					var firstView = findFirstView(route.routeID);
+					//console.log(firstView);
 				
-				//<a><img src="images/C_7fy_01.jpg" alt="The peaks of High Tatras" width="200" height="200"></a>
-				var routeFirstimg = $('<img></img>').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id=' + firstView)
-													.addClass("memRoute-viewimge");
+					//<a><img src="images/C_7fy_01.jpg" alt="The peaks of High Tatras" width="200" height="200"></a>
+					var routeFirstimg = $('<img></img>').attr("src",'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id=' + firstView)
+														.addClass("memRoute-viewimge");
 				
-				var alinkimg = $('<a></a>').attr("href","#")
-										   .attr("id", "aID#"+route.routeID)
-										   .addClass("link-to-detail")
-										   .append(routeFirstimg);
+					var alinkimg = $('<a></a>').attr("href","#")
+										   		.attr("id", "aID#"+route.routeID)
+										   		.addClass("link-to-detail")
+										   		.append(routeFirstimg);
+					
+					if(nodeleteIcon== true){
+					//<a href='#' title='移除景點' class='ui-icon ui-icon-close'>移除景點</a>
+					var recycle_icon = $('<a></a>').attr("href", "#")
+											   		.attr("title", "移除此路線")
+											   		.addClass("ui-icon ui-icon-close")
+											   		.text("移除此路線");
+					}
+					
+					//<li class="ui-widget-content ui-corner-tr"></li>
+					var liObj = $('<li></li>').append(routeName)
+										  	  .append(alinkimg)
+										  	  .append(recycle_icon)
+										  	  .attr("id", "liID_" + route.routeID)
+										  	  .addClass("ui-widget-content ui-corner-tr")
+										  	  .css("margin","1em")
+										  	  .click(function click(event){
+            								        	 	var $item = $( this ),
+            							                 	$target = $( event.target );
+            							              	 	if ( $target.is( "a.ui-icon-close" ) ) {
+            							              		 	dialog.data("self",$item)
+            							              		 	   	  .dialog( "open" );
+            							              	 	}
+            							         			return false;
+            								     	});
 				
-				//<a href='#' title='移除景點' class='ui-icon ui-icon-close'>移除景點</a>
-				var recycle_icon = $('<a></a>').attr("href", "#")
-											   .attr("title", "移除此路線")
-											   .addClass("ui-icon ui-icon-close")
-											   .text("移除此路線");
+					$("#memRouteGallery").append(liObj);
 				
-				//<li class="ui-widget-content ui-corner-tr"></li>
-				var liObj = $('<li></li>').append(routeName)
-										  .append(alinkimg)
-										  .append(recycle_icon)
-										  .attr("id", "liID_" + route.routeID)
-										  .addClass("ui-widget-content ui-corner-tr")
-										  .click(function click(event){
-            								        	 var $item = $( this ),
-            							                 $target = $( event.target );
-            							              	 if ( $target.is( "a.ui-icon-close" ) ) {
-            							              		 dialog.data("self",$item)
-            							              		 	   .dialog( "open" );
-            							              	 }
-            							         		 return false;
-            								     });
-				
-				$("#memRouteGallery").append(liObj);
-				
-        	});
-        	
+        		});
+			}//end of listAllRoute function
         	
 			//ul mouseover mouseout
 			$('#memRouteGallery').mouseover(function(){
@@ -162,13 +219,14 @@
 								 	});
 			
         	//a link to get detail
+        	function bindAlinkToDetail(){
         	$("a.link-to-detail").click(function(event){
         		event.preventDefault();
         		//console.log($(this).attr("id").substr(4));
         		var routeID = $(this).attr("id").substr(4);
         		window.location.href="http://" + serverName + ":" + serverPort + contextPath +"/P2_route" + "/viewnameServlet?action=GetRouteDetail&routeID="+ routeID;
         	})
-        	
+        	}
         	//找路線中的第一個景點
         	function findFirstView(routeID){
         		var firstViewInner = "";
