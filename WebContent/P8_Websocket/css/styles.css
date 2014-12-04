@@ -127,6 +127,23 @@ aside{
   border-radius:5px;
 
 }
+@-webkit-keyframes whitePulse {
+  from { background-color: #DDDDDD; -webkit-box-shadow: 0 0 9px #888888; }
+  50% { background-color: #DDDDDD; -webkit-box-shadow: 0 0 18px #888888; }
+  to { background-color: #DDDDDD; -webkit-box-shadow: 0 0 9px #888888; }
+}
+.savebt2{
+  -webkit-animation-name: whitePulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  font-weight:900;
+  font-size:medium;
+  -webkit-text-fill-color: #FFFFFF;
+  width:80px;
+  height:38px;
+  border-radius:5px;
+	
+}
 @-webkit-keyframes blue2Pulse {
   from { background-color: #87CEFA; -webkit-box-shadow: 0 0 9px #87CEFA; }
   50% { background-color: #87CEFA; -webkit-box-shadow: 0 0 18px #87CEFA; }
