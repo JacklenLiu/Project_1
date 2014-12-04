@@ -100,4 +100,10 @@ public class FrdService {
 		//memID -> 受邀加入平台者
 		return dao.FrdclearCoNotify(memID);
 	}
+	
+	
+	//從jsp呼叫service checkinvitecount方法 
+	public int checkinvitecount(String friend_loginID){
+		return dao.checkinvitecount(friend_loginID);
+	}
 }

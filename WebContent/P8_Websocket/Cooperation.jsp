@@ -182,7 +182,7 @@
      <!-- voice -->
      <input id="micbt" type="button" value="Start">
      <voice-recognition id="recognition-element"></voice-recognition>
-     <input id="saveRoutebt" type="button" value="儲存路線" class="savebt">
+     <input id="saveRoutebt" type="button" value="儲存路線" class="savebt2" disabled>
      </span>
     </div>
     </div>
@@ -447,12 +447,15 @@
   		
   		
  		if(event.type == 'DOMNodeInserted'){
+ 			$('#saveRoutebt').prop("disabled", false)
+ 			                 .removeClass("savebt2").addClass("savebt");
+ 			
  			$('#mapdiv').tinyMap('clear','marker');
  			
        
  			var rightli = $('#boardulID').find("li");
  			var addrs = [], vname = [], markers = [];
- 		    var center ;
+ 		    var nextmark ;
  			$.each(rightli, function(i,item){
  				var viewname = $(this).attr("data-viewname");
  				var lng = $(this).attr("lng");
@@ -463,21 +466,23 @@
  				var a = [lng,lag];
  	    		addrs[i] = a;
  	    		vname[i] = viewname;
- 	    		center = addrs[i];
+ 	    		
+ 	    		nextmark = addrs[i];
  			});
  			
  			for (var i = 0, max = addrs.length; i < max; i++) {
                 markers[i] = { addr: addrs[i], text: vname[i]};
                 
             };
- 	    		 $('#mapdiv').tinyMap('modify',
- 	    			 {marker: markers})
- 	                 .tinyMap('panto', center);
- 			
+ 	    		 $('#mapdiv').tinyMap('modify',{
+ 	    			 marker: markers ,
+ 	    			 
+ 	    			 }).tinyMap('panto', nextmark);
+ 	
 
-    		
  		}
  		if(event.type == 'DOMNodeRemoved'){
+ 			
 
  			var tar = $(event.target);
  			

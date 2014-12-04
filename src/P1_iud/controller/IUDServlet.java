@@ -16,6 +16,7 @@ import org.apache.jasper.tagplugins.jstl.core.Out;
 import net.tanesha.recaptcha.ReCaptchaImpl;
 import net.tanesha.recaptcha.ReCaptchaResponse;
 import P1_iud.model.*;
+import X1_ComputeLoginCount.model.MemService;
 
 /**
  * Servlet implementation class iduServlet
@@ -124,6 +125,15 @@ public class IUDServlet extends HttpServlet {
 									member_gender, member_birthday, member_address,
 									member_buildtime, member_type);
 					session.setAttribute("current", "註冊成功");
+					
+				//註冊成功後先在 TABLE LoginCount 記上一筆~~	
+				int totalcount = 1;
+				MemService memSvc = new	MemService();
+				memSvc.insert(member_loginID, totalcount);
+				// END
+					
+					
+					
 					response.sendRedirect("/Project_1/index.jsp");
 					return;
 				}else{

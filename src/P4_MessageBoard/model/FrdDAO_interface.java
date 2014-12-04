@@ -19,4 +19,7 @@ public interface FrdDAO_interface {
     public String getFrdsEmail(String memID);
     
     public int checksameinvite(String member_loginID, String friend_loginID);//檢查是否兩人相互邀請
+    
+    
+    public int checkinvitecount(String friend_loginID);// for Server-Sent Events 來算資料表有無異動
 }

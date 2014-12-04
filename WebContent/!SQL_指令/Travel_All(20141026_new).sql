@@ -1,6 +1,7 @@
 
 USE Project_1;
 
+drop table LoginCount;
 drop table helper;
 drop table questions;
 drop table myfootmark;
@@ -995,7 +996,25 @@ insert into ContactUs values ('邱子暘','joearc116@gmail.com','2000-11-1','吃
 insert into ContactUs values ('謝明儒','hotman0901@gmail.com','2000-11-1','!!!','!!!!!','0','2000-11-1','hello');
 
 
-
+/*自己加的  想用來算登入次數*/
+create table LoginCount(
+	member_loginID	nvarchar(20)			not null,
+	totalcount		int						not null DEFAULT 1,
+	CONSTRAINT LoginCount_member_loginID_fK  FOREIGN KEY (member_loginID)	REFERENCES sysmember (member_loginID),
+	CONSTRAINT LoginCount_member_loginID_PK	 PRIMARY KEY (member_loginID)
+);
+						
+insert into LoginCount values ('aaa123',1);
+insert into LoginCount values ('bbb123',1);
+insert into LoginCount values ('ccc123',1);
+insert into LoginCount values ('ddd123',1);
+insert into LoginCount values ('eee123',1);
+insert into LoginCount values ('fff123',1);
+insert into LoginCount values ('ggg123',1);
+insert into LoginCount values ('hhh123',1);
+insert into LoginCount values ('iii123',1);
+insert into LoginCount values ('jjj123',1);
+insert into LoginCount values ('admin305',1);
 
 
 

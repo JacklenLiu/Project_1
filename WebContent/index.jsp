@@ -246,7 +246,8 @@
                     <c:if test="<%=sionName != null%>">
                  		<li class="dropdown">
                     		<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
-                    		<i class="fa fa-user"></i><%=sionName%>你好<b class="caret"></b></a>
+                    		<i class="fa fa-user"></i><%=sionName%>你好&nbsp;&nbsp;<i id ="InviteIcon"></i><span id="YouHasInvite" style="vertical-align: top"></span><b class="caret"></b></a>
+<%--                     		<i class="fa fa-user"></i><%=sionName%>你好<b class="caret"></b></a> --%>
                  			<ul class="dropdown-menu">
 		                       	<li>
 		                           <a href="P1_iud/userProfile.jsp">會員基本資料</a>
@@ -940,5 +941,30 @@ $(function() {
 	})(jQuery);
 	//***********昱豪***********
 </script>
+
+<script>
+(function($){
+	var test = '<%= session.getAttribute("userName") %>';
+	console.log('test');
+	console.log(test);
+	
+// 	 var source = new EventSource('platform/getRes.jsp?memID=${userLoginId}');
+	 var source = new EventSource('P4_MessageBoard/sseServer.jsp?loginid=${userLoginId}');
+	    source.addEventListener('message', function(e) {
+	    	var inviteCount = e.data;
+// 	    	alert(inviteCount);
+	    	if(inviteCount != 0 ){
+	    		$("#YouHasInvite").html("<b>+" +e.data + "</b>").css("color","red").css("font-size","14px");
+	    		$("#InviteIcon").addClass("fa fa-male");
+	    	}else{
+	    		$("#YouHasInvite").empty();
+	    		$("#InviteIcon").removeClass("fa fa-male");
+	    	};
+		
+		}, false);
+	
+})(jQuery);
+</script>
+
 </body>
 </html>
