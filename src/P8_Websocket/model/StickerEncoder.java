@@ -22,8 +22,6 @@ public class StickerEncoder implements Encoder.TextStream<Sticker> {
     	if("add".equals(sticker.getAction())){
     		jsonSticker = provider.createObjectBuilder()//建立JSON物件 -> 給定("name",value)
             .add("action", sticker.getAction())
-            .add("x", sticker.getX())
-            .add("y", sticker.getY())
             .add("sticker", sticker.getImage())
             .add("viewname", sticker.getViewname())
             .add("viewID", sticker.getViewID())
@@ -35,8 +33,6 @@ public class StickerEncoder implements Encoder.TextStream<Sticker> {
     	if("back".equals(sticker.getAction())){
     		jsonSticker = provider.createObjectBuilder()
     		.add("action", sticker.getAction())
-    	    .add("x", sticker.getX())
-    	    .add("y", sticker.getY())
     	    .add("sticker", sticker.getImage())
     	    .add("viewname", sticker.getViewname())
     	    .add("viewID", sticker.getViewID())

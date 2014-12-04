@@ -1,10 +1,7 @@
 package P8_Websocket.model;
 
 public class Sticker {
-
-	private int x;
-    private int y;
-    private String image;
+	private String image;
     private String viewname;
     private String chat;
     private String action;
@@ -71,22 +68,6 @@ public class Sticker {
 	}
 
 	public Sticker() {
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
     }
 
     public String getImage() {

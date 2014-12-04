@@ -27,8 +27,6 @@ function clickedit(ev){
 			 action: ev.target.getAttribute("action"),
 			 lng: ev.target.getAttribute("lng"),
 			 lag: ev.target.getAttribute("lag"),
-			 x: ev.clientX - bounds.left,
-			 y: ev.clientY - bounds.top
 			 };
 		 socket.send(JSON.stringify(stickerToSend));
 		 log("Sending Object " + JSON.stringify(stickerToSend));
@@ -44,8 +42,6 @@ function clickedit(ev){
 			 action: ev.target.getAttribute("action"),
 			 lng: ev.target.getAttribute("lng"),
 			 lag: ev.target.getAttribute("lag"),
-			 x: ev.clientX - leftDiv.left,
-			 y: ev.clientY - leftDiv.top
 			 };
 		 socket.send(JSON.stringify(backToSend));
 		 log("Sending Object " + JSON.stringify(backToSend));
@@ -71,8 +67,6 @@ function drag(ev) {
         action: ev.target.getAttribute("action"),
         lng: ev.target.getAttribute("lng"),
 		lag: ev.target.getAttribute("lag"),
-        offsetX: ev.clientX - bounds.left,
-        offsetY: ev.clientY - bounds.top
         };
     
     var draggedText = JSON.stringify(draggedSticker);//轉換成JSON字串
@@ -92,8 +86,6 @@ function drag(ev) {
             action: ev.target.getAttribute("action"),
             lng: ev.target.getAttribute("lng"),
 			lag: ev.target.getAttribute("lag"),
-            offsetX: ev.clientX - leftDiv.left,
-            offsetY: ev.clientY - leftDiv.top
             };
         
         var draggedText = JSON.stringify(draggedSticker);//轉換成JSON字串
@@ -118,8 +110,6 @@ function drop(ev) {
     var stickerToSend = {
     	//取得JSON物件的屬性↓  -> 物件.屬性 名稱   = 屬性值
         action: "add",//StickerEncoder.java
-        x: ev.clientX - draggedSticker.offsetX - bounds.left,
-        y: ev.clientY - draggedSticker.offsetY - bounds.top,
         sticker: draggedSticker.sticker,
         viewname: draggedSticker.viewname,
         viewID: draggedSticker.viewID,
@@ -138,8 +128,6 @@ function drop(ev) {
     var backToSend = {
     	
     	action: "change",//StickerEncoder.java
-        x: ev.clientX - draggedSticker.offsetX - leftDiv.left,
-        y: ev.clientY - draggedSticker.offsetY - leftDiv.top,
         sticker: draggedSticker.sticker,
         viewname: draggedSticker.viewname,
         viewID: draggedSticker.viewID,
@@ -150,21 +138,6 @@ function drop(ev) {
     socket.send(JSON.stringify(backToSend));
     log("Sending Object " + JSON.stringify(backToSend));
     }
-    /* var leftviewID = draggedSticker.viewID;
-    var rightviewID = stickerToSend.viewID;
-    
-    //將左邊的img 拖到右邊時  移除左邊的<li data-viewID><img>...</li>
-    if(leftviewID == rightviewID){
-    	
-    	var leftUL = document.getElementById("viewulID");
-    	var jsonviewID = JSON.stringify(rightviewID);
-    	var leftview  = document.querySelector('[data-viewID='+ jsonviewID +']');
-    	leftUL.removeChild(leftview);
-    	
-    };*/
-    
-    
-    
 }
 function dropback(ev) {
 ev.preventDefault();//取消預設功能
@@ -179,8 +152,6 @@ ev.preventDefault();//取消預設功能
 	    var backToSend = {
 	    	
 	    	action: "back",//StickerEncoder.java
-	        x: ev.clientX - draggedSticker.offsetX - leftDiv.left,
-	        y: ev.clientY - draggedSticker.offsetY - leftDiv.top,
 	        sticker: draggedSticker.sticker,
 	        viewname: draggedSticker.viewname,
 	        viewID: draggedSticker.viewID,

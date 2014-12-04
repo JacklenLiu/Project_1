@@ -10,6 +10,9 @@
      <link href="css/images.css" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="../Styles/jquery-ui.min.css"> <!-- 蕙齊link -->
     <link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
+    <!-- voice -->
+    <link rel="import" href="resource/voice-player.html">
+    <link rel="import" href="resource/voice-recognition.html">
   </head>
   <body>
     <header>
@@ -176,7 +179,9 @@
      <textarea id="chatinput" ></textarea>
      <span>
      <input id="chatbt" type="button" value="送出">
-     
+     <!-- voice -->
+     <input id="micbt" type="button" value="Start">
+     <voice-recognition id="recognition-element"></voice-recognition>
      <input id="saveRoutebt" type="button" value="儲存路線" class="savebt">
      </span>
     </div>
@@ -203,6 +208,10 @@
 <script src='../Script/jquery-ui.js'></script>	
 <script src="js/story-page.js" type="text/javascript"></script>
 <script src='../Script/jquery.tinyMap.js'></script>
+<!-- voice -->
+<script src="resource/webcomponentsjs/webcomponents.min.js"></script>
+
+    
     <script>
     var sionName = "<%= sionName %>";//username
     var serverName = "<%= serverName %>"; //localhost
@@ -523,7 +532,49 @@
  	   });
 	 
 
-		
+	 //voice
+	 var element = document.querySelector('#recognition-element');
+	 $('#micbt').click(function(e){
+		 e.preventDefault();
+		 element.text="";//clear last content
+		 element.start();
+	 });
+	 
+	 element.addEventListener('result', function(e) {
+		    alert(e.detail.result);
+		    var addviewindex = e.detail.result.indexOf('要去');
+		    var delviewindex = e.detail.result.indexOf('拿掉');
+		    //var frdindex = e.detail.result.indexOf('邀請');
+		    
+		    //判斷"要去"->將左邊景點移至中央
+		    if(addviewindex != -1){
+		    	var findViewStr = e.detail.result.substr(addviewindex+2,2);
+		    	var liobjs = $('#viewulID').find('li');
+		    	$.each(liobjs, function(i, liobj){
+		    		var tarStr = $(liobj).attr("data-viewname").indexOf(findViewStr);
+		    		if(tarStr != -1){
+		    			console.log($(liobj).find('a'));
+		    			$(liobj).find('a').trigger('click');
+		    		}
+		    	});
+		    }else if(delviewindex != -1){
+		    	//判斷"拿掉"->將中央景點移至左邊區塊
+		    	var findViewStr = e.detail.result.substr(delviewindex+2,2);
+		    	var liobjs = $('#boardulID').find('li');
+		    	$.each(liobjs, function(i, liobj){
+		    		var tarStr = $(liobj).attr("data-viewname").indexOf(findViewStr);
+		    		if(tarStr != -1){
+		    			console.log($(liobj).find('a'));
+		    			$(liobj).find('a').trigger('click');
+		    		}
+		    	});
+		    }		    
+		    $('#chatinput').val(e.detail.result);
+		    element.stop();
+		});
+	 
+
+	 
     })(jQuery);
     
       </script>

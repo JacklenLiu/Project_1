@@ -75,9 +75,12 @@ public class GetImageServlet extends HttpServlet {
 				os = response.getOutputStream();
 
 				//get imgSrc
-				Blob bb = rs.getBlob(2);
-				byte[] b = bb.getBytes(1, (int)bb.length());
-				os.write(b, 0, (int)bb.length());
+				//Blob bb = rs.getBlob(2);
+				//byte[] b = bb.getBytes(1, (int)bb.length());
+				byte[] b = rs.getBytes(2);
+				os.write(b);
+				
+				//os.write(b, 0, (int)bb.length());
 				os.flush();
 			}
 		} catch (NamingException e) {

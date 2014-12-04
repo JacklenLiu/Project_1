@@ -46,7 +46,6 @@ public class StoryWebSocket {
 	@OnMessage
 	   public void onMessage(Session session, Sticker sticker) {
 		System.out.println("in Message"); 
-		
 		stickerSet.add(sticker); 
 	      for (Session openSession : sessionSet) { 
 	         try { 
