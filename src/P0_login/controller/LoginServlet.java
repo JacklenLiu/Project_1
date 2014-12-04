@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import P0_login.model.*;
+import X1_ComputeLoginCount.model.MemService;
 
 
 /**
@@ -115,6 +116,12 @@ public class LoginServlet extends HttpServlet {
 					session.setAttribute("userName", mb.getMember_name());
 					session.setAttribute("userLoginId",mb.getMember_loginID());
 					//******************************************************
+					
+					
+					//登入一次 TABLE LoginCount就再加1
+					MemService memSvc = new MemService();
+					memSvc.update(mb.getMember_loginID());
+					// END
 					
 					
 					// 此時不要用下面兩個敘述，因為網址列的URL不會改變
