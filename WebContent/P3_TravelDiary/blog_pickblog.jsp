@@ -133,11 +133,12 @@ this.style.width=(this.offsetWidth > 700)?"700px":"auto"});
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				<div style="border: 1px solid gray; border-radius: 15px;background-color:white">
-				<div style="width:728px;margin:0px auto;" id="imgdiv">
-					<h2><%=travelDiaryVO.getTravelDiary_Name()%></h2>
-					<%=travelDiaryVO.getTravelDiary_Content()%>
-
-					<br> <br> <br>
+					<div style="width:728px;margin:0px auto;" id="imgdiv">
+						<h2><%=travelDiaryVO.getTravelDiary_Name()%></h2>
+						<%=travelDiaryVO.getTravelDiary_Content()%>
+	
+						<br> <br> <br>
+					</div>	
 				</div>
 			</div>
 		</div>
@@ -169,7 +170,7 @@ this.style.width=(this.offsetWidth > 700)?"700px":"auto"});
 			$(window).load(function() {
 				
 				//增加class屬性用這個
-				$('img').addClass('img-responsive');
+// 				$('img').addClass('img-responsive');
 				
 				//使用這個會將原本有的class消除
 // 				$('img').attr({
