@@ -129,7 +129,7 @@
                     <li>
                         <a href="showALL.jsp">留言板</a>
                     </li>
-                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+<%--                     <%@ include file="../platform/include_A_href/Portfolio.jsp" %> --%>
                     <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp" %>
                     <%@ include file="../platform/include_A_href/P6_contactUs.jsp" %>
                     <%@ include file="../platform/include_A_href/memberSession.jsp" %>

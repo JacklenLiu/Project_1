@@ -53,7 +53,7 @@ public class viewnameServlet extends HttpServlet {
 		
 		if("getAll".equals(action)){
 			viewnameService vnService = new viewnameService();
-			String viewnames = vnService.getAllImg();
+			String viewnames = vnService.getAllImgSec();
 			out.println(viewnames);
 		}
 		

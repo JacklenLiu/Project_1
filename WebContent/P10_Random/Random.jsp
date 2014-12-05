@@ -69,7 +69,7 @@
                         </ul>
                     </li>
                     <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %> 
-                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+<%--                     <%@ include file="../platform/include_A_href/Portfolio.jsp" %> --%>
                     <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp"%>
 					<%@ include file="../platform/include_A_href/P6_contactUs.jsp"%>
                    <c:if test="<%=sionName!=null %>"> <%@ include file="../platform/include_A_href/memberSession.jsp"%>

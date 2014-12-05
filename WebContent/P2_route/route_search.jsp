@@ -60,7 +60,7 @@
                         </ul>
                     </li>
                     <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %> 
-                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+<%--                     <%@ include file="../platform/include_A_href/Portfolio.jsp" %> --%>
                     <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp"%>
 					<%@ include file="../platform/include_A_href/P6_contactUs.jsp"%>
                     <c:if test="<%=sionName != null%>">
@@ -118,18 +118,22 @@
 				<center>
 					<h1 >景點介紹 </h1>
 				</center>
-				<div class="col-sm-5">
-					<h3 style="float:left;">搜尋:</h3>
-					<input type="text" id="search" class="form-control" name="search"><span id="loading" hidden><img src="../Images/ajax-loader.gif" /></span>
+				<div class="col-sm-12">
+					<h3 style="float:left;">搜尋景點:</h3>
+				</div>
+				<div class="col-md-4">
+					<input type="text" id="search" class="form-control col-sm-5" name="search"><span id="loading" hidden><img src="../Images/ajax-loader.gif" /></span>
 				</div>
 			</header>
 			<div class="col-sm-12">
-				<h2 id="">Basic usage</h2>
+			<br>         
+			<center><img src="images/gears.gif" id="getAllEnd"></center>    
 				<table id="example" class="display" cellspacing="0">
 					<thead>
 						<tr>
 							<th>景點順序</th>
 							<th>景點名稱</th>
+							<th>景點區域</th>
 							<th>景點照片</th>
 							<th>詳細說明</th>
 						</tr>
@@ -138,6 +142,7 @@
            				 <tr>
 			                <th>景點順序</th>
 							<th>景點名稱</th>
+							<th>景點區域</th>
 							<th>景點照片</th>
 							<th>詳細說明</th>
 			            </tr>
@@ -191,11 +196,13 @@
    			$("#tbodyid").append("<tr class='addView'>");
    			$("#tbodyid").append("<td>"+(i+1)+"</td>");
    			$("#tbodyid").append("<td>"+item.viewname+"</td>");
+   			$("#tbodyid").append("<td>"+item.viewArea+"</td>");
 			$('#tbodyid').append('<td><img src='+'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageAllServlet?id='+item.imagesid+' style="height:100px;width:200px;" /></td>');
 			$('#tbodyid').append("<td>"+item.imgdescript+"</td");
 			$("#tbodyid").append("</tr>");
    			
    		});
+   		$("#getAllEnd").prop("hidden",true);
    	});
    	
 	var imagesID="";
@@ -210,6 +217,7 @@
 	       			$("#tbodyid").append("<tr>");
 	       			$("#tbodyid").append("<td>"+(i+1)+"</td>");
 	       			$("#tbodyid").append("<td>"+item.viewname+"</td>");
+	       			$("#tbodyid").append("<td>"+item.viewArea+"</td>");
 	       			$('#tbodyid').append('<td><img src='+'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageSearchServlet?viewid='+item.viewname+' style="height:100px;width:200px;" /></td>');
 	    			$('#tbodyid').append("<td>"+item.imgdescript+"</td");
 	    			$("#tbodyid").append("</tr>");
@@ -225,6 +233,7 @@
 		   			$("#tbodyid").append("<tr class='addView'>");
 		   			$("#tbodyid").append("<td>"+(i+1)+"</td>");
 		   			$("#tbodyid").append("<td>"+item.viewname+"</td>");
+		   			$("#tbodyid").append("<td>"+item.viewArea+"</td>");
 					$('#tbodyid').append('<td><img src='+'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageAllServlet?id='+item.imagesid+' style="height:100px;width:200px;" /></td>');
 					$('#tbodyid').append("<td>"+item.imgdescript+"</td");
 					$("#tbodyid").append("</tr>");
