@@ -8,8 +8,9 @@
 <%@ include file="../platform/include_title.jsp" %>
 <script src="../js/jquery-1.11.0.js"></script>
 <%
-	TravelDiaryVO travelDiaryVO = (TravelDiaryVO) request
-			.getAttribute("travelDiaryVO");
+	TravelDiaryVO travelDiaryVO = (TravelDiaryVO) request.getAttribute("travelDiaryVO");
+	String todate=travelDiaryVO.getPublish_date().toString();
+	String today=todate.substring(0, todate.lastIndexOf("."));
 %>
 <%@ include file="../platform/include_start.jsp"%>
 <!-- 調整navbar btn -->
@@ -119,10 +120,9 @@ this.style.width=(this.offsetWidth > 700)?"700px":"auto"});
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<h4>
-					發表日期:<%=travelDiaryVO.getPublish_date()%></h4>
-				會員:<%=travelDiaryVO.getMember_loginID()%>
-				<br> <br> <br>
+				<h2>發表日期:<%=today%></h2>
+					<h3>會員:<%=travelDiaryVO.getMember_loginID()%></h3>
+				<br> 
 			</div>
 		</div>
 	</div>
@@ -132,7 +132,7 @@ this.style.width=(this.offsetWidth > 700)?"700px":"auto"});
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
-				<div style="border: 1px solid gray; border-radius: 15px;background-color:white">
+				<div style="border: 1px solid gray; border-radius: 15px;background-color:white" contenteditable="true">
 					<div style="width:728px;margin:0px auto;" id="imgdiv">
 						<h2><%=travelDiaryVO.getTravelDiary_Name()%></h2>
 						<%=travelDiaryVO.getTravelDiary_Content()%>

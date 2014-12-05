@@ -117,7 +117,7 @@
 		
 			<header>
 				<center>
-					<h1 >´ºÂI¤¶²Ð </h1>
+					<h1 >ÀH¾÷®Èµ{ </h1>
 				</center>
 			</header>
 			<div class="col-sm-12">
