@@ -248,16 +248,10 @@ public class FrdServlet extends HttpServlet {
 			String memID = req.getParameter("memID");
 			String frdIDs = req.getParameter("frdID");
 			String msg = req.getParameter("msg");
-			System.out.println("34343");
-			System.out.println(frdIDs);
 			try {
 				JSONArray friendsJSONArray = new JSONArray(frdIDs);
-				System.out.println("get array");
-				System.out.println(friendsJSONArray.get(0));
 				FrdService frdSvc = new FrdService();			
 				for(int i=0; i< friendsJSONArray.length(); i++){
-					System.out.println("friendid");
-					System.out.println(friendsJSONArray.getString(i));
 					status = frdSvc.updateCoNotify(memID, friendsJSONArray.getString(i), msg);
 				}
 				
@@ -278,6 +272,14 @@ public class FrdServlet extends HttpServlet {
 			out.print(status);
 		}
 
+		//取得好友ID
+		if ("GetFrdID".equals(action)) {
+			String memNameStr="";
+			String memName = req.getParameter("memName");
+			FrdService frdSvc = new FrdService();			
+			memNameStr = frdSvc.getFrdID(memName);		
+			out.print(memNameStr);
+		}
 	}
 
 }

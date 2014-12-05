@@ -83,6 +83,10 @@ public class FrdService {
 		return dao.getFrdsEmail(memID);
 	}
 	
+	public String getFrdID(String memName){
+		return dao.getFrdID(memName);
+	}
+	
 	public String updateCoNotify(String memID, String frdID, String msg){
 		return dao.updateCoNotify(memID, frdID, msg);
 	}

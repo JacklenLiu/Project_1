@@ -549,7 +549,7 @@
 		    alert(e.detail.result);
 		    var addviewindex = e.detail.result.indexOf('要去');
 		    var delviewindex = e.detail.result.indexOf('拿掉');
-		    //var frdindex = e.detail.result.indexOf('邀請');
+		    var frdindex = e.detail.result.indexOf('邀請');
 		    
 		    //判斷"要去"->將左邊景點移至中央
 		    if(addviewindex != -1){
@@ -572,6 +572,28 @@
 		    			console.log($(liobj).find('a'));
 		    			$(liobj).find('a').trigger('click');
 		    		}
+		    	});
+		    }else if(frdindex != -1){
+		    	//邀請好友
+		    	var url = "../P4_MessageBoard/FrdServlet";
+		    	var findFrdStr = e.detail.result.substr(frdindex+2,3);
+		    	console.log(findFrdStr);
+		    	
+		    	$.get(url, {"action":"GetFrdID","memName":findFrdStr}, function(data){
+		    		console.log(data);
+		    		var friendids = new Array();
+		      		friendids[0]= data;
+		      		console.log(friendids);
+		    		$.ajax({
+            			"type": 'POST',
+              			"url": url,
+              			"data": {"action":"UpdateCoNotify", "memID": memPlatform,"frdID":JSON.stringify(friendids),"msg":"快點進來~大家都在等你囉"},
+              			"dataType":"text",
+              			"async":false,
+              			"success":function(datas){
+              				console.log(datas);
+             			}
+             		});
 		    	});
 		    }		    
 		    $('#chatinput').val(e.detail.result);
