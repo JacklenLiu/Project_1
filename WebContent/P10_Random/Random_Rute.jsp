@@ -127,6 +127,7 @@
 						<tr>
 							<th>景點順序</th>
 							<th>景點名稱</th>
+							<th>景點區域</th>
 							<th>景點照片</th>
 							<th>詳細說明</th>
 						</tr>
@@ -135,6 +136,7 @@
            				 <tr>
 			                <th>景點順序</th>
 							<th>景點名稱</th>
+							<th>景點區域</th>
 							<th>景點照片</th>
 							<th>詳細說明</th>
 			            </tr>
@@ -205,6 +207,7 @@
    			$("#tbodyid").append("<tr class='addView'>");
    			$("#tbodyid").append("<td>"+(i+1)+"</td>");
    			$("#tbodyid").append("<td>"+item.viewname+"</td>");
+   			$("#tbodyid").append("<td>"+item.viewArea+"</td>");
    			$('#tbodyid').append('<td><img src='+'http://'+ serverName +':'+ serverPort + contextPath+'/GetImageAllServlet?id='+item.imagesid+' style="height:100px;width:200px;" /></td>');
 			$('#tbodyid').append("<td>"+item.imgdescript+"</td");
 			$("#tbodyid").append("</tr>");

@@ -57,7 +57,7 @@ public class viewnameDAO implements viewnameDAO_interface {
 	private static final String GET_ALL_IMAGES2="select i.imagesid, i.imagesname ,  v.viewname ,  v.viewArea , i.imgdescript , i.imgsrc , i.images_format from images i join viewname v on imagesname = viewid where i.imagesID like '%_01';";
 	private static final String viewName_imgDescript ="select viewname,imgDescript from viewName join images on viewId = imagesname where images.imagesId like ? order by images.imagesID;";
 	
-	private static final String GET_N_S_W=" select i.imagesid, i.imagesname ,  v.viewname , i.imgdescript , i.imgsrc , i.images_format from images i join viewname v on imagesname = viewid where i.imagesID like '%_01' and i.imagesID not like 'E%'";
+	private static final String GET_N_S_W=" select i.imagesid, i.imagesname ,  v.viewname ,  v.viewArea , i.imgdescript , i.imgsrc , i.images_format from images i join viewname v on imagesname = viewid where i.imagesID like '%_01' and i.imagesID not like 'E%'";
 
 	@Override
 	public void insert(viewnameVO vnVO) {
@@ -1127,9 +1127,10 @@ try{
 				jsonObj.put(cols.get(0), rs.getString(1));//imagesID
 				jsonObj.put(cols.get(1), rs.getString(2));//imagesName
 				jsonObj.put(cols.get(2), rs.getString(3));//viewname
-				jsonObj.put(cols.get(3), rs.getString(4));//imgDescript
-				jsonObj.put(cols.get(4), rs.getString(5));//imgSrc
-				jsonObj.put(cols.get(5), rs.getString(6));//img_format
+				jsonObj.put(cols.get(3), rs.getString(4));//viewArea
+				jsonObj.put(cols.get(4), rs.getString(5));//imgDescript
+				jsonObj.put(cols.get(5), rs.getString(6));//imgSrc
+				jsonObj.put(cols.get(6), rs.getString(7));//img_format
 				jsonArray.put(jsonObj);
 			}
 			//先算取幾筆2~5去算

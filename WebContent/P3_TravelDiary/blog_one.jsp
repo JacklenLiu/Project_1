@@ -218,7 +218,7 @@
  				var myObject = JSON.parse(datas); 
  				$.each(myObject,function(i,item){
  					//取出放在json欄位是{"friend_loginID":XXX,"friend_loginID":OOO}
- 					$('#def').after("<option value='"+item.friend_loginID+"'>"+item.friend_loginID+"</option>");
+ 					$('#def').after("<option value='"+item.member_loginID+"'>"+item.member_name+"</option>");
 			
  				});
  			}	 			
@@ -233,6 +233,7 @@
     	
     		//被選到的val值
     		 selectedID=$('.form-control').val();
+    		 selectedName=$( "select option:selected" ).text();
     		 selectedVal=$("#select_id").find("option:selected").text();
     		if(selectedID=="def"){
     			return;
@@ -240,7 +241,7 @@
     		if(selectedID==getID){
     			$('#sionname').html("我的文章");
     		}else{
-    			$('#sionname').html(selectedID+"的文章");
+    			$('#sionname').html(selectedName+"的文章");
     		}
     		
     		//按下送出後清除掉我原本的內容用來之後放我選到的文章

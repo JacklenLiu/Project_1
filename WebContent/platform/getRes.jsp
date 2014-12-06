@@ -30,7 +30,7 @@
 						Notifymsg = info.toString();
 					}
 				}
-				System.out.println("Notifymsg = " + Notifymsg);
+// 				System.out.println("Notifymsg = " + Notifymsg);
 				memID="";
 				if (!("{}".equals(Notifymsg))) {
 					writer.write("data: " + Notifymsg + "\n\n");

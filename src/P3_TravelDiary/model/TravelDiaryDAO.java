@@ -39,15 +39,23 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 	//delete指令
 	private static final String DELETE="delete TravelDiary where TravelDiary_ID = ?";
 	
-	//取會員朋友ID
-	private static final String GET_FRIENS_ID="select friend_loginID from member_friend where member_loginID=?";
+	//取會員朋友ID(不用ID)
+//	private static final String GET_FRIENS_ID="select friend_loginID from member_friend where member_loginID=?";
+	
+	//取會員朋友Name()改用Name
+	private static final String GET_FRIENS_ID="select s.member_name ,s.member_loginID from member_friend f join  sysmember s  on f.friend_loginID=s.member_loginID where f.member_loginID=?";
+	
 		
 	//取文章
 	private static final String GET_PIC2="select TravelDiary_ID,TravelDiary_Name,TravelDiary_Content , diary_class from TravelDiary where member_loginID=? order by publish_date  desc";
 	
-	//取朋友文章判選擇沒有被封鎖的
+	//取朋友文章選擇沒有被封鎖的
 	private static final String GET_FREINDS_BLOG="select TravelDiary_ID,TravelDiary_Name,TravelDiary_Content , diary_class from TravelDiary where member_loginID=? and diary_class='0' order by publish_date  desc";
-
+	
+	
+	//取朋友文章選擇沒有被封鎖的(並抓取名稱)
+//	private static final String GET_FREINDS_BLOG2="select  t.TravelDiary_ID,t.TravelDiary_Name,t.TravelDiary_Content , diary_class ,s.member_namefrom TravelDiary t join sysmember s on s.member_loginID=s.member_loginID where s.member_loginID='?' and diary_class='0' order by publish_date desc";
+	
 	@Override
 	public void insert(TravelDiaryVO travelDiaryVO) {
 		Connection con=null;
@@ -394,7 +402,8 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 			JSONObject jsonObj;
 			while(rs.next()){
 				jsonObj = new JSONObject();
-				jsonObj.put(cols.get(0), rs.getString(1));//friend_loginID
+				jsonObj.put(cols.get(0), rs.getString(1));//s.member_name
+				jsonObj.put(cols.get(1), rs.getString(2));//s.member_loginID
 				jsonArray.put(jsonObj);
 			}
 			
