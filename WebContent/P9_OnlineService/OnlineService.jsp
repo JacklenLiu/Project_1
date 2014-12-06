@@ -117,8 +117,12 @@
    	<div class="col-sm-7">
 		<form id="recognition-form" class="pure-form">
            <fieldset>
-               <textarea id="recognition-input" class="form-control" readonly rows="3" ></textarea>
-               <button id="recognition-submit" class="pure-button pure-button-primary">Start!</button>
+               <textarea id="recognition-input" class="form-control" rows="3" ></textarea>
+<!--                <button id="recognition-submit" class="pure-button pure-button-primary"> -->
+               <button id="recognition-submit" class="pure-button-primary">
+               <img src="../P8_Websocket/images/microphone.png" style="width:23px;" id="recognition-submit" >
+               </button>
+<!--                </button> -->
                <voice-recognition id="recognition-element"></voice-recognition>
                <button id="chatbt" class="btn btn-primary pure-button pure-button-primary">Send</button>
                
@@ -128,7 +132,7 @@
       	</form> 
   	</div>   
 </div>
-  			<voice-player autoplay accent="zh-CN" text="下一站，幸福，客服中心您好!!"></voice-player>
+<!--   			<voice-player autoplay accent="zh-CN" text="下一站，幸福，客服中心您好!!"></voice-player> -->
                
 
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
@@ -147,8 +151,13 @@
         input.textContent = e.detail.result;
        	if((e.detail.result).indexOf("送出") !=-1){
 //        	$("#chatbt").trigger("click");
+			
        		var recognition = $('#recognition-input').val();//讀取chatinput所輸入的值-> 並放入userchat
-    		$('#recognition-input').val("");//將值拿掉
+       		var ccc=(input.textContent).indexOf("送出");
+       		
+       		input.textContent = (input.textContent).substring(0,ccc);
+       		recognition = input.textContent;
+       		$('#recognition-input').val("");//將值拿掉
     		var chat="";
     		//從後台登入的時候會多丟一個參數為admin=admin123 用來判別是從後台或是user
     		if(admin!="null"){
