@@ -223,7 +223,7 @@
 		                       	</li>
 		                      	<li>
 		                           	<a href="P4_MessageBoard/SeekFriend2.jsp">會員好友管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                           		<span id="friendManage"></span>
+<!-- 		                           		<span id="friendManage"></span> -->
 		                           	</a>
 		                       	</li>
 		                        <li>
@@ -589,10 +589,10 @@ $(function() {
 		var contextPath = "<%= request.getContextPath()%>";
 		var sionLoginId = "<%= sionLoginId %>"; //aa123
 
-		var inviteCount = "${invite_count}";
-    	if(inviteCount != 0 ){
-    		$("#friendManage").html("<b>${invite_count}</b>").css("color","blue");
-    	}
+// 		var inviteCount = "${invite_count}";
+//     	if(inviteCount != 0 ){
+//     		$("#friendManage").html("<b>${invite_count}</b>").css("color","blue");
+//     	}
 
 		//******昱豪 登入處裡*****************************
 			

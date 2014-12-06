@@ -73,7 +73,7 @@ function ShowReply(x){
 	cite0.appendChild(br0); //換行
 
 	var txtP=document.createTextNode(content);//想放進去的文字內容
-	cite0.setAttribute("style", "color:blue"); //設定class屬性
+	cite0.setAttribute("style", "color:blue;font-size:18px;"); //設定class屬性
 	cite0.appendChild(txtP); //放回應內容
 	
 

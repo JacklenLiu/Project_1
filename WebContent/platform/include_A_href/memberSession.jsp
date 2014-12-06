@@ -9,7 +9,7 @@
          </li>
          <li>
              <a href="../P4_MessageBoard/SeekFriend2.jsp">會員好友管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           		<span id="friendManage"></span>
+<!--            		<span id="friendManage"></span> -->
            	</a>
          </li>
          <li> 
@@ -26,10 +26,10 @@
 	var test = '<%= session.getAttribute("userName") %>';
 	console.log('test');
 	console.log(test);
-	var inviteCount = "${invite_count}";
-	if(inviteCount != 0 ){
-		$("#friendManage").html("<b>${invite_count}</b>").css("color","blue");
-	}
+// 	var inviteCount = "${invite_count}";
+// 	if(inviteCount != 0 ){
+// 		$("#friendManage").html("<b>${invite_count}</b>").css("color","blue");
+// 	}
 	
 // 	Server Send Event
 	 var source = new EventSource('../P4_MessageBoard/sseServer.jsp?loginid=${userLoginId}');
