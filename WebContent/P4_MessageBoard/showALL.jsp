@@ -46,7 +46,8 @@ function ShowReply(x){
 	//alert(ta.value);
 	
 	var content = ta.value;
-	var rr = ta2.value;
+// 	var rr = ta2.value;
+	var rr = "<%=sionName %>";
 	
 	if(content==""){
 		swal("回覆不要空白喔!");
@@ -60,8 +61,8 @@ function ShowReply(x){
 	var eleImg = document.createElement("img");//想放進去的圖片
 	var temp = "images/pic" +Math.floor((Math.random() * 5)) + ".jpg";
 	eleImg.setAttribute("src", temp);
-	eleImg.setAttribute("width", "30");
-	eleImg.setAttribute("height", "30");
+	eleImg.setAttribute("width", "35");
+	eleImg.setAttribute("height", "35");
 	cite0.appendChild(eleImg); //把圖片放在<cite>下   把<img>放在<cite>下
 	//回應者姓名
 	// var responser=document.createTextNode("回應者的姓名:");//想放進去的文字內容    請動態抓姓名~~~  ${myinfo}
@@ -169,7 +170,7 @@ function ShowReply(x){
 	<c:if test="${list.message_stop == '0'}">
 	<% int j = (int)( Math.random() * 5); %>
 	
-  <h3><cite><span style="weigh:10px"><img src="images/pic<%=j %>.jpg" width="35" height="35"> ${list.member_loginID}</span><span style="position:absolute;left:180px;"><b><c:out value="${list.title}" /></b></span></cite><span style="float:right;" >${list.build_time}</span></h3>
+  <h3><cite><span style="weigh:10px"><img src="images/pic<%=j %>.jpg" width="35" height="35"> ${list.member_name}</span><span style="position:absolute;left:180px;"><b><c:out value="${list.title}" /></b></span></cite><span style="float:right;" >${list.build_time}</span></h3>
   <div contenteditable="true">
     <p><span style="position:relative;left:30px;"><b><c:out value="${list.content}"/></b></span> </p>
     <hr>
@@ -183,7 +184,7 @@ function ShowReply(x){
 						<c:if test="${list2.replyfrom == list.messageNum}">
 						<c:if test="${list2.message_stop == '0'}">
 							<% int jj = (int)( Math.random() * 5); %>	
-							<div style="color:blue;"><img src="images/pic<%=jj %>.jpg" width="35" height="35"><b>${list2.member_loginID}:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${list2.content}" />
+							<div style="color:blue;font-size: 18px"><img src="images/pic<%=jj %>.jpg" width="35" height="35"><b>${list2.member_name}:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${list2.content}" />
 							<span style="float:right;" >${list2.build_time}</span><hr width="80%"></div>
 						</c:if>
 						</c:if>
@@ -216,6 +217,12 @@ function ShowReply(x){
 
 </div>
 <br><br>
+
+
+
+
+
+
 <script type="text/javascript">
 
 var serverName = "<%= serverName %>"; //localhost

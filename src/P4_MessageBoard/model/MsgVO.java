@@ -10,6 +10,9 @@ public class MsgVO implements java.io.Serializable {
 	private Date	build_time;
 	private int	message_stop;
 	private int		replyfrom;
+	
+	private String member_name;
+	
 	public int getMessageNum() {
 		return messageNum;
 	}
@@ -51,6 +54,12 @@ public class MsgVO implements java.io.Serializable {
 	}
 	public void setReplyfrom(int replyfrom) {
 		this.replyfrom = replyfrom;
+	}
+	public String getMember_name() {
+		return member_name;
+	}
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
 	}
 	
 	

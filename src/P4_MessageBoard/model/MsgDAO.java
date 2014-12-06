@@ -3,6 +3,7 @@ package P4_MessageBoard.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,10 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MsgDAO implements MsgDAO_interface {
 
@@ -27,7 +32,13 @@ public class MsgDAO implements MsgDAO_interface {
 	private static final String INSERT_MSG = "INSERT INTO messageboard (member_loginID, title, content, build_time, message_stop,replyfrom) VALUES (?,?,?,?,?,?)";
 //	private static final String GET_ALL_MSG = "SELECT messageNum, member_loginID, title, content, build_time, message_stop From messageboard order by messageNum DESC";
 //	private static final String GET_ALL_MSG = "SELECT messageNum, member_loginID, title, content, build_time, message_stop,replyfrom From messageboard where replyfrom=1 order by messageNum DESC";
-	private static final String GET_ALL_MSG = "SELECT messageNum, member_loginID, title, content, build_time, message_stop,replyfrom From messageboard order by messageNum DESC";
+//	private static final String GET_ALL_MSG = "SELECT messageNum, member_loginID, title, content, build_time, message_stop,replyfrom From messageboard order by messageNum DESC";
+	
+//	private static final String GET_ALL_MSG = "SELECT a.messageNum, a.member_loginID, a.title, a.content, a.build_time, a.message_stop,a.replyfrom, b.member_name"
+//			+ "From messageboard a  join sysmember b "
+//			+ "on a.member_loginID=b.member_loginID"
+//			+ " order by messageNum DESC";
+	
 	@Override
 	public void insert(MsgVO msgVO) {
 		Connection con = null;
@@ -80,7 +91,8 @@ public class MsgDAO implements MsgDAO_interface {
 
 		try {
 			con = ds.getConnection();
-			pstmt = con.prepareStatement(GET_ALL_MSG);
+//			pstmt = con.prepareStatement(GET_ALL_MSG);
+			pstmt = con.prepareStatement("select * from messageboard m join sysmember s on m.member_loginID=s.member_loginID order by messageNum DESC");
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {				
@@ -92,6 +104,8 @@ public class MsgDAO implements MsgDAO_interface {
 				msgVO.setBuild_time(rs.getDate("build_time"));
 				msgVO.setMessage_stop(rs.getInt("message_stop"));
 				msgVO.setReplyfrom(rs.getInt("replyfrom"));
+				
+				msgVO.setMember_name(rs.getString("member_name"));
 				
 				list.add(msgVO);
 			}
@@ -166,6 +180,73 @@ public class MsgDAO implements MsgDAO_interface {
 				}
 			}
 		}
+	}
+
+	// 使用Json仍有問題，先以舊版本為主
+	@Override
+	public String getAllJSON2() {
+		return null;
+		
+//		Connection con = null;
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		List<String> cols = new ArrayList<String>();
+//		String msginfo="";
+//		
+//try{
+//			
+//			con = ds.getConnection();
+//			pstmt = con.prepareStatement(GET_ALL_MSG);	
+//			
+//			rs = pstmt.executeQuery();
+//			
+//			ResultSetMetaData rsmd = rs.getMetaData();
+//			int count = rsmd.getColumnCount();
+//			for(int i = 1; i <= count; i++) {
+//				cols.add(rsmd.getColumnLabel(i));
+//			}
+//			
+//			JSONArray jsonArray = new JSONArray();
+//			JSONObject jsonObj;
+//			while(rs.next()){
+//				jsonObj = new JSONObject();
+//				jsonObj.put(cols.get(0), rs.getString(1));//messageNum
+//				jsonObj.put(cols.get(1), rs.getString(2));//member_loginID
+//				jsonObj.put(cols.get(2), rs.getString(3));//title
+//				jsonObj.put(cols.get(3), rs.getString(4));//content
+//				jsonObj.put(cols.get(4), rs.getString(5));//build_time
+//				jsonObj.put(cols.get(5), rs.getString(6));//message_stop
+//				jsonObj.put(cols.get(6), rs.getString(7));//replyfrom
+//				jsonObj.put(cols.get(7), rs.getString(8));//member_name
+//
+//				jsonArray.put(jsonObj);
+//			}
+//			
+//			msginfo = jsonArray.toString();
+//			
+//		}catch(SQLException e){
+//			e.printStackTrace();
+//		}catch (JSONException e) {
+//			e.printStackTrace();
+//		}
+//		finally {
+//			if (pstmt != null) {
+//				try {
+//					pstmt.close();
+//				} catch (SQLException se) {
+//					se.printStackTrace(System.err);
+//				}
+//			}
+//			if (con != null) {
+//				try {
+//					con.close();
+//				} catch (Exception e) {
+//					e.printStackTrace(System.err);
+//				}
+//			}
+//		}
+//		
+//		return msginfo;
 	}
 	
 		

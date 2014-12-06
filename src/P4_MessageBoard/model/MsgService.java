@@ -39,5 +39,9 @@ public class MsgService {
 		return dao.getAll();
 		
 	}
+	
+	public String getAllJSON2() {
+		return dao.getAllJSON2();
+	}
 
 }
