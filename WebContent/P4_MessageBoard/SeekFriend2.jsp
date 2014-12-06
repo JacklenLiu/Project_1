@@ -77,7 +77,7 @@
            text-decoration:underline;
         }
         
-        
+        .ui-dialog-titlebar-close {display: none;}
         
         
 /*         #table2 */
@@ -272,7 +272,7 @@
          
         	 <c:forEach var="list" items="${list}">
          		<tr>
-         			<td style="text-align:center;">${list.member_loginID}</td>
+         			<td style="text-align:center;font-size: 20px">${list.member_loginID}</td>
          			<c:if test="${list.relationship_status == '0'}">
          				<td class="uninvited" style="text-align:center;">您尚未確認</td>
          			</c:if>
@@ -350,6 +350,12 @@
 	 				$.each(myObject,function(i,item){
 	 				
 	 					var ID = "<%=sionLoginId %>";
+	 					if(item.member_loginID=="admin305"){
+// 	 						alert("管理者");
+	 					}else{
+	 						
+	 					
+	 					
 	 					if(item.member_loginID == ID){
 // 	 						$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid" value="沒看過這種請求" disabled="disabled" title="加自己做什麼啦" name=" ' + item.member_loginID + '"/></td></tr>"');
 // 							$("tr:last").css('background-color','red');
@@ -367,7 +373,7 @@
 	 								 						}
 // 	 						$('#table1>tbody').append("<tr><td>" + item.member_loginID +"</td><td>"+ item.member_name + "</td><td>"+ item.member_gender +"</td><td>" + '<input type="button" class="testid" value="邀請" name="' + item.member_loginID + '"/></td></tr>"');
 	 						}
-	 					
+	 					}
 	 				});
 	 			}	 			
 	 			});	 		
@@ -397,6 +403,11 @@
 					        maxHeight: 500,
 					        width: 420,
 					        height: 250,
+					        buttons: {
+					        	"Ok": function() {
+					        	$(this).dialog("close");
+					        	},
+					         	}
 						});
 
 	 			}
@@ -427,7 +438,8 @@ var contextPath = "<%= contextPath %>"; //Project_1
 		   "sZeroRecords": "無符合資料",
 		   "sInfo": "目前記錄：_START_ 至 _END_, 總筆數：_TOTAL_",
 		   "sSearch": "查詢",
-		   "oPaginate":{"sFirst":"首頁",
+		   "oPaginate":{
+			   "sFirst":"首頁",
                "sPrevious":"上頁",
                "sNext":"下頁",
                "sLast":"尾頁"
@@ -473,7 +485,7 @@ var contextPath = "<%= contextPath %>"; //Project_1
   		
   		window.location.href="http://"+serverName+":"+ serverPort +contextPath+"/P4_MessageBoard/FrdServlet?action=show_invite2&vmember_loginID="+ID;
   				
-			}, 30000);
+			}, 360000); // 6分鐘 reload
 
 	    var confirmSend= "<%=pageContext.getAttribute("invite_count")%>";
 	   if(confirmSend != 0){
