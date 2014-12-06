@@ -72,13 +72,14 @@
      <div id="btdiv">
      <input id="chatinput" />
      <span>
-     <!-- voice -->
-     <input id="micbt" type="image" src="images/microphone.png" />
-     <voice-recognition id="recognition-element"></voice-recognition>
+     
+     
      <input id="chatbt" type="button" value="送出">
      
      <input id="saveRoutebt" type="button" value="儲存路線" class="savebt2" disabled>
-     
+     <!-- voice -->
+     <input id="micbt" type="image" src="images/microphone.png" />
+     <voice-recognition id="recognition-element"></voice-recognition>
      </span>
     </div>
     </div>

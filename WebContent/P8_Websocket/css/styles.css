@@ -106,7 +106,7 @@ aside{
 }
 #btdiv{
 	
-	margin-top:50%; 
+	margin-top:45%; 
 	width:100% ;
 	height:15%; 
 }
@@ -119,7 +119,7 @@ aside{
 #micbt{
 	position:absolute;
 	top:79%;
-	right:7.8%;
+	right:4%;
 }
 @-webkit-keyframes bluePulse {
   from { background-color: #00BFFF; -webkit-box-shadow: 0 0 9px #6495ED; }
