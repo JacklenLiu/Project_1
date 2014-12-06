@@ -83,17 +83,17 @@ aside{
     right: 20px;
     padding: 2px;
     overflow:auto;
-    width:72.7% ;
+    width:73% ;
 	height:50%;
 	top:6.3%;
     background-color: #F0FFFF;
 }
 #editchat{
 	position: absolute;
-	width:36.2%;
+	width:36.4%;
 	height:42%; 
 	top:57%;
-	right:1.5%;
+	right:1.3%;
 	
 }
 
@@ -106,14 +106,20 @@ aside{
 }
 #btdiv{
 	
-	margin-top:66%; 
+	margin-top:50%; 
 	width:100% ;
 	height:15%; 
 }
 
 #chatinput{
+	
 	width:50% ;
 	height:100%; 
+}
+#micbt{
+	position:absolute;
+	top:79%;
+	right:7.8%;
 }
 @-webkit-keyframes bluePulse {
   from { background-color: #00BFFF; -webkit-box-shadow: 0 0 9px #6495ED; }
@@ -130,7 +136,7 @@ aside{
   width:80px;
   height:38px;
   border-radius:5px;
-
+  
 }
 @-webkit-keyframes whitePulse {
   from { background-color: #DDDDDD; -webkit-box-shadow: 0 0 9px #888888; }
@@ -169,10 +175,10 @@ aside{
 #mapdiv{
 	position: absolute;
     
-    right: 38.7%;
+    right: 38%;
     padding: 2px;
     overflow:auto;
-    width:35.7% ;
+    width:36.4% ;
 	height:39%;
 	top:57%;
 }

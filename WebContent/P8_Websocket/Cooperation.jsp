@@ -70,13 +70,15 @@
     <div id="editchat">
      <div id="chatDiv" ></div> 
      <div id="btdiv">
-     <textarea id="chatinput" ></textarea>
+     <input id="chatinput" />
      <span>
-     <input id="chatbt" type="button" value="送出">
      <!-- voice -->
-     <input id="micbt" type="button"><img src="images/microphone.png"></img></input>
+     <input id="micbt" type="image" src="images/microphone.png" />
      <voice-recognition id="recognition-element"></voice-recognition>
+     <input id="chatbt" type="button" value="送出">
+     
      <input id="saveRoutebt" type="button" value="儲存路線" class="savebt2" disabled>
+     
      </span>
     </div>
     </div>
