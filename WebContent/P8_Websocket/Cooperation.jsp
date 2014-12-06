@@ -20,125 +20,19 @@
 <nav class="navbar  navbar-fixed-top" role="navigation">
 	<div class="rowHeader">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header" id="indexBtn">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="../index.jsp" name="indexLoginBtn">下一站，幸福</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+            <%@ include file="../platform/include_A_href/toIndex.jsp" %> 	
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            	<ul class="nav navbar-nav navbar-right">
-                	<c:if test="<%=sionName == null%>">
-                  		<li class="dropdown">
-                  			<a href="../P0_login/login.jsp" name="indexLoginBtn" class="noChange">登入</a>
-                  	 	</li>
-                  	</c:if>
-                  	<li class="dropdown">
-                  		<a href="../P2_route/route_search.jsp" name="indexLoginBtn" class="noChange">景點介紹</a>
-                  	</li>
-                   	<li class="dropdown">
-                       	<a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
-                       	<ul class="dropdown-menu">
-                        	<li>
-                            	<a href="../P2_route/route_plan.jsp">路經規劃</a> 
-                           	</li>
-                           	<li>
-<%--                               	<a href="P8_Websocket/Cooperation.jsp?memID=${userLoginId}">與好友同步規劃</a> --%>
-                              	<a href="#" id="cooperationLink">與好友同步規劃</a>
-                           	</li>
-                           	<li>
-                              	<a href="../portfolio-4-col.html">4 Column Portfolio</a>
-                           	</li>
-                           	<li>
-                              	<a href="../portfolio-item.html">Single Portfolio Item</a>
-                           	</li>
-                       	</ul>
-                   	</li>
-                    <li class="dropdown">
-                    	<a href="../P4_MessageBoard/showALL.jsp">留言板</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href=".portfolio-1-col.html">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="ortfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                    	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        	<li>
-			                	<a href="P3_TravelDiary/TravelDiaryServlet?action=blog.do">所有文章 </a>
-			                </li>                         
-                            <li>
-                                <a href="../P3_TravelDiary/blog_editor.jsp">發表新文章</a>
-                            </li>
-                            <li>
-                                <a href="../P3_TravelDiary/blog_manage.jsp">管理我的文章</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="P6_ContactUs/ContactUs.jsp" class="dropdown-toggle noChange" data-toggle="dropdown" name="indexLoginBtn">聯絡我們<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="P6_ContactUs/ContactUs.jsp" class="noChange" name="indexLoginBtn">聯絡我們</a>
-                            </li>
-                            <li>
-                                <a href="faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html">Pricing Table</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <c:if test="<%=sionName != null%>">
-                 		<li class="dropdown">
-                    		<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
-                    		<i class="fa fa-user"></i><%=sionName%>你好<b class="caret"></b></a>
-                 			<ul class="dropdown-menu">
-		                       	<li>
-		                           <a href="../P1_iud/userProfile.jsp">會員基本資料</a>
-		                       	</li>
-		                      	<li>
-		                           	<a href="../P4_MessageBoard/SeekFriend2.jsp">會員好友管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		                           		<span id="friendManage"></span>
-		                           	</a>
-		                       	</li>
-		                        <li>
-           							 <a href="http://<%=serverName%>:<%=serverPort%><%=contextPath%>/P2_route/viewnameServlet?action=GetRouteByMemID&reflash=true&memID=${userLoginId}">我的路線</a>
-        					 	</li>
-		                       	<li>
-		                           <a href="LoginServlet?action=logOut">登出系統</a>
-		                       	</li>
-                  			</ul>
-                     	</li>		
-                  	</c:if>
-                </ul>
-            </div>
+                <ul class="nav navbar-nav navbar-right">
+                	<%@ include file="../platform/include_A_href/P2_route.jsp" %> 	   
+                    <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %>  
+<%--                     <%@ include file="../platform/include_A_href/Portfolio.jsp" %> --%>
+                    <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp" %>
+                    <%@ include file="../platform/include_A_href/P6_contactUs.jsp" %>
+                    <%@ include file="../platform/include_A_href/memberSession.jsp" %>
+               </ul>	
+               </div>
             <!-- /.navbar-collapse -->
-		</div>
+        </div>
         <!--  end row  -->
     </div>
 	<!-- /.container -->
@@ -149,13 +43,13 @@
     <aside>
     
 
-      <h2>地區選擇</h2>
-      <select  id="sel1">
+      <h2>地區選擇<select  id="sel1">
 		<option value="北部" id="N">北部</option>
   		<option value="中部" id="C">中部</option>
   		<option value="南部" id="S">南部</option>
   		<option value="東部" id="E">東部</option>
-	  </select>
+	  </select></h2>
+      
 
       <div id="stickerContainer" ondrop="dropback(event)" ondragover="allowDrop(event);">
       	<ul id="viewulID" class="viewul" ></ul>
@@ -180,7 +74,7 @@
      <span>
      <input id="chatbt" type="button" value="送出">
      <!-- voice -->
-     <input id="micbt" type="button" value="Start">
+     <input id="micbt" type="button"><img src="images/microphone.png"></img></input>
      <voice-recognition id="recognition-element"></voice-recognition>
      <input id="saveRoutebt" type="button" value="儲存路線" class="savebt2" disabled>
      </span>
@@ -547,13 +441,13 @@
 	 
 	 element.addEventListener('result', function(e) {
 		    alert(e.detail.result);
-		    var addviewindex = e.detail.result.indexOf('要去');
-		    var delviewindex = e.detail.result.indexOf('拿掉');
+		    var addviewindex = e.detail.result.indexOf('want to');
+		    var delviewindex = e.detail.result.indexOf('remove');
 		    var frdindex = e.detail.result.indexOf('邀請');
 		    
 		    //判斷"要去"->將左邊景點移至中央
 		    if(addviewindex != -1){
-		    	var findViewStr = e.detail.result.substr(addviewindex+2,2);
+		    	var findViewStr = e.detail.result.substr(addviewindex+7,2);
 		    	var liobjs = $('#viewulID').find('li');
 		    	$.each(liobjs, function(i, liobj){
 		    		var tarStr = $(liobj).attr("data-viewname").indexOf(findViewStr);
@@ -564,7 +458,7 @@
 		    	});
 		    }else if(delviewindex != -1){
 		    	//判斷"拿掉"->將中央景點移至左邊區塊
-		    	var findViewStr = e.detail.result.substr(delviewindex+2,2);
+		    	var findViewStr = e.detail.result.substr(delviewindex+6,2);
 		    	var liobjs = $('#boardulID').find('li');
 		    	$.each(liobjs, function(i, liobj){
 		    		var tarStr = $(liobj).attr("data-viewname").indexOf(findViewStr);
@@ -601,7 +495,11 @@
 		});
 	 
 
-	 
+	 $('.nav .dropdown').hover(function() {
+         $(this).addClass('open');
+     }, function() {
+         $(this).removeClass('open');
+     });
     })(jQuery);
     
       </script>

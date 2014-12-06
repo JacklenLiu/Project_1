@@ -18,7 +18,11 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <!-- 好友協作平台 -->
-    
+<style>
+	.ui-dialog-titlebar-close {
+  		visibility: hidden;
+	}
+</style>
 
 <body>
 	<!-- Navigation -->
@@ -48,15 +52,6 @@
                             </li>
                             <li>
                                 <a href="#" id="cooperationLink">與好友同步規劃</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
                             </li>
                         </ul>
                     </li>

@@ -138,7 +138,11 @@
 	/*/default navbar-toogle邊框、漢堡肉、背景、hover狀態*/
 
 </style>
-
+<style>
+.ui-dialog-titlebar-close {
+  visibility: hidden;
+}
+</style>
 </head>
 
 <body>
@@ -426,7 +430,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#67B0D1">
-                        <h4 class="topNewsEgy"><i class="fa fa-thumbs-up "></i> 熱門景點排行榜</h4>
+                        <h4 class="topNewsEgy" style="font-size:20px;"><i class="fa fa-thumbs-up "></i> 熱門景點排行榜</h4>
                     </div>
                     <div class="panel-body leaderboard">
                     </div>
@@ -435,7 +439,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#67B0D1">
-                        <h4 class="topNewsEgy"><i class="fa fa-bullhorn"></i> 最新消息</h4>
+                        <h4 class="topNewsEgy" style="font-size:20px;"><i class="fa fa-bullhorn"></i> 最新消息</h4>
                     </div>
                     <div class="panel-body news">
                     </div>
@@ -444,7 +448,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="background-color:#67B0D1">
-                        <h4 class="topNewsEgy"><i class="fa fa-plus-square"></i> 急救知識補給站</h4>
+                        <h4 class="topNewsEgy" style="font-size:20px;"><i class="fa fa-plus-square"></i> 急救知識補給站</h4>
                     </div>
                     <div class="panel-body knowledge">
 <!--                        <a href="#"><p>※濕搓沖捧擦</p></a> -->
@@ -707,7 +711,7 @@ $(function() {
        			//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
 //        			$(".leaderboard > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/GetLeaderServlet?leaderId='+ item.imagesID);
 				$(".leaderboard > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/P2_route/viewnameServlet?action=imgCarousel&changeImg=' + item.imagesID+'&top='+(i+1));
-       			$(".leaderboard > a:nth-child(" + (i+1) + ")").append("<p>※&nbsp;&nbsp;第"+(i+1)+"名&nbsp;&nbsp;" + item.viewname + "&nbsp;</p>");
+       			$(".leaderboard > a:nth-child(" + (i+1) + ")").append("<p style='font-size:18px;'>※&nbsp;&nbsp;第"+(i+1)+"名&nbsp;&nbsp;" + item.viewname + "&nbsp;</p>");
        			//$(".news").append("</a>");	
        		});
        	});
@@ -719,7 +723,7 @@ $(function() {
        		$.each(datas,function(i,item){
   				$(".knowledge").append("<a href='#'>");
        			$(".knowledge > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/knowledgeServlet?knowledge='+ item.knowledge_identity);
-       			$(".knowledge > a:nth-child(" + (i+1) + ")").append("<p>※&nbsp;&nbsp;" + item.knowledge_title + "&nbsp;</p>");
+       			$(".knowledge > a:nth-child(" + (i+1) + ")").append("<p style='font-size:18px;'>※&nbsp;&nbsp;" + item.knowledge_title + "&nbsp;</p>");
        		});
        	});
       //***************昱豪_抓急救小知識***************
@@ -733,7 +737,7 @@ $(function() {
        			//<a href=""><p>※2014/10/10 陽明山海芋季，快來看看</p></a>
        			//$(".news > a:nth-child(1)").attr("href","http://tw.yahoo.com");
        			$(".news > a:nth-child(" + (i+1) + ")").attr("href",'http://'+ serverName +':'+ serverPort + contextPath +'/newsServlet?newsId=' + item.news_identity);
-       			$(".news > a:nth-child(" + (i+1) + ")").append("<p>※&nbsp;&nbsp;" + item.news_date + "&nbsp;&nbsp;" + item.news_title + "</p>");
+       			$(".news > a:nth-child(" + (i+1) + ")").append("<p style='font-size:18px;'>※&nbsp;&nbsp;" + item.news_date + "&nbsp;&nbsp;" + item.news_title + "</p>");
        			//$(".news").append("</a>");
        		});
        	});

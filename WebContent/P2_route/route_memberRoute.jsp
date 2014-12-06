@@ -13,6 +13,11 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/start/jquery-ui.css">
 	<!-- 調整navbar btn -->
 	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
+<style>
+	.ui-dialog-titlebar-close {
+  		visibility: hidden;
+	}
+</style>
 </head>
 
 <body>
@@ -138,13 +143,19 @@
      		});
 			
 			$("#routeSearchbtn").click(function(){
-				//$('#routeH2').text();
-				console.log($("#routeselID").text());
+				var nodeleteIcon = false;
 				var url = "viewnameServlet";
 				$.getJSON(url, {'action':'GetRouteByMemID','reflash':'false','memID':$("#routeselID").val()}, function(datas){
+					if($('#routeselID').val()== sionLoginId){
+						nodeleteIcon = true;
+						$('#routeH2').text('我的路線');
+					}else{
+						nodeleteIcon = false;
+						$('#routeH2').text($("#routeselID :selected").text()+'的路線');
+					}
 					console.log(datas);
 					$("#memRouteGallery").empty();
-					listAllRoute(datas, false);
+					listAllRoute(datas, nodeleteIcon);
 					bindAlinkToDetail();
 				});
 			});
