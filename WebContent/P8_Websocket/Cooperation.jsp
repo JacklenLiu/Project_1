@@ -43,13 +43,13 @@
     <aside>
     
 
-      <h2>地區選擇</h2>
-      <select  id="sel1">
+      <h2>地區選擇<select  id="sel1">
 		<option value="北部" id="N">北部</option>
   		<option value="中部" id="C">中部</option>
   		<option value="南部" id="S">南部</option>
   		<option value="東部" id="E">東部</option>
-	  </select>
+	  </select></h2>
+      
 
       <div id="stickerContainer" ondrop="dropback(event)" ondragover="allowDrop(event);">
       	<ul id="viewulID" class="viewul" ></ul>
@@ -74,7 +74,7 @@
      <span>
      <input id="chatbt" type="button" value="送出">
      <!-- voice -->
-     <input id="micbt" type="button" value="Start">
+     <input id="micbt" type="button"><img src="images/microphone.png"></img></input>
      <voice-recognition id="recognition-element"></voice-recognition>
      <input id="saveRoutebt" type="button" value="儲存路線" class="savebt2" disabled>
      </span>
