@@ -106,7 +106,7 @@
 		    </tr>
 		</table>
 	</div>
-	<div style="float:left;display:inline;width:200px;margin-left:340px;margin-top:-30px;">
+	<div style="float:left;display:inline;width:200px;margin-left:150px;margin-top:-30px;">
 		<span class="span-route" style="width:200px;">
 			<center>
 				<label style="font-size:20px;">出發地</label>

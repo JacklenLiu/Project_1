@@ -11,7 +11,7 @@
 #gallerydiv h4 .ui-icon { float: left; }		
 #gallery { float: left; /*width: 65%*/ /*width:33%;*/ min-height: 12em; /*for grid*/ /*margin-left: 30px;*/ padding: 0;  list-style: none; /*overflow: auto;*/overflow:hidden; height:525px}
 .gallery.custom-state-active { background: #eee; }
-  .gallery li { float: left; width: 415px; padding: 0.8em; margin: 0.5em 6%; text-align: center; /*for grid*/overflow: hidden; display: block;}
+  .gallery li { float: left; width: 415px; /*padding: 0.8em;*/ /*margin: 0.5em 6%;*/ text-align: center; /*for grid*/overflow: hidden; display: block;}
   .gallery li h5 { margin: 0 0 0.4em; cursor: move;}
   .gallery li a { float: right; }
   .gallery li a.ui-icon-zoomin { float: left; }
