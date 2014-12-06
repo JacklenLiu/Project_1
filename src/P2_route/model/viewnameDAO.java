@@ -50,7 +50,7 @@ public class viewnameDAO implements viewnameDAO_interface {
 	private static final String GET_ROUTENAME_STMT_ROUTEID ="SELECT routeName FROM route where routeID = ?";
 	private static final String UPDATE_VIEWHITRATE_STMT_VIEWID ="UPDATE viewname set view_HitRate=? where viewID = ?";
 	private static final String GET_VIEWHITRATE_STMT_VIEWID ="SELECT view_HitRate FROM viewname where viewID = ?";
-	private static final String GET_VIEWDETAIL_STMT_VIEWID ="SELECT top(1) viewID, viewname, viewaddr, imgDescript FROM viewname JOIN images ON viewname.viewID=images.imagesName WHERE viewID= ?";
+	private static final String GET_VIEWDETAIL_STMT_VIEWID ="SELECT top(1) viewID, viewname, viewarea, viewaddr, imgDescript FROM viewname JOIN images ON viewname.viewID=images.imagesName WHERE viewID= ?";
 	
 	private static final String GET_Search_IMAGES="select i.imagesid, i.imagesname ,  v.viewname ,  v.viewArea , i.imgdescript , i.imgsrc , i.images_format from images i join viewname v on imagesname = viewid where v.viewname like ? and i.imagesID like '%_01' ;";
 	private static final String GET_ALL_IMAGES="select i.imagesid, i.imagesname ,  v.viewname , i.imgdescript , i.imgsrc , i.images_format from images i join viewname v on imagesname = viewid where i.imagesID like '%_01';";
@@ -708,8 +708,9 @@ try{
 				jsonObj = new JSONObject();
 				jsonObj.put(cols.get(0), rs.getString(1));//viewID
 				jsonObj.put(cols.get(1), rs.getString(2));//viewname
-				jsonObj.put(cols.get(2), rs.getString(3));//viewaddr
-				jsonObj.put(cols.get(3), rs.getString(4));//imgDescript
+				jsonObj.put(cols.get(2), rs.getString(3));//viewarea
+				jsonObj.put(cols.get(3), rs.getString(4));//viewaddr
+				jsonObj.put(cols.get(4), rs.getString(5));//imgDescript
 			}
 			
 			viewDetail = jsonObj.toString();

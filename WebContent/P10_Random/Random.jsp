@@ -27,6 +27,9 @@
     #yyyy {
         z-index: 0;
     }
+    .ui-dialog-titlebar-close {
+  		visibility: hidden;
+	}
 </style>      
 </head>
 <body>
@@ -52,7 +55,7 @@
                                 <a href="Random.jsp">隨機旅程</a>
                             </li>
                             <li>
-                                <a href="../P2_route/route_plan.jsp">路經規劃</a>
+                                <a href="../P2_route/route_plan.jsp">路徑規劃</a>
                             </li>
                             <li>
                                 <a href="#" id="cooperationLink">與好友同步規劃</a>

@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="Jacklen_css/normalize.css"> <!--蕙齊css-->
     <!-- 調整navbar btn -->
 	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
+	<style>
+	.ui-dialog-titlebar-close {
+  		visibility: hidden;
+	}
+	</style>
 </head>
 
 <body>
@@ -84,6 +89,7 @@
 						<tr>
 							<th>景點順序</th>
 							<th>景點名稱</th>
+							<th>景點地區</th>
 							<th>景點照片</th>
 							<th>詳細說明</th>
 						</tr>
@@ -118,12 +124,15 @@
 											  .addClass("detailorder");
 				var viewName = $('<td></td>').text(oneViewDetail.viewname)
 											 .addClass("detailname");
+				var viewArea = $('<td></td>').text(oneViewDetail.viewarea)
+				 							 .addClass("detailname");
 				console.log(oneViewDetail.viewID);
 				var viewPic = $('<td></td>').html("<img src='http://"+serverName + ':' + serverPort + contextPath +'/GetImageServlet?id='+ oneViewDetail.viewID +"' class='detailimg'></img>");
 				//'http://'+ serverName +':'+ serverPort + contextPath +'/GetImageServlet?id=' + firstView
 				var viewDesc = $('<td></td>').html("<h4 class='desctitle'>地址:</h4>"+ oneViewDetail.viewaddr + "<br>" + "<h4 class='desctitle'>景點說明:</h4>" + oneViewDetail.imgDescript);
 				var viewtr = $('<tr></tr>').append(viewOrder)
 										   .append(viewName)
+										   .append(viewArea)
 										   .append(viewPic)
 										   .append(viewDesc);
 				$('#tbodyid').append(viewtr);

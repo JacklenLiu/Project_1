@@ -138,7 +138,11 @@
 	/*/default navbar-toogle邊框、漢堡肉、背景、hover狀態*/
 
 </style>
-
+<style>
+.ui-dialog-titlebar-close {
+  visibility: hidden;
+}
+</style>
 </head>
 
 <body>

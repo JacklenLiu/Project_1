@@ -23,6 +23,11 @@
 	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
 	<link rel="stylesheet" href="Jacklen_css/yuHao_table.css">
 	<link rel="stylesheet" href="Jacklen_css/yuHao_component.css"> 
+<style>
+	.ui-dialog-titlebar-close {
+  		visibility: hidden;
+	}
+</style>
 </head>
  
 <body>
@@ -151,7 +156,7 @@
 </div>
 <div id="dialog-save" title="儲存路線">
   <h2 class="validateTips">路線名稱</h2>
-  <input type="text" name="routeName" id="routeName" value="墾丁一日遊" class="text ui-widget-content ui-corner-all">
+  <input type="text" name="routeName" id="routeName" placeholder="墾丁一日遊" maxlength="10" class="text ui-widget-content ui-corner-all">
 </div>
 <div id="dialog-savefinished" title="儲存成功">
   <h2 class="validateTips">儲存成功</h2>

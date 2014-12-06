@@ -16,7 +16,11 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <!-- 好友協作平台 -->
-    
+<style>
+	.ui-dialog-titlebar-close {
+  		visibility: hidden;
+	}
+</style>
 
 <body>
 	<!-- Navigation -->
