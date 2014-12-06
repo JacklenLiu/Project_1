@@ -174,6 +174,9 @@
                    	<li class="dropdown">
                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
                        	<ul class="dropdown-menu">
+                       		<li>
+                            	<a href="P10_Random/Random.jsp" class="noChange"  name="indexLoginBtn">隨機旅程</a> 
+                           	</li>
                         	<li>
                             	<a href="P2_route/route_plan.jsp">路經規劃</a> 
                            	</li>
@@ -422,6 +425,25 @@ $(function() {
         });
   //上方工具列滑鼠滑入自動彈出
 });
+
+	//******昱豪 登入處裡*****************************
+	
+	var sionLog = "<%=sionLoginId%>";
+	if(sionLog == "null"){
+			//$(".navbar-right a[class != 'noChange'] ").prop("href","P0_login/login.jsp");
+		$(".navbar-right a[class != 'noChange'] ").prop("href","#");
+		$("a[name != 'indexLoginBtn']").click(function(){
+			//alert("請先登入會員!!");
+			sweetAlert("此功能需先行登入會員!!","","warning");
+			$("#ok_sweetAlert").click(function(){
+				window.location.href='http://'+ serverName +':'+ serverPort + contextPath +'/P0_login/login.jsp';
+			});
+				
+		});
+	}
+	
+	//********昱豪   註冊處裡********
+
 
    //***********昱豪*********** 
 	(function($){   
