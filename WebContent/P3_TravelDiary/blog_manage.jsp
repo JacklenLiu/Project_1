@@ -48,7 +48,7 @@
                 <ul class="nav navbar-nav navbar-right">
                 	<%@ include file="../platform/include_A_href/P2_route.jsp" %> 	   
                     <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %>  
-                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+<%--                     <%@ include file="../platform/include_A_href/Portfolio.jsp" %> --%>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
                         <ul class="dropdown-menu">

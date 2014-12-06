@@ -22,6 +22,7 @@ public interface viewnameDAO_interface {
     public Integer getHitRate(String routeResultView);
     public String getViewDetailByViewID(String viewID);
     public String getAllImg();
+    public String getAllImgSec();
     public String getAllSearchImg(String imagesID);
     public int getImgTop6Count();
     public List<viewnameVO> viewName_imgDescript(String imagesID);

@@ -28,6 +28,22 @@
   	<%@ include file="../platform/include_start.jsp" %>	
 	 <!-- 調整navbar btn -->
 	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
+	
+	
+	<!--  -->
+	<link rel="icon" href="https://github.global.ssl.fastly.net/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto+Slab">
+    <link rel="stylesheet" href="../micTest/demo/demo.css">
+
+    <!-- Importing Web Component's Polyfill -->
+    <script src="../micTest/bower_components/webcomponentsjs/webcomponents.min.js"></script>
+
+    <!-- Importing Custom Elements -->
+    <link rel="import" href="../micTest/src/voice-player.html">
+    <link rel="import" href="../micTest/src/voice-recognition.html">
+
+	<!--  -->
   	<style>
   	body {
     	background-image: url("../Images/backgound.png");
@@ -92,18 +108,63 @@
       </div>
     </div>
     <div class="row" style="margin-top:10px;">
-      <div class="col-xs-7"><input type="text" id="chatinput" class="form-control" placeholder="Type your message here."/></div>
-      <div class="col-xs-2"><button id="chatbt" class="btn btn-primary" style="width:100%;">Send</button></div>
+    	<div class="col-xs-7">
+<!--       	<input type="text" id="chatinput" class="form-control" placeholder="Type your message here."/> -->
+     		
+      </div>
+     
     </div>
-  </div>
+   	<div class="col-sm-7">
+		<form id="recognition-form" class="pure-form">
+           <fieldset>
+               <textarea id="recognition-input" class="form-control" readonly rows="3" ></textarea>
+               <button id="recognition-submit" class="pure-button pure-button-primary">Start!</button>
+               <voice-recognition id="recognition-element"></voice-recognition>
+               <button id="chatbt" class="btn btn-primary pure-button pure-button-primary">Send</button>
+               
+           </fieldset>
+           <fieldset>
+           </fieldset>
+      	</form> 
+  	</div>   
+</div>
+  			<voice-player autoplay accent="zh-CN" text="下一站，幸福，客服中心您好!!"></voice-player>
+               
 
-    
-    
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 <script src='../Script/jquery-ui.js'></script>	
 <script src="js/story-page.js" type="text/javascript"></script>
   
     <script>
+    var form = document.querySelector('#recognition-form'),input = document.querySelector('#recognition-input'),element = document.querySelector('#recognition-element');
+	
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        element.start();
+    });
+
+    element.addEventListener('result', function(e) {
+        input.textContent = e.detail.result;
+       	if((e.detail.result).indexOf("送出") !=-1){
+//        	$("#chatbt").trigger("click");
+       		var recognition = $('#recognition-input').val();//讀取chatinput所輸入的值-> 並放入userchat
+    		$('#recognition-input').val("");//將值拿掉
+    		var chat="";
+    		//從後台登入的時候會多丟一個參數為admin=admin123 用來判別是從後台或是user
+    		if(admin!="null"){
+    			chat = "admin  : " + recognition; //將使用者(guest+IP) 跟 userchat 串在一起
+    		}
+    		//判別是否可以抓到ID 若無法抓到ID在聊天內容就給他變換成guest+IP
+    		else if(sionName=="null"){
+    			chat = OlineSvc +" : " + recognition; //將使用者(guest+IP) 跟 userchat 串在一起
+    		}else{
+    			chat = sionName +" : " + recognition; //將使用者(sionName) 跟 userchat 串在一起
+    		}
+    		serviceChat(chat);
+       	}
+        element.stop();
+    });
+    
     var sionName = "<%= sionName %>";//username
     var serverName = "<%= serverName %>"; //localhost
 	var serverPort = "<%= serverPort %>"; //8081
@@ -172,6 +233,7 @@
 			}
 			
 			serviceChat(chat);//呼叫story-page.js 的 chatsend並帶參數
+			alert("進來了key")
 	    }
 	});
 	
@@ -186,7 +248,7 @@
 	//****************************對話框發送訊息用**********************************
 	
     })(jQuery);
-    
+	 
       </script>
   </body>
 </html>

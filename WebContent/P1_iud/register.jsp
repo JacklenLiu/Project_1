@@ -76,7 +76,7 @@
                   	</li>
                   	<%@ include file="../platform/include_A_href/P2_route.jsp" %>
                     <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %> 
-                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+<%--                     <%@ include file="../platform/include_A_href/Portfolio.jsp" %> --%>
                     <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp"%>
 					<%@ include file="../platform/include_A_href/P6_contactUs.jsp"%>
                 </ul>

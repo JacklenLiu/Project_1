@@ -38,7 +38,7 @@
                	 	</li>
                 	<%@ include file="../platform/include_A_href/P2_route.jsp" %>
                     <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %>
-                    <%@ include file="../platform/include_A_href/Portfolio.jsp" %>
+<%--                     <%@ include file="../platform/include_A_href/Portfolio.jsp" %> --%>
                     <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp" %>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">聯絡我們<b class="caret"></b></a>

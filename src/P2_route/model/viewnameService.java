@@ -167,6 +167,10 @@ public class viewnameService {
 		return dao.getAllImg();
 	}
 	
+	public String getAllImgSec(){
+		return dao.getAllImgSec();
+	}
+	
 	public List<viewnameVO> getImgDescript(String imagesID){
 		return dao.viewName_imgDescript(imagesID);
 	}
