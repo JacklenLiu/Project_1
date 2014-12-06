@@ -50,6 +50,11 @@ public class MsgServlet extends HttpServlet {
 			String member_loginID = req.getParameter("vmember_loginID");// 抓輸入的ID
 			String title = req.getParameter("vtitle");					// 抓輸入的標題
 			String content = req.getParameter("vcontent");				// 抓輸入的內容
+			
+			System.out.println("原本的content  = " + content);
+//			content.replace("<", "QQ");
+			
+			
 			java.util.Date d = new Date();
 			java.sql.Date  a = new java.sql.Date(d.getTime()); 			//留言時間
 			

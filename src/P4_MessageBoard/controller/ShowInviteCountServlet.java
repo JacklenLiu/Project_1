@@ -44,7 +44,7 @@ public class ShowInviteCountServlet extends HttpServlet {
 		System.out.println("temp is"+ temp);
 		List<FrdVO> list=dao.getPart(temp);//先用aa123
 		int invite_count = list.size();
-		System.out.println("現在有"+invite_count+"個邀請");
+//		System.out.println("現在有"+invite_count+"個邀請");
 		req.setAttribute("list",list);
 		req.setAttribute("invite_count",invite_count);
 		

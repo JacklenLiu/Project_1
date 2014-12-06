@@ -169,9 +169,9 @@ function ShowReply(x){
 	<c:if test="${list.message_stop == '0'}">
 	<% int j = (int)( Math.random() * 5); %>
 	
-  <h3><cite><span style="weigh:10px"><img src="images/pic<%=j %>.jpg" width="35" height="35"> ${list.member_loginID}</span><span style="position:absolute;left:180px;"><b>${list.title}</b></span></cite><span style="float:right;" >${list.build_time}</span></h3>
-  <div>
-    <p><span style="position:relative;left:30px;"><b>${list.content}</b></span> </p>
+  <h3><cite><span style="weigh:10px"><img src="images/pic<%=j %>.jpg" width="35" height="35"> ${list.member_loginID}</span><span style="position:absolute;left:180px;"><b><c:out value="${list.title}" /></b></span></cite><span style="float:right;" >${list.build_time}</span></h3>
+  <div contenteditable="true">
+    <p><span style="position:relative;left:30px;"><b><c:out value="${list.content}"/></b></span> </p>
     <hr>
     <%
 		MsgService msgSvc2 = new MsgService();
@@ -183,7 +183,7 @@ function ShowReply(x){
 						<c:if test="${list2.replyfrom == list.messageNum}">
 						<c:if test="${list2.message_stop == '0'}">
 							<% int jj = (int)( Math.random() * 5); %>	
-							<div style="color:blue;"><img src="images/pic<%=jj %>.jpg" width="35" height="35"><b>${list2.member_loginID}:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${list2.content}
+							<div style="color:blue;"><img src="images/pic<%=jj %>.jpg" width="35" height="35"><b>${list2.member_loginID}:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:out value="${list2.content}" />
 							<span style="float:right;" >${list2.build_time}</span><hr width="80%"></div>
 						</c:if>
 						</c:if>
