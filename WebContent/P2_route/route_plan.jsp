@@ -32,6 +32,9 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                       		 <li>
+                            	<a href="../P10_Random/Random.jsp" class="noChange"  name="indexLoginBtn">隨機旅程</a> 
+                           	</li>
                             <li>
                                 <a href="route_plan.jsp">路徑規劃</a>
                             </li>
