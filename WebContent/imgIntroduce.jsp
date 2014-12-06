@@ -174,6 +174,9 @@
                    	<li class="dropdown">
                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
                        	<ul class="dropdown-menu">
+                       		<li>
+                            	<a href="P10_Random/Random.jsp" class="noChange"  name="indexLoginBtn">隨機旅程</a> 
+                           	</li>
                         	<li>
                             	<a href="P2_route/route_plan.jsp">路經規劃</a> 
                            	</li>
@@ -181,36 +184,10 @@
 <%--                               	<a href="P8_Websocket/Cooperation.jsp?memID=${userLoginId}">與好友同步規劃</a> --%>
                               	<a href="#" id="cooperationLink">與好友同步規劃</a>
                            	</li>
-                           	<li>
-                              	<a href="portfolio-4-col.html">4 Column Portfolio</a>
-                           	</li>
-                           	<li>
-                              	<a href="portfolio-item.html">Single Portfolio Item</a>
-                           	</li>
                        	</ul>
                    	</li>
                     <li class="dropdown">
                     	<a href="P4_MessageBoard/showALL.jsp">留言板</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href=".portfolio-1-col.html">1 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-2-col.html">2 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="ortfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="dropdown">
                     	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
@@ -231,15 +208,6 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="P6_ContactUs/ContactUs.jsp" class="noChange" name="indexLoginBtn">聯絡我們</a>
-                            </li>
-                            <li>
-                                <a href="faq.html">FAQ</a>
-                            </li>
-                            <li>
-                                <a href="404.html">404</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html">Pricing Table</a>
                             </li>
                         </ul>
                     </li>
@@ -457,6 +425,25 @@ $(function() {
         });
   //上方工具列滑鼠滑入自動彈出
 });
+
+	//******昱豪 登入處裡*****************************
+	
+	var sionLog = "<%=sionLoginId%>";
+	if(sionLog == "null"){
+			//$(".navbar-right a[class != 'noChange'] ").prop("href","P0_login/login.jsp");
+		$(".navbar-right a[class != 'noChange'] ").prop("href","#");
+		$("a[name != 'indexLoginBtn']").click(function(){
+			//alert("請先登入會員!!");
+			sweetAlert("此功能需先行登入會員!!","","warning");
+			$("#ok_sweetAlert").click(function(){
+				window.location.href='http://'+ serverName +':'+ serverPort + contextPath +'/P0_login/login.jsp';
+			});
+				
+		});
+	}
+	
+	//********昱豪   註冊處裡********
+
 
    //***********昱豪*********** 
 	(function($){   

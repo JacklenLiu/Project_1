@@ -18,6 +18,7 @@
 　
   <!-- 調整navbar btn -->
   <link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
+<link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
 
 <!-- 路線協作平台 -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/start/jquery-ui.css">
@@ -34,34 +35,39 @@
 			<%@ include file="../platform/include_A_href/toIndex.jsp" %> 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                	<li class="dropdown">
-                  		<a href="route_search.jsp" name="indexLoginBtn" class="noChange">景點介紹</a>
-                  	</li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="route_plan.jsp">路經規劃</a>
-                            </li>
-                            <li>
-                                <a href="#" id="cooperationLink">與好友同步規劃</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
-                        </ul>
-                    </li>
+                	<c:if test="<%=sionName == null%>">
+                  		<li class="dropdown">
+                  			<a href="../P0_login/login.jsp" name="indexLoginBtn" class="noChange">登入</a>
+                  	 	</li>
+                  	</c:if>
+                	<%@ include file="../platform/include_A_href/P2_route.jsp" %>
                     <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %> 
 <%--                     <%@ include file="../platform/include_A_href/Portfolio.jsp" %> --%>
                     <%@ include file="../platform/include_A_href/P3_TravelDiary.jsp"%>
 					<%@ include file="../platform/include_A_href/P6_contactUs.jsp"%>
-                    <%@ include file="../platform/include_A_href/memberSession.jsp"%>
+                     <c:if test="<%=sionName != null%>">
+                 		<li class="dropdown">
+                    		<a href="#"  class="dropdown-toggle" data-toggle="dropdown">
+                    		<i class="fa fa-user"></i><%=sionName%>你好&nbsp;&nbsp;<i id ="InviteIcon"></i><span id="YouHasInvite" style="vertical-align: top"></span><b class="caret"></b></a>
+<%--                     		<i class="fa fa-user"></i><%=sionName%>你好<b class="caret"></b></a> --%>
+                 			<ul class="dropdown-menu">
+		                       	<li>
+		                           <a href="P1_iud/userProfile.jsp">會員基本資料</a>
+		                       	</li>
+		                      	<li>
+		                           	<a href="P4_MessageBoard/SeekFriend2.jsp">會員好友管理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		                           		<span id="friendManage"></span>
+		                           	</a>
+		                       	</li>
+		                        <li>
+           							 <a href="http://<%=serverName%>:<%=serverPort%><%=contextPath%>/P2_route/viewnameServlet?action=GetRouteByMemID&reflash=true&memID=${userLoginId}">我的路線</a>
+        					 	</li>
+		                       	<li>
+		                           <a href="LoginServlet?action=logOut">登出系統</a>
+		                       	</li>
+                  			</ul>
+                     	</li>		
+                  	</c:if>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -125,6 +131,7 @@
 <!-- footer用 -->    
 <%@ include file="../platform/include_footer.jsp" %>    
 <!-- /footer用 -->  
+<script src="../seetalertjs/sweet-alert.js"></script> 
 
 
 <script type="text/javascript">   
@@ -133,7 +140,21 @@
 	var serverPort = "<%= serverPort %>"; //8081
 	var contextPath = "<%= contextPath %>"; //Project_1
 	
+//******昱豪 登入處裡*****************************
 	
+	var sionLog = "<%=sionLoginId%>";
+	if(sionLog == "null"){
+ 		//$(".navbar-right a[class != 'noChange'] ").prop("href","P0_login/login.jsp");
+		$(".navbar-right a[class != 'noChange'] ").prop("href","#");
+		$("a[name != 'indexLoginBtn']").click(function(){
+			//alert("請先登入會員!!");
+			sweetAlert("此功能需先行登入會員!!","","warning");
+			$("#ok_sweetAlert").click(function(){
+				window.location.href='http://'+ serverName +':'+ serverPort + contextPath +'/P0_login/login.jsp';
+			});
+				
+		});
+	}
 })(jQuery);
 
 </script>

@@ -53,15 +53,6 @@
                             <li>
                                 <a href="#" id="cooperationLink">與好友同步規劃</a>
                             </li>
-                            <li>
-                                <a href="portfolio-3-col.html">3 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-4-col.html">4 Column Portfolio</a>
-                            </li>
-                            <li>
-                                <a href="portfolio-item.html">Single Portfolio Item</a>
-                            </li>
                         </ul>
                     </li>
                     <%@ include file="../platform/include_A_href/P4_MessageBoard.jsp" %> 
