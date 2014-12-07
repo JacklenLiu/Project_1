@@ -124,7 +124,7 @@
                </button>
 <!--                </button> -->
                <voice-recognition id="recognition-element"></voice-recognition>
-               <button id="chatbt" class="btn btn-primary pure-button pure-button-primary">Send</button>
+               <button id="chatbt" class="btn btn-primary">Send</button>
                
            </fieldset>
            <fieldset>
@@ -206,8 +206,8 @@
 	//可以使用按鈕發送訊息     按下送出將文字送到對話框然後再去呼叫story-page.js將文字傳送過去
    (function ($){
 	$('#chatbt').click(function(){  //送出 -> click事件
-		var userchat = $('#chatinput').val();//讀取chatinput所輸入的值-> 並放入userchat
-		$('#chatinput').val("");//將值拿掉
+		var userchat = $('#recognition-input').val();//讀取chatinput所輸入的值-> 並放入userchat
+		$('#recognition-input').val("");//將值拿掉
 		var chat="";
 		//從後台登入的時候會多丟一個參數為admin=admin123 用來判別是從後台或是user
 		if(admin!="null"){
@@ -224,11 +224,11 @@
 	});
 	
 	//可以使用enter發送訊息
-	$('#chatinput').keyup(function(e){
+	$('#recognition-input').keyup(function(e){
 	    if(e.keyCode == 13)
 	    {
-	    	var userchat = $('#chatinput').val();//讀取chatinput所輸入的值-> 並放入userchat
-			$('#chatinput').val("");//將值拿掉
+	    	var userchat = $('#recognition-input').val();//讀取chatinput所輸入的值-> 並放入userchat
+			$('#recognition-input').val("");//將值拿掉
 			var chat="";
 			//從後台登入的時候會多丟一個參數為admin=admin123 用來判別是從後台或是user
 			if(admin!="null"){
