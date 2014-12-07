@@ -208,7 +208,7 @@ public class IUDServlet extends HttpServlet {
 				MemberVO memVO = new MemberService().update(member_loginID, member_password,
 										member_name, member_gender, member_birthday,
 										member_address,member_updateTime,member_type);
-				
+				session.setAttribute("userName",memVO.getMember_name());
 				session.setAttribute("updateCurrent","修改成功");				
 				response.sendRedirect("/Project_1/index.jsp");
 				return;

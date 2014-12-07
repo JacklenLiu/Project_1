@@ -169,7 +169,7 @@
                     <div class="form-group">
                         <label for="description" class="col-sm-3 control-label">密碼:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="idPwd"  placeholder="請輸入密碼" name="idPwd">
+                            <input type="password" class="form-control" id="idPwd"  placeholder="請輸入密碼" name="idPwd">
                         	<span id="pwdOk" style="font-size:18px;color:red;">${errorMsgPwd}</span>  
                             <label class="lable" id="pwdLabel">&nbsp;&nbsp;&nbsp;(不可空白、中文字，至少六個字且包含英文字母、數字)</label>                          
                         </div>
@@ -177,7 +177,7 @@
                     <div class="form-group">
                         <label for="amount" class="col-sm-3 control-label">確認密碼</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="doubleIdPwd"  placeholder="請再次輸入密碼" name="amount">
+                            <input type="password" class="form-control" id="doubleIdPwd"  placeholder="請再次輸入密碼" name="amount">
                         	<span id="pwdOk2" style="font-size:18px;color:red;"></span>
                         </div>
                     </div>
@@ -213,16 +213,16 @@
 <!--                             <input type="date" class="form-control" id="date" name="date"> -->
                         </div>
                     </div>
-                    <div class="form-group">  
-                    	<label for="hobby" class="col-sm-3 control-label">旅遊偏好:</label>
-                    	<div class="col-sm-9">
-						    <select id="hobbySel" class="form-control" name="member_type">
-						    	<option value="A">五光十色大都會之旅</option>
-						    	<option value="B">自然奇景心靈沉澱之旅</option>
-						    	<option value="C">節慶活動狂歡旅行</option>
-						    </select>
-    					</div>
-					</div>    
+<!--                     <div class="form-group">   -->
+<!--                     	<label for="hobby" class="col-sm-3 control-label">旅遊偏好:</label> -->
+<!--                     	<div class="col-sm-9"> -->
+<!-- 						    <select id="hobbySel" class="form-control" name="member_type"> -->
+<!-- 						    	<option value="A">五光十色大都會之旅</option> -->
+<!-- 						    	<option value="B">自然奇景心靈沉澱之旅</option> -->
+<!-- 						    	<option value="C">節慶活動狂歡旅行</option> -->
+<!-- 						    </select> -->
+<!--     					</div> -->
+<!-- 					</div>     -->
                     <div class="form-group">
                     	<div class="col-sm-4 text-right">
 							<input type="button" class="btn btn-default preview-add-button btn-warning"  id="fakeData" value="data"/>
@@ -238,6 +238,7 @@
                             <input type="hidden" name="member_class" value="1">
 							<input type="hidden" name="member_stop" value="N">
 							<input type="hidden" name="member_buildtime" value="<%=new java.sql.Timestamp(right.getTime())%>">
+                        	<input type="hidden" name="member_type" value="A">
                         </div>
                     </div>
                 </div>

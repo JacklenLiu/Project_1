@@ -97,10 +97,10 @@
                         <td>會員地址:</td>
                         <td>${list.member_address}</td>
                       </tr>
-                      <tr>
-                        <td>會員興趣種類:</td>
-                        <td>${list.typeName}</td>
-                      </tr>
+<!--                       <tr> -->
+<!--                         <td>會員興趣種類:</td> -->
+<%--                         <td>${list.typeName}</td> --%>
+<!--                       </tr> -->
                     </tbody>
                   </table>
                 </div>

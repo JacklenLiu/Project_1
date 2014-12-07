@@ -41,7 +41,7 @@ public class ShowInviteCountServlet extends HttpServlet {
 		//String member_loginID=(String)session.getAttribute("userLoginId"); 
 //		List<FrdVO> list=dao.getPart("aa123");//先用aa123
 		String temp = req.getParameter("member_loginID");
-		System.out.println("temp is"+ temp);
+//		System.out.println("temp is"+ temp);
 		List<FrdVO> list=dao.getPart(temp);//先用aa123
 		int invite_count = list.size();
 //		System.out.println("現在有"+invite_count+"個邀請");

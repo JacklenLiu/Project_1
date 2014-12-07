@@ -96,7 +96,7 @@ public class FrdServlet extends HttpServlet {
 		if("show_invite".equals(action)){
 			// 顯示有哪些人發送邀請給你
 			
-			System.out.println("come into ~~~ show_invite   ");
+//			System.out.println("come into ~~~ show_invite   ");
 //			
 ////			String member_loginID = req.getParameter("vmember_loginID");
 ////			FrdDAO dao = new FrdDAO();
@@ -116,7 +116,7 @@ public class FrdServlet extends HttpServlet {
 		if("show_invite2".equals(action)){
 			// 顯示有哪些人發送邀請給你
 			
-			System.out.println("come into ~~~ show_invite   ");
+//			System.out.println("come into ~~~ show_invite   ");
 
 			String path = getServletContext().getContextPath();
 			System.out.println(path);
