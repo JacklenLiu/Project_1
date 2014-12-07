@@ -811,6 +811,11 @@ insert into member_friend values ('aaa123','ccc123','不，我是你高中老師
 insert into member_friend values ('aaa123','ddd123','交個朋友',0, 'null');
 insert into member_friend values ('ddd123','bbb123','嗨你好',0, 'null');
 insert into member_friend values ('eee123','bbb123','好久不見',0, 'null');
+insert into member_friend values ('ddd123','bbb123','我是你高中同學',0, 'null');
+insert into member_friend values ('fff123','ccc123','不，我是你高中老師',0, 'null');
+insert into member_friend values ('ggg123','ddd123','交個朋友',0, 'null');
+insert into member_friend values ('hhh123','bbb123','嗨你好',0, 'null');
+insert into member_friend values ('bbb123','bbb123','好久不見',0, 'null');
 
 /*路徑規劃*/
 create table route
@@ -864,8 +869,12 @@ CREATE TABLE TravelDiary(
   CONSTRAINT TravelDiary_TravelDiary_ID_PK PRIMARY KEY (TravelDiary_ID)
 )
 
-insert into TravelDiary values ('擎天崗一日遊超好玩','2014-10-05','我在擎天崗遇到超多牛和牛屎~','aaa123',0);
+insert into TravelDiary values ('擎天崗一日遊超好玩','2014-10-05','我在擎天崗夜景好美~','aaa123',0);
 insert into TravelDiary values ('淡水一日遊超好玩','2014-10-05','我在淡水老街漁人碼頭夜景好美~','bbb123',1);
+insert into TravelDiary values ('擎天崗一日遊超好玩','2014-10-05','我在擎天崗夜景好美~','ccc123',0);
+insert into TravelDiary values ('淡水一日遊超好玩','2014-10-05','我在淡水老街漁人碼頭夜景好美~','ddd123',0);
+insert into TravelDiary values ('擎天崗一日遊超好玩','2014-10-05','我在擎天崗夜景好美~','eee123',0);
+insert into TravelDiary values ('淡水一日遊超好玩','2014-10-05','我在淡水老街漁人碼頭夜景好美~','fff123',0);
 
 
 /*會員心情札記圖片*/
