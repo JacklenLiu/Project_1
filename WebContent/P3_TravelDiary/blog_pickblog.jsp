@@ -25,7 +25,18 @@
 	border: 1px #dedfe0 solid;
 	position: relative;
 }
+/*bootstrap 內文自動換行*/
+.nextline {
+  -ms-word-break: break-all;
+  word-break: break-all;
 
+  /* Non standard for webkit */
+  word-break: break-word;
+
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
 
 
 #imgdiv img { 
@@ -131,9 +142,9 @@ this.style.width=(this.offsetWidth > 700)?"700px":"auto"});
 	<div class="container">
 		<div class="row">
 			<div class="col-md-2"></div>
-			<div class="col-md-8">
-				<div style="border: 1px solid gray; border-radius: 15px;background-color:white" contenteditable="true">
-					<div style="width:728px;margin:0px auto;" id="imgdiv">
+			<div class="col-md-8 nextline">
+				<div style="border: 1px solid gray; border-radius: 15px;background-color:white">
+					<div style="margin:0px 20px auto;" id="imgdiv">
 						<h2><%=travelDiaryVO.getTravelDiary_Name()%></h2>
 						<%=travelDiaryVO.getTravelDiary_Content()%>
 	
