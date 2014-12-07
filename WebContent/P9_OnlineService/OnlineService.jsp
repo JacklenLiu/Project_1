@@ -242,7 +242,7 @@
 			}
 			
 			serviceChat(chat);//呼叫story-page.js 的 chatsend並帶參數
-			alert("進來了key")
+// 			alert("進來了key");
 	    }
 	});
 	
