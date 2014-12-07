@@ -37,8 +37,8 @@
 <link rel="stylesheet" href="styles/jquery.dataTables.min.css" >
 
 
-<link href="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css" rel="stylesheet">
-
+<!-- <link href="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.css" rel="stylesheet"> -->
+<link href="styles/dataTables.jqueryui2.css" rel="stylesheet">
 
 <link rel="stylesheet" href="styles/buttons.css" >
 <script type="text/javascript" src="Scripts/buttons.js"></script>
@@ -115,6 +115,14 @@
 				color: red;
 }
 
+
+/* 調整datatable樣式 */
+#table2_info{
+	color:red;
+	font-weight: bolder;
+}
+
+
 </style>
 </head>
 <body>
@@ -145,7 +153,7 @@
 
 <!-- ****************************************************** -->
 <div class="container">
-	<h2>現在身分 : <%=sionLoginId %></h2>
+<%-- 	<h2>現在身分 : <%=sionLoginId %></h2> --%>
 	
 
 
@@ -417,7 +425,8 @@
 	});
 </script>
 <script type="text/javascript" src="Scripts/jquery.dataTables.min.js"></script>
-<script src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script>	
+<!-- <script src="http://cdn.datatables.net/plug-ins/9dcbecd42ad/integration/jqueryui/dataTables.jqueryui.js"></script> -->
+<script src="Scripts/dataTables.jqueryui.js"></script>		
 <script type="text/javascript">
 
 var serverName = "<%= serverName %>"; //localhost
