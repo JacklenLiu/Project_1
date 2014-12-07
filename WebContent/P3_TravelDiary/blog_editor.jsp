@@ -7,6 +7,9 @@
 <%
 	Date date = new Date();
 	java.util.Date right = new java.util.Date();
+	java.sql.Timestamp timestamp = new java.sql.Timestamp(date.getTime()); 
+	String todate=timestamp.toString();	
+	String today=todate.substring(0, todate.lastIndexOf("."));
 %>
 
 <!-- Bootstrap 的 RWD 套件 -->
@@ -143,8 +146,8 @@
 							<div class="col-md-4">
 								<input type="text" class="form-control " id="publish_date"
 									name="publish_date"
-									value="<%=new java.sql.Timestamp(right.getTime())%>"
-									readonly="<%=new java.sql.Timestamp(right.getTime())%>">
+									value="<%=today%>"
+									readonly="<%=today%>">
 							</div>
 							<input type="hidden" id="getcontent" name="getcontent">
 						</div>

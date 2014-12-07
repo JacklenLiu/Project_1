@@ -20,6 +20,8 @@
 	<%@ include file="../platform/include_start.jsp" %>	
 	 <!-- 調整navbar btn -->
 	<link rel="stylesheet" href="../navbar-adjcss/navbar-adj.css">
+	<!-- sweetalert -->
+	<link rel="stylesheet" href="../seeetalertcss/sweet-alert.css">
 <style type="text/css">
 	.boxer {
 	box-shadow: 0px 3px 12px 1px rgba(0, 0, 0, 0.0980392);
@@ -90,7 +92,8 @@
     <!-- 載入文字編輯器 -->
     <script src="js/summernote.min.js"></script>
     <!-- ************************/載入 jQuery bootstrap  summernote js套件************************ -->
-	  
+	<!-- sweetalert -->
+	<script src="../seetalertjs/sweet-alert.js"></script>	  
 <br><br><br><br>
 
 <!---------------------------------全部文章show出------------------------------------------->
@@ -137,11 +140,11 @@
                 	 		</td>
                 	 		
                 	 		<td>
-                	 			<form method="post" action="<%=request.getContextPath()%>/P3_TravelDiary/TravelDiaryServlet">
-                	 				<input type="submit" class="btn btn-submit btn-danger" value="刪除">
+                	 			<a>
+                	 				<input type="submit" class="btn btn-submit btn-danger delete_class" value="刪除">
                 	 				<input type="hidden" name="TravelDiary_ID" value="${travelDiaryVO.travelDiary_ID}">
                 	 				<input type="hidden" name="action" value="GetOneForDelete">             	 			
-                	 			</form>
+                	 			</a>
                 	 		</td>	
             			</tr>
             		</c:forEach>
@@ -158,7 +161,36 @@
 <%@ include file="../platform/include_script.jsp" %>
 <script>
 (function($) {
-	
+	//增加彈出視窗做刪除確認
+	$(".delete_class").click(function(){
+		var id = $(this).closest('a').find('input:nth-child(2)').val();
+		var action = $(this).closest('a').find('input:nth-child(3)').val();
+		swal({ title: "Are you sure?",
+		 	text: "確定刪除嗎?!",
+		  	type: "warning",   
+		  	showCancelButton: true,   
+		  	confirmButtonColor: "#DD6B55",   
+		  	confirmButtonText: "Yes, do it!",   
+		  	closeOnConfirm: false }, function(){
+		  		deleteblog(id,action);
+		  		swal("Success!", "已成功刪除","success"); 
+		  		setTimeout("self.location.reload()",1500);
+		  	});
+		
+		function deleteblog(id,action){
+	 		$.ajax({ 
+			"url": "TravelDiaryServlet",
+			"type":"post",
+			"data":{'action':action,'TravelDiary_ID':id},
+			"dataType":"text",
+			"async": false,
+		});	 
+		}		
+		
+		
+		
+		
+	});
 	//ScrollBar 畫面停留位置方法
 	$({myScrollTop:window.pageYOffset}).animate({myScrollTop:200}, {
 		  duration: 600,

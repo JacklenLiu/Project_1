@@ -16,7 +16,7 @@
                         </a>
                     </div>
                     </div>
-                    <p>&copy;Copyright 2014 - Next Travel. All rights reserved.</p>
+                    <h5 style="color:white">&copy;Copyright 2014 - Next Travel. All rights reserved.</h5>
                 </div>
             </div>  
         </div>

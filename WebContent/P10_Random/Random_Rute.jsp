@@ -161,7 +161,7 @@
 (function ($){
 	
 	//ScrollBar 畫面停留位置方法
-	$({myScrollTop:window.pageYOffset}).animate({myScrollTop:310}, {
+	$({myScrollTop:window.pageYOffset}).animate({myScrollTop:290}, {
 		  duration: 600,
 		  easing: 'swing',
 		  step: function(val) {
