@@ -5,18 +5,14 @@
             <title>七天天氣預報</title>
             <version>2.0</version>
 </product>
-        <issue-time>2014-12-08T11:00:00+08:00</issue-time>
-        <updated>2014-12-08T11:06:02+08:00</updated>
+        <issue-time>2014-12-08T17:00:00+08:00</issue-time>
+        <updated>2014-12-08T16:57:02+08:00</updated>
 </head>
     <data category="forecasts">
         <location type="region">
             <name>臺北市</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>陰短暫雨</text>
-                        <value>26</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰時多雲短暫雨</text>
                         <value>26</value>
@@ -41,11 +37,12 @@
                         <text>多雲</text>
                         <value>2</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲</text>
+                        <value>2</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">19</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">21</value>
 </time>
@@ -62,13 +59,13 @@
                         <value units="C">16</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">18</value>
+                        <value units="C">19</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">23</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">17</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">17</value>
 </time>
@@ -86,6 +83,9 @@
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">14</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">16</value>
 </time>
 </MinT>
 </weather-elements>
@@ -94,10 +94,6 @@
             <name>北部地區</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲短暫雨</text>
-                        <value>12</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>多雲短暫雨</text>
                         <value>12</value>
@@ -122,11 +118,12 @@
                         <text>多雲</text>
                         <value>2</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲</text>
+                        <value>2</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">21</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">22</value>
 </time>
@@ -143,21 +140,21 @@
                         <value units="C">17</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">20</value>
+                        <value units="C">21</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">23</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">16</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">15</value>
+                        <value units="C">16</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
                         <value units="C">17</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
-                        <value units="C">16</value>
+                        <value units="C">15</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
                         <value units="C">13</value>
@@ -167,6 +164,9 @@
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">12</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">13</value>
 </time>
 </MinT>
 </weather-elements>
@@ -175,10 +175,6 @@
             <name>中部地區</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲時晴</text>
-                        <value>7</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>多雲時晴</text>
                         <value>7</value>
@@ -203,11 +199,12 @@
                         <text>多雲時晴</text>
                         <value>7</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲時晴</text>
+                        <value>7</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">25</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">25</value>
 </time>
@@ -226,28 +223,31 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">22</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">23</value>
+</time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">17</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">16</value>
+                        <value units="C">15</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
                         <value units="C">17</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
-                        <value units="C">17</value>
+                        <value units="C">18</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">14</value>
+                        <value units="C">15</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">13</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">12</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">13</value>
 </time>
 </MinT>
 </weather-elements>
@@ -256,10 +256,6 @@
             <name>南部地區</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲</text>
-                        <value>2</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>多雲</text>
                         <value>2</value>
@@ -284,11 +280,12 @@
                         <text>多雲時晴</text>
                         <value>7</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲時晴</text>
+                        <value>7</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">26</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">27</value>
 </time>
@@ -305,21 +302,21 @@
                         <value units="C">23</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">24</value>
+                        <value units="C">23</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">25</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">19</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">18</value>
+                        <value units="C">17</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
-                        <value units="C">18</value>
+                        <value units="C">20</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
-                        <value units="C">18</value>
+                        <value units="C">19</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
                         <value units="C">17</value>
@@ -330,6 +327,9 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">14</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">16</value>
+</time>
 </MinT>
 </weather-elements>
 </location>
@@ -337,10 +337,6 @@
             <name>東北部地區</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>陰短暫雨</text>
-                        <value>26</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰短暫雨</text>
                         <value>26</value>
@@ -365,11 +361,12 @@
                         <text>陰時多雲短暫雨</text>
                         <value>26</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>陰時多雲短暫雨</text>
+                        <value>26</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">19</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">20</value>
 </time>
@@ -386,13 +383,13 @@
                         <value units="C">16</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">18</value>
+                        <value units="C">19</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">23</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">17</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">16</value>
 </time>
@@ -403,13 +400,16 @@
                         <value units="C">17</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">13</value>
+                        <value units="C">14</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">12</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">12</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">14</value>
 </time>
 </MinT>
 </weather-elements>
@@ -418,10 +418,6 @@
             <name>東部地區</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>陰短暫雨</text>
-                        <value>26</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰短暫雨</text>
                         <value>26</value>
@@ -446,11 +442,12 @@
                         <text>多雲時陰短暫雨</text>
                         <value>12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲時陰短暫雨</text>
+                        <value>12</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">23</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">21</value>
 </time>
@@ -467,30 +464,33 @@
                         <value units="C">18</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">20</value>
+                        <value units="C">19</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">23</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">19</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">18</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
-                        <value units="C">19</value>
+                        <value units="C">18</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
                         <value units="C">19</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">16</value>
+                        <value units="C">17</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">15</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">14</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">15</value>
 </time>
 </MinT>
 </weather-elements>
@@ -499,10 +499,6 @@
             <name>東南部地區</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲短暫雨</text>
-                        <value>12</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰時多雲短暫雨</text>
                         <value>26</value>
@@ -527,11 +523,12 @@
                         <text>多雲短暫雨</text>
                         <value>12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲短暫雨</text>
+                        <value>12</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">25</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">23</value>
 </time>
@@ -548,18 +545,18 @@
                         <value units="C">20</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">21</value>
+                        <value units="C">20</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">24</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">20</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">20</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
-                        <value units="C">20</value>
+                        <value units="C">21</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
                         <value units="C">20</value>
@@ -573,6 +570,9 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">15</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">16</value>
+</time>
 </MinT>
 </weather-elements>
 </location>
@@ -580,10 +580,6 @@
             <name>澎湖地區</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲</text>
-                        <value>2</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>多雲時陰</text>
                         <value>5</value>
@@ -608,11 +604,12 @@
                         <text>晴時多雲</text>
                         <value>8</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>晴時多雲</text>
+                        <value>8</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">22</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">23</value>
 </time>
@@ -629,21 +626,21 @@
                         <value units="C">20</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">21</value>
+                        <value units="C">20</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">22</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">19</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">19</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
-                        <value units="C">22</value>
+                        <value units="C">21</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
-                        <value units="C">20</value>
+                        <value units="C">19</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
                         <value units="C">17</value>
@@ -654,6 +651,9 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">17</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">19</value>
+</time>
 </MinT>
 </weather-elements>
 </location>
@@ -661,10 +661,6 @@
             <name>金門地區</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲時晴</text>
-                        <value>7</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>多雲</text>
                         <value>2</value>
@@ -689,11 +685,12 @@
                         <text>晴時多雲</text>
                         <value>8</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>晴時多雲</text>
+                        <value>8</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">21</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">20</value>
 </time>
@@ -712,28 +709,31 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">18</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">20</value>
+</time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">15</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">14</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
-                        <value units="C">17</value>
+                        <value units="C">16</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
                         <value units="C">17</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">14</value>
+                        <value units="C">15</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">12</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">12</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">14</value>
 </time>
 </MinT>
 </weather-elements>
@@ -742,10 +742,6 @@
             <name>馬祖地區</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲短暫雨</text>
-                        <value>12</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰時多雲短暫雨</text>
                         <value>26</value>
@@ -770,11 +766,12 @@
                         <text>多雲</text>
                         <value>2</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲</text>
+                        <value>2</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">17</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">18</value>
 </time>
@@ -791,30 +788,33 @@
                         <value units="C">13</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">14</value>
+                        <value units="C">15</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">18</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">13</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">13</value>
+                        <value units="C">12</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
-                        <value units="C">16</value>
+                        <value units="C">15</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
                         <value units="C">14</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">11</value>
+                        <value units="C">12</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">10</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">11</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">13</value>
 </time>
 </MinT>
 </weather-elements>
@@ -823,10 +823,6 @@
             <name>陽明山</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>陰短暫雨</text>
-                        <value>26</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰短暫雨</text>
                         <value>26</value>
@@ -851,11 +847,12 @@
                         <text>多雲時陰短暫雨</text>
                         <value>12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲短暫雨</text>
+                        <value>12</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">14</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">15</value>
 </time>
@@ -874,13 +871,13 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">13</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">17</value>
+</time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">12</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">11</value>
+                        <value units="C">12</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
                         <value units="C">14</value>
@@ -889,13 +886,16 @@
                         <value units="C">12</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">8</value>
+                        <value units="C">9</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">8</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">9</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">11</value>
 </time>
 </MinT>
 </weather-elements>
@@ -904,10 +904,6 @@
             <name>拉拉山</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>陰短暫雨</text>
-                        <value>26</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰短暫雨</text>
                         <value>26</value>
@@ -932,11 +928,12 @@
                         <text>多雲短暫雨</text>
                         <value>12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲短暫雨</text>
+                        <value>12</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">11</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">12</value>
 </time>
@@ -953,30 +950,33 @@
                         <value units="C">8</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">10</value>
+                        <value units="C">11</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">14</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">9</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">8</value>
+                        <value units="C">9</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
                         <value units="C">11</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
-                        <value units="C">10</value>
+                        <value units="C">9</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">4</value>
+                        <value units="C">5</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">3</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">4</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">7</value>
 </time>
 </MinT>
 </weather-elements>
@@ -985,10 +985,6 @@
             <name>梨山</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲短暫雨</text>
-                        <value>12</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>多雲短暫雨</text>
                         <value>12</value>
@@ -1013,11 +1009,12 @@
                         <text>晴時多雲</text>
                         <value>8</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲時晴</text>
+                        <value>7</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">14</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">13</value>
 </time>
@@ -1034,30 +1031,33 @@
                         <value units="C">12</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">11</value>
+                        <value units="C">12</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">14</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">9</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">8</value>
+                        <value units="C">7</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
-                        <value units="C">7</value>
+                        <value units="C">9</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
-                        <value units="C">7</value>
+                        <value units="C">10</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">8</value>
+                        <value units="C">9</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">5</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">4</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">6</value>
 </time>
 </MinT>
 </weather-elements>
@@ -1066,10 +1066,6 @@
             <name>合歡山</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲短暫雨</text>
-                        <value>12</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>多雲短暫雨</text>
                         <value>12</value>
@@ -1094,11 +1090,12 @@
                         <text>晴時多雲</text>
                         <value>8</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲時晴</text>
+                        <value>7</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">6</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">7</value>
 </time>
@@ -1109,7 +1106,7 @@
                         <value units="C">10</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">9</value>
+                        <value units="C">7</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">6</value>
@@ -1117,28 +1114,31 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">7</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">8</value>
+</time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
+                    <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">3</value>
 </time>
-                    <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">2</value>
-</time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
-                        <value units="C">2</value>
+                        <value units="C">4</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
-                        <value units="C">2</value>
+                        <value units="C">4</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
                         <value units="C">1</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
-                        <value units="C">1</value>
+                        <value units="C">-1</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">0</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">2</value>
 </time>
 </MinT>
 </weather-elements>
@@ -1147,10 +1147,6 @@
             <name>日月潭</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲時晴</text>
-                        <value>7</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>晴時多雲</text>
                         <value>8</value>
@@ -1175,11 +1171,12 @@
                         <text>多雲短暫雨</text>
                         <value>12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲時晴</text>
+                        <value>7</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">21</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">21</value>
 </time>
@@ -1196,13 +1193,13 @@
                         <value units="C">17</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">16</value>
+                        <value units="C">17</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">19</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">16</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">15</value>
 </time>
@@ -1221,6 +1218,9 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">12</value>
+</time>
 </MinT>
 </weather-elements>
 </location>
@@ -1228,10 +1228,6 @@
             <name>溪頭</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲時晴</text>
-                        <value>7</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>多雲時晴</text>
                         <value>7</value>
@@ -1256,11 +1252,12 @@
                         <text>多雲短暫雨</text>
                         <value>12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲</text>
+                        <value>2</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">18</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">18</value>
 </time>
@@ -1277,15 +1274,15 @@
                         <value units="C">15</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">13</value>
+                        <value units="C">15</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">16</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">14</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">14</value>
+                        <value units="C">13</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
                         <value units="C">14</value>
@@ -1294,13 +1291,16 @@
                         <value units="C">14</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">13</value>
+                        <value units="C">14</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">11</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">10</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">11</value>
 </time>
 </MinT>
 </weather-elements>
@@ -1309,10 +1309,6 @@
             <name>阿里山</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲短暫雨</text>
-                        <value>12</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>多雲短暫雨</text>
                         <value>12</value>
@@ -1337,11 +1333,12 @@
                         <text>多雲短暫雨</text>
                         <value>12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲時晴</text>
+                        <value>7</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">12</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">13</value>
 </time>
@@ -1358,30 +1355,33 @@
                         <value units="C">11</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">9</value>
+                        <value units="C">11</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">13</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">8</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">8</value>
+                        <value units="C">7</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
-                        <value units="C">7</value>
+                        <value units="C">8</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
-                        <value units="C">7</value>
+                        <value units="C">8</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">7</value>
+                        <value units="C">8</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">7</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">6</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">7</value>
 </time>
 </MinT>
 </weather-elements>
@@ -1390,10 +1390,6 @@
             <name>玉山</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲短暫雨</text>
-                        <value>12</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>多雲短暫雨或雪</text>
                         <value>60</value>
@@ -1418,11 +1414,12 @@
                         <text>多雲短暫雨</text>
                         <value>12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲時晴</text>
+                        <value>7</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">5</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">5</value>
 </time>
@@ -1441,27 +1438,30 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">5</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">7</value>
+</time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">1</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">0</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
-                        <value units="C">-1</value>
+                        <value units="C">1</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
-                        <value units="C">-1</value>
+                        <value units="C">1</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">0</value>
+                        <value units="C">1</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">0</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
+                        <value units="C">-1</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
                         <value units="C">-1</value>
 </time>
 </MinT>
@@ -1471,10 +1471,6 @@
             <name>墾丁</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>陰時多雲短暫雨</text>
-                        <value>26</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰短暫雨</text>
                         <value>26</value>
@@ -1499,11 +1495,12 @@
                         <text>多雲短暫雨</text>
                         <value>12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲</text>
+                        <value>2</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">24</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">24</value>
 </time>
@@ -1520,21 +1517,21 @@
                         <value units="C">22</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">22</value>
+                        <value units="C">21</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">24</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
+                    <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">22</value>
 </time>
-                    <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">21</value>
-</time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
-                        <value units="C">23</value>
+                        <value units="C">22</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
-                        <value units="C">23</value>
+                        <value units="C">22</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
                         <value units="C">20</value>
@@ -1545,6 +1542,9 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">19</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">20</value>
+</time>
 </MinT>
 </weather-elements>
 </location>
@@ -1552,10 +1552,6 @@
             <name>小琉球</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲</text>
-                        <value>2</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰時多雲短暫雨</text>
                         <value>26</value>
@@ -1580,11 +1576,12 @@
                         <text>晴時多雲</text>
                         <value>8</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲時晴</text>
+                        <value>7</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">26</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">26</value>
 </time>
@@ -1601,13 +1598,13 @@
                         <value units="C">23</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">24</value>
+                        <value units="C">23</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">25</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">20</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">19</value>
 </time>
@@ -1615,15 +1612,18 @@
                         <value units="C">21</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
-                        <value units="C">21</value>
+                        <value units="C">20</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">18</value>
+                        <value units="C">19</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">17</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
+                        <value units="C">17</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
                         <value units="C">17</value>
 </time>
 </MinT>
@@ -1633,10 +1633,6 @@
             <name>龍洞(東北角風景區)</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>陰短暫雨</text>
-                        <value>26</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰短暫雨</text>
                         <value>26</value>
@@ -1661,11 +1657,12 @@
                         <text>陰短暫雨</text>
                         <value>26</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>陰時多雲短暫雨</text>
+                        <value>26</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">19</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">21</value>
 </time>
@@ -1682,15 +1679,15 @@
                         <value units="C">17</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">20</value>
+                        <value units="C">19</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">23</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">18</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">18</value>
+                        <value units="C">19</value>
 </time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
                         <value units="C">20</value>
@@ -1707,6 +1704,9 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">16</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">18</value>
+</time>
 </MinT>
 </weather-elements>
 </location>
@@ -1714,10 +1714,6 @@
             <name>太魯閣</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>陰短暫雨</text>
-                        <value>26</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰短暫雨</text>
                         <value>26</value>
@@ -1742,11 +1738,12 @@
                         <text>陰短暫雨</text>
                         <value>26</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲短暫雨</text>
+                        <value>12</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">23</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">21</value>
 </time>
@@ -1763,13 +1760,13 @@
                         <value units="C">18</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">20</value>
+                        <value units="C">19</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">23</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">19</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">18</value>
 </time>
@@ -1788,6 +1785,9 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">13</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">15</value>
+</time>
 </MinT>
 </weather-elements>
 </location>
@@ -1795,10 +1795,6 @@
             <name>三仙台(東部風景區)</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>多雲時陰短暫雨</text>
-                        <value>12</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰短暫雨</text>
                         <value>26</value>
@@ -1823,11 +1819,12 @@
                         <text>多雲短暫雨</text>
                         <value>12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲</text>
+                        <value>2</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">23</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">21</value>
 </time>
@@ -1844,13 +1841,13 @@
                         <value units="C">18</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">20</value>
+                        <value units="C">19</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">23</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">19</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">19</value>
 </time>
@@ -1869,6 +1866,9 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">14</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">17</value>
+</time>
 </MinT>
 </weather-elements>
 </location>
@@ -1876,10 +1876,6 @@
             <name>綠島</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>陰短暫雨</text>
-                        <value>26</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰短暫雨</text>
                         <value>26</value>
@@ -1904,11 +1900,12 @@
                         <text>多雲時陰短暫雨</text>
                         <value>12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲短暫雨</text>
+                        <value>12</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">24</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">23</value>
 </time>
@@ -1925,13 +1922,13 @@
                         <value units="C">21</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">22</value>
+                        <value units="C">21</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">24</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">21</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">20</value>
 </time>
@@ -1950,6 +1947,9 @@
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">18</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">19</value>
+</time>
 </MinT>
 </weather-elements>
 </location>
@@ -1957,10 +1957,6 @@
             <name>蘭嶼</name>
             <weather-elements>
                 <Wx>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <text>陰短暫雨</text>
-                        <value>26</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <text>陰短暫雨</text>
                         <value>26</value>
@@ -1985,11 +1981,12 @@
                         <text>多雲短暫雨</text>
                         <value>12</value>
 </time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <text>多雲</text>
+                        <value>2</value>
+</time>
 </Wx>
                 <MaxT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
-                        <value units="C">23</value>
-</time>
                     <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">22</value>
 </time>
@@ -2006,30 +2003,33 @@
                         <value units="C">20</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
-                        <value units="C">21</value>
+                        <value units="C">20</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">23</value>
 </time>
 </MaxT>
                 <MinT>
-                    <time start="2014-12-08T12:00:00+08:00" end="2014-12-09T00:00:00+08:00">
+                    <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
                         <value units="C">20</value>
 </time>
-                    <time start="2014-12-09T00:00:00+08:00" end="2014-12-10T00:00:00+08:00">
-                        <value units="C">19</value>
-</time>
                     <time start="2014-12-10T00:00:00+08:00" end="2014-12-11T00:00:00+08:00">
-                        <value units="C">21</value>
+                        <value units="C">20</value>
 </time>
                     <time start="2014-12-11T00:00:00+08:00" end="2014-12-12T00:00:00+08:00">
                         <value units="C">21</value>
 </time>
                     <time start="2014-12-12T00:00:00+08:00" end="2014-12-13T00:00:00+08:00">
-                        <value units="C">18</value>
+                        <value units="C">19</value>
 </time>
                     <time start="2014-12-13T00:00:00+08:00" end="2014-12-14T00:00:00+08:00">
                         <value units="C">18</value>
 </time>
                     <time start="2014-12-14T00:00:00+08:00" end="2014-12-15T00:00:00+08:00">
                         <value units="C">17</value>
+</time>
+                    <time start="2014-12-15T00:00:00+08:00" end="2014-12-16T00:00:00+08:00">
+                        <value units="C">18</value>
 </time>
 </MinT>
 </weather-elements>

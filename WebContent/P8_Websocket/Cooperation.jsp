@@ -445,7 +445,7 @@
 	 element.addEventListener('result', function(e) {
 		   // alert(e.detail.result);
 		    var addviewindex = e.detail.result.indexOf('want to');
-		    var delviewindex = e.detail.result.indexOf('remove');
+		    var delviewindex = e.detail.result.indexOf('刪除');
 		    var frdindex = e.detail.result.indexOf('邀請');
 		    
 		    //判斷"要去"->將左邊景點移至中央
@@ -461,7 +461,7 @@
 		    	});
 		    }else if(delviewindex != -1){
 		    	//判斷"拿掉"->將中央景點移至左邊區塊
-		    	var findViewStr = e.detail.result.substr(delviewindex+6,2);
+		    	var findViewStr = e.detail.result.substr(delviewindex+2,2);
 		    	var liobjs = $('#boardulID').find('li');
 		    	$.each(liobjs, function(i, liobj){
 		    		var tarStr = $(liobj).attr("data-viewname").indexOf(findViewStr);
