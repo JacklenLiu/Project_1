@@ -38,13 +38,20 @@
   hyphens: auto;
 }
 
-
-#imgdiv img { 
+/*這才可以使img在div內自動縮放*/
+#imgdiv img{
+	max-width: 100%!important;
+	height: auto!important;
+	width:expression(this.width > 600 ? "600px" : this.width)!important;
+}
+/*無法使img在div內自動縮放*/ 	
+/*#imgdiv img { 
 max-width:700px; 
 myimg:expression(onload=function(){ 
 this.style.width=(this.offsetWidth > 700)?"700px":"auto"});
 
 } 
+*/
 </style>
 </head>
 
