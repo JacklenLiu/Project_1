@@ -26,7 +26,7 @@
     <meta name="author" content="">
 	
 	<title>下一站，幸福</title>
-	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="shortcut icon" href="../img/favicon.ico">
 	
 	<style type="text/css">
 	

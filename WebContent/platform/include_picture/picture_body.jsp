@@ -33,7 +33,7 @@
            	<div>
                 <img u="image" src="../Images/pic1.jpg" />
                 <div u=caption t="CLIP|LR" du="1500" class="captionOrange"  style="position:absolute; left:20px; top: 35px; width:300px; height:30px;"> 
-                		野琉
+                		野柳
                 </div>
             </div>
             <div> 

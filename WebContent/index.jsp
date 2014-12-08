@@ -4,6 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
+<title>下一站，幸福</title>
+	<link rel="shortcut icon" href="img/favicon.ico">
 	<%@ include file="platform/include_title.jsp" %>
 	<%@ page import="P1_iud.model.*,P2_route.model.*"%>
 	<%
