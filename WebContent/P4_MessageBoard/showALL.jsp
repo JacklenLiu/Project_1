@@ -14,7 +14,20 @@
 
 <html>
 <head>
+<style>
+	.aa123 {
+  -ms-word-break: break-all;
+  word-break: break-all;
 
+  /* Non standard for webkit */
+  word-break: break-word;
+
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+</style>
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/start/jquery-ui.css" rel="stylesheet">
 
 <link rel="stylesheet" href="styles/msg.css">
@@ -171,7 +184,7 @@ function ShowReply(x){
 	<% int j = (int)( Math.random() * 5); %>
 	
   <h3><cite><span style="weigh:10px"><img src="images/pic<%=j %>.jpg" width="35" height="35"> ${list.member_name}</span><span style="position:absolute;left:180px;"><b><c:out value="${list.title}" /></b></span></cite><span style="float:right;" >${list.build_time}</span></h3>
-  <div contenteditable="true">
+  <div class="aa123">
     <p><span style="position:relative;left:30px;"><b><c:out value="${list.content}"/></b></span> </p>
     <hr>
     <%

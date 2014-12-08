@@ -788,9 +788,14 @@ create table messageboard(
  	CONSTRAINT messageboard_messageNum_PK				PRIMARY KEY (messageNum)
 );
 
-insert into messageboard values('aaa123','台北一日遊','貓空好多貓','2014-10-10',0,0);
-insert into messageboard values('bbb123','一日遊','陽明山好多花','2014-10-10',0,0);
-insert into messageboard values('ccc123','台北遊','動物園','2014-10-10',0,0);
+insert into messageboard values('aaa123','花蓮民宿推薦','本來想訂印象很好的七星潭渡假飯店，沒想到它還是很紅，出發前兩個禮拜已經全部客滿。
+改找其他平價民宿，這家海洋B&B民宿就在七星潭渡假飯店前面，附近有家全家方便採買。外觀是一般民宅改建成的簡單民宿，沒有太多花俏裝飾，走路三分鐘就到七星潭海邊...
+醒來就可以看到日出，超享受的~~','2014-10-10',0,0);
+insert into messageboard values('bbb123','看圓仔的攻略','第一周兩次逛動物園的經驗，大致熟悉看大貓熊寶寶圓仔的流程，平常日大概會拿到40分鐘後的參觀券，
+第一天是0930拿到1010的參觀券；假日則是1個半小時~2小時後，11:20拿到12:30的參觀券，這週假日票券約在下午兩點半前就發完了，太晚來會沒機會。','2014-10-10',0,0);
+insert into messageboard values('ccc123','嘉義那間雞肉飯最好吃?','安安，各位大大...小魯最近要去嘉義玩，有推薦哪間雞肉飯最好吃呀?','2014-10-10',0,0);
+insert into messageboard values('ccc123','RE:看圓仔的攻略','要看到醒著的圓仔，則是剛開館及閉館前的30分鐘最有可能。
+中間還有兩次約在11:00及13:30。大多數人都會預先排隊等候進場，其實大可在路邊找地方坐著休息，等同一時段的人進場差不多，再起身悠哉進場，才不會被後面的人推著走喔!!','2014-10-11',0,2);
 
 /*好友管理*/
 create table member_friend (
