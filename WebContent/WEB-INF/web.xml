@@ -17,11 +17,11 @@
   </resource-ref>
   
   	<!--    昱豪     初始執行   抓動態天氣   -->
-<!--   <servlet> -->
-<!--     <servlet-name>importWeather</servlet-name> -->
-<!--     <servlet-class>P2_route.controller.importWeatherServlet</servlet-class> -->
-<!--       <load-on-startup>5</load-on-startup> -->
-<!--   </servlet> -->
+  <servlet>
+    <servlet-name>importWeather</servlet-name>
+    <servlet-class>P2_route.controller.importWeatherServlet</servlet-class>
+      <load-on-startup>5</load-on-startup>
+  </servlet>
 	<!--    昱豪     初始執行   抓動態天氣   -->
   
   <servlet>

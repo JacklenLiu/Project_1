@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import P2_route.model.weatherThread;
+
 /**
  * Servlet implementation class importWeatherServlet
  */
@@ -32,23 +34,8 @@ public class importWeatherServlet extends HttpServlet {
 	}
 	
 	public void init() throws ServletException{
-		String resource[] ={ "http://opendata.cwb.gov.tw/opendata/MFC/F-C0032-003.xml","http://opendata.cwb.gov.tw/opendata/MFC/F-C0032-005.xml"};
-		//http://opendata.cwb.gov.tw/opendata/MFC/F-C0032-005.xml
-		for (int i = 0; i < 2; i++) {
-			
-			try {
-				Thread.sleep(50000);
-			} catch (InterruptedException e) {
-				
-				e.printStackTrace();
-			}
-			
-			P2_route.controller.importWeatherResource gr = new P2_route.controller.importWeatherResource(resource[i],
-					"C:\\Project\\Project_workspace\\Project_1\\WebContent\\P2_route\\xml");
-			gr.doWork();
-		}
-		
-		
+		weatherThread wT = new weatherThread();
+		wT.start();
 	}
 	
 	public void destroy(){

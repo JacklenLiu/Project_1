@@ -524,7 +524,7 @@
 			$("#userName").val("王小明");
 			$("#idPwd").val("test123");
 			$("#doubleIdPwd").val("test123"); 
-			$("#userEmail").val("abc@yahoo.com.tw"); 
+			$("#userEmail").val("finezoo02272000@gmail.com"); 
  			$("#datepicker").val(Today.getFullYear()+ "-" + (Today.getMonth()+1) + "-" + Today.getDate());
 			$("#userAddr").val("台北市大安區復興南路一段390號樓204室");
 		});

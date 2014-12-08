@@ -24,9 +24,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-	<title>Insert title here</title>
+	
+	<title>下一站，幸福</title>
+	<link rel="shortcut icon" href="img/favicon.ico">
+	
 	<style type="text/css">
+	
 	
 	/* 線上客服用 */
 	#abgne_float_ad {

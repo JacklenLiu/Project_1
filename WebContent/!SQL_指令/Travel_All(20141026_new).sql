@@ -835,7 +835,7 @@ create table route
 );
 
 insert into route values ('北區鶯歌淡水一日遊', '2014-10-06','aaa123');
-insert into route values ('北區擎天崗貓空淡水三日遊','2014-10-06', 'bbb123');
+insert into route values ('貓空淡水三日遊','2014-10-06', 'bbb123');
 
 
 /*路徑規劃的圖片及安排路徑順序*/

@@ -285,10 +285,10 @@
                                         <img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_03' style="width:750px;height:400px;"></div>
 
                                     </div><!-- Carousel nav -->
-                                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                    <a class="left carousel-control noChange" name="indexLoginBtn" href="#myCarousel" role="button" data-slide="prev">
                                         <span class="glyphicon glyphicon-chevron-left"></span>                                       
                                     </a>
-                                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                    <a class="right carousel-control noChange" name="indexLoginBtn" href="#myCarousel" role="button" data-slide="next">
                                         <span class="glyphicon glyphicon-chevron-right"></span>                                       
                                     </a>                                
                                     </div>
@@ -314,15 +314,15 @@
                         <!-- Bottom switcher of slider -->
                         <ul class="hide-bullets">
                             <li class="col-sm-4">
-                                <a class="thumbnail" id="carousel-selector-0"><img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_01' style="width:350px;height:150px;"></a>
+                                <a class="thumbnail noChange" id="carousel-selector-0" name="indexLoginBtn"><img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_01' style="width:350px;height:150px;"></a>
                             </li>
 
                             <li class="col-sm-4">
-                                <a class="thumbnail" id="carousel-selector-1"><img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_02' style="width:350px;height:150px;"></a>
+                                <a class="thumbnail noChangenoChange" id="carousel-selector-1" name="indexLoginBtn"><img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_02' style="width:350px;height:150px;"></a>
                             </li>
 
                             <li class="col-sm-4">
-                                <a class="thumbnail" id="carousel-selector-2"><img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_03' style="width:350px;height:150px;"></a>
+                                <a class="thumbnail noChange" id="carousel-selector-2" name="indexLoginBtn"><img src='http://<%=serverName%>:<%= serverPort%><%= contextPath%>/GetLeaderServlet?leaderId=<%=imagesID%>_03' style="width:350px;height:150px;"></a>
                             </li>
                         </ul>                 
                 </div>

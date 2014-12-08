@@ -144,33 +144,48 @@
 	
     form.addEventListener('submit', function(e) {
         e.preventDefault();
+        element.text="";
         element.start();
+        
     });
 
     element.addEventListener('result', function(e) {
-        input.textContent = e.detail.result;
+    	input.textContent = e.detail.result;
+    	
+       
        	if((e.detail.result).indexOf("送出") !=-1){
 //        	$("#chatbt").trigger("click");
-			
-       		var recognition = $('#recognition-input').val();//讀取chatinput所輸入的值-> 並放入userchat
-       		var ccc=(input.textContent).indexOf("送出");
+			var recognition = null;
+			var ccc = null;
+			if($('#recognition-input').val() != ""){
+       			recognition = $('#recognition-input').val();//讀取chatinput所輸入的值-> 並放入userchat
+				
+			}else{
+				recognition = e.detail.result;
+				ccc=(e.detail.result).indexOf("送出");
+				recognition = (e.detail.result).substring(0,ccc);
+			}
+			input.textContent = recognition;
        		
-       		input.textContent = (input.textContent).substring(0,ccc);
-       		recognition = input.textContent;
-       		$('#recognition-input').val("");//將值拿掉
     		var chat="";
     		//從後台登入的時候會多丟一個參數為admin=admin123 用來判別是從後台或是user
     		if(admin!="null"){
-    			chat = "admin  : " + recognition; //將使用者(guest+IP) 跟 userchat 串在一起
+    			chat = "admin  : " + input.textContent; //將使用者(guest+IP) 跟 userchat 串在一起
     		}
     		//判別是否可以抓到ID 若無法抓到ID在聊天內容就給他變換成guest+IP
     		else if(sionName=="null"){
-    			chat = OlineSvc +" : " + recognition; //將使用者(guest+IP) 跟 userchat 串在一起
+    			chat = OlineSvc +" : " + input.textContent; //將使用者(guest+IP) 跟 userchat 串在一起
     		}else{
-    			chat = sionName +" : " + recognition; //將使用者(sionName) 跟 userchat 串在一起
+    			chat = sionName +" : " + input.textContent; //將使用者(sionName) 跟 userchat 串在一起
     		}
     		serviceChat(chat);
+    		$('#recognition-input').val("");//將值拿掉
+       	}else{
+       	 	$('#recognition-input').val(input.textContent);
        	}
+       	
+        e.detail.result = null;
+        input.textContent = null;
         element.stop();
     });
     
@@ -221,6 +236,7 @@
 		}
 		
 		serviceChat(chat);//呼叫story-page.js 的 chatsend並帶參數
+		
 	});
 	
 	//可以使用enter發送訊息
