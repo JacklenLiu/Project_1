@@ -83,6 +83,13 @@ public class FrdService {
 		return dao.getFrdsEmail(memID);
 	}
 	
+	@GET
+	@Path("/sys")
+	@Produces("application/json; charset=UTF-8")
+	public String getFrdpw(@QueryParam("memID") String memID){
+		return dao.getFrdpw(memID);
+	}
+	
 	public String getFrdID(String memName){
 		return dao.getFrdID(memName);
 	}

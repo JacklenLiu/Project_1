@@ -47,7 +47,8 @@ public class FrdDAO implements FrdDAO_interface {
 	private static final String GET_FRDSEMAIL_BY_MEMID = "SELECT member_email from sysmember where member_loginID = ?";
 	private static final String GET_FRDID_BY_MEMNAME = "SELECT member_loginID from sysmember where member_name like ?";
 	private static final String CHECK_INVITE_COUNT = "SELECT Count(*) from member_friend where friend_loginID=? and relationship_status=0"; // 回傳此條件的搜尋筆數
-
+	private static final String GET_MEMPW_BY_MEMID = "SELECT member_password from sysmember where member_loginID = ?";
+	
 
 	@Override
 	public void insert(FrdVO frdVO) {
@@ -853,6 +854,48 @@ public class FrdDAO implements FrdDAO_interface {
 			}
 		}		
 		return frdName;
+	}
+
+
+	@Override
+	public String getFrdpw(String memID) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String pw="";
+		
+		try{
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_MEMPW_BY_MEMID);	
+			
+			pstmt.setString(1, memID);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				pw = rs.getString(1);
+			}
+			
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}		
+		return pw;
 	}
 	
 }
