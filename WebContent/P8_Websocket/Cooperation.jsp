@@ -443,7 +443,7 @@
 	 });
 	 
 	 element.addEventListener('result', function(e) {
-		    alert(e.detail.result);
+		   // alert(e.detail.result);
 		    var addviewindex = e.detail.result.indexOf('want to');
 		    var delviewindex = e.detail.result.indexOf('remove');
 		    var frdindex = e.detail.result.indexOf('邀請');
