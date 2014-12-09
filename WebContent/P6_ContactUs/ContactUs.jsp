@@ -132,6 +132,7 @@
     
             <div class="form-group">
               <div class="col-md-12 text-center">
+                <input type="button" class="btn btn-warning " id="autodata" value="data">
               	<button class="btn btn-danger " type="reset">RESET</button>
               	<input type="button" class="btn btn-primary" name="send" id="send" value="送出">
 <!--                 <button type="submit" name="Submit" class="btn btn-primary">Submit</button> -->
@@ -178,7 +179,7 @@
 		var serverName = "<%= request.getServerName()%>";
 		var serverPort = "<%= request.getServerPort()%>";
 		var contextPath = "<%= request.getContextPath()%>";
-	var sionLog = "<%=sionLoginId%>";
+		var sionLog = "<%=sionLoginId%>";
 	if(sionLog == "null"){
 		//alert(sionName);
 		$(".navbar-right a[class != 'noChange'] ").prop("href","#");
@@ -193,7 +194,17 @@
 		});
 	}
 	//******昱豪 登入處裡*****************************
+	
+	
 		(function($) {
+			
+			$('#autodata').click(function(){
+				$('#fname').val('Benny');
+				$('#recipients').val('finezoo02272000@gmail.com');
+				$('#subject').val('忘記密碼');
+				$('#contents').val('不好意思我忘記密碼了，請問該怎麼解決');
+			});
+			
 			
 			$('#send').click(function(){
 				var mail_check= /.+@.+\..+/;

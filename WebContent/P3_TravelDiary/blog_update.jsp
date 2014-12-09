@@ -152,7 +152,7 @@
                             </div>
 							<input type="hidden" id="getcontent" name="getcontent">
                         </div>
-                        <textarea name="content" id="summernote" rows="10" class="form-control active_textarea"><%=travelDiaryVO.getTravelDiary_Content() %>
+                        <textarea name="content" id="summernote" rows="10" class="form-control active_textarea">
                         </textarea>
                         
                     </div>
@@ -218,7 +218,9 @@
 
 		//為了讓編輯器一開始內容清空因為一開始產生出來會有<p></br></p>佔了空間導致無法偵測是否有字串
         $(window).load(function() {
-//         	$('#summernote').code("");
+        	var content='<%=travelDiaryVO.getTravelDiary_Content()%>';
+        	
+        	$('#summernote').code(content);
         	$('.note-editable').css("background-color","white");
         });
         //測試讀取content內容資料

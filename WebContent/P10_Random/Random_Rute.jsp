@@ -44,7 +44,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">路徑規劃 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         	<li>
-                                <a href="Random.jsp">隨機旅程</a>
+                                <a href="Random.jsp" class="noChange"  name="indexLoginBtn">隨機旅程</a>
                             </li>
                         
                             <li>

@@ -43,8 +43,10 @@ public class TravelDiaryDAO implements TravelDiary_Interface {
 //	private static final String GET_FRIENS_ID="select friend_loginID from member_friend where member_loginID=?";
 	
 	//取會員朋友Name()改用Name
-	private static final String GET_FRIENS_ID="select s.member_name ,s.member_loginID from member_friend f join  sysmember s  on f.friend_loginID=s.member_loginID where f.member_loginID=?";
+//	private static final String GET_FRIENS_ID="select s.member_name ,s.member_loginID from member_friend f join  sysmember s  on f.friend_loginID=s.member_loginID where f.member_loginID=?";
 	
+	//上面指令寫錯改用這個
+	private static final String GET_FRIENS_ID="select s.member_name ,s.member_loginID from member_friend f join  sysmember s  on f.friend_loginID=s.member_loginID where f.relationship_status=1 and f.member_loginID=?";
 		
 	//取文章
 	private static final String GET_PIC2="select TravelDiary_ID,TravelDiary_Name,TravelDiary_Content , diary_class from TravelDiary where member_loginID=? order by publish_date  desc";

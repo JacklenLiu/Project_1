@@ -58,10 +58,10 @@ public class ForgetPassWordAutoMail extends Thread{
 	        
 	     
 
-	        Message msg = new MimeMessage(session);
+	        MimeMessage msg = new MimeMessage(session);
 	        msg.setFrom(new InternetAddress( fromuser ));
 	        msg.setRecipient(Message.RecipientType.TO, new InternetAddress( member_email ));
-	        msg.setSubject( "下一站!幸福!(客服系統)： 忘記密碼重新寄送");
+	        msg.setSubject( "下一站!幸福!(客服系統)： 忘記密碼重新寄送","utf-8");
 	        //寫給使用者的內容
 	        String text=member_loginID+"您好:<br>已經更改您的密碼。<br>新密碼為:<strong> "+newPass+"</strong>。  \n\n 謝謝。";
 	        msg.setContent(text, "text/html; charset=utf-8");  
