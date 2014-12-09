@@ -132,8 +132,10 @@
       	</form> 
   	</div>   
 </div>
-<!--   			<voice-player autoplay accent="zh-CN" text="下一站，幸福，客服中心您好!!"></voice-player> -->
-               
+<%System.out.println("admin="+request.getParameter("admin")); %>
+<c:if test='<%=request.getParameter("admin")==null%>'>
+	<voice-player autoplay accent="zh-CN" text="下一站，幸福，客服中心您好!!"></voice-player>
+</c:if> 
 
 <script>!window.jQuery && document.write("<script src='../Script/jquery-2.1.1.min.js'><\/script>")</script>
 <script src='../Script/jquery-ui.js'></script>	
