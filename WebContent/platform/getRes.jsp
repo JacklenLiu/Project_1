@@ -34,7 +34,7 @@
 				memID="";
 				if (!("{}".equals(Notifymsg))) {
 					writer.write("data: " + Notifymsg + "\n\n");
-					writer.write("retry: 10000\n");
+					writer.write("retry: 5000\n");
 				}
 			}
 		%>
