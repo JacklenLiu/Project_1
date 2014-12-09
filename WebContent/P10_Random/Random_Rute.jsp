@@ -117,6 +117,7 @@
 			</header>
 			<div class="col-sm-12">
 				<h2 id="">ÀH¾÷´ºÂI</h2>
+				<center><img src="../P2_route/images/gears.gif" id="getAllEnd"></center> 
 				<table id="example" class="display" cellspacing="0">
 					<thead>
 						<tr>
@@ -208,6 +209,7 @@
 			$("#tbodyid").append("</tr>");
    			
    		});
+   		$("#getAllEnd").prop("hidden",true);
    	});
    	
 	var imagesID="";
