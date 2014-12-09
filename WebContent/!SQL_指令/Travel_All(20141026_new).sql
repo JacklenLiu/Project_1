@@ -765,6 +765,7 @@ insert into sysmember values ('hhh123','iii123','cc123@yahoo.com.tw',3,'吳宗�
 insert into sysmember values ('iii123','jjj123','dd123@gmail.com',4,'梁朝偉','N','男','2011-07-01','台北市大安區','2012-08-07','','A');
 insert into sysmember values ('jjj123','hhh123','ee123@yahoo.com.tw',5,'劉德華','N','男','2010-11-21','台北市大安區','2011-06-18','','C');
 insert into sysmember values ('admin305','admin305','ee123@yahoo.com.tw',9,'林志玲','N','男','2010-11-21','台北市大安區','2011-06-18','','C');
+insert into sysmember values ('test123','test123','finezoo02272000@gmail.com',1,'小明','N','男','2010-11-21','台北市大安區','2011-06-18','','C');
 
 
 /*
@@ -811,16 +812,16 @@ create table member_friend (
 	
 );
 
-insert into member_friend values ('aaa123','bbb123','我是你高中同學',0, 'null');
 insert into member_friend values ('aaa123','ccc123','不，我是你高中老師',0, 'null');
 insert into member_friend values ('aaa123','ddd123','交個朋友',0, 'null');
-insert into member_friend values ('ddd123','bbb123','嗨你好',0, 'null');
-insert into member_friend values ('eee123','bbb123','好久不見',0, 'null');
-insert into member_friend values ('ddd123','bbb123','我是你高中同學',0, 'null');
-insert into member_friend values ('fff123','ccc123','不，我是你高中老師',0, 'null');
-insert into member_friend values ('ggg123','ddd123','交個朋友',0, 'null');
-insert into member_friend values ('hhh123','bbb123','嗨你好',0, 'null');
-insert into member_friend values ('bbb123','bbb123','好久不見',0, 'null');
+insert into member_friend values ('ddd123','bbb123','嗨你好',1, 'null');
+insert into member_friend values ('eee123','bbb123','好久不見',1, 'null');
+insert into member_friend values ('bbb123','ddd123','嗨你好',1, 'null');
+insert into member_friend values ('bbb123','eee123','好久不見',1, 'null');
+insert into member_friend values ('bbb123','test123','嗨你好',1, 'null');
+insert into member_friend values ('test123','bbb123','嗨你好',1, 'null');
+
+
 
 /*路徑規劃*/
 create table route
@@ -1036,7 +1037,7 @@ insert into LoginCount values ('ggg123',1);
 insert into LoginCount values ('hhh123',1);
 insert into LoginCount values ('iii123',1);
 insert into LoginCount values ('jjj123',1);
-insert into LoginCount values ('admin305',1);
+insert into LoginCount values ('test123',1);
 
 
 

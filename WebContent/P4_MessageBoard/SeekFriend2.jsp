@@ -494,7 +494,7 @@ var contextPath = "<%= contextPath %>"; //Project_1
   		
   		window.location.href="http://"+serverName+":"+ serverPort +contextPath+"/P4_MessageBoard/FrdServlet?action=show_invite2&vmember_loginID="+ID;
   				
-			}, 360000); // 6分鐘 reload
+			}, 600000); // 10分鐘 reload
 
 	    var confirmSend= "<%=pageContext.getAttribute("invite_count")%>";
 	   if(confirmSend != 0){
