@@ -162,6 +162,9 @@ input[type="text"] {
 <!-- 							<button class="btn btn-lg btn-primary btn-block" type="submit">送出</button> -->
 							<input type="hidden" name="action" value="forget">
 						</div>
+						<div class="col-xs-1">
+						<input type="button" class="btn btn-warning " id="autodata" value="data">
+						</div>
 					</div>
 				</form>
 			</div>
@@ -267,6 +270,15 @@ input[type="text"] {
 			});
 		}
 		//**********************昱豪  登入問題**********************
+		
+		
+		$('#autodata').click(function(){
+				$('#userid').val('test123');
+				$('#email').val('finezoo02272000@gmail.com');
+			});
+		
+		
+		
 		
 })(jQuery);
 </script>
