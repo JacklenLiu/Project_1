@@ -158,6 +158,7 @@
 						value="送出"> <input type="hidden" name="action"
 						value="InsertBlog"> <input type="button"
 						class="between btn btn-submit btn-danger pull-right" id="cancel" value="取消">
+						 <input type="button" class="btn btn-warning " id="autodata" value="data">
 				</form>
 				<!-- <button type="button" class="btn btn-submit pull-right" id="submit1">jquery post測試</button> -->
 
@@ -188,6 +189,7 @@
 	<script>
 		(function($) {
 			
+			
 			//ScrollBar 畫面停留位置方法
 	    	$({myScrollTop:window.pageYOffset}).animate({myScrollTop:200}, {
 	    		  duration: 600,
@@ -202,7 +204,7 @@
 			//設定summernote的工具有哪些
 			$('#summernote').summernote(
 					{
-						height : 600,
+						height : 300,
 						focus : true,
 						toolbar : [
 								[ 'style', [ 'style' ] ], // no style button
@@ -257,7 +259,13 @@
 				window.location.href = "TravelDiaryServlet?action=blog.do";
 
 			});
-
+			
+			$('#autodata').click(function(){
+			var content="這次到墾丁入住的是H會館<br>房間是Ｊ前一個月就偷偷訂了<br>出發前幾天我才知道，很驚喜︿︿<br>雖然房價不便宜<br>但Ｊ訂完後，中秋幾天就呈現客滿狀態<br>不管是想增加天數或是改日期都困難（沒料後來”天兔”居然變強颱！<br>想必墾丁很多民宿都被退到手軟吧(只有我們是打電話去加訂，老闆一定有偷偷拭淚吧)<br>入住的頭一兩天，感覺上Ｈ會館的房客還是一樣很多<br>天氣超好的<br>還好我們有先見之明請假提早一天出發   也多玩了一天<br>一路上車少，開起來輕鬆多了<br>比預計的時間還快到達";
+			$('#TravelDiary_Name').val("墾丁一日遊");
+			$('#summernote').code(content);
+			});
+			
 		})(jQuery);
 	</script>
 
