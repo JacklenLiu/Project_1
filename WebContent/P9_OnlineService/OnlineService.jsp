@@ -132,7 +132,6 @@
       	</form> 
   	</div>   
 </div>
-<%System.out.println("admin="+request.getParameter("admin")); %>
 <c:if test='<%=request.getParameter("admin")==null%>'>
 	<voice-player autoplay accent="zh-CN" text="下一站，幸福，客服中心您好!!"></voice-player>
 </c:if> 
