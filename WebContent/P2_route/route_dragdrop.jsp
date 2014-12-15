@@ -724,7 +724,7 @@
                 		$.each(allMarkersAfterOrder, function(i,viewmarker){
                 			//console.log("allMarkersAfterOrder");
                 			//console.log(viewmarker);
-                			waypoints[i]={'location':[viewmarker.k , viewmarker.B], 'text': result[i+1]};
+                			waypoints[i]={'location':[viewmarker.k , viewmarker.D], 'text': result[i+1]};
                 		});
                 		
                 		var map = $('#map');
@@ -734,15 +734,15 @@
                     	$('#map').tinyMap('modify',{
                     		direction: [
                                       	{
-                                          	'from': [nowmarker.k, nowmarker.B],
-                                          	'to': [endmarker.k, endmarker.B],
+                                          	'from': [nowmarker.k, nowmarker.D],
+                                          	'to': [endmarker.k, endmarker.D],
                                           	'waypoint': waypoints,         	
                                       	}
                                   	]
                         	//animation: 'DROP|BOUNCE'
                     	});
                 	
-                		var center = [nowmarker.k, nowmarker.B];
+                		var center = [nowmarker.k, nowmarker.D];
                 		//將地圖移到多個景點緯度介於中間的位置
                     	$('#map').tinyMap('panto', center).tinyMap('modify',{'zoom':13});
                 	}
